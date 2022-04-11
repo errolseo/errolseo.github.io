@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.jpg"
+    
+  },
+  "name":"Errol\u0027s AI blog",
+  "description":"MJSynth \/ SynthText",
+  "url":"https:\/\/errolseo.github.io\/post\/ocr\/2\/",
+  "keywords":"[OCR]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.96.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="OCR">
+<meta name="description" content="MJSynth / SynthText">
+
+
+<meta property="og:description" content="MJSynth / SynthText">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[OCR] Synthetic text image (1)">
+<meta name="twitter:title" content="[OCR] Synthetic text image (1)">
+<meta property="og:url" content="https://errolseo.github.io/post/ocr/2/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/ocr/2/">
+<meta property="og:site_name" content="Errol&#39;s AI blog">
+<meta property="og:description" content="MJSynth / SynthText">
+<meta name="twitter:description" content="MJSynth / SynthText">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2022-02-22T13:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-02-22T13:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="OCR">
+    
+  
+  
+    
+      <meta property="article:tag" content="MJSynth">
+    
+      <meta property="article:tag" content="SynthText">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.jpg">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/OCR/2-fig1.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/2-fig1.png">
+
+
+    <title>[OCR] Synthetic text image (1)</title>
+
+    <link rel="icon" href="https://errolseo.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/ocr/2/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ppn0gwgoqynlcyoh264wmwztcqh1u7ka5glp6r1jxqtk5rovih4z3iis6.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+        
+          <h5 class="sidebar-profile-bio">Machine learning research engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      [OCR] Synthetic text image (1)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-02-22T13:00:00&#43;09:00">
+        
+  February 22, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://errolseo.github.io/categories/ocr">OCR</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <div class="alert warning ">
+  <p>본문의 내용은 개인적인 정리를 위해 작성되었기에 학술적이지 않습니다.<br>
+또한 증명되지 않은 내용이 포함되어 있을 가능성이 존재합니다.</p>
+</div>
+<h3 id="1">1.</h3>
+<p>딥 러닝 프로젝트를 위해서는 데이터와 모델을 확보할 필요가 있다. 만약 독자가 OCR을 위해 대량의 scene text image를 annotation할 자금이나 인력을 보유하고 있다면 인조 데이터에 대해 다룬 이 글은 별로 도움이 되지 않을 수도 있다. 하지만 그렇지 않다면 이 글은 독자에게 필수적인 내용이 될 것이다.</p>
+<h3 id="2">2.</h3>
+<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c/">MJSynth(MJ)</a>는 text image를 생성하는 합성 엔진이자 그것을 이용해서 만든 데이터셋을 말한다. MJ는 기본적인 방법만을 이용해서 대량의 text image를 생성해 recognition 모델의 성능에 크게 기여하였다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig1.png"  alt="Fig. 1: MJSynth pipeline">
+  
+   
+    <span class="caption">Fig. 1: MJSynth pipeline</span>
+  
+</div>
+
+<p><strong>1. Font rendering</strong></p>
+<ul>
+<li><a href="https://fonts.google.com/">Google Fotns</a>에서 다운로드한 1,400개의 폰트 중 선택</li>
+<li>자간(kerning), 두께(weight), 밑줄(underline) 등 폰트 속성의 추가</li>
+<li>사전 정의된 90k words의 dictionary $\mathcal{W}$에서 단어 선택</li>
+<li>Horizontal bottom, random curve 등의 transform 선택</li>
+</ul>
+<p><strong>2. Border/shadow rendering</strong></p>
+<ul>
+<li>Inset/outset border, shadow 등 추가</li>
+</ul>
+<p><strong>3. Base coloring</strong></p>
+<ul>
+<li>외부 데이터에서 추출한 color map을 바탕으로 색 설정</li>
+</ul>
+<p><strong>4. Projective distortion</strong>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig2.png"  alt="Fig. 2: Projective transformation">
+  
+   
+    <span class="caption">Fig. 2: Projective transformation</span>
+  
+</div>
+</p>
+<p><strong>5. Natural data blending</strong></p>
+<ul>
+<li>ICDAR 2003 and SVT 등의 실제 이미지와 합성 <a href="https://en.wikipedia.org/wiki/Blend_modes">(Blend mode wikipedia)</a></li>
+</ul>
+<p><strong>6. Noise</strong></p>
+<ul>
+<li>Gaussian noise, blur, jpeg 손실 압축 왜곡 등의 noise 추가</li>
+</ul>
+<p>2014년에 만들어진 MJ 데이터는 scene text image는 아니기에 scene text detection을 위해서 별도의 데이터를 필요하다는 치명적인 단점이 존재한다. 그렇지만 MJ는 대용량 OCR 인조 데이터의 출발점을 끊었고 기본적인 방향성은 후에 이루어진 많은 연구에 영향을 주었다.</p>
+<h3 id="3">3.</h3>
+<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">SynthText(ST)</a>의 기본적인 pipeline은 MJ와 유사하다. 다만 추가적인 기술을 이용해 양적인 측면과 질적인 측면 모두 양호한 <strong>scene text image</strong>를 생성해 냈다. ST는 MJ와 함께 많은 논문에서 pre-trained 모델을 학습하는데 사용하고 있다.<br>
+인조 데이터인 표본집단 $\mathrm{n}$의 이상적인 목표는 모집단 $\mathrm{N}$과 최대한 <strong>유사</strong>해지는 것이며, 그 과정에서 모집단과 동일한 수준의 <strong>다양성</strong>을 확보해야 한다. 반대로 말하면 모집단에서 존재할 수 없는 데이터를 포함하고 있거나, 한 쪽으로 편향된 학습 데이터는 모델의 성능에 악영향을 줄 것이다. ST는 <a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">poisson image editing</a>, <a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf">gPb-UCM</a> 등을 이용해 자연스러운 이미지, 즉 모집단과 유사한 이미지를 생성해냈다.</p>
+<p>
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig3.png"  alt="Fig. 3: Poisson Image Editing (JM Di Martino et al.)">
+  
+   
+    <span class="caption">Fig. 3: Poisson Image Editing (JM Di Martino et al.)</span>
+  
+</div>
+
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig4.png"  alt="Fig. 4: Contour Detection and Hierarchical Image Segmentation (Pablo Arbelaez et al.)">
+  
+   
+    <span class="caption">Fig. 4: Contour Detection and Hierarchical Image Segmentation (Pablo Arbelaez et al.)</span>
+  
+</div>
+
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig5.png"  alt="Fig. 5: (좌) ST 예시 이미지 / (우) 현실에선 존재할 수 없는 텍스트">
+  
+   
+    <span class="caption">Fig. 5: (좌) ST 예시 이미지 / (우) 현실에선 존재할 수 없는 텍스트</span>
+  
+</div>
+</p>
+<p>데이터의 다양성은 데이터 생성뿐만 아니라 데이터 수집에서도 당연한 이야기이므로 자세한 설명은 넘어가겠다. 문제는 모집단과의 유사성이다. 이 부분은 쉽게 설명 가능한 단순한 문제는 아니다.</p>
+<p>
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig6.png"  alt="Fig. 6: (좌) 타밀어 로고 / (우) 한글 로고">
+  
+   
+    <span class="caption">Fig. 6: (좌) 타밀어 로고 / (우) 한글 로고</span>
+  
+</div>
+
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2-fig7.png"  alt="Fig. 7: 타밀어 스타벅스 간판">
+  
+   
+    <span class="caption">Fig. 7: 타밀어 스타벅스 간판</span>
+  
+</div>
+</p>
+<p>타밀어를 접해본 적이 없다면 fig.6의 타밀어 로고를 보고 글자라고 생각하기 어려울 수 있다. 반대로 한글을 접해본 적 없는 외국인이라면 한국어 로고를 보고 단순한 그림이라고 생각하기 쉽다. 하지만 우리는 처음보는 언어라 하더라도 fig.7의 간판을 보고 높은 확률로 글자일 것이라 예측할 수 있다. <span class="highlight-text primary">글자가 존재해야할 곳에 무엇가 존재한다면 <b>식별이 불가능하더라도</b> 글자라고 예측할 수 있다</span>는 것이다. 이것 외에도 모집단과 유사한 데이터를 통해 학습할 수 있는 부분이 많다.<br>
+하지만 유사하지 않은 데이터가 무조건 나쁜 것은 아니다. Trade-off가 존재한다. 전 장에서도 말했듯이 모델의 precision 향상에는 도움이 될 수도 있다. 즉 경우에 따라서 전혀 고려할 필요가 없을 수 있다.</p>
+<h4 id="experience">Experience</h4>
+<p>Environments</p>
+<pre tabindex="0"><code></code></pre><p>Main dependencies</p>
+<pre tabindex="0"><code>pygame==2.0.0, opencv (cv2), PIL (Image), numpy, matplotlib, h5py, scipy
+</code></pre><p>Main dependencies의 pygame을 제외한 대부분의 라이브러리는 아마 익숙할 것이라 생각한다.</p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+    
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span><a href="https://github.com/ankush-me/SynthText/blob/master/gen.py">gen/test.py</a></span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">python</li>
+      
+    </ul>
+  </figcaption>
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-python python" style="display: block;">
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-python python"><code class="python">x = a</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/mjsynth/">MJSynth</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthtext/">SynthText</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/1/" data-tooltip="[OCR] Optical Text Recognition" aria-label="PREVIOUS: [OCR] Optical Text Recognition">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/3/" data-tooltip="[OCR] Synthetic text image (2)" aria-label="NEXT: [OCR] Synthetic text image (2)">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/2/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/2/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/2/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  <li class="post-action">
+    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+      <i class="far fa-comment"></i>
+    </a>
+  </li>
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Errol Seo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/1/" data-tooltip="[OCR] Optical Text Recognition" aria-label="PREVIOUS: [OCR] Optical Text Recognition">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/3/" data-tooltip="[OCR] Synthetic text image (2)" aria-label="NEXT: [OCR] Synthetic text image (2)">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/2/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/2/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/2/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  <li class="post-action">
+    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+      <i class="far fa-comment"></i>
+    </a>
+  </li>
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F2%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F2%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F2%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    
+
+    
+  
+    
+      <div id="cover" style="background-color:#212F3D"></div>
+    
+  
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-bkvfc2umsbbcxkm11ig5fofds7om8xslgwbapr36xl8ivdfbyuaabhdzau2.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+</html>
+

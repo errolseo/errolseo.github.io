@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.jpg"
+    
+  },
+  "name":"Errol\u0027s AI blog",
+  "description":"scene text detection \/ scene text recognition \/ synthetic text image",
+  "url":"https:\/\/errolseo.github.io\/post\/ocr\/1\/",
+  "keywords":"[OCR]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.96.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="OCR">
+<meta name="description" content="scene text detection / scene text recognition / synthetic text image">
+
+
+<meta property="og:description" content="scene text detection / scene text recognition / synthetic text image">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[OCR] Optical Text Recognition">
+<meta name="twitter:title" content="[OCR] Optical Text Recognition">
+<meta property="og:url" content="https://errolseo.github.io/post/ocr/1/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/ocr/1/">
+<meta property="og:site_name" content="Errol&#39;s AI blog">
+<meta property="og:description" content="scene text detection / scene text recognition / synthetic text image">
+<meta name="twitter:description" content="scene text detection / scene text recognition / synthetic text image">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2022-02-15T13:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-02-15T13:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="OCR">
+    
+  
+  
+    
+      <meta property="article:tag" content="scene text detection">
+    
+      <meta property="article:tag" content="scene text recognition">
+    
+      <meta property="article:tag" content="synthetic text image">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.jpg">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/OCR/1-fig5.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/1-fig5.png">
+
+
+    <title>[OCR] Optical Text Recognition</title>
+
+    <link rel="icon" href="https://errolseo.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/ocr/1/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ppn0gwgoqynlcyoh264wmwztcqh1u7ka5glp6r1jxqtk5rovih4z3iis6.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+        
+          <h5 class="sidebar-profile-bio">Machine learning research engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      [OCR] Optical Text Recognition
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-02-15T13:00:00&#43;09:00">
+        
+  February 15, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://errolseo.github.io/categories/ocr">OCR</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <div class="alert warning ">
+  <p>본문의 내용은 개인적인 정리를 위해 작성되었기에 학술적이지 않습니다.<br>
+또한 증명되지 않은 내용이 포함되어 있을 가능성이 존재합니다.</p>
+</div>
+<h3 id="1">1.</h3>
+<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다.</p>
+<p>
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig1.png"  alt="Fig. 1: Document OCR">
+  
+   
+    <span class="caption">Fig. 1: Document OCR</span>
+  
+</div>
+
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig2.png"  alt="Fig. 2: Scene text OCR">
+  
+   
+    <span class="caption">Fig. 2: Scene text OCR</span>
+  
+</div>
+</p>
+<p>앞으로 필자가 정리할 내용은 후자에 해당하는 scene text 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다. Scene text OCR은 포맷이 일정하지 않으며, 이미지 속 텍스트의 존재 유무가 확실하지 않고, 다양한 서체(Font)나 형태(Transform)가 존재하기 때문에 성능을 높히는 것이 쉽지 않았으나 최근 많은 연구를 통해 점점 성능이 높아지고 있다.</p>
+<h3 id="2">2.</h3>
+<p>OCR은 detection과 recognition 두 파트로 나누어져 있다. 기본적으로 scene text detection과 scene text recognition의 서로 독립된 모델로 존재하나, scene text spotting과 같이 하나의 모델 안에 두 개의 파트로 나누어져 존재할 수도 있다.</p>
+<p>
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig3.png"  alt="Fig. 3: Scene text dectection">
+  
+   
+    <span class="caption">Fig. 3: Scene text dectection</span>
+  
+</div>
+
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig4.png"  alt="Fig. 4: Scene text recognition">
+  
+   
+    <span class="caption">Fig. 4: Scene text recognition</span>
+  
+</div>
+</p>
+<p>Detection 모델의 경우 이미지 내에 텍스트가 존재할 만한 여러 개의 Region of Interest(RoI)를 추출한다. 그렇게 추출한 각각의 RoI들이 recogniton 모델의 입력이 된다. 두 개의 모델로 나누어서 학습하는 이유는 단순하면서 복잡하다. 기본적으로 작업의 난이도를 대폭 낮출 수 있으나 배경에 대한 정보를 소실하는 문제가 있다. 더 자세하고 정확한 내용은 OCR에 대한 지식을 쌓으면서 저절로 습득하게 될 것이다.</p>
+<h3 id="3">3.</h3>
+<p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 만약 <span class="highlight-text primary">세상의 모든 경우의 수(모집단)와 동일한 데이터를 수집이 아닌 <b>생성</b>할 수 있다면</span> 데이터를 수집할 이유가 사라진다. 하지만 그런 일은 불가능에 가깝다. 결국 프로그램을 이용해서 생성하는 데이터는 편향(bias)이 포함될 수 밖에 없으며, 편향이 포함된 데이터로 학습한 모델은 학습 데이터에 과적합(overfit-ting)될 수 밖에 없다.<br>
+그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용해서 학습하는 편이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. OCR은 상업적인 이유 등으로 인해 다른 도메인에 비해 공개된 데이터의 수가 부족하고 다른 도메인에 비해 다양하고 자연스러운 합성 이미지를 생성할 수 있다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig5.png"  alt="Fig. 5: Synthetic text images">
+  
+   
+    <span class="caption">Fig. 5: Synthetic text images</span>
+  
+</div>
+
+<p>자연스러운 scene text image 합성을 위해 많은 연구들이 진행되었다. 그럼에도 불구하고 일반 이미지에 인공적으로 텍스트를 합성했을 때 그 이미지가 원래부터 이런 이미지였다는 느낌이 들기에는 아직 부족한 부분이 많다. 이러한 사실들은 detection model의 precision을 증가시키는데 도움이 될 수 있어도 recall은 오히려 감소시킬 수 있다. 무작위로 합성된 이미지를 학습한 detection 모델은 <span class="highlight-text primary">텍스트가 아님에도 텍스트로 볼 확률이 증가한다.</span><br>
+하지만 recognition의 경우 이미지 합성을 통해 더 어렵고 더 다양한 문제들을 학습하여 모델의 성능을 극대화할 수 있다. Recognition 모델의 입장에서는 인조 데이터가 실제 데이터와 유사할 필요가 없다. 오히려 더 어렵고 더 다양한 학습 데이터를 생성할 수 있다면 모델에게 많은 도움이 된다. 다만 다양하다는 부분에서 명확한 한계가 존재한다. 프로그램으로 생성하는 인조 데이터의 다양성은 결국 작성자가 정의한 기준에 국한될 수 밖에 없다.</p>
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/scene-text-detection/">scene text detection</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/scene-text-recognition/">scene text recognition</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthetic-text-image/">synthetic text image</a>
+
+                  </div>
+                
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/2/" data-tooltip="[OCR] Synthetic text image (1)" aria-label="NEXT: [OCR] Synthetic text image (1)">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/1/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/1/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/1/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  <li class="post-action">
+    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+      <i class="far fa-comment"></i>
+    </a>
+  </li>
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Errol Seo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/2/" data-tooltip="[OCR] Synthetic text image (1)" aria-label="NEXT: [OCR] Synthetic text image (1)">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/1/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/1/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/1/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  <li class="post-action">
+    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+      <i class="far fa-comment"></i>
+    </a>
+  </li>
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F1%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F1%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F1%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    
+
+    
+  
+    
+      <div id="cover" style="background-color:#212F3D"></div>
+    
+  
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-bkvfc2umsbbcxkm11ig5fofds7om8xslgwbapr36xl8ivdfbyuaabhdzau2.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+  
+</html>
+
