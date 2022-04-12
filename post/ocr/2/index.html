@@ -97,7 +97,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ppn0gwgoqynlcyoh264wmwztcqh1u7ka5glp6r1jxqtk5rovih4z3iis6.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ysdx9flvcjot9kuzqqxf0af1y5kyuhpfcmbblsp3argsn0x27fbp1wknhz.min.css" />
     
     
 
@@ -368,8 +368,13 @@
 <p>타밀어를 접해본 적이 없다면 fig.6의 타밀어 로고를 보고 글자라고 생각하기 어려울 수 있다. 반대로 한글을 접해본 적 없는 외국인이라면 한국어 로고를 보고 단순한 그림이라고 생각하기 쉽다. 하지만 우리는 처음보는 언어라 하더라도 fig.7의 간판을 보고 높은 확률로 글자일 것이라 예측할 수 있다. <span class="highlight-text primary">글자가 존재해야할 곳에 무엇가 존재한다면 <b>식별이 불가능하더라도</b> 글자라고 예측할 수 있다</span>는 것이다. 이것 외에도 모집단과 유사한 데이터를 통해 학습할 수 있는 부분이 많다.<br>
 하지만 유사하지 않은 데이터가 무조건 나쁜 것은 아니다. Trade-off가 존재한다. 전 장에서도 말했듯이 모델의 precision 향상에는 도움이 될 수도 있다. 즉 경우에 따라서 전혀 고려할 필요가 없을 수 있다.</p>
 <h4 id="experience">Experience</h4>
-<p>Environments</p>
-<pre tabindex="0"><code></code></pre><p>Main dependencies</p>
+<p>Environments (Dockerfile)</p>
+<pre tabindex="0"><code>FROM nvcr.io/nvidia/pytorch:21.12-py3
+
+ENV LD_PRELOAD=/opt/conda/lib/libmkl_core.so:/opt/conda/lib/libmkl_sequential.so
+
+RUN apt-get update &amp;&amp; apt-get install -y libsm6 libxext6 libxrender-dev &amp;&amp; rm -rf /var/lib/apt/lists/*
+</code></pre><p>Main dependencies</p>
 <pre tabindex="0"><code>pygame==2.0.0, opencv (cv2), PIL (Image), numpy, matplotlib, h5py, scipy
 </code></pre><p>Main dependencies의 pygame을 제외한 대부분의 라이브러리는 아마 익숙할 것이라 생각한다.</p>
 
@@ -644,7 +649,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-bkvfc2umsbbcxkm11ig5fofds7om8xslgwbapr36xl8ivdfbyuaabhdzau2.min.js"></script>
+<script src="https://errolseo.github.io/js/script-n6t6h1jtykdk1zwok8mfvhm1yjfinhfxohsgvyuyxqxxsqxm5zcqnwuhyi7.min.js"></script>
 
 
   
