@@ -2226,7 +2226,8 @@ figure.highlight .line,
 }
 
 .icon-mr {
-  margin-right: 10px;
+  margin-right: 5px;
+  vertical-align: top;
 }
 
 .icon-mb {
@@ -2234,7 +2235,8 @@ figure.highlight .line,
 }
 
 .icon-ml {
-  margin-left: 10px;
+  margin-left: 5px;
+  vertical-align: top;
 }
 
 .image-gallery {
@@ -2990,6 +2992,7 @@ a.fancybox {
     height: 140px;
     object-fit: cover;
     overflow: hidden;
+    object-position: right;
   }
   .postShorten.postShorten--thumbnailimg-right .postShorten-wrap {
     float: left;

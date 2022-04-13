@@ -246,12 +246,6 @@
       else if (numbCategories === 0) {
         this.$archiveResult.html(this.messages.zero).show();
       }
-      else if (numbCategories === 1) {
-        this.$archiveResult.html(this.messages.one).show();
-      }
-      else {
-        this.$archiveResult.html(this.messages.other.replace(/\{n\}/, numbCategories)).show();
-      }
     },
 
     /**
