@@ -16,7 +16,7 @@
     
   },
   "name":"Errol\u0027s AI blog",
-  "description":"synthtiger \/ unrealtext",
+  "description":"unrealtext \/ style retention network (SRNet)",
   "url":"https:\/\/errolseo.github.io\/post\/ocr\/4\/",
   "keywords":"[]"
 }
@@ -28,18 +28,18 @@
 <meta name="generator" content="Hugo 0.96.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="synthtiger / unrealtext">
+<meta name="description" content="unrealtext / style retention network (SRNet)">
 
 
-<meta property="og:description" content="synthtiger / unrealtext">
+<meta property="og:description" content="unrealtext / style retention network (SRNet)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[OCR] Scene text recognition (1)">
-<meta name="twitter:title" content="[OCR] Scene text recognition (1)">
+<meta property="og:title" content="[OCR] Synthetic text image (3)">
+<meta name="twitter:title" content="[OCR] Synthetic text image (3)">
 <meta property="og:url" content="https://errolseo.github.io/post/ocr/4/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/ocr/4/">
 <meta property="og:site_name" content="Errol&#39;s AI blog">
-<meta property="og:description" content="synthtiger / unrealtext">
-<meta name="twitter:description" content="synthtiger / unrealtext">
+<meta property="og:description" content="unrealtext / style retention network (SRNet)">
+<meta name="twitter:description" content="unrealtext / style retention network (SRNet)">
 <meta property="og:locale" content="en-us">
 
   
@@ -55,8 +55,6 @@
     
   
   
-    
-      <meta property="article:tag" content="synthtiger">
     
       <meta property="article:tag" content="unrealtext">
     
@@ -81,7 +79,7 @@
 
 
 
-    <title>[OCR] Scene text recognition (1)</title>
+    <title>[OCR] Synthetic text image (3)</title>
 
     <link rel="icon" href="https://errolseo.github.io/favicon.png">
     
@@ -216,7 +214,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      [OCR] Scene text recognition (1)
+      [OCR] Synthetic text image (3)
     </h1>
   
   
@@ -248,6 +246,35 @@
 또한 증명되지 않은 내용이 포함되어 있을 가능성이 존재합니다.</p>
 </div>
 <h3 id="1">1.</h3>
+<p>앞서 다룬 인조 데이터들의 생성 방식은 대부분 비슷하다.</p>
+<h3 id="2">2.</h3>
+<p><a href="https://arxiv.org/abs/2003.10608">UnrealText</a>는 3D 그래픽 엔진(Unreal Engine 4.22)를 사용해 scene text image를 생성해냈다. 논문에서는 ST와 비교했을 때 동일한 양의 학습 이미지를 사용 더 높은 scene text detection(STD) 모델 성능을
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-fig1.png"  alt="Fig. 1: Demonstration of the proposed UnrealText synthesis engine">
+  
+   
+    <span class="caption">Fig. 1: Demonstration of the proposed UnrealText synthesis engine</span>
+  
+</div>
+
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-fig2.png"  alt="Fig. 2: Illustration of the refinement of initial proposals">
+  
+   
+    <span class="caption">Fig. 2: Illustration of the refinement of initial proposals</span>
+  
+</div>
+</p>
+<h4 id="reference">Reference</h4>
+<p>[1] S. Long et al. <a href="https://arxiv.org/abs/2003.10608">UnrealText: Synthesizing Realistic Scene Text Images from the Unreal World</a></p>
 
               
 
@@ -262,8 +289,6 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthtiger/">synthtiger</a>
-
   <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/unrealtext/">unrealtext</a>
 
   <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/style-retention-network/">style retention network</a>
@@ -330,7 +355,7 @@
   </li>
   <li class="post-action">
     
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     
     </a>
@@ -417,7 +442,7 @@
   </li>
   <li class="post-action">
     
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     
     </a>

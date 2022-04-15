@@ -247,7 +247,7 @@
           <div class="post-content markdown">
             <div class="main-content-wrap">
               <h3 id="1">1.</h3>
-<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다.</p>
+<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 scene text 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.</p>
 <p>
 
 
@@ -272,9 +272,9 @@
   
 </div>
 </p>
-<p>앞으로 필자가 정리할 내용은 후자에 해당하는 scene text 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다. Scene text OCR은 포맷이 일정하지 않으며, 이미지 속 텍스트의 존재 유무가 확실하지 않고, 다양한 서체(Font)나 형태(Transform)가 존재하기 때문에 성능을 높히는 것이 쉽지 않았으나 최근 많은 연구를 통해 점점 성능이 높아지고 있다.</p>
+<p>Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 반드시 존재할 것을 보장하지 않는다. 또한 다양한 서체(Font)나 형태(Transform)가 존재하여 성능을 높히는 것이 쉽지 않았으나 최근 많은 연구를 통해 점점 성능이 높아지고 있다.</p>
 <h3 id="2">2.</h3>
-<p>OCR은 detection과 recognition 두 파트로 나누어져 있다. 기본적으로 scene text detection과 scene text recognition의 서로 독립된 모델로 존재하나, scene text spotting과 같이 하나의 모델 안에 두 개의 파트로 나누어져 존재할 수도 있다.</p>
+<p>OCR은 detection과 recognition 두 파트로 나누어져 있다. 기본적으로 scene text detection(STD)과 scene text recognition(STR)의 서로 독립된 모델로 존재하나, scene text spotting과 같이 하나의 모델 안에 두 개의 파트로 나누어져 존재할 수도 있다.</p>
 <p>
 
 
@@ -301,8 +301,8 @@
 </p>
 <p>Detection 모델의 경우 이미지 내에 텍스트가 존재할 만한 여러 개의 Region of Interest(RoI)를 추출한다. 그렇게 추출한 각각의 RoI들이 recogniton 모델의 입력이 된다. 두 개의 모델로 나누어서 학습하는 이유는 단순하면서 복잡하다. 기본적으로 작업의 난이도를 대폭 낮출 수 있으나 배경에 대한 정보를 소실하는 문제가 있다. 더 자세하고 정확한 내용은 OCR에 대한 지식을 쌓으면서 저절로 습득하게 될 것이다.</p>
 <h3 id="3">3.</h3>
-<p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 만약 <span class="highlight-text primary">세상의 모든 경우의 수(모집단)와 동일한 데이터를 수집이 아닌 <b>생성</b>할 수 있다면</span> 데이터를 수집할 이유가 사라진다. 하지만 그런 일은 불가능에 가깝다. 결국 프로그램을 이용해서 생성하는 데이터는 편향(bias)이 포함될 수 밖에 없으며, 편향이 포함된 데이터로 학습한 모델은 학습 데이터에 과적합(overfit-ting)될 수 밖에 없다.<br>
-그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용해서 학습하는 편이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. OCR은 상업적인 이유 등으로 인해 다른 도메인에 비해 공개된 데이터의 수가 부족하고 다른 도메인에 비해 다양하고 자연스러운 합성 이미지를 생성할 수 있다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
+<p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 만약 <span class="highlight-text primary">세상의 모든 경우의 수(모집단)와 동일한 데이터를 <b>생성</b>할 수 있다면 데이터를 수집할 이유가 사라진다.</span> 하지만 어려운 문제일수록 경우의 수는 다양하고 모든 경우의 수를 고려한 프로그램을 개발하는 것은 불가능에 가까워진다. 결국 인조 데이터에는 편향(bias)이 포함될 수 밖에 없으며, 편향이 포함된 데이터로 학습한 모델은 학습 데이터에 과적합(overfit-ting)될 수 밖에 없다.<br>
+그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용해서 학습하는 편이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. OCR은 annotation(labeling) 난이도가 상당히 높고 오래전부터 이미 상업적으로 서비스되고 있었기에 다른 도메인에 비해 공개된 데이터의 수가 부족하다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
 
 
 
@@ -315,14 +315,14 @@
   
 </div>
 
-<p>자연스러운 scene text image 합성을 위해 많은 연구들이 진행되었다. 그럼에도 불구하고 일반 이미지에 인공적으로 텍스트를 합성했을 때 그 이미지가 원래부터 이런 이미지였다는 느낌이 들기에는 아직 부족한 부분이 많다. 이러한 사실들은 detection model의 precision을 증가시키는데 도움이 될 수 있어도 recall은 오히려 감소시킬 수 있다. 무작위로 합성된 이미지를 학습한 detection 모델은 <span class="highlight-text primary">텍스트가 아님에도 텍스트로 볼 확률이 증가한다.</span><br>
-하지만 recognition의 경우 이미지 합성을 통해 더 어렵고 더 다양한 문제들을 학습하여 모델의 성능을 극대화할 수 있다. Recognition 모델의 입장에서는 인조 데이터가 실제 데이터와 유사할 필요가 없다. 오히려 더 어렵고 더 다양한 학습 데이터를 생성할 수 있다면 모델에게 많은 도움이 된다. 다만 다양하다는 부분에서 명확한 한계가 존재한다. 프로그램으로 생성하는 인조 데이터의 다양성은 결국 작성자가 정의한 기준에 국한될 수 밖에 없다.</p>
+<p>필자가 생각하기에 최고의 인조 데이터는 실제 데이터와 구분이 안가는 데이터다. Scene text image 합성을 위해 많은 연구들이 진행되었지만 아직까지는 이미지에 인공적으로 텍스트를 합성했을 때 그 이미지가 원래부터 그런 이미지였다는 느낌이 들기에는 부족한 부분이 많다.<br>
+딥 러닝에 대한 오랜 경험에 의해 OCR 인조 데이터를 처음 접했을 때 많은 의구심이 들었다. 하지만 지금은 생각이 많이 바뀌어 혹시 다른 도메인에서는 인조 데이터를 만드는 연구가 부족했던 것은 아닌지 싶을 정도이다. 왜냐하면 결국 우리의 최종 목표는 수집이던 생성이던 모집단과 유사한 표본 집단을 구하는 거기 때문이다.</p>
 <h4 id="reference">Reference</h4>
 <p>[1] CLOVA OCR (<a href="https://www.ncloud.com/product/aiService/ocr">https://www.ncloud.com/product/aiService/ocr</a>)<br>
 [2] Y. Baek et al. <a href="https://arxiv.org/abs/2007.09629">Character Region Attention For Text Spotting</a><br>
 [3] Y. Baek et al. <a href="https://arxiv.org/abs/1904.01941">Character Region Awareness for Text Detection</a><br>
 [4] J. Baek et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a><br>
-[5] A. Gupta et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">Synthetic Data for Text Localisation in Natural Images</a></p>
+[5] A. Gupta et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
 
               
 
@@ -405,7 +405,7 @@
   </li>
   <li class="post-action">
     
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     
     </a>
@@ -492,7 +492,7 @@
   </li>
   <li class="post-action">
     
-      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     
     </a>
@@ -610,6 +610,24 @@ $(document).ready(function() {
 
     
   </body>
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
 </html>
 

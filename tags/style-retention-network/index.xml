@@ -8,21 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://errolseo.github.io/tags/style-retention-network/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[OCR] Scene text recognition (1)</title>
+      <title>[OCR] Synthetic text image (3)</title>
       <link>https://errolseo.github.io/post/ocr/4/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
       
       <guid>https://errolseo.github.io/post/ocr/4/</guid>
-      <description>synthtiger / unrealtext</description>
-    </item>
-    
-    <item>
-      <title>[OCR] Synthetic text image (2)</title>
-      <link>https://errolseo.github.io/post/ocr/3/</link>
-      <pubDate>Tue, 22 Mar 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://errolseo.github.io/post/ocr/3/</guid>
-      <description>synthtiger / unrealtext / style retention network (SRNet)</description>
+      <description>unrealtext / style retention network (SRNet)</description>
     </item>
     
   </channel>
