@@ -95,9 +95,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-levoamnrdkfskocdjwdopobkrd85twv36uic694mgcphhcopnn0u8oiumv.min.css" />
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ddg3ifxyvxbho75aia2aghxmldrua8yplsbclrmgylrfs2qtsmwya2g4or7.min.css" />
     
     
 
@@ -245,9 +247,9 @@
           <div class="post-content markdown">
             <div class="main-content-wrap">
               <h3 id="1">1.</h3>
-<p>딥 러닝 프로젝트를 위해서는 데이터와 모델을 확보할 필요가 있다. 만약 독자가 OCR을 위해 대량의 scene text image를 annotation할 자금이나 인력을 보유하고 있다면 인조 데이터에 대해 다룬 이 글은 별로 도움이 되지 않을 수도 있다. 하지만 그렇지 않다면 이 글은 독자에게 필수적인 내용이 될 것이다.</p>
+<p><span class="highlight-text primary">딥 러닝 프로젝트를 위해서는 <b>데이터</b>와 <b>모델</b>을 확보할 필요가 있다.</span> 만약 독자가 OCR을 위해 대량의 scene text image를 annotation할 자금이나 인력을 보유하고 있다면 인조 데이터에 대해 다룬 이 글은 별로 도움이 되지 않을 수도 있다. 하지만 그렇지 않다면 이 글은 독자에게 필수적인 내용이 될 것이다.</p>
 <h3 id="2">2.</h3>
-<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c/">MJSynth(MJ)</a>는 word box image를 생성하는 이미지 합성 엔진이자 그것을 이용해서 만든 데이터셋을 말한다. MJ는 기본적인 방법만을 이용해서 대량의 데이터를 생성해 recognition 모델의 성능에 크게 기여하였다.</p>
+<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c/">MJSynth(MJ)</a>는 word box image를 생성하는 이미지 합성 엔진이자 그것을 이용해서 만든 데이터셋을 말한다. MJ는 비교적 간단한 방법들을 이용했지만 <strong>대량의 데이터</strong>를 생성해 냈고 scene text recognition(STR) 모델의 성능에 크게 기여하였다.</p>
 
 
 
@@ -262,18 +264,18 @@
 
 <p><strong>1. Font rendering</strong></p>
 <ul>
-<li><a href="https://fonts.google.com/">Google Fotns</a>에서 다운로드한 1,400개의 폰트 중 선택</li>
-<li>자간(kerning), 두께(weight), 밑줄(underline) 등 폰트 속성의 추가</li>
-<li>사전 정의된 90k words의 dictionary $\mathcal{W}$에서 단어 선택</li>
-<li>Horizontal bottom, random curve 등의 transform 선택</li>
+<li><a href="https://fonts.google.com/">Google Fotns</a>에서 다운로드한 1,400개의 폰트</li>
+<li>자간(kerning), 두께(weight), 밑줄(underline) 등의 속성</li>
+<li>사전 정의된 90k words의 dictionary $\mathcal{W}$</li>
+<li>Horizontal bottom, random curve 등의 형태 변형</li>
 </ul>
 <p><strong>2. Border/shadow rendering</strong></p>
 <ul>
-<li>Inset/outset border, shadow 등 추가</li>
+<li>Inset/outset border, shadow 등</li>
 </ul>
 <p><strong>3. Base coloring</strong></p>
 <ul>
-<li>외부 데이터에서 추출한 color map을 바탕으로 색 설정</li>
+<li>외부 데이터에서 추출한 3색 1쌍의 color map</li>
 </ul>
 <p><strong>4. Projective distortion</strong>
 
@@ -294,9 +296,9 @@
 </ul>
 <p><strong>6. Noise</strong></p>
 <ul>
-<li>Gaussian noise, blur, jpeg 손실 압축 왜곡 등의 noise 추가</li>
+<li>Gaussian noise, blur, jpeg 손실 압축 왜곡 등의 노이즈</li>
 </ul>
-<p>2014년에 만들어진 MJ 데이터는 scene text image는 아니기에 scene text detection을 위해서 별도의 데이터가 필요하다는 치명적인 단점이 존재한다. 그렇지만 MJ의 기본적인 방향성은 후에 이루어진 많은 연구에 영향을 주었다.</p>
+<p>2014년에 만들어진 MJ 데이터는 scene text image는 아니기에 별도로 학습된 scene text detection(STD) 모델이 필요하다는 치명적인 단점이 존재한다. 그렇지만 MJ의 기본적인 방향성은 후에 이루어진 많은 연구에 영향을 주었다.</p>
 <h3 id="3">3.</h3>
 <p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">SynthText(ST)</a>의 기본적인 pipeline은 MJ와 유사하다. 다만 추가적인 기술을 이용해 양적인 측면과 질적인 측면 모두 양호한 scene text image를 생성해 냈다. ST는 MJ와 함께 많은 논문에서 pre-trained 모델을 학습하는데 사용되고 있다.<br>
 <span class="highlight-text primary">인조 데이터인 표본집단 $\mathrm{n}$의 이상적인 목표는 모집단 $\mathrm{N}$과 최대한 <b>유사</b>해지는 것이며, 그 과정에서 모집단과 동일한 수준의 <b>다양성</b>을 확보해야 한다.</span> 반대로 말하면 모집단에 존재할 수 없는 데이터를 포함하고 있거나, 한 쪽으로 편향된 학습 데이터는 모델의 성능에 악영향을 줄 것이다. ST는 이런 문제점을 해결하기 위해 <a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">poisson image editing</a>을 이용해 다양한 배경 위에 텍스트가 자연스럽게 녹아들 수 있도록 했고, <a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf">gPb-UCM</a>을 이용해 이미지의 경계선을 구한 후 텍스트의 위치가 자연스러워지도록 제어했다.</p>
@@ -369,16 +371,16 @@
 우리는 Fig.5의 예시를 통해 모집단과 유사한 자연스러운 이미지의 중요성을 알 수 있다. 이상적으로는 다양성과 유사성 둘을 동시에 확보하는 것이 타당하다. 하지만 그건 생각보다 어렵기 때문에 trade-off에 대해 고민을 할 수 밖에 없다.</p>
 <h4 id="experience">Experience</h4>
 <p>Environments (Dockerfile)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> nvcr.io/nvidia/pytorch:21.12-py3</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> LD_PRELOAD<span style="color:#f92672">=</span>/opt/conda/lib/libmkl_core.so:/opt/conda/lib/libmkl_sequential.so<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y libsm6 libxext6 libxrender-dev <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install h5py pygame<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> git clone -b python3 https://github.com/ankush-me/SynthText.git<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><h4 id="reference">Reference</h4>
+<pre tabindex="0"><code>FROM nvcr.io/nvidia/pytorch:21.12-py3
+
+ENV LD_PRELOAD=/opt/conda/lib/libmkl_core.so:/opt/conda/lib/libmkl_sequential.so
+
+RUN apt-get update &amp;&amp; apt-get install -y libsm6 libxext6 libxrender-dev &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+RUN pip install h5py pygame
+
+RUN git clone -b python3 https://github.com/ankush-me/SynthText.git
+</code></pre><h4 id="reference">Reference</h4>
 <p>[1] M. Jaderberg et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c">Synthetic Data and Artificial Neural Networks for Natural Scene Text Recognition</a><br>
 [2] A. Gupta et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a><br>
 [3] P. Perez et al. <a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">Poisson Image Editing</a><br>
@@ -601,91 +603,34 @@
 
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-3dql2i02kork18ayhozqxbn46gjsgrkqc6y7lfdcnio098s4cjvi7dvqfad5.min.js"></script>
+<script src="https://errolseo.github.io/js/script-bnuowafxsuvw2zusiqqvyb4hlkapbqvwoumyrakhflfbkfrju1qfkqho9szq.min.js"></script>
 
 
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
-  
-
-  
-    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
-  
-
-
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false
+      });
   });
-});
 </script>
-
 
 
 
     
   </body>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          
-          
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          
-          throwOnError : false
-        });
-    });
-</script>
 </html>
 
