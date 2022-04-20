@@ -321,64 +321,6 @@
 ;(function($) {
   'use strict';
 
-  // Resize code blocks to fit the screen width
-
-  /**
-   * Code block resizer
-   * @param {String} elem
-   * @constructor
-   */
-  var CodeBlockResizer = function(elem) {
-    this.$codeBlocks = $(elem);
-  };
-
-  CodeBlockResizer.prototype = {
-    /**
-     * Run main feature
-     * @return {void}
-     */
-    run: function() {
-      var self = this;
-      // resize all codeblocks
-      self.resize();
-      // resize codeblocks when window is resized
-      $(window).smartresize(function() {
-        self.resize();
-      });
-    },
-
-    /**
-     * Resize codeblocks
-     * @return {void}
-     */
-    resize: function() {
-      var self = this;
-      self.$codeBlocks.each(function() {
-        var $gutter = $(this).find('.gutter');
-        var $code = $(this).find('.code');
-        // get padding of code div
-        var codePaddings = $code.width() - $code.innerWidth();
-        // code block div width with padding - gutter div with padding + code div padding
-        var width = $(this).outerWidth() - $gutter.outerWidth() + codePaddings;
-        // apply new width
-        $code.css('width', width);
-        $code.children('pre').css('width', width);
-      });
-    }
-  };
-
-  $(document).ready(function() {
-    // register jQuery function to check if an element has an horizontal scroll bar
-    $.fn.hasHorizontalScrollBar = function() {
-      return this.get(0).scrollWidth > this.innerWidth();
-    };
-    var resizer = new CodeBlockResizer('figure.highlight');
-    resizer.run();
-  });
-})(jQuery);
-;(function($) {
-  'use strict';
-
   // Run fancybox feature
 
   $(document).ready(function() {
@@ -1227,47 +1169,6 @@
     return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
   };
 })(jQuery, 'smartresize');
-;(function($) {
-  'use strict';
-
-  // Animate tabs of tabbed code blocks
-
-  /**
-   * TabbedCodeBlock
-   * @param {String} elems
-   * @constructor
-   */
-  var TabbedCodeBlock = function(elems) {
-    this.$tabbedCodeBlocs = $(elems);
-  };
-
-  TabbedCodeBlock.prototype = {
-    /**
-     * Run TabbedCodeBlock feature
-     * @return {void}
-     */
-    run: function() {
-      var self = this;
-      self.$tabbedCodeBlocs.find('.tab').click(function() {
-        var $codeblock = $(this).parent().parent().parent();
-        var $tabsContent = $codeblock.find('.tabs-content').children('pre, .highlight');
-        // remove `active` css class on all tabs
-        $(this).siblings().removeClass('active');
-        // add `active` css class on the clicked tab
-        $(this).addClass('active');
-        // hide all tab contents
-        $tabsContent.hide();
-        // show only the right one
-        $tabsContent.eq($(this).index()).show();
-      });
-    }
-  };
-
-  $(document).ready(function() {
-    var tabbedCodeBlocks = new TabbedCodeBlock('.codeblock--tabbed');
-    tabbedCodeBlocks.run();
-  });
-})(jQuery);
 ;(function($) {
   'use strict';
 
