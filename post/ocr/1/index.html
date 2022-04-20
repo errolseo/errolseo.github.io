@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    
     <script type="application/ld+json">
 
 {  
@@ -16,7 +15,7 @@
     
   },
   "name":"Errol\u0027s AI blog",
-  "description":"scene text detection \/ scene text recognition \/ synthetic text image",
+  "description":"Introduction to OCR",
   "url":"https:\/\/errolseo.github.io\/post\/ocr\/1\/",
   "keywords":"[]"
 }
@@ -28,18 +27,18 @@
 <meta name="generator" content="Hugo 0.96.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="scene text detection / scene text recognition / synthetic text image">
+<meta name="description" content="Introduction to OCR">
 
 
-<meta property="og:description" content="scene text detection / scene text recognition / synthetic text image">
+<meta property="og:description" content="Introduction to OCR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[OCR] Optical Text Recognition">
 <meta name="twitter:title" content="[OCR] Optical Text Recognition">
 <meta property="og:url" content="https://errolseo.github.io/post/ocr/1/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/ocr/1/">
 <meta property="og:site_name" content="Errol&#39;s AI blog">
-<meta property="og:description" content="scene text detection / scene text recognition / synthetic text image">
-<meta name="twitter:description" content="scene text detection / scene text recognition / synthetic text image">
+<meta property="og:description" content="Introduction to OCR">
+<meta name="twitter:description" content="Introduction to OCR">
 <meta property="og:locale" content="en-us">
 
   
@@ -56,11 +55,7 @@
   
   
     
-      <meta property="article:tag" content="scene text detection">
-    
-      <meta property="article:tag" content="scene text recognition">
-    
-      <meta property="article:tag" content="synthetic text image">
+      <meta property="article:tag" content="Introduction">
     
   
 
@@ -80,8 +75,8 @@
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/OCR/1-fig5.png">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/1-fig5.png">
+  <meta property="og:image" content="https://errolseo.github.io/images/OCR/1-fig2.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/1-fig2.png">
 
 
     <title>[OCR] Optical Text Recognition</title>
@@ -94,20 +89,16 @@
     <link rel="canonical" href="https://errolseo.github.io/post/ocr/1/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
     
     
     
     <link rel="stylesheet" href="https://errolseo.github.io/css/style-ddg3ifxyvxbho75aia2aghxmldrua8yplsbclrmgylrfs2qtsmwya2g4or7.min.css" />
     
-    
 
     
       
-    
     
   </head>
 
@@ -163,6 +154,16 @@
       <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
       
       <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
     </a>
   </li>
 
@@ -248,8 +249,7 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <h3 id="1">1.</h3>
-<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.</p>
+              <p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.</p>
 <p>
 
 
@@ -275,7 +275,7 @@
 </div>
 </p>
 <p>Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 반드시 존재할 것을 보장하지 않는다. 또한 다양한 서체(Font)나 형태(Transform)가 존재하여 성능을 높히는 것이 쉽지 않았다. 하지만 최근 많은 연구를 통해 그 성능이 점점 높아지고 있다.</p>
-<h3 id="2">2.</h3>
+<h4 id="heading">#</h4>
 <p>OCR은 detection과 recognition, 두 파트로 나누어져 있다. <span class="highlight-text primary">기본적으로 두 파트는 scene text detection(STD)과 scene text recognition(STR)이란 <b>서로 독립된 모델</b>로 존재한다.</span> 하지만 경우에 따라선 하나의 모델 안에 두 파트가 모두 존재할 수도 있다.</p>
 <p>
 
@@ -302,7 +302,7 @@
 </div>
 </p>
 <p>STD 모델은 scene text image를 입력으로 받아 word box image(Fig.3의 빨간 박스)를 출력하고, STR 모델은 word box image를 입력으로 받아 텍스트 데이터를 출력한다.(Fig.4) 이처럼 두 개의 모델로 나누어서 학습하는 이유는 단순하면서 복잡하다. 기본적으로 작업의 난이도를 대폭 낮출 수 있으나 배경에 대한 정보를 소실하는 문제가 있다. 더 자세하고 정확한 내용은 OCR에 대한 지식을 쌓으면서 저절로 습득하게 된다.</p>
-<h3 id="3">3.</h3>
+<h4 id="heading-1">#</h4>
 <p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 만약 <span class="highlight-text primary">세상의 모든 경우의 수(모집단)와 동일한 데이터를 <b>생성</b>할 수 있다면 데이터를 수집할 이유가 사라진다.</span> 하지만 어려운 문제일수록 경우의 수는 다양하고 모든 경우의 수를 고려한 데이터 생성 프로그램을 개발하는 것은 불가능에 가까워진다. 결국 인조 데이터에는 편향(bias)이 포함될 수 밖에 없으며, 편향이 포함된 데이터로 학습한 모델은 학습 데이터에 과적합(overfitting)될 수 밖에 없다.<br>
 그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용해서 학습하는 편이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. OCR은 annotation(labeling) 난이도가 높고 오래전부터 상업적으로 서비스되고 있었기에 다른 도메인에 비해 공개된 데이터의 수가 부족하다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
 
@@ -338,11 +338,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/scene-text-detection/">scene text detection</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/scene-text-recognition/">scene text recognition</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthetic-text-image/">synthetic text image</a>
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/introduction/">Introduction</a>
 
                   </div>
                 
@@ -363,7 +359,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/2/" data-tooltip="[OCR] Synthetic text image (1)" aria-label="NEXT: [OCR] Synthetic text image (1)">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/2/" data-tooltip="[OCR] MJSynth, SynthText" aria-label="NEXT: [OCR] MJSynth, SynthText">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -450,7 +446,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/2/" data-tooltip="[OCR] Synthetic text image (1)" aria-label="NEXT: [OCR] Synthetic text image (1)">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/2/" data-tooltip="[OCR] MJSynth, SynthText" aria-label="NEXT: [OCR] MJSynth, SynthText">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -533,14 +529,7 @@
 
     </div>
     
-    
-
-    
-  
-    
-      <div id="cover" style="background-color:#212F3D"></div>
-    
-  
+  <div id="cover" style="background-color:#212F3D"></div>
 
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -550,28 +539,8 @@
 <script src="https://errolseo.github.io/js/script-bnuowafxsuvw2zusiqqvyb4hlkapbqvwoumyrakhflfbkfrju1qfkqho9szq.min.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        
-        
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        
-        throwOnError : false
-      });
-  });
-</script>
 
 
-
-    
   </body>
 </html>
 
