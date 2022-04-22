@@ -96,10 +96,15 @@
     
     <link rel="stylesheet" href="https://errolseo.github.io/css/style-loyunkkpfr6jm59ikgpceqrpmhg5pjii5proka4weekz8gg5wi77lqa26x.min.css" />
     
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    
-      
-    
+      gtag('config', 'G-7TXCGWW79C');
+    </script>
   </head>
 
   <body>
@@ -249,13 +254,12 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.</p>
-<p>
+              <p>
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig1.png"  alt="Fig. 1: Document OCR">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig1.jpg"  alt="Fig. 1: Document OCR">
   
    
     <span class="caption">Fig. 1: Document OCR</span>
@@ -274,7 +278,8 @@
   
 </div>
 </p>
-<p>Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 반드시 존재할 것을 보장하지 않는다. 또한 다양한 서체(Font)나 형태(Transform)가 존재하여 성능을 높히는 것이 쉽지 않았다. 하지만 최근 많은 연구를 통해 그 성능이 점점 높아지고 있다.</p>
+<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.<br>
+Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 반드시 존재할 것을 보장하지 않는다. 또한 다양한 서체(Font)나 형태(Transform)가 존재하여 성능을 높히는 것이 쉽지 않았다. 하지만 최근 많은 연구를 통해 그 성능이 점점 높아지고 있다.</p>
 <h4 id="heading">#</h4>
 <p>OCR은 detection과 recognition, 두 파트로 나누어져 있다. <span class="highlight-text primary">기본적으로 두 파트는 scene text detection(STD)과 scene text recognition(STR)이란 <b>서로 독립된 모델</b>로 존재한다.</span> 하지만 경우에 따라선 하나의 모델 안에 두 파트가 모두 존재할 수도 있다.</p>
 <p>
@@ -334,19 +339,16 @@
             <div id="post-footer" class="post-footer main-content-wrap">
               
                 
-                  
-                  
-                    <div class="post-footer-tags">
-                      <span class="text-color-light text-small">TAGGED IN</span><br/>
-                      
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
   <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/introduction/">Introduction</a>
 
-                    </div>
-                  
+                  </div>
                 
               
-              
-<div class="post-actions-wrap">
+              <div class="post-actions-wrap">
   <nav >
     <ul class="post-actions post-action-nav">
       
@@ -410,7 +412,6 @@
   </li>
 </ul>
 </div>
-
 
               
   <script src="https://utteranc.es/client.js"
@@ -432,9 +433,9 @@
 </footer>
 
       </div>
+      
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        
-<div class="post-actions-wrap">
+        <div class="post-actions-wrap">
   <nav >
     <ul class="post-actions post-action-nav">
       
@@ -498,7 +499,6 @@
   </li>
 </ul>
 </div>
-
 
       </div>
       
@@ -529,6 +529,7 @@
 <div id="share-options-mask" class="share-options-mask"></div>
 
 
+      
     </div>
     
   <div id="cover" style="background-color:#212F3D"></div>
