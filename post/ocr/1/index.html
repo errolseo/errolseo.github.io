@@ -75,8 +75,8 @@
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/OCR/1-fig2.png">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/1-fig2.png">
+  <meta property="og:image" content="https://errolseo.github.io/images/OCR/1-2.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/1-2.png">
 
 
     <title>[OCR] Optical Text Recognition</title>
@@ -94,7 +94,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ma77xaiufivcglg38t6lgbtnkumzk5xpjvtezsqaasb7rj3eqgwwmmjflc.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-of76gz4rl1rzjtdw5trb05z6pibruxeqd9yubusghwkskzbccwfrytgwjy.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -133,11 +133,8 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+        
         <h4 class="sidebar-profile-name">Errol Seo</h4>
-        
-          <h5 class="sidebar-profile-bio">Machine learning research engineer</h5>
-        
       </div>
     
     <ul class="sidebar-buttons">
@@ -259,7 +256,7 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig1.jpg"  alt="Fig. 1: Document OCR">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-1.jpg"  alt="Fig. 1: Document OCR">
   
    
     <span class="caption">Fig. 1: Document OCR</span>
@@ -271,23 +268,23 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig2.png"  alt="Fig. 2: Scene text OCR">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-2.png"  alt="Fig. 2: Scene text OCR">
   
    
     <span class="caption">Fig. 2: Scene text OCR</span>
   
 </div>
 </p>
-<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.<br>
-Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 반드시 존재할 것을 보장하지 않는다. 또한 다양한 서체(Font)나 형태(Transform)가 존재하여 성능을 높히는 것이 쉽지 않았다. 하지만 최근 많은 연구를 통해 그 성능이 점점 높아지고 있다.</p>
+<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.</p>
+<p>Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 존재가 보장되지 않는다. 또한 다양한 서체(Font)나 형태(Transform) 등의 이유로 성능을 높히는 것이 쉽지 않았다. 하지만 최근 많은 연구를 통해 그 성능이 점점 높아지고 있다.</p>
 <h4 id="heading">#</h4>
-<p>OCR은 detection과 recognition, 두 파트로 나누어져 있다. <span class="highlight-text primary">기본적으로 두 파트는 scene text detection(STD)과 scene text recognition(STR)이란 <b>서로 독립된 모델</b>로 존재한다.</span> 하지만 경우에 따라선 하나의 모델 안에 두 파트가 모두 존재할 수도 있다.</p>
+<p>OCR은 detection과 recognition, 두 파트로 나누어져 있다. 기본적으로 두 파트는 Scene Text Detection(STD)과 Scene Text Recognition(STR)이란 <strong>서로 독립된 모델</strong>로 존재한다. 하지만 경우에 따라선 하나의 모델 안에 두 파트가 모두 존재할 수도 있다.</p>
 <p>
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig3.png"  alt="Fig. 3: Scene text dectection">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-3.png"  alt="Fig. 3: Scene text dectection">
   
    
     <span class="caption">Fig. 3: Scene text dectection</span>
@@ -299,36 +296,36 @@ Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig4.png"  alt="Fig. 4: Scene text recognition">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-4.png"  alt="Fig. 4: Scene text recognition">
   
    
     <span class="caption">Fig. 4: Scene text recognition</span>
   
 </div>
 </p>
-<p>STD 모델은 scene text image를 입력으로 받아 word box image(Fig.3의 빨간 박스)를 출력하고, STR 모델은 word box image를 입력으로 받아 텍스트 데이터를 출력한다.(Fig.4) 이처럼 두 개의 모델로 나누어서 학습하는 이유는 단순하면서 복잡하다. 기본적으로 작업의 난이도를 대폭 낮출 수 있으나 배경에 대한 정보를 소실하는 문제가 있다. 더 자세하고 정확한 내용은 OCR에 대한 지식을 쌓으면서 저절로 습득하게 된다.</p>
+<p>STD 모델은 scene text image를 입력으로 받아 word box image(Fig.3의 빨간 박스)를 출력하고, STR 모델은 word box image를 입력으로 받아 텍스트를 출력한다.(Fig.4) 이처럼 두 개의 모델로 나누어서 학습하는 이유는 단순하면서 복잡하다. 기본적으로 작업의 난이도를 대폭 낮출 수 있으나 배경 정보를 소실하는 문제가 있다. 더 자세하고 정확한 내용은 OCR에 대한 지식을 쌓으면서 저절로 습득하게 될 것이다.</p>
 <h4 id="heading-1">#</h4>
-<p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 만약 <span class="highlight-text primary">세상의 모든 경우의 수(모집단)와 동일한 데이터를 <b>생성</b>할 수 있다면 데이터를 수집할 이유가 사라진다.</span> 하지만 어려운 문제일수록 경우의 수는 다양하고 모든 경우의 수를 고려한 데이터 생성 프로그램을 개발하는 것은 불가능에 가까워진다. 결국 인조 데이터에는 편향(bias)이 포함될 수 밖에 없으며, 편향이 포함된 데이터로 학습한 모델은 학습 데이터에 과적합(overfitting)될 수 밖에 없다.<br>
-그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용해서 학습하는 편이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. OCR은 annotation(labeling) 난이도가 높고 오래전부터 상업적으로 서비스되고 있었기에 다른 도메인에 비해 공개된 데이터의 수가 부족하다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
+<p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 다른 도메인에서 인조 데이터를 이용해 학습하는 방법이 주류가 되지 못한 이유는 편향 때문이다. 수집이던 생성이던 현실적으로 편향(bias)이 포함될 수 밖에 없다. 하지만 인조 데이터의 경우 수집에선 발견할 수 없는 추가적인 편향이 존재한다. <span class="highlight-text primary">결국 이러한 편향은 모델의 <b>overfitting(과적합)</b>을 야기하여 성능에 강한 제약을 건다.</span></p>
+<p>그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용하는 것이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. 그 가장 큰 이유는 데이터의 부족이다. OCR은 annotation   난이도가 높고 오래전부터 상업적으로 서비스되고 있었기에 다른 도메인에 비해 공개된 데이터의 수가 부족하다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-fig5.png"  alt="Fig. 5: Synthetic text images">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1-5.png"  alt="Fig. 5: Synthetic text images">
   
    
     <span class="caption">Fig. 5: Synthetic text images</span>
   
 </div>
 
-<p>딥 러닝에 대한 오랜 경험에 의해 OCR 인조 데이터를 처음 접했을 때 많은 의구심이 들었다. 하지만 지금은 생각이 많이 바뀌어 혹시 다른 도메인에서는 인조 데이터를 만드는 연구가 부족했던 것은 아닌지 싶을 정도이다. 왜냐하면 결국 우리의 최종 목표는 수집이던 생성이던 모집단과 유사한 표본 집단을 구하는 거기 때문이다.</p>
+<p>딥 러닝에 대한 오랜 경험에 의해 OCR 인조 데이터를 처음 접했을 때 많은 의구심이 들었다. 하지만 지금은 생각이 많이 바뀌어 혹시 다른 도메인에서는 인조 데이터를 만드는 연구가 부족했던 것은 아닌지 싶을 정도이다. 왜냐하면 결국 <span class="highlight-text primary">우리의 최종 목표는 수집이던 생성이던 <b>모집단과 유사한 표본 집단</b>을 구하는 것이기 때문이다.</span> 어려운 문제일수록 경우의 수가 다양하기에 모집단과 유사한 데이터 생성 프로그램을 개발하는 것은 불가능에 가깝다. 하지만 연구가 거듭되면서 점점 그 차이를 좁혀가고 있다.</p>
 <h4 id="reference">Reference</h4>
-<p>[1] CLOVA OCR (<a href="https://www.ncloud.com/product/aiService/ocr">https://www.ncloud.com/product/aiService/ocr</a>)<br>
-[2] Y. Baek et al. <a href="https://arxiv.org/abs/2007.09629">Character Region Attention For Text Spotting</a><br>
-[3] Y. Baek et al. <a href="https://arxiv.org/abs/1904.01941">Character Region Awareness for Text Detection</a><br>
-[4] J. Baek et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a><br>
-[5] A. Gupta et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
+<p>[1] <a href="https://www.ncloud.com/product/aiService/ocr">https://www.ncloud.com/product/aiService/ocr</a></p>
+<p>[2] Y. Baek et al. <a href="https://arxiv.org/abs/2007.09629">Character Region Attention For Text Spotting</a></p>
+<p>[3] Y. Baek et al. <a href="https://arxiv.org/abs/1904.01941">Character Region Awareness for Text Detection</a></p>
+<p>[4] J. Baek et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
+<p>[5] A. Gupta et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
 
               
 
@@ -539,7 +536,7 @@ Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-qgkqkom0hodbpjskp8wduvfbbw6e7zyprb5lu0qhhag7ipzm4tr4h0fv2u.min.js"></script>
+<script src="https://errolseo.github.io/js/script-o1d2720lo2h8ijfcircyrfwiqnzw7a4f3ithrohy3vpbxsyu2jqk3dciprrk.min.js"></script>
 
 
 

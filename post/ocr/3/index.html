@@ -75,8 +75,8 @@
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/OCR/3-fig2.png">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/3-fig2.png">
+  <meta property="og:image" content="https://errolseo.github.io/images/OCR/3-2.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/3-2.png">
 
 
     <title>[OCR] SynthTIGER</title>
@@ -94,7 +94,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ma77xaiufivcglg38t6lgbtnkumzk5xpjvtezsqaasb7rj3eqgwwmmjflc.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-of76gz4rl1rzjtdw5trb05z6pibruxeqd9yubusghwkskzbccwfrytgwjy.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -133,11 +133,8 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+        
         <h4 class="sidebar-profile-name">Errol Seo</h4>
-        
-          <h5 class="sidebar-profile-bio">Machine learning research engineer</h5>
-        
       </div>
     
     <ul class="sidebar-buttons">
@@ -254,7 +251,7 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>작성일 기준, 상위 5개의 <a href="https://paperswithcode.com/task/scene-text-recognition">scene text recognition(STR) State-of-the-Art(SOTA) 논문</a> 모두 이전 장에서 다룬 MJ+ST를 학습 데이터로 사용해 작성되었다. 기존 모델과의 비교를 위해 같은 데이터를 사용하는 부분도 있으며, 새로운 데이터들의 공신력이 크지 않은 점도 있다. 하지만 MJ, ST보다 더 나은 데이터가 존재하지 않는 것은 아니다.</p>
+              <p>작성일 기준, 상위 5개의 <a href="https://paperswithcode.com/task/scene-text-recognition">scene text recognition(STR) State-of-the-Art(SOTA) 논문</a> MJ+ST를 학습 데이터로 사용해 작성되었다. 기존 모델과의 비교를 위해 같은 데이터를 사용하는 부분도 있지만 새로운 데이터들의 공신력이 크지 않은 점도 있다. 하지만 MJ, ST보다 더 나은 데이터가 존재하지 않는 것은 아니다.</p>
 <h4 id="heading">#</h4>
 <p>2021년 7월에 공개된 <a href="https://arxiv.org/abs/2107.09313">SynthTIGER</a>에서는 기존 MJ, ST에 비해 개선된 데이터를 생성해 STR 모델의 성능에 기여하려는 노력을 찾을 수 있었다.</p>
 
@@ -262,20 +259,21 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-fig1.png"  alt="Fig. 1: Samples of synthetic dataset (Ours = SynthTIGER)">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-1.png"  alt="Fig. 1: Samples of synthetic dataset (Ours = SynthTIGER)">
   
    
     <span class="caption">Fig. 1: Samples of synthetic dataset (Ours = SynthTIGER)</span>
   
 </div>
 
-<p>논문의 저자들은 SynthTIGER가 MJ와 같은 word box image를 생성하지만 ST 수준의 노이즈를 포함한 데이터라고 소개한다.(저자들이 말하는 노이즈는 잘 못된 데이터가 아닌 어려운 데이터를 말한다.) word box image는 scene text image에 비해 이미지 한 장이 가지는 정보량이 적어 단순하게 비교하면 word box image의 필요성을 못 느낄 수 있다. <span class="highlight-text primary">하지만 scene text image도 STR 모델의 입력 형태인 word box image로 crop되는 과정에서 결국은 <b>모든 배경 정보를 소실</b>한다.</span> STR 모델의 입장에서는 굳이 소실될 정보 때문에 자신이 학습할 데이터의 품질이 손해보는 일은 없는 편이 좋다.</p>
+<p>논문의 저자들은 SynthTIGER가 MJ와 같은 word box image를 생성하지만 ST 수준의 노이즈를 포함한 데이터라고 소개한다. 여기서의 노이즈는 잘 못된 데이터가 아닌 어려운 데이터를 말한다.</p>
+<p>Word box image는 scene text image에 비해 이미지 한 장이 가지는 정보량이 적어 단순하게 비교하면 word box image의 필요성을 못 느낄 수 있다. 하지만 word box image는 scene text image보다 유사성 측면에서 고려해야할 부분이 적어 더 다양한 데이터를 생성하는 것이 가능하다. 그리고 <span class="highlight-text primary">scene text image도 STR 모델의 입력 형태인 word box image로 crop되는 과정에서 결국은 <b>모든 배경 정보를 소실</b>하기 때문에</span> STR 모델의 입력 데이터로는 word box image를 합성하는 것이 더 유리하다.</p>
 <p>
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-fig2.png"  alt="Fig. 2: The performance of rendering functions">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-2.png"  alt="Fig. 2: The performance of rendering functions">
   
    
     <span class="caption">Fig. 2: The performance of rendering functions</span>
@@ -287,53 +285,55 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-fig3.png"  alt="Fig. 3: Rendering effect visualization of SynthTIGER modules">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-3.png"  alt="Fig. 3: Rendering effect visualization of SynthTIGER modules">
   
    
     <span class="caption">Fig. 3: Rendering effect visualization of SynthTIGER modules</span>
   
 </div>
 </p>
-<p>논문에서는 rendering function들이 STR 모델의 정확도에 얼마나 영향을 주는지에 대한 수치를 제공한다. Regular(IIIT5k, SVT, IC03, IC13), Irregular(IC15, SVTP, CUTE80)의 차이는 dataset 속 텍스트의 형태가 단순한가 복잡한가의 차이(저자들이 말하는 노이즈의 강도)로 볼 수 있다. 실험의 흥미로운 결과에 대해 필자가 나름대로 이유를 분석해 보았다.</p>
-<p><strong>1. Post-processing</strong></p>
+<p>논문에서는 rendering function들이 STR 모델의 정확도에 얼마만큼 영향을 주는지에 대한 측정을 진행했다. Regular(IIIT5k, SVT, IC03, IC13), Irregular(IC15, SVTP, CUTE80)의 차이는 dataset 속 텍스트의 형태가 단순한가 복잡한가의 차이(저자들이 말하는 노이즈의 강도)로 볼 수 있다. 실험에서 흥미로운 부분을 사견과 함께 정리해 보았다.</p>
+<p>1. Post-processing</p>
 <ul>
 <li>Irregular 데이터에는 흐릿한 사진 등의 노이즈가 많이 포함되어 있기 때문에 post-processing의 영향이 큰 것이 실제 실험을 통해 확인됨</li>
 </ul>
-<p><strong>2. Texture blending</strong></p>
+<p>2. Texture blending</p>
 <ul>
 <li>Scene text image 내의 텍스트는 자연 현상에 의해 훼손(기스, 발색 등)이 필연적으로 존재함</li>
-<li>하지만 SynthTIGER에서 사용한 texture image는 우리가 흔히 아는 질감을 표현한 것이 아닌, background image를 재활용했을 뿐이기에 현실의 질감을 재현한 것보다는 노이즈에 가까움</li>
+<li>하지만 SynthTIGER에서 사용한 texture image는 우리가 흔히 아는 질감을 표현한 것이 아닌, 배경 이미지를 재활용했을 뿐이기에 현실의 질감을 재현한 것보다는 단순 노이즈에 불과함</li>
 <li>그럼에도 불구하고 텍스트 내부 노이즈의 유무는 STR 모델 성능에 큰 영향을 줌</li>
 </ul>
-<p><strong>3. Blending modes</strong></p>
+<p>3. Blending modes</p>
 <ul>
-<li>Background image의 합성 여부를 나타낸 이 지표가 생각보다 STR 모델 성능에 영향을 주지 않음</li>
-<li>생각해보면 대부분의 Scene text image 내의 텍스트는 흔들림, 훼손됨 등의 노이즈를 제외하면 가독성을 위해 단색의 배경 위에 구분이 쉬운 색상을 이용해 작성되어 있는 것을 확인할 수 있음</li>
+<li>배경 이미지의 합성 여부를 나타낸 이 지표가 생각보다 STR 모델 성능에 영향을 주지 않음</li>
+<li>생각해보면 대부분의 scene text image 내의 텍스트는 흔들림, 훼손됨 등의 노이즈를 제외하면 가독성을 위해 단색의 배경 위에 구분이 쉬운 색상을 이용해 작성되어 있는 것을 확인할 수 있음</li>
 </ul>
-<p>추후 필자가 만약 word box image를 만든다면 background image 보다는 texture를 background와 foreground에 각각 blending 할 것이다.또한 post-processing에서 이미지 전체에 작은 노이즈를 추가하는 것뿐만 아니라 이미지 일부에 강한 노이즈를 추가할 것이다.</p>
 <h4 id="heading-1">#</h4>
+<p>위 내용을 토대로 추가적인 개선점을 생각해 보았다. 우선 post-processing 단계에서 이미지 전체에 노이즈를 주는 선택지밖에 없는 것이 아쉬웠다. 흔들림 등으로 인해 이미지 전체에 노이즈가 생기는 경우도 많지만 가려짐, 훼손됨 등의 이미지 일부에 강한 노이즈가 있는 경우도 더러 존재한다. 이런 경우의 수를 포함하기 위해 post-processing 단계에서 이미지 일부에 강한 노이즈를 줄 수 있도록 하면 좋을 것 같다.</p>
+<p>그리고 배경 이미지를 blending 하는 것은 가독성을 떨어뜨려 오히려 서체의 특징을 배우는데 방해를 줄 수 있을 것 같았다. 데이터 내에 심한 노이즈에 의해 글자와 배경의 구분이 힘든 경우가 다수 존재했다. 이런 abnormal 데이터는 모델의 성능 향상에 도움이 되는 부분이 존재하지만, 특이한 필기체들의 일반화를 방해할 것 같다는 생각이 들었다. 다만 지표에서 보여주다 싶이, 텍스트 내부의 노이즈 유무는 중요하기 때문에 질감을 표현할 수 있는 texture image를 이용해 blending을 테스트하면 좋을 것 같다.</p>
+<h4 id="heading-2">#</h4>
 <p>OCR 인조 데이터를 생성하는 과정에서 렌더링할 텍스트의 내용은 무작위로 정해지지 않는다. <a href="https://github.com/clovaai/synthtiger/tree/master/resources/corpus">SynthTIGER의 경우</a> MJ와 ST에서 사용한 말뭉치(corpus)를 섞어 사용하였고, ST의 경우 <a href="https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups">Newsgroup 20 dataset</a>의 corpus를 사용했다. 이런 과정이 필요한 이유에 대해 설명하기 위해서는 언어라는 데이터의 특성을 알아야 한다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-fig4.png"  alt="Fig. 4: Likelihood에 따른 예측 확률 (티, 터, 타)">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-4.png"  alt="Fig. 4: Likelihood에 따른 예측 확률 (티, 터, 타)">
   
    
     <span class="caption">Fig. 4: Likelihood에 따른 예측 확률 (티, 터, 타)</span>
   
 </div>
 
-<p>Fig.4의 가려진 부분에 대해 &lsquo;티, 터, 타&rsquo;가 모두 가능하지만 &lsquo;컴퓨터&rsquo;일 확률이 높다고 우리는 예측할 수 있다. 이처럼 우리는 텍스트에 심각한 노이즈가 포함되어 있어도 경험에 의해 확률이 높은 선택지를 추려낼 수 있다. STR 모델에게도 이러한 경험적인 지식을 학습시킨다면 노이즈가 심한 이미지에서도 더 나은 확률로 정답을 유추해낼 수 있을 것이다. 즉 무작위 알파벳의 조합보다는 실제로 사용하는 단어들로 인조 데이터를 생성하는 것이 좋다.</p>
-<h4 id="heading-2">#</h4>
+<p>Fig.4의 가려진 부분에 대해 &lsquo;티, 터, 타&rsquo;가 모두 가능하지만 &lsquo;컴퓨터&rsquo;일 확률이 높다고 우리는 예측할 수 있다. 이처럼 우리는 텍스트에 심각한 노이즈가 포함되어 있어도 일반적으로 확률이 높은 선택지를 추려낼 수 있다. STR 모델에게도 이러한 통계적인 지식을 학습시킨다면 노이즈가 심한 이미지에서도 더 나은 확률로 정답을 유추해낼 수 있을 것이다. 즉 무작위 알파벳의 조합보다는 실제로 사용하는 단어들로 인조 데이터를 생성하는 것이 좋다.</p>
+<h4 id="heading-3">#</h4>
 <p>MJ, ST가 등장한 시절보다 딥 러닝에 대한 연구가 상당히 높은 수준까지 올라왔다. 최근에선 데이터의 정규화(normalize)없이 모델을 학습시키는 일은 생각하기 힘들다. 어찌 보면 이제는 당연한 일을 SynthTIGER의 저자들이 감사하게도 정리해주었다.</p>
 <p>
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-fig5.png"  alt="Fig. 5: STR accuracy by length distributions">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-5.png"  alt="Fig. 5: STR accuracy by length distributions">
   
    
     <span class="caption">Fig. 5: STR accuracy by length distributions</span>
@@ -345,15 +345,15 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-fig6.png"  alt="Fig. 6: STR accuracy by character distributions">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3-6.png"  alt="Fig. 6: STR accuracy by character distributions">
   
    
     <span class="caption">Fig. 6: STR accuracy by character distributions</span>
   
 </div>
 </p>
-<p>그래프에 대해 간단히 설명하자면 Fig.5의 경우 빨간색 지표들이 정규화를 진행한 결과이다. 정규화를 한다고 해서 결과가 극적으로 달라지지는 않는다. 하지만 추가적인 데이터 혹은 모델의 개선 없이 기존에 풀지 못하던 문제를 풀 수 있게 되기에 들이는 노력에 비해 비약적인 성능 상승인 건 확실하다. 특히 Fig.6에서 rare character (자주 사용하지 않는 알파벳)에 대해 높은 성능 상승을 보여주고 있다. 이는 한국어, 중국어, 일본어 등에는 중요한 사실이다.<br>
-정규화 방식에 대한 자세한 내용을 다루지 않겠지만 만약 본인이 SynthTIGER 혹은 그와 유사한 방식으로 인조 데이터를 생성할 예정이 있다면 <strong>본인이 가진 데이터의 특성을 잘 고려해 가면서</strong> 참고한다면 도움이 될 것이다.</p>
+<p>그래프에 대해 간단히 설명하자면 Fig.5의 경우 빨간색 지표들이 정규화를 진행한 결과이다. 정규화를 한다고 해서 결과가 극적으로 달라지지는 않는다. 하지만 추가적인 데이터 혹은 모델의 개선 없이 기존에 풀지 못하던 문제를 풀 수 있게 되기에 들이는 노력에 비해 비약적인 성능 상승인 건 확실하다. 특히 Fig.6에서 rare character (자주 사용하지 않는 알파벳)에 대해 높은 성능 상승을 보여주고 있다. 이는 한국어, 중국어, 일본어 등에는 중요한 사실이다.</p>
+<p>정규화 방식에 대한 자세한 내용을 다루지 않겠지만 만약 본인이 SynthTIGER 혹은 그와 유사한 방식으로 인조 데이터를 생성할 예정이 있다면 <strong>본인이 가진 데이터의 특성을 잘 고려해 가면서</strong> 참고한다면 도움이 될 것이다.</p>
 <h4 id="reference">Reference</h4>
 <p>[1] M. Yim et al. <a href="https://arxiv.org/abs/2107.09313">SynthTIGER: Synthetic Text Image GEneratoR Towards Better Text Recognition Models</a></p>
 
@@ -566,7 +566,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-qgkqkom0hodbpjskp8wduvfbbw6e7zyprb5lu0qhhag7ipzm4tr4h0fv2u.min.js"></script>
+<script src="https://errolseo.github.io/js/script-o1d2720lo2h8ijfcircyrfwiqnzw7a4f3ithrohy3vpbxsyu2jqk3dciprrk.min.js"></script>
 
 
 
