@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Synthetic text image on Errol&#39;s AI blog</title>
+    <title>Synthetic Text Image on Errol&#39;s AI blog</title>
     <link>https://errolseo.github.io/tags/synthetic-text-image/</link>
-    <description>Recent content in Synthetic text image on Errol&#39;s AI blog</description>
+    <description>Recent content in Synthetic Text Image on Errol&#39;s AI blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://errolseo.github.io/tags/synthetic-text-image/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[OCR] UnrealText, SRNet</title>
+      <title>[OCR] Synthetic Text Image (3)</title>
       <link>https://errolseo.github.io/post/ocr/4/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
       
       <guid>https://errolseo.github.io/post/ocr/4/</guid>
-      <description>Synthetic text image (3) - 창의적인 방법</description>
+      <description>UnrealText, SRNet</description>
     </item>
     
     <item>
-      <title>[OCR] SynthTIGER</title>
+      <title>[OCR] Synthetic Text Image (2)</title>
       <link>https://errolseo.github.io/post/ocr/3/</link>
       <pubDate>Tue, 22 Mar 2022 00:00:00 +0900</pubDate>
       
       <guid>https://errolseo.github.io/post/ocr/3/</guid>
-      <description>Synthetic text image (2) - 더 나은 방법</description>
+      <description>SynthTIGER</description>
     </item>
     
     <item>
-      <title>[OCR] MJSynth, SynthText</title>
+      <title>[OCR] Synthetic Text Image (1)</title>
       <link>https://errolseo.github.io/post/ocr/2/</link>
       <pubDate>Tue, 08 Mar 2022 00:00:00 +0900</pubDate>
       
       <guid>https://errolseo.github.io/post/ocr/2/</guid>
-      <description>Synthetic text image (1) - 기존 방법</description>
+      <description>MJSynth, SynthText</description>
     </item>
     
   </channel>

@@ -8,6 +8,24 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://errolseo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>CRNN</title>
+      <link>https://errolseo.github.io/tags/crnn/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/crnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CTC</title>
+      <link>https://errolseo.github.io/tags/ctc/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/ctc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Scene Text Recognition</title>
       <link>https://errolseo.github.io/tags/scene-text-recognition/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
@@ -17,11 +35,65 @@
     </item>
     
     <item>
-      <title>Synthetic text image</title>
+      <title>SRN</title>
+      <link>https://errolseo.github.io/tags/srn/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/srn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SRNet</title>
+      <link>https://errolseo.github.io/tags/srnet/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/srnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Synthetic Text Image</title>
       <link>https://errolseo.github.io/tags/synthetic-text-image/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
       
       <guid>https://errolseo.github.io/tags/synthetic-text-image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UnrealText</title>
+      <link>https://errolseo.github.io/tags/unrealtext/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/unrealtext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SynthTIGER</title>
+      <link>https://errolseo.github.io/tags/synthtiger/</link>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/synthtiger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MJSynth</title>
+      <link>https://errolseo.github.io/tags/mjsynth/</link>
+      <pubDate>Tue, 08 Mar 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/mjsynth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SynthText</title>
+      <link>https://errolseo.github.io/tags/synthtext/</link>
+      <pubDate>Tue, 08 Mar 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/tags/synthtext/</guid>
       <description></description>
     </item>
     
