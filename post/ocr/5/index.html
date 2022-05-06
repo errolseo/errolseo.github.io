@@ -89,9 +89,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-of76gz4rl1rzjtdw5trb05z6pibruxeqd9yubusghwkskzbccwfrytgwjy.min.css" />
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-1ni2k5pwlnrrnoicgwgbxjfciybpny3u2cade0a7blc6pctjizkhkmdaowd.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -248,10 +250,7 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p><div class="alert info ">
-  <p>On writting</p>
-</div>
-Scene Text Recognition(STR) 모델은 word box image를 입력으로 받는다. 즉, STR 모델의 입력은</p>
+              <p>만약 필자에게 기존 vision task와 Scene Text Recognition(STR)의 차이를 한 문장으로 표현해 달라고 한다면, &lsquo;sequence의 유무&rsquo;라고 대답할 것 같다. sequence의 존재로 인해 STR 모델은 기존 vision classification과는 다른 prediction 형태를 갖는다. 만약 기존과 같은 형태를 가진다면 영어의 알파벳 26자의 5자 조합만 해도 $26^5$이 되어 사실상 모델 생성이 불가능하다. 한글과 한자는 경우의 수가 더 심각해진다. 위의 문제를 해결하기 위한 방법은 다양하게 존재하기 때문에 후술하는 내용에 포함시키려고 한다. STR 모델의 파이프라인에 대해 이해하고, 최종적으로 텍스트의 <strong>seqence</strong>에 대해 이해한다면 추후의 STR 연구에 도움이 될 것이다.</p>
 <h4 id="heading">#</h4>
 <p>2015년에 공개된 <a href="https://arxiv.org/abs/1507.05717">Convolutional Recurrent Neural Network(CRNN)</a>은 Convolutional, Recurrent, Transcription 3 단계의 레이어로 이루어져 있다. CNN을 이용해 이미지로부터 feature를 추출하고(featurization), RNN을 이용해 feature에 sequence 정보를 추가하여(sequentialization), Connectionist Temporal Classification(CTC)을 이용해 prediction 한다.</p>
 
@@ -259,10 +258,10 @@ Scene Text Recognition(STR) 모델은 word box image를 입력으로 받는다. 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-1.png"  alt="Fig. 1: Convolutional recurrent neural network architecture">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-1.png"  alt="Fig. 1: CRNN architecture">
   
    
-    <span class="caption">Fig. 1: Convolutional recurrent neural network architecture</span>
+    <span class="caption">Fig. 1: CRNN architecture</span>
   
 </div>
 
@@ -271,19 +270,44 @@ Scene Text Recognition(STR) 모델은 word box image를 입력으로 받는다. 
 </span></span><span style="display:flex;"><span><span style="color:#111">rnn_inp</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_oup</span><span style="color:#f92672">.</span><span style="color:#111">permute</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">b</span><span style="color:#111">,</span> <span style="color:#111">c_w</span><span style="color:#111">,</span> <span style="color:#111">c_c</span> <span style="color:#f92672">*</span> <span style="color:#111">c_h</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, c_c * c_h]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">rnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">rnn_layer</span><span style="color:#111">(</span><span style="color:#111">rnn_inp</span><span style="color:#111">,</span> <span style="color:#111">batch_first</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, hidden_size]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">pred_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">prediction</span><span style="color:#111">(</span><span style="color:#111">rnn_oup</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, num_labels]</span>
-</span></span></code></pre></div><p>데이터의 flow를 살펴보면 꽤 직관적이다. 주목할 부분은 최종 출력이다. CTC를 위해서는 [time(sequence), label probability] 형태의 데이터가 필요하다. [c_w, num_labels]
-현재까지도 다양한 모델들이 발표되고 있지만 <strong>featurization, sequentialization, prediction</strong>으로 이루어진 구조는 대부분의 모델에서 채용되고 있다.</p>
+</span></span></code></pre></div><p>모델이 복잡해 보일 수도 있는데 데이터의 flow 자체는 단순하다. 중요한 부분은 최종 출력의 형태다. [c_w, num_labels]에는 convolutional feature의 width에 대한 softmax_value가 들어있다. 즉 이미지 feature를 가로로 1 pixel씩 쪼개어 각각이 의미하는 알파벳을 classifcation하는 것 처럼 보인다. 문제는 위 방식에는 ground truth가 존재하지 않으며, 그로 인해 수 많은 정답이 존재 가능하다는 것이다. 그럼 loss는 어떻게 구하는가.</p>
+<p><span class="highlight-text primary">CTC는 Dynamic Programming(DP)을 이용해 모델의 출력값이 정답이 될 수 있는 모든 확률을 계산한 후, 그 확률을 최대로 만들도록 모델을 학습시키는 방법이다.</span> 즉, 정답이 여러 개 존재한다면 그 여러 개에 해당하는 각각의 확률을 모두 구한 후, 그 합이 최대가 되도록 학습하는 것이다. 만약 CTC에 대해 자세히 알고 싶다면 <a href="https://ratsgo.github.io/speechbook/docs/neuralam/ctc">https://ratsgo.github.io/speechbook/docs/neuralam/ctc</a>를 참고하면 좋다.</p>
+<p>현재까지도 다양한 모델들이 발표되고 있지만 <strong>featurization, sequentialization, prediction</strong>으로 이루어진 구조는 대부분의 모델에서 채용되고 있다.</p>
 <h4 id="heading-1">#</h4>
-<p>이미지 featurization에 CNN을 사용하는 것은 대세를 넘어 지배적이었다. 최근 transformer를 이용한 모델들이 준수한 성능을 자랑하며 등장하고 있지만 <a href="https://arxiv.org/abs/1905.11946">EfficientNet</a> 등의 최적화된 모델을 상회한다고 보기는 어렵다. STR은 ResNet과 같은 backbone network를 기반으로 텍스트에 특화된 featurization을 위해 추가적인 모듈을 결합하여 사용한다.</p>
+<p>이미지 featurization에 CNN을 사용하는 것은 대세를 넘어 지배적이었다. 최근 transformer를 이용한 모델들이 준수한 성능을 자랑하며 등장하고 있지만 <a href="https://arxiv.org/abs/1905.11946">EfficientNet</a> 등의 최적화된 모델을 상회한다고 보기는 어렵다. STR은 ResNet과 같은 backbone network를 기반으로 텍스트에 특화된 featurization을 위해 추가적인 모듈을 결합하여 사용한다. Featurization 파트에서 크게 특이한 점은 없었다. 하지만 STR은 이미지를 다루는 task이기 때문에 가장 근본이 되는 파트이다.</p>
 <h4 id="heading-2">#</h4>
-<p>Sequntialization에는 RNN과 transformer가
-Transformer가 등장하면서 사실상 RNN에 대한 연구는 거의 죽었다. RNN은 auto regressive 모델로 이전 입력값이 이후 입력값에 영향을 줄 수 있도록 설계되었다.</p>
+<p>Sequntialization 파트는 $26^5$의 복잡도를 $25*5$로 바꿔주는 역활을 한다. 텍스트 이미지에 sequence 정보 없이 알파벳 단위의 prediction이 가능한가. 이 부분에 대한 직관은 꽤나 복잡하다. 위에서 CTC를 소개했는데, attention을 이용한 Auto Regressive(AR) 모델도 존재한다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-2.png"  alt="Fig. 2: Structure of the SRN">
+  
+   
+    <span class="caption">Fig. 2: Structure of the SRN</span>
+  
+</div>
+
+<p>CTC에서는 image feature의 구조를 어느 정도 끝까지 유지했다면, Sequence Recognition
+Network(SRN)에서는 image feature를 sequence feature로 바꿔버린다. 각각 장단의 유무가 있지만 STR에 더 적합한 모델은 SRN라고 생각한다. 특히 irregular의 경우 CTC는 구조적인 한계점이 명확하다.</p>
+<h4 id="experience">Experience</h4>
+<p>STR의 <strong>featurization, sequentialization, prediction</strong> 각 파트는 독립적이다. 더 좋은 featurization 방법이 있다면 쓰면 되고, 더 나은 sequentialization 방법이 있다면 쓰면 된다. 물론 각각의 성능이 최상이라고 해서 조합했을 때 최적의 성능을 보여주는 것은 아니지만 각 성능을 실험하는데 유리한 구조인 것은 틀림없다. CLOVA AI에서 각 파트의 최적화에 대한 실험을 해볼 수 있는 오픈 소스를 제공한다.</p>
+<p>학습 데이터의 경우 직접 만들어도 되지만 LMDB로 잘 정리된 파일이 kaggle에 올라와있어 링크를 첨부한다. 라이센스에 대한 자세한 사항은 필자도 모르기 때문에 개인적인 실험 외에 사용하는 것이면 자세히 알아보고 사용하는 것이 좋다.</p>
+<blockquote>
+<p>open source : <a href="https://github.com/clovaai/deep-text-recognition-benchmark">https://github.com/clovaai/deep-text-recognition-benchmark</a><br>
+data : <a href="https://www.kaggle.com/datasets/nunenuh/clova-deeptext">https://www.kaggle.com/datasets/nunenuh/clova-deeptext</a></p>
+</blockquote>
+<p><br>
+데이터만 있다면 돌리는 것 자체는 어렵지 않을 것이다. 국내에서 상당히 유명하기 때문에 돌리는 것이 어렵다면 검색을 통해 수 많은 정보를 얻을 수 있을 것이다.</p>
 <h4 id="reference">Reference</h4>
 <p>[1] <a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations</a></p>
 <p>[2] B. Shi et al. <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence
 Recognition and Its Application to Scene Text Recognition</a></p>
-<p>[3] A. Graves et al. <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented
+<p>[3] B. Shi et al. <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
+<p>[4] A. Graves et al. <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented
 Sequence Data with Recurrent Neural Networks</a></p>
+<p>[5] J. Baek et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
 
               
 
@@ -494,8 +518,27 @@ Sequence Data with Recurrent Neural Networks</a></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-o1d2720lo2h8ijfcircyrfwiqnzw7a4f3ithrohy3vpbxsyu2jqk3dciprrk.min.js"></script>
+<script src="https://errolseo.github.io/js/script-rgzrqmhspoqpnlpwuemobrdmjg4bdcfeefqanxgau4dgpdx2xeian9tvlnw5.min.js"></script>
 
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false
+      });
+  });
+</script>
 
 
 
