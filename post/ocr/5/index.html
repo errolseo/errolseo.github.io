@@ -289,8 +289,8 @@
   
 </div>
 
-<p>CTC에서는 image feature의 구조를 어느 정도 끝까지 유지했다면, Sequence Recognition
-Network(SRN)에서는 image feature를 sequence feature로 바꿔버린다. 각각 장단의 유무가 있지만 STR에 더 적합한 모델은 SRN라고 생각한다. 특히 irregular의 경우 CTC는 구조적인 한계점이 명확하다.</p>
+<p>CTC에서는 image feature의 구조를 어느 정도 끝까지 유지했다면, <a href="https://arxiv.org/abs/1603.03915">Sequence Recognition
+Network(SRN)</a>에서는 image feature를 sequence feature로 바꿔버린다. 각각 장단의 유무가 있지만 STR에 더 적합한 모델은 SRN라고 생각한다. 특히 irregular의 경우 CTC는 구조적인 한계점이 명확하다.</p>
 <h4 id="experience">Experience</h4>
 <p>STR의 <strong>featurization, sequentialization, prediction</strong> 각 파트는 독립적이다. 더 좋은 featurization 방법이 있다면 쓰면 되고, 더 나은 sequentialization 방법이 있다면 쓰면 된다. 물론 각각의 성능이 최상이라고 해서 조합했을 때 최적의 성능을 보여주는 것은 아니지만 각 성능을 실험하는데 유리한 구조인 것은 틀림없다. CLOVA AI에서 각 파트의 최적화에 대한 실험을 해볼 수 있는 오픈 소스를 제공한다.</p>
 <p>학습 데이터의 경우 직접 만들어도 되지만 LMDB로 잘 정리된 파일이 kaggle에 올라와있어 링크를 첨부한다. 라이센스에 대한 자세한 사항은 필자도 모르기 때문에 개인적인 실험 외에 사용하는 것이면 자세히 알아보고 사용하는 것이 좋다.</p>
