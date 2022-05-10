@@ -249,7 +249,7 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>만약 필자에게 기존 vision task와 Scene Text Recognition(STR)의 차이를 한 문장으로 표현해 달라고 한다면, &lsquo;sequence의 유무&rsquo;라고 대답할 것 같다. sequence의 존재로 인해 STR 모델은 기존 vision classification과는 다른 prediction 형태를 갖는다. 만약 기존과 같은 형태를 가진다면 영어의 알파벳 26자의 5자 조합만 해도 $26^5$이 되어 사실상 모델 생성이 불가능하다. 한글과 한자는 경우의 수가 더 심각해진다. 위의 문제를 해결하기 위한 방법은 다양하게 존재하기 때문에 후술하는 내용에 포함시키려고 한다. STR 모델의 파이프라인에 대해 이해하고, 최종적으로 텍스트의 <strong>seqence</strong>에 대해 이해한다면 추후의 STR 연구에 도움이 될 것이다.</p>
+              <p>만약 필자에게 기존 vision task와 Scene Text Recognition(STR)의 차이를 한 문장으로 표현해 달라고 한다면, &lsquo;sequence의 유무&rsquo;라고 대답할 것 같다. STR 모델은 기존 vision classification과는 다른 prediction 형태를 갖는다. 만약 기존과 같은 형태를 가진다면 영어의 알파벳 26자의 5자 조합만 해도 $26^5$이 되어 사실상 모델 생성이 불가능하다. 한글과 한자는 경우의 수가 더 심각해진다. 위의 문제를 해결하기 위한 방법은 다양하게 존재하기 때문에 후술하는 내용에 포함시키려고 한다. STR 모델의 파이프라인에 대해 이해하고, 최종적으로 텍스트의 <strong>seqence</strong>에 대해 이해한다면 추후의 STR 연구에 도움이 될 것이다.</p>
 <h4 id="heading">#</h4>
 <p>2015년에 공개된 <a href="https://arxiv.org/abs/1507.05717">Convolutional Recurrent Neural Network(CRNN)</a>은 Convolutional, Recurrent, Transcription 3 단계의 레이어로 이루어져 있다. CNN을 이용해 이미지로부터 feature를 추출하고(featurization), RNN을 이용해 feature에 sequence 정보를 추가하여(sequentialization), Connectionist Temporal Classification(CTC)을 이용해 prediction 한다.</p>
 
