@@ -98,7 +98,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-scwpc7ffgjyit2n5dt9lbpwsbqy44sqc11keg8tew1xvft4ywspmcj2vyzfu.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-xpsospmmnobetsysew0lj6brgxrybimwt4ugnkvuphap4lisatlpdicm2.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -248,7 +248,7 @@
               <p><div class="alert info ">
   <p>On Writting</p>
 </div>
-앞서 다룬 인조 데이터들의 생성 방식은 어찌 보면 단순하다. OCR 인조 데이터가 필요하다면 MJ와 ST가 없더라도 아마 비슷한 방법으로 데이터를 생성했을 것이다. 이번엔 좀 더 창의적인 방법들을 소개해 보려 한다.</p>
+MJ와 ST의 데이터는 강력하지만 단조로운 면이 있다. MJ와 ST가 없더라도 OCR 인조 데이터가 필요하다면 아마 비슷한 방법의 시도가 이루어졌을 것이다. 이번엔 좀 더 창의적인 방법들을 소개해 보려 한다.</p>
 <h4 id="heading">#</h4>
 <p><a href="https://arxiv.org/abs/2003.10608">UnrealText</a>는 3D 그래픽 엔진(Unreal Engine 4.22)을 이용해 scene text image를 생성하는 법을 연구했다. ST와 비교했을 때 동일한 양의 학습 데이터로 더 높은 STD 모델 성능을 얻는데 성공했다. UnrealText 이전에 <a href="https://arxiv.org/abs/1907.06007">SynthText3D</a>가 먼저 발행되었지만 어느 정도 퀄리티의 차이가 있다.</p>
 <p>
@@ -256,10 +256,10 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-1.jpg"  alt="Fig. 1: Demonstration of the proposed UnrealText synthesis engine">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-1.jpg"  alt="Figure 1. Demonstration of the proposed UnrealText synthesis engine">
   
    
-    <span class="caption">Fig. 1: Demonstration of the proposed UnrealText synthesis engine</span>
+    <span class="caption">Figure 1. Demonstration of the proposed UnrealText synthesis engine</span>
   
 </div>
 
@@ -268,10 +268,10 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-2.png"  alt="Fig. 2: Detection results (F-1 score)">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-2.png"  alt="Figure 2. Detection results (F-1 score)">
   
    
-    <span class="caption">Fig. 2: Detection results (F-1 score)</span>
+    <span class="caption">Figure 2. Detection results (F-1 score)</span>
   
 </div>
 </p>
@@ -284,10 +284,10 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-3.jpg"  alt="Fig. 3: Sample images of SRNet">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-3.jpg"  alt="Figure 3. Sample images of SRNet">
   
    
-    <span class="caption">Fig. 3: Sample images of SRNet</span>
+    <span class="caption">Figure 3. Sample images of SRNet</span>
   
 </div>
 
@@ -296,20 +296,20 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-4.png"  alt="Fig. 4: The overall structure of SRNet">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-4.png"  alt="Figure 4. The overall structure of SRNet">
   
    
-    <span class="caption">Fig. 4: The overall structure of SRNet</span>
+    <span class="caption">Figure 4. The overall structure of SRNet</span>
   
 </div>
 </p>
-<p>Fig.4에서 모델의 전체 구조가 단순하지만 어려 개의 모듈로 나뉘어 있음을 파악할 수 있다.</p>
+<p>모델의 전체 구조는 단순하지만 어려 개의 모듈로 나뉘어 있음을 Fig.4를 통해 파악할 수 있다.</p>
 <ol>
 <li>원본 이미지에서 텍스트만을 지워주는 모듈</li>
 <li>입력 텍스트를 원본 이미지의 텍스트와 유사한 폰트로 바꿔주는 모듈</li>
 <li>그 둘을 자연스럽게 합성해주는 모듈</li>
 </ol>
-<p>모델의 구조를 보면 가장 큰 문제는 원본 이미지에서 교체할 텍스트의 영역을 직접 잡아줘야 한다는 것이다. 그나마 다행인 것은 텍스트의 내용까지 annotation할 필요가 없다는 거지만 인조 데이터를 만들기 위해 라벨링된 데이터가 필요하다는 사실은 달라지지 않는다. (애초부터 데이터 생성 위한 모델은 아니었다.)</p>
+<p>모델의 구조를 보면 가장 큰 문제는 원본 이미지에서 교체할 텍스트의 영역을 직접 잡아줘야 한다는 것이다. 그나마 다행인 것은 텍스트의 내용까지는 필요가 없다는 거지만, 인조 데이터를 만들기 위해 annotation이 필요하다는 사실은 달라지지 않는다. (애초부터 데이터 생성 위한 모델은 아니었다.)</p>
 <h4 id="heading-2">#</h4>
 <p>Scene text image 합성을 위해 많은 연구들이 진행되었지만 아직까지는 부족한 부분이 많다. 논문이 목표한 바를 이해하고 예시 이미지를 보면 결과가 이상적으로 느껴지지만 전체 데이터를 보거나 해당 코드로 직접 데이터를 생성해 보면 예시 이미지와의 괴리가 상당하다. 데이터를 생성하다보면 확률적으로 이상적인 이미지가 생성되기도 하지만 대부분의 경우 어딘가 어색한 것이 아직까지의 현실이다.</p>
 <h4 id="experience">Experience</h4>
@@ -531,7 +531,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-gpo6pkk4rc3hkz9fi8hsaqfynvrvsbaq0lt06ye4gx2vttek94xyt4aotw2.min.js"></script>
+<script src="https://errolseo.github.io/js/script-pljttacskq0d6fvyqtf6wuentmsy2t4vmeorz0asg4qcbcx6rvao4ucwdu.min.js"></script>
 
 
 

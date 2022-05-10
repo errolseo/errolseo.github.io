@@ -102,7 +102,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-scwpc7ffgjyit2n5dt9lbpwsbqy44sqc11keg8tew1xvft4ywspmcj2vyzfu.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-xpsospmmnobetsysew0lj6brgxrybimwt4ugnkvuphap4lisatlpdicm2.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -257,10 +257,10 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-1.png"  alt="Fig. 1: CRNN architecture">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-1.png"  alt="Figure 1. CRNN architecture">
   
    
-    <span class="caption">Fig. 1: CRNN architecture</span>
+    <span class="caption">Figure 1. CRNN architecture</span>
   
 </div>
 
@@ -281,24 +281,24 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-2.png"  alt="Fig. 2: Structure of the SRN">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5-2.png"  alt="Figure 2. Structure of the SRN">
   
    
-    <span class="caption">Fig. 2: Structure of the SRN</span>
+    <span class="caption">Figure 2. Structure of the SRN</span>
   
 </div>
 
 <p>CTC에서는 image feature의 구조를 어느 정도 끝까지 유지했다면, <a href="https://arxiv.org/abs/1603.03915">Sequence Recognition
-Network(SRN)</a>에서는 image feature를 sequence feature로 바꿔버린다. 각각 장단의 유무가 있지만 STR에 더 적합한 모델은 SRN라고 생각한다. 특히 irregular의 경우 CTC는 구조적인 한계점이 명확하다.</p>
+Network(SRN)</a>에서는 image feature를 sequence feature로 바꿔버린다. 각자의 장단이 존재하지만 STR에 더 적합한 모델은 SRN이라 생각한다. 특히 irregular scene text image에서 발생하는 이슈들에 대해 CTC는 구조적으로 대응하기 어려운 부분이 존재한다.</p>
 <h4 id="experience">Experience</h4>
-<p>STR의 <strong>featurization, sequentialization, prediction</strong> 각 파트는 독립적이다. 더 좋은 featurization 방법이 있다면 쓰면 되고, 더 나은 sequentialization 방법이 있다면 쓰면 된다. 물론 각각의 성능이 최상이라고 해서 조합했을 때 최적의 성능을 보여주는 것은 아니지만 각 성능을 실험하는데 유리한 구조인 것은 틀림없다. CLOVA AI에서 각 파트의 최적화에 대한 실험을 해볼 수 있는 오픈 소스를 제공한다.</p>
+<p>STR의 <strong>featurization, sequentialization, prediction</strong> 각 파트는 독립적이다. 더 좋은 featurization 방법이 있다면 쓰면 되고, 더 나은 sequentialization 방법이 있다면 쓰면 된다. 물론 각각의 성능이 최상이라고 해서 조합했을 때 최적의 성능을 보장하지는 않지만, 파트별로 실험하는데 유리한 구조인 것은 틀림없다. CLOVA AI의 github에서 각 파트의 최적화에 대한 실험을 해볼 수 있는 오픈 소스를 제공한다.</p>
 <p>학습 데이터의 경우 직접 만들어도 되지만 LMDB로 잘 정리된 파일이 kaggle에 올라와있어 링크를 첨부한다. 라이센스에 대한 자세한 사항은 필자도 모르기 때문에 개인적인 실험 외에 사용하는 것이면 자세히 알아보고 사용하는 것이 좋다.</p>
 <blockquote>
-<p>open source : <a href="https://github.com/clovaai/deep-text-recognition-benchmark">https://github.com/clovaai/deep-text-recognition-benchmark</a><br>
-data : <a href="https://www.kaggle.com/datasets/nunenuh/clova-deeptext">https://www.kaggle.com/datasets/nunenuh/clova-deeptext</a></p>
+<p>Model framework : <a href="https://github.com/clovaai/deep-text-recognition-benchmark">https://github.com/clovaai/deep-text-recognition-benchmark</a><br>
+Data : <a href="https://www.kaggle.com/datasets/nunenuh/clova-deeptext">https://www.kaggle.com/datasets/nunenuh/clova-deeptext</a></p>
 </blockquote>
 <p><br>
-데이터만 있다면 돌리는 것 자체는 어렵지 않을 것이다. 국내에서 상당히 유명하기 때문에 돌리는 것이 어렵다면 검색을 통해 수 많은 정보를 얻을 수 있을 것이다.</p>
+돌리는 것 자체는 어렵지 않을 것이다. 국내에서 상당히 유명하기 때문에 돌리는 것이 어렵다면 검색을 통해 많은 정보를 얻을 수 있으니 참고하면 좋다.</p>
 <h4 id="reference">Reference</h4>
 <p>[1] <a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations</a></p>
 <p>[2] B. Shi et al. <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence
@@ -346,7 +346,7 @@ Sequence Data with Recurrent Neural Networks</a></p>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/6/" data-tooltip="[OCR] Scene Text Recognition (2)" aria-label="NEXT: [OCR] Scene Text Recognition (2)">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -433,7 +433,7 @@ Sequence Data with Recurrent Neural Networks</a></p>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/6/" data-tooltip="[OCR] Scene Text Recognition (2)" aria-label="NEXT: [OCR] Scene Text Recognition (2)">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -523,7 +523,7 @@ Sequence Data with Recurrent Neural Networks</a></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-gpo6pkk4rc3hkz9fi8hsaqfynvrvsbaq0lt06ye4gx2vttek94xyt4aotw2.min.js"></script>
+<script src="https://errolseo.github.io/js/script-pljttacskq0d6fvyqtf6wuentmsy2t4vmeorz0asg4qcbcx6rvao4ucwdu.min.js"></script>
 
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>

@@ -6,7 +6,16 @@
     <description>Recent content on Errol&#39;s AI blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://errolseo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 May 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://errolseo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[OCR] Scene Text Recognition (2)</title>
+      <link>https://errolseo.github.io/post/ocr/6/</link>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/post/ocr/6/</guid>
+      <description>ABINet</description>
+    </item>
+    
     <item>
       <title>[OCR] Scene Text Recognition (1)</title>
       <link>https://errolseo.github.io/post/ocr/5/</link>
@@ -59,6 +68,7 @@
       
       <guid>https://errolseo.github.io/about/</guid>
       <description>Errol Seo 서 현빈 (28)
+errolseo816@gmail.com
 Experience Mergerity
 Machine learning research engineer
 2021.09 - Present
