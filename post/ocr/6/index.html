@@ -268,10 +268,11 @@
 *치조* : *치즈* = 1,070,574 : 115,125<br>
 치조 : 치즈 = 0 : 3,804<br>
 <br>
-2009~2018년 사이에 발행된 신문 기사에서 사용된 횟수 (데이터 출처 : <a href="https://corpus.korean.go.kr/#down">모두의 말뭉치</a>)</p>
+2009~2018년 사이에 발행된 신문 기사에서 각 표현이 사용된 횟수 (데이터 출처 : <a href="https://corpus.korean.go.kr/#down">모두의 말뭉치</a>)</p>
 </blockquote>
 <p><br>
-신문 기사에서 &lsquo;조&rsquo;와 &lsquo;즈&rsquo;가 사용된 횟수에 대해 조사해 보았다. &lsquo;조&rsquo;가 &lsquo;즈&rsquo;에 비해 10배 가까이 많이 사용되었다. &lsquo;조&rsquo;와 &lsquo;즈&rsquo; 사이에서 정답을 예측해야 한다면 &lsquo;조&rsquo;를 선택하는 편이 정답일 확률이 10배 가까이 높다는 것이다. &lsquo;치&rsquo;라는 글자가 앞에 온다 해도 마찬가지다. &lsquo;치조&rsquo;가 &lsquo;치즈&rsquo;보다 10배 가까이 확률이 높다. 하지만 &lsquo;치즈&rsquo;와 &lsquo;치조&rsquo;가 단일 단어로 존재하게 되면 얘기가 달라진다. 표본 집단에서 &lsquo;치조&rsquo;라는 문자가 단일 단어로 사용된 횟수는 0이다. &lsquo;치즈&rsquo;라고 예측하는 편이 월등히 높은 정답 확률을 보장한다.</p>
+신문 기사에서 &lsquo;조&rsquo;와 &lsquo;즈&rsquo;가 사용된 횟수에 대해 조사해 보았다. &lsquo;조&rsquo;가 &lsquo;즈&rsquo;에 비해 10배 가까이 많이 사용되었다. &lsquo;조&rsquo;와 &lsquo;즈&rsquo; 사이에서 정답을 예측해야 한다면 &lsquo;조&rsquo;를 선택하는 편이 정답일 확률이 10배 가까이 높다는 것이다. &lsquo;치&rsquo;라는 글자가 앞에 온다 해도 마찬가지다. &lsquo;치조&rsquo;가 &lsquo;치즈&rsquo;보다 10배 가까이 확률이 높다.</p>
+<p>하지만 &lsquo;치즈&rsquo;와 &lsquo;치조&rsquo;가 단일 단어로 존재하게 되면 얘기가 달라진다. 표본 집단에서 &lsquo;치조&rsquo;라는 문자가 단일 단어로 사용된 횟수는 0이다. &lsquo;치즈&rsquo;라고 예측하는 편이 월등히 높은 정답 확률을 보장한다.</p>
 <h4 id="heading-1">#</h4>
 <p>LM이 하는 일은 어디까지나 보정이다. Scene text recognition의 경우, Fig.1처럼 노이즈가 존재하는 이미지는 이미지만으로 정확한 예측이 불가능하다. 그렇기 때문에 노이즈에 대해 얼마나 제대로 예측하냐에 따라 모델의 성능이 크게 갈린다.  <span class="highlight-text primary">LM은 이러한 선택의 갈림길에서 좀 더 높은 확률의 정답을 제시해준다.</span> LM이 하는 일은 정답을 예측하는 일이 아닌 정답의 확률을 제시하는 것이다. 최종적으로는 이미지를 통한 예측 확률과 LM에서의 예측 확률이 합쳐져 최적의 정답을 만들어낸다.</p>
 <p>아마 딥 러닝에 대한 조예가 싶다면 STR의 sequentialization 파트가 그 역활을 대신할 수 있는데 왜 LM을 쓰는지 의문을 가질 수 있다. 필자가 생각하는 이상적인 모델 또한 LM을 사용하지 않고 sequentialization 파트에서 이런 지식을 학습하는 것이다. 하지만 그것은 현실적으로 불가능하다. LM에서 다루는 데이터는 텍스트고, STR에서 다루는 데이터는 이미지이기 때문이다. LM에서 다루는 텍스트의 양과 동일한 이미지를 구하는 것도 학습시키는 것도 현실적으로 어렵다.</p>
@@ -287,7 +288,7 @@
   
 </div>
 
-<p>Fig.2의 이미지는 <a href="https://arxiv.org/abs/2103.06495">Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition (ABINet)</a>에서 발췌한 것이다. (a)가 기존 STR 모델이고 (b)가 ABINet에서 채용한 구조이다. 주목할 부분의 LM 입력값의 형태다. 기존 STR 모델은 image feature가 입력이 되고, ABINet은 text가 입력이 된다. 이 차이로 인해 ABINet에서는 pre-trained LM을 사용할 수 있게 되어 추가적인 <strong>언어적 지식</strong>을 습득하는게 가능해진다.</p>
+<p>Fig.2의 이미지는 <a href="https://arxiv.org/abs/2103.06495">Autonomous, Bidirectional and Iterative Language Modeling for Scene Text Recognition (ABINet)</a>에서 발췌한 것이다. (a)가 기존 STR 모델이고 (b)가 ABINet에서 채용한 구조이다. 주목할 부분은 LM 입력값의 형태다. 기존 STR 모델은 image feature가 입력이 되고, ABINet은 text가 입력이 된다. 이 차이로 인해 ABINet에서는 pre-trained LM을 사용할 수 있게 되고, 이는 곧 추가적인 <strong>언어적 지식</strong>을 습득하는게 가능하다는 것이다.</p>
 <h4 id="heading-2">#</h4>
 <p>Language model의 원리는 위에서 다룬 통계적 지식이다. Language model은 단어들의 sequence에 대한 확률을 기억하고 조합을 학습한다. 예를들어 &lsquo;감자튀김&rsquo;이란 단어는 &lsquo;감자&rsquo;와 &lsquo;튀김&rsquo;의 합성어다. 이런 정보를 STR 모델이 scene text image를 통해 자체적으로 학습하는 것은 현재로서는 불가능에 가깝다.</p>
 <p>누군가는 STR 모델이란 word box 내의 문자를 텍스트로 변환해 줄 뿐인 모델인데, 어째서 그 언어적 의미까지 알아야 하는가에 대해 의문이 들 수 있다. 사실 문자의 <strong>semantic</strong>을 이해하는 것이 STR 모델에 어떠한 영향을 주는지, 딥러닝의 특성상 정확하게 알 수는 없다. 하지만 확실한 것은 STR 모델에서 semantic이 노이즈로 작용할 이유는 없어 보이며, 수 많은 텍스트와 그 언어적 지식을 학습하는 것은 어떤 형태로든 STR 모델에 도움이 되고 있는 것이 실험으로 증명되고 있다.</p>
@@ -341,7 +342,7 @@ network for Textual Reasoning (GTR)</a>같은 논문에서는 STR을 보정하�
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/1/" data-tooltip="[NLP] Natural Language Processing" aria-label="NEXT: [NLP] Natural Language Processing">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -428,7 +429,7 @@ network for Textual Reasoning (GTR)</a>같은 논문에서는 STR을 보정하�
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/1/" data-tooltip="[NLP] Natural Language Processing" aria-label="NEXT: [NLP] Natural Language Processing">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>

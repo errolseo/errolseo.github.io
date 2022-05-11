@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on Errol&#39;s AI blog</title>
+    <link>https://errolseo.github.io/categories/nlp/</link>
+    <description>Recent content in NLP on Errol&#39;s AI blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://errolseo.github.io/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[NLP] Natural Language Processing</title>
+      <link>https://errolseo.github.io/post/nlp/1/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0800</pubDate>
+      
+      <guid>https://errolseo.github.io/post/nlp/1/</guid>
+      <description>Introduction to NLP</description>
+    </item>
+    
+  </channel>
+</rss>

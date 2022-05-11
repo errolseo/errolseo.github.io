@@ -15,8 +15,8 @@
     
   },
   "name":"Errol\u0027s AI blog",
-  "description":"UnrealText, SRNet",
-  "url":"https:\/\/errolseo.github.io\/post\/ocr\/4\/",
+  "description":"Introduction to NLP",
+  "url":"https:\/\/errolseo.github.io\/post\/nlp\/1\/",
   "keywords":"[]"
 }
 
@@ -27,39 +27,35 @@
 <meta name="generator" content="Hugo 0.96.0 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="UnrealText, SRNet">
+<meta name="description" content="Introduction to NLP">
 
 
-<meta property="og:description" content="UnrealText, SRNet">
+<meta property="og:description" content="Introduction to NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[OCR] Synthetic Text Image (3)">
-<meta name="twitter:title" content="[OCR] Synthetic Text Image (3)">
-<meta property="og:url" content="https://errolseo.github.io/post/ocr/4/">
-<meta property="twitter:url" content="https://errolseo.github.io/post/ocr/4/">
+<meta property="og:title" content="[NLP] Natural Language Processing">
+<meta name="twitter:title" content="[NLP] Natural Language Processing">
+<meta property="og:url" content="https://errolseo.github.io/post/nlp/1/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/nlp/1/">
 <meta property="og:site_name" content="Errol&#39;s AI blog">
-<meta property="og:description" content="UnrealText, SRNet">
-<meta name="twitter:description" content="UnrealText, SRNet">
+<meta property="og:description" content="Introduction to NLP">
+<meta name="twitter:description" content="Introduction to NLP">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2022-04-12T00:00:00">
+    <meta property="article:published_time" content="2022-05-10T00:00:00">
   
   
-    <meta property="article:modified_time" content="2022-04-12T00:00:00">
+    <meta property="article:modified_time" content="2022-05-10T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="OCR">
-    
   
   
     
-      <meta property="article:tag" content="Synthetic Text Image">
+      <meta property="article:section" content="NLP">
     
-      <meta property="article:tag" content="UnrealText">
+  
+  
     
-      <meta property="article:tag" content="SRNet">
+      <meta property="article:tag" content="Natural Language Processing">
     
   
 
@@ -79,22 +75,24 @@
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/OCR/4-3.jpg">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/4-3.jpg">
+  <meta property="og:image" content="https://errolseo.github.io/images/NLP/1-1.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/NLP/1-1.png">
 
 
-    <title>[OCR] Synthetic Text Image (3)</title>
+    <title>[NLP] Natural Language Processing</title>
 
     <link rel="icon" href="https://errolseo.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://errolseo.github.io/post/ocr/4/">
+    <link rel="canonical" href="https://errolseo.github.io/post/nlp/1/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
     
     
     
@@ -218,15 +216,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      [OCR] Synthetic Text Image (3)
+      [NLP] Natural Language Processing
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-04-12T00:00:00&#43;09:00">
+      <time datetime="2022-05-10T00:00:00&#43;08:00">
         
-  April 12, 2022
+  May 10, 2022
 
       </time>
     
@@ -235,7 +233,7 @@
   
     <span>in</span>
     
-      <a href="https://errolseo.github.io/categories/ocr">OCR</a>
+      <a href="https://errolseo.github.io/categories/nlp">NLP</a>
     
   
 
@@ -245,73 +243,40 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>MJ와 ST의 데이터는 강력하지만 단조로운 면이 있다. MJ와 ST가 없더라도 OCR 인조 데이터가 필요하다면 아마 비슷한 방법의 시도가 이루어졌을 것이다. 이번엔 좀 더 창의적인 방법들을 소개해 보려 한다.</p>
+              <blockquote>
+<p>미 버클리 대학생 리암 포어(Liam Porr)가 인공지능을 사용해 작성한 블로그 게시물이 IT뉴스 큐레이팅 플랫폼인, 해커뉴스(Hacker News)에서 1위를 차지했다.<br>
+&hellip;<br>
+해커뉴스 기사들은 각 기사당 눌린 &lsquo;좋아요&rsquo; 수와 게시된 날짜를 기준으로 순위를 매긴다.<br>
+<br>
+출처 : Ai 타임스 (<a href="http://www.aitimes.com/news/articleView.html?idxno=131593">http://www.aitimes.com/news/articleView.html?idxno=131593</a>)</p>
+</blockquote>
 <h4 id="heading">#</h4>
-<p><a href="https://arxiv.org/abs/2003.10608">UnrealText</a>는 3D 그래픽 엔진(Unreal Engine 4.22)을 이용해 scene text image를 생성하는 법을 연구했다. ST와 비교했을 때 동일한 양의 학습 데이터로 더 높은 STD 모델 성능을 얻는데 성공했다. UnrealText 이전에 <a href="https://arxiv.org/abs/1907.06007">SynthText3D</a>가 먼저 발행되었지만 어느 정도 퀄리티의 차이가 있다.</p>
-<p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-1.jpg"  alt="Figure 1. Demonstration of the proposed UnrealText synthesis engine">
-  
-   
-    <span class="caption">Figure 1. Demonstration of the proposed UnrealText synthesis engine</span>
-  
-</div>
-
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-2.png"  alt="Figure 2. Detection results (F-1 score)">
-  
-   
-    <span class="caption">Figure 2. Detection results (F-1 score)</span>
-  
-</div>
-</p>
-<p>Fig.1의 예시 이미지를 보면 그림자, 자연스러운 위치, 장애물 등 ST에서는 얻을 수 없는 결과들을 확인할 수 있다. 광원, 오브젝트 그리고 텍스처 등이 한데 어우러져 인조 데이터 생성에 대한 새로운 가능성을 제시했다. 문제는 필자가 직접 UnrealText 데이터를 학습해 본 결과가 별로 좋지 못했다. 일단 예시의 이미지처럼 데이터 전체가 훌륭하진 않았다. 대부분의 경우 이질감이 심하고 부자연스러웠다. 또 그래픽 엔진의 한계인지 배경이 너무 단조로웠다. 이미지 수 자체가 적지는 않았지만 다채롭다는 느낌을 전혀 받을 수 없었다. 논문의 지표 상으로는 비슷한 양의 데이터를 학습했을 때 ST보다 좋은 성능을 보여준지만, 해당 샘플을 추출한 방법이 무작위인 것 같지는 않다.</p>
-<p>UnrealText의 데이터 자체는 아쉬운 부분이 많지만 논문에서 주목한 부분들은 상당히 의미있다고 본다.</p>
+<p>National Language Processing(NLP). 자연어 처리는 근래 눈부신 속도로 발전했다. 그 중심에는 <a href="https://arxiv.org/abs/1706.03762">Transformer(Attention Is All You Need)</a>가 있지만, Transformer 이전에도 word2vec, RNN 등을 이용해 이미 가파른 성장세를 보여주고 있었다. 이러한 성장은 rule base였던 자연어 처리 분야가 word2vec을 시작으로 model base로 점점 전환되면서 시작되었다.</p>
+<p>Rule base 자체를 부정하는 것은 아니지만 한계점이 존재하는 것은 명백한 것은 확실하다. 반면 model base에는 명확한 한계점이 존재하지 않는다. Rule base로 뉴스 플랫폼에서 1위를 할 수 있는 기사를 작성할 수는 없다. Rule base로 법률을 본래 목적을 이해하여 개인의 사정에 의거한 판결을 내릴 수는 없다. Rule base로 사람과 다양한 주제에 대해 자연스럽게 대화할 수는 없다. 하지만 놀랍게도 model base로는 위에 나열된 모든 것들이 가능할지도 모른다.</p>
+<p>그리고 model base가 됐다고 rule base 자체가 사리지는 것은 아니다. Rule base의 훌륭한 기술들은 model base의 전처리, 후처리 그 외의 다양한 부분에서 성능 향상에 기여를 하고 있다.</p>
 <h4 id="heading-1">#</h4>
-<p><a href="https://arxiv.org/abs/1908.03047">SRNet(Style Retention Network)</a>은 OCR 인조 데이터 생성을 위해 연구된 모델은 아니다. 이미지 번역 등에서 사용하기 위해 만들어진 이미지 합성 모델이다. 하지만 GAN을 기본 구조로 사용했기에 이 모델의 기본 목표는 자연스러움이다.</p>
-<p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-3.jpg"  alt="Figure 3. Sample images of SRNet, (L) original / (R) generated">
-  
-   
-    <span class="caption">Figure 3. Sample images of SRNet, (L) original / (R) generated</span>
-  
-</div>
-
+<p>그럼 rule base와 model base의 차이는 무엇인가. 필자는 &lsquo;semantic에 대한 이해&rsquo;라고 생각한다. word2vec을 예시로 이용해 알아보자.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/4-4.png"  alt="Figure 4. The overall structure of SRNet">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-1.png"  alt="Fig. 1: Word2vec example">
   
    
-    <span class="caption">Figure 4. The overall structure of SRNet</span>
+    <span class="caption">Fig. 1: Word2vec example</span>
   
 </div>
-</p>
-<p>모델의 전체 구조는 단순하지만 어려 개의 모듈로 나뉘어 있음을 Fig.4를 통해 파악할 수 있다.</p>
-<ol>
-<li>원본 이미지에서 텍스트만을 지워주는 모듈</li>
-<li>입력 텍스트를 원본 이미지의 텍스트와 유사한 폰트로 바꿔주는 모듈</li>
-<li>그 둘을 자연스럽게 합성해주는 모듈</li>
-</ol>
-<p>모델의 구조를 보면 가장 큰 문제는 원본 이미지에서 교체할 텍스트의 영역을 직접 잡아줘야 한다는 것이다. 그나마 다행인 것은 텍스트의 내용까지는 필요가 없다는 거지만, 인조 데이터를 만들기 위해 annotation이 필요하다는 사실은 달라지지 않는다. (애초부터 데이터 생성 위한 모델은 아니었다.)</p>
-<h4 id="heading-2">#</h4>
-<p>Scene text image 합성을 위해 많은 연구들이 진행되었지만 아직까지는 부족한 부분이 많다. 논문이 목표한 바를 이해하고 예시 이미지를 보면 결과가 이상적으로 느껴지지만 전체 데이터를 보거나 해당 코드로 직접 데이터를 생성해 보면 예시 이미지와의 괴리가 상당하다. 데이터를 생성하다보면 확률적으로 이상적인 이미지가 생성되기도 하지만 대부분의 경우 어딘가 어색한 것이 아직까지의 현실이다.</p>
+
+<p>Word2vec이란 단어를 다차원 벡터로 변환시켜주는 neural network model을 말한다. 여기서 중요한 점은 변환된 벡터가 단어가 가진 <strong>의미론적</strong> 정보를 포함하고 있다는 것이다.</p>
+<p>$$\mathrm{w_\mathcal{king}} - \mathrm{w_\mathcal{man}} + \mathrm{w_\mathcal{woman}}  \approx \mathrm{w_\mathcal{queen}}$$</p>
+<p>Word2vec 이전에는 king - man + woman = queen, 사람에게는 단순해 보이는 이 넌센스를 기계한테 학습시킬 방법이 놀랍게도 존재하지 않았다. Word2vec의 등장으로 다양한 이슈가 발생했는데,</p>
+<p>은결이는 <!-- raw HTML omitted -->배<!-- raw HTML omitted -->를 타고 강을 건넜다.
+종길이는 과수원에서 <!-- raw HTML omitted -->배<!-- raw HTML omitted -->를 땄다.
+창석이는 밥을 많이 먹어서 <!-- raw HTML omitted -->배<!-- raw HTML omitted -->가 부르다.</p>
+<h4 id="experience">Experience</h4>
 <h4 id="reference">Reference</h4>
-<p>[1] S. Long et al. <a href="https://arxiv.org/abs/2003.10608">UnrealText: Synthesizing Realistic Scene Text Images from the Unreal World</a></p>
-<p>[2] L. Wu et al. <a href="https://arxiv.org/abs/1908.03047">Editing Text in the Wild</a></p>
+<p>[1]</p>
 
               
 
@@ -326,11 +291,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthetic-text-image/">Synthetic Text Image</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/unrealtext/">UnrealText</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/srnet/">SRNet</a>
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/natural-language-processing/">Natural Language Processing</a>
 
                   </div>
                 
@@ -341,7 +302,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/3/" data-tooltip="[OCR] Synthetic Text Image (2)" aria-label="PREVIOUS: [OCR] Synthetic Text Image (2)">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/6/" data-tooltip="[OCR] Scene Text Recognition (2)" aria-label="PREVIOUS: [OCR] Scene Text Recognition (2)">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -349,7 +310,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/5/" data-tooltip="[OCR] Scene Text Recognition (1)" aria-label="NEXT: [OCR] Scene Text Recognition (1)">
+            <a class="post-action-btn btn btn--disabled">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -367,19 +328,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/4/" title="Share on Facebook" aria-label="Share on Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/nlp/1/" title="Share on Facebook" aria-label="Share on Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/4/" title="Share on Twitter" aria-label="Share on Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/nlp/1/" title="Share on Twitter" aria-label="Share on Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/4/" title="Share on Linkedin" aria-label="Share on Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/nlp/1/" title="Share on Linkedin" aria-label="Share on Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -428,7 +389,7 @@
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/3/" data-tooltip="[OCR] Synthetic Text Image (2)" aria-label="PREVIOUS: [OCR] Synthetic Text Image (2)">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/6/" data-tooltip="[OCR] Scene Text Recognition (2)" aria-label="PREVIOUS: [OCR] Scene Text Recognition (2)">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -436,7 +397,7 @@
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/ocr/5/" data-tooltip="[OCR] Scene Text Recognition (1)" aria-label="NEXT: [OCR] Scene Text Recognition (1)">
+            <a class="post-action-btn btn btn--disabled">
           
               <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
               <i class="fa fa-angle-right"></i>
@@ -454,19 +415,19 @@
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/4/" title="Share on Facebook" aria-label="Share on Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/nlp/1/" title="Share on Facebook" aria-label="Share on Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/4/" title="Share on Twitter" aria-label="Share on Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/nlp/1/" title="Share on Twitter" aria-label="Share on Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/4/" title="Share on Linkedin" aria-label="Share on Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/nlp/1/" title="Share on Linkedin" aria-label="Share on Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -494,19 +455,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F4%2F" aria-label="Share on Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Fnlp%2F1%2F" aria-label="Share on Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F4%2F" aria-label="Share on Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Fnlp%2F1%2F" aria-label="Share on Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F4%2F" aria-label="Share on Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Fnlp%2F1%2F" aria-label="Share on Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
         </a>
       </li>
@@ -528,6 +489,25 @@
 
 <script src="https://errolseo.github.io/js/script-pljttacskq0d6fvyqtf6wuentmsy2t4vmeorz0asg4qcbcx6rvao4ucwdu.min.js"></script>
 
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false
+      });
+  });
+</script>
 
 
 
