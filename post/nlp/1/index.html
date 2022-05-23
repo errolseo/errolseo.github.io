@@ -274,18 +274,18 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-1.png"  alt="Fig. 1: Semantic in word2vec">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-1.png"  alt="Figure 1. Semantic of word2vec">
   
    
-    <span class="caption">Fig. 1: Semantic in word2vec</span>
+    <span class="caption">Figure 1. Semantic of word2vec</span>
   
 </div>
 
 <p>$$\mathrm{w_\mathcal{king}} - \mathrm{w_\mathcal{man}} + \mathrm{w_\mathcal{woman}}  \approx \mathrm{w_\mathcal{queen}}$$</p>
-<p>Word2vec 이전에는 king - man + woman = queen, 사람에게는 단순해 보이는 이 넌센스를 기계한테 학습시킬 방법이 존재하지 않았다. Semantic에 대한 이해가 없이 위와 같은 넌센스를 풀 수는 없다. 위와 같은 넌센스를 풀 수 있다는 것은 semantic을 이해하고 있다는 얘기이다. 이 사실은 모델의 일반화 관점에서 중요한 의미를 내포하고 있다.</p>
-<p>사전과 통계에만 의존해서 문제를 푸는 규칙 기반 모델은 과적합(overfitting)과 <strong>일반화(generalization)</strong>의 관점에서 큰 문제점을 가질 수 밖에 없고, 그로 인해 다른 도메인으로 변형 및 확장이 어려운 것이다. 하지만 언어의 쓰임새를 통해 언어가 가진 의미를 이해하는 능력이 더해진다면, 궁극적으로는 사람이 할 수 있는 모든 일을 할 수 있다.</p>
+<p>king - man + woman = queen, 사람에게는 단순해 보이는 이 넌센스를 word2vec 이전의 모델들은 표현하지 못했다. 하지만 word2vec은 따로 학습하지 않아도 단어를 사용하는 패턴을 보고 스스로 학습하는데 성공했다. 이 사실은 word2vec 모델이 단어의 <strong>일반적인</strong> 의미를 스스로 학습할 수 있다는 것을 의미하며, 이는 word2vec 모델이 semantic을 이해할 수 있다고 봐도 무방하다.</p>
+<p>Semantic을 이해하지 않고, 사전과 통계에만 의존해서 문제를 푸는 규칙 기반 모델은 과적합(overfitting)과 일반화(generalization) 관점에서 큰 문제점을 가질 수 밖에 없다. 결국은 사전과 데이터에 의존하며, 학습 데이터에 과적합될 수 밖에 없는 구조이기 때문이다.</p>
 <h4 id="heading-2">#</h4>
-<p>자연어 처리에서는 semantic도 중요하지만 &lsquo;sequence&rsquo; 또한 비슷한 수준으로 중요하다.</p>
+<p>Word2vec의 등장으로 NLP 분야는 한걸음 더 나아갔지만, 자연어 처리에서는 semantic만큼 <strong>sequence</strong> 또한 마찬가지로 중요했다.</p>
 <blockquote>
 <p>은결이는 <strong>배</strong>를 타고 강을 건넜다.<br>
 종길이는 과수원에서 <strong>배</strong>를 땄다.<br>
@@ -300,28 +300,28 @@
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-2.png"  alt="Fig. 2: RNN language model">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-2.png"  alt="Figure 2. RNN language model">
   
    
-    <span class="caption">Fig. 2: RNN language model</span>
+    <span class="caption">Figure 2. RNN language model</span>
   
 </div>
 
-<p>RNN은 시계열 데이터를 학습하기 위해 개발된 모델이다. 이전 sequence의 데이터가 다음 sequence의 output에 영향을 줄 수 있도록 구상되었다. 이미지에서는 데이터가 정방향으로만 전이되지만 언어의 특성상 역방향도 중요하므로 NLP task에서는 보통 정방향과 역방향을 같이 학습할 수 있는 BiLSTM같은 모델이 주로 사용된다.</p>
-<p>하지만 RNN에는 치명적인 단점이 하나 있다. Sequence가 길어지면서 예전에 입력으로 받은 데이터가 점점 잊혀진다는 것이다. RNN은 애당초 시계열 데이터를 학습하기 위해 고안된 모델이고, 오래 전의 입력보다 방금 전의 입력이 더 큰 영향을 줄 수 있도록 설계되었다. NLP 연구자들은 attention 등을 이용해 문제를 해결하기 위해 노력했고, 결국 transformer 모델의 등장으로 큰 변환점을 맞이하게 되었다.</p>
+<p>RNN은 시계열 데이터를 학습하기 위해 개발된 모델이다. 이전 sequence의 데이터가 다음 sequence의 output에 영향을 줄 수 있도록 설계되었다. Fig.2에서는 데이터가 정방향으로만 전이되지만 언어의 특성상 역방향도 중요하므로 NLP task에서는 보통 정방향과 역방향을 같이 학습할 수 있는 BiLSTM같은 모델이 주로 사용된다.</p>
+<p>하지만 RNN에는 치명적인 단점이 하나 있다. Sequence가 길어지면 예전에 입력 받은 데이터가 점점 잊혀진다는 것이다. RNN은 애당초 시계열 데이터를 학습하기 위해 고안된 모델이므로, 오래 전의 입력보다 바로 전의 입력이 더 큰 영향을 줄 수 있도록 설계되어 있다. NLP 연구자들은 attention 등을 이용해 문제를 해결하기 위해 노력했고, 결국 transformer 모델의 등장으로 큰 변환점을 맞이하게 된다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-3.webp"  alt="Fig. 2: Data flow in RNN and Transformer">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1-3.webp"  alt="Figure 3. Data flow in RNN and Transformer">
   
    
-    <span class="caption">Fig. 2: Data flow in RNN and Transformer</span>
+    <span class="caption">Figure 3. Data flow in RNN and Transformer</span>
   
 </div>
 
-<p><span class="highlight-text primary">RNN encoder에서의 sequence는 time이다.</span> RNN은 정방향과 역방향, 순서에 따라서 데이터를 참조한다. <span class="highlight-text primary">하지만 Transformer encoder에서의 sequence는 position이다.</span> 모든 position은 동시에 서로를 참조하기에 순서보다는 구성이 중요하다. 이로 인해 transformer는 서로 멀리 떨어진 단어끼리도 연관성이 크다면 정보의 손실없이 word vector에 그 의미를 포함시킬 수 있다.</p>
+<p><span class="highlight-text primary">RNN encoder에서의 sequence는 time이다.</span> RNN은 정방향과 역방향, 순서에 따라서 데이터를 참조한다. <span class="highlight-text primary">하지만 Transformer encoder에서의 sequence는 position이다.</span> Fig.3처럼 모든 position은 동시에 서로를 참조하기 때문에 순서보다는 구성이 중요하다. 이로 인해 transformer는 서로 멀리 떨어진 단어끼리도 단어의 의미를 결정하는데 연관성이 크다면 정보의 손실없이 word vector에 그 의미를 포함시킬 수 있게 되었다.</p>
 <h4 id="heading-3">#</h4>
 <p>현재 자연어 처리의 대세 역시 딥 러닝을 이용한 모델이다. 데이터와 모델이 물론 중요하다. 하지만 자연어 처리가 가진 <strong>semantic, sequence</strong>의 중요성에 대해 짚고 넘어갈 필요가 있다고 생각했다. 결국 자연어 처리에서 데이터와 모델은 semantic과 squence를 잘 이해시키는 방향으로 진화하고 있다는 것이 필자의 생각이다.</p>
 <h4 id="reference">Reference</h4>
