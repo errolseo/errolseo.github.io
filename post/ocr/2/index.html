@@ -14,7 +14,7 @@
     "image": "https://errolseo.github.io/images/profile.jpg"
     
   },
-  "name":"Errol\u0027s AI blog",
+  "name":"Errol\x27s AI blog",
   "description":"MJSynth, SynthText",
   "url":"https:\/\/errolseo.github.io\/post\/ocr\/2\/",
   "keywords":"[]"
@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.96.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
 <meta name="description" content="MJSynth, SynthText">
@@ -385,15 +385,15 @@
 <blockquote>
 <p>Open Source : <a href="https://github.com/ankush-me/SynthText">https://github.com/ankush-me/SynthText</a></p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">FROM</span><span style="color:#d88200"> nvcr.io/nvidia/pytorch:21.12-py3</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">ENV</span> <span style="color:#111">LD_PRELOAD</span><span style="color:#f92672">=</span>/opt/conda/lib/libmkl_core.so:/opt/conda/lib/libmkl_sequential.so<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y libsm6 libxext6 libxrender-dev <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> pip install h5py pygame<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> git clone -b python3 https://github.com/ankush-me/SynthText.git<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><ul>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">FROM</span><span style="color:#d88200"> nvcr.io/nvidia/pytorch:21.12-py3</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">ENV</span> <span style="color:#111">LD_PRELOAD</span><span style="color:#f92672">=</span>/opt/conda/lib/libmkl_core.so:/opt/conda/lib/libmkl_sequential.so<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y libsm6 libxext6 libxrender-dev <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> pip install h5py pygame<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> git clone -b python3 https://github.com/ankush-me/SynthText.git<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><ul>
 <li>fonts</li>
 <li>color map</li>
 <li>배경 및 배경의 boundary 정보</li>

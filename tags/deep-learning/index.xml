@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning on Errol&#39;s AI blog</title>
+    <link>https://errolseo.github.io/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on Errol&#39;s AI blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://errolseo.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[DL] Representation</title>
+      <link>https://errolseo.github.io/post/nlp/2/</link>
+      <pubDate>Tue, 07 Jun 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://errolseo.github.io/post/nlp/2/</guid>
+      <description>Introduction to Language Model</description>
+    </item>
+    
+  </channel>
+</rss>

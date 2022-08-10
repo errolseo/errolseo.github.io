@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.jpg"
+    
+  },
+  "name":"Errol\x27s AI blog",
+  "description":"Introduction to Language Model",
+  "url":"https:\/\/errolseo.github.io\/post\/nlp\/2\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="">
+<meta name="description" content="Introduction to Language Model">
+
+
+<meta property="og:description" content="Introduction to Language Model">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[DL] Representation">
+<meta name="twitter:title" content="[DL] Representation">
+<meta property="og:url" content="https://errolseo.github.io/post/nlp/2/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/nlp/2/">
+<meta property="og:site_name" content="Errol&#39;s AI blog">
+<meta property="og:description" content="Introduction to Language Model">
+<meta name="twitter:description" content="Introduction to Language Model">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2022-06-07T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-06-07T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="DL">
+    
+  
+  
+    
+      <meta property="article:tag" content="Deep Learning">
+    
+      <meta property="article:tag" content="Representation">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.jpg">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/DL/1-2.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/DL/1-2.png">
+
+
+    <title>[DL] Representation</title>
+
+    <link rel="icon" href="https://errolseo.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/nlp/2/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+    
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-xpsospmmnobetsysew0lj6brgxrybimwt4ugnkvuphap4lisatlpdicm2.min.css" />
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7TXCGWW79C');
+    </script>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.notion.site/Errol-s-notepad-a25d71eab4fe46098f6959c9f9f69cab" target="_blank" rel="noopener" title="Notion">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-neos" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Notion</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      [DL] Representation
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2022-06-07T00:00:00&#43;09:00">
+        
+  June 7, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a href="https://errolseo.github.io/categories/dl">DL</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>인공 지능(Artificial Intelligence)에 대한 정의는 꽤나 심오하다. 인공 지능까지 가지 않아도 지능이란 것을 정의하는 것은 꽤나 심오하다.</p>
+<p>현재 AI 분야에서 대부분의 엔지니어 및 연구자들의 업무는 딥 러닝을 이용해서 인간의 업무를 대체하거나 보조하는 신경망 모델(Neural Network Model)을 개발하는 것이다. &ldquo;신경망 모델은 인공 지능인가?&rdquo; 에 대한 논의는 넘어가기로 하고, 신경망 모델 자체에 대한 정의를 해보자. 신경망 모델은 하나의 함수(Function)다. 입력을 넣으면 출력을 받을 수 있다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/DL/1-1.webp"  alt="Figure 1. Black box function">
+  
+   
+    <span class="caption">Figure 1. Black box function</span>
+  
+</div>
+
+<p>이러한 신경망 모델은 입력과 출력 그리고 모델 자체도 중요하지만, 딥 러닝이 이렇게까지 성공할 수 있었던 이유는 <strong>hidden representation</strong>에 있다. Embedding, Feature, Representation 상황에 따라 쓰이는 용어는 다르지만 이들에게는 공통점이 존재한다. <strong>알려주지 않은 부분</strong>을 스스로 학습한다는 것이다.</p>
+<h4 id="heading">#</h4>
+<p>자세한 내용을 이야기하기 전에 그림을 한 장 먼저 보도록 하자.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/DL/1-2.png"  alt="Figure 2. T-SNE visualization of image representation mapped semantic word space">
+  
+   
+    <span class="caption">Figure 2. T-SNE visualization of image representation mapped semantic word space</span>
+  
+</div>
+
+<p>Zero-Shot Learning Through Cross-Modal Transfer, R. Socher et al.의 저자들은 Wikipedia text를 이용해 사전 학습된 word embedding 모델의 representation을 이용해서 image 데이터의 zero-shot learning 모델을 학습시키려는 시도를 했다.</p>
+<p>$$\begin{equation}
+J(\Theta) = \sum_{y\in Y_{s}}\sum_{x^{(i)}\in X_{y}} \Big\lVert w_{y} - \theta^{(2)} f(\theta^{(1)} x^{(i)})\Big\rVert^{2},
+\end{equation}$$</p>
+<p>All training images $x^{(i)} \in X_{y}$ of a seen class $y \in Y_{s}$ are mapped to the word vector $w_{y}$.<br>
+$\Theta = (\theta^{(1)}, \theta^{(2)})$ : network weights. ($f =$ tanh)</p>
+<p><br>
+Zero-shot learning 모델의 objective function은 위와 같이 단순하다. Fig. 2에서 word box는 word embedding 모델의 representation을 시각화한 것이고, 각 문양들은 학습 image와 unseen image를 zero-shot learning 모델에 입력으로 넣었을 때의 representation을 시각화한 것이다. 여기서 unseen image는 cat과 truck이다. 이제 생각해봐야 할 일은 <strong>알려주지 않았지만 모델이 스스로 학습한 부분</strong>이다.</p>
+<p>ㅇ</p>
+<h4 id="heading-1">#</h4>
+<h4 id="reference">Reference</h4>
+<p>[1]  R. Socher et al. <a href="https://nlp.stanford.edu/~socherr/SocherGanjooManningNg_NIPS2013.pdf">Zero-Shot Learning Through Cross-Modal Transfer</a></p>
+<p>[2] A <a href=""></a></p>
+<p>[3] A <a href=""></a></p>
+
+              
+
+
+            </div>
+          </div>
+          
+            <div id="post-footer" class="post-footer main-content-wrap">
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/deep-learning/">Deep Learning</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/representation/">Representation</a>
+
+                  </div>
+                
+              
+              <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/1/" data-tooltip="[NLP] Natural Language Processing" aria-label="PREVIOUS: [NLP] Natural Language Processing">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/nlp/2/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/nlp/2/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/nlp/2/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  <li class="post-action">
+    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+      <i class="far fa-comment"></i>
+    </a>
+  </li>
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+              
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+            </div>
+          
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Errol Seo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/1/" data-tooltip="[NLP] Natural Language Processing" aria-label="PREVIOUS: [NLP] Natural Language Processing">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/nlp/2/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/nlp/2/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/nlp/2/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  <li class="post-action">
+    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+      <i class="far fa-comment"></i>
+    </a>
+  </li>
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Fnlp%2F2%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Fnlp%2F2%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Fnlp%2F2%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+      
+    </div>
+    
+  <div id="cover" style="background-color:#212F3D"></div>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-pljttacskq0d6fvyqtf6wuentmsy2t4vmeorz0asg4qcbcx6rvao4ucwdu.min.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false
+      });
+  });
+</script>
+
+
+
+  </body>
+</html>
+
