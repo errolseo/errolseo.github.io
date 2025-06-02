@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Natural Language Processing on Errol&#39;s AI blog</title>
-    <link>https://errolseo.github.io/tags/natural-language-processing/</link>
+    <link>http://localhost:1313/tags/natural-language-processing/</link>
     <description>Recent content in Natural Language Processing on Errol&#39;s AI blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://errolseo.github.io/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Embedding</title>
-      <link>https://errolseo.github.io/post/nlp/2/</link>
+      <link>http://localhost:1313/post/nlp/2/</link>
       <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/post/nlp/2/</guid>
+      <guid>http://localhost:1313/post/nlp/2/</guid>
       <description>What is Embedding ?</description>
     </item>
     <item>
       <title>[NLP] Semantic &amp; Sequence</title>
-      <link>https://errolseo.github.io/post/nlp/1/</link>
+      <link>http://localhost:1313/post/nlp/1/</link>
       <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/post/nlp/1/</guid>
+      <guid>http://localhost:1313/post/nlp/1/</guid>
       <description>What are semantic and sequence in NLP?</description>
     </item>
   </channel>

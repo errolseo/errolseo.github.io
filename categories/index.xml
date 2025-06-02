@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Errol&#39;s AI blog</title>
-    <link>https://errolseo.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Errol&#39;s AI blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://errolseo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP</title>
-      <link>https://errolseo.github.io/categories/nlp/</link>
+      <link>http://localhost:1313/categories/nlp/</link>
       <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/categories/nlp/</guid>
+      <guid>http://localhost:1313/categories/nlp/</guid>
       <description></description>
     </item>
     <item>
       <title>OCR</title>
-      <link>https://errolseo.github.io/categories/ocr/</link>
+      <link>http://localhost:1313/categories/ocr/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/categories/ocr/</guid>
+      <guid>http://localhost:1313/categories/ocr/</guid>
       <description></description>
     </item>
   </channel>
