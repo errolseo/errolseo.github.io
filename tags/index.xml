@@ -4,156 +4,114 @@
     <title>Tags on Errol&#39;s AI blog</title>
     <link>https://errolseo.github.io/tags/</link>
     <description>Recent content in Tags on Errol&#39;s AI blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://errolseo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>https://errolseo.github.io/tags/deep-learning/</link>
-      <pubDate>Tue, 07 Jun 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://errolseo.github.io/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Representation</title>
-      <link>https://errolseo.github.io/tags/representation/</link>
-      <pubDate>Tue, 07 Jun 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://errolseo.github.io/tags/representation/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://errolseo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Language Model</title>
       <link>https://errolseo.github.io/tags/language-model/</link>
-      <pubDate>Tue, 24 May 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/language-model/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Natural Language Processing</title>
       <link>https://errolseo.github.io/tags/natural-language-processing/</link>
-      <pubDate>Tue, 24 May 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/natural-language-processing/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Retrieval-Augmented Generation</title>
+      <link>https://errolseo.github.io/tags/retrieval-augmented-generation/</link>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/tags/retrieval-augmented-generation/</guid>
+      <description></description>
+    </item>
     <item>
       <title>ABINet</title>
       <link>https://errolseo.github.io/tags/abinet/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/abinet/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Scene Text Recognition</title>
       <link>https://errolseo.github.io/tags/scene-text-recognition/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/scene-text-recognition/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CRNN</title>
       <link>https://errolseo.github.io/tags/crnn/</link>
-      <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/crnn/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CTC</title>
       <link>https://errolseo.github.io/tags/ctc/</link>
-      <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/ctc/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SRN</title>
       <link>https://errolseo.github.io/tags/srn/</link>
-      <pubDate>Tue, 26 Apr 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/srn/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SRNet</title>
       <link>https://errolseo.github.io/tags/srnet/</link>
-      <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/srnet/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Synthetic Text Image</title>
       <link>https://errolseo.github.io/tags/synthetic-text-image/</link>
-      <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/synthetic-text-image/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>UnrealText</title>
       <link>https://errolseo.github.io/tags/unrealtext/</link>
-      <pubDate>Tue, 12 Apr 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/unrealtext/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SynthTIGER</title>
       <link>https://errolseo.github.io/tags/synthtiger/</link>
-      <pubDate>Tue, 22 Mar 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/synthtiger/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MJSynth</title>
       <link>https://errolseo.github.io/tags/mjsynth/</link>
-      <pubDate>Tue, 08 Mar 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/mjsynth/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SynthText</title>
       <link>https://errolseo.github.io/tags/synthtext/</link>
-      <pubDate>Tue, 08 Mar 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/synthtext/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Introduction</title>
       <link>https://errolseo.github.io/tags/introduction/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/introduction/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

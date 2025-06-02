@@ -4,11 +4,8 @@
     <title>Archives on Errol&#39;s AI blog</title>
     <link>https://errolseo.github.io/archives/</link>
     <description>Recent content in Archives on Errol&#39;s AI blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    
-	<atom:link href="https://errolseo.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://errolseo.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

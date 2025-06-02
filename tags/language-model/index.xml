@@ -4,30 +4,30 @@
     <title>Language Model on Errol&#39;s AI blog</title>
     <link>https://errolseo.github.io/tags/language-model/</link>
     <description>Recent content in Language Model on Errol&#39;s AI blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 May 2022 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://errolseo.github.io/tags/language-model/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://errolseo.github.io/tags/language-model/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[NLP] Natural Language Processing</title>
-      <link>https://errolseo.github.io/post/nlp/1/</link>
-      <pubDate>Tue, 24 May 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://errolseo.github.io/post/nlp/1/</guid>
-      <description>Introduction to NLP</description>
+      <title>Embedding</title>
+      <link>https://errolseo.github.io/post/nlp/2/</link>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/post/nlp/2/</guid>
+      <description>What is Embedding ?</description>
     </item>
-    
+    <item>
+      <title>[NLP] Semantic &amp; Sequence</title>
+      <link>https://errolseo.github.io/post/nlp/1/</link>
+      <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/post/nlp/1/</guid>
+      <description>What are semantic and sequence in NLP?</description>
+    </item>
     <item>
       <title>[OCR] Scene Text Recognition (2)</title>
       <link>https://errolseo.github.io/post/ocr/6/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0900</pubDate>
-      
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/6/</guid>
       <description>ABINet</description>
     </item>
-    
   </channel>
 </rss>

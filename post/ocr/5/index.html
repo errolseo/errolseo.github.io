@@ -11,10 +11,10 @@
     "@type": "Person",
     "name": "Errol Seo",
     
-    "image": "https://errolseo.github.io/images/profile.jpg"
+    "image": "https://errolseo.github.io/images/profile.png"
     
   },
-  "name":"Errol\x27s AI blog",
+  "name":"Errol\u0027s AI blog",
   "description":"CRNN, CTC, SRN",
   "url":"https:\/\/errolseo.github.io\/post\/ocr\/5\/",
   "keywords":"[]"
@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
 <meta name="description" content="CRNN, CTC, SRN">
@@ -74,8 +74,8 @@
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/profile.jpg">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.jpg">
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.png">
 
 
 
@@ -102,7 +102,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-xpsospmmnobetsysew0lj6brgxrybimwt4ugnkvuphap4lisatlpdicm2.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-13exteon7sufvs9gkgrbqttnhf38iqflkvmbceoxxxdkgkvmvpxswczknog.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -130,7 +130,7 @@
     
     
       
-        <img class="header-picture" src="https://errolseo.github.io/images/profile.jpg" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
       
     
     </a>
@@ -141,7 +141,7 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
         <h4 class="sidebar-profile-name">Errol Seo</h4>
       </div>
     
@@ -177,6 +177,10 @@
     </a>
   </li>
 
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
   <li class="sidebar-button">
     
       <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
@@ -184,20 +188,6 @@
       <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
       
       <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://errolseo.notion.site/Errol-s-notepad-a25d71eab4fe46098f6959c9f9f69cab" target="_blank" rel="noopener" title="Notion">
-    
-      <i class="sidebar-button-icon fab fa-lg fa-neos" aria-hidden="true"></i>
-      
-      <span class="sidebar-button-desc">Notion</span>
     </a>
   </li>
 
@@ -238,7 +228,7 @@
   
   <div class="postShorten-meta post-meta">
     
-      <time datetime="2022-04-26T00:00:00&#43;09:00">
+      <time datetime="2022-04-26T00:00:00Z">
         
   April 26, 2022
 
@@ -259,7 +249,7 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>만약 필자에게 기존 vision task와 Scene Text Recognition(STR)의 차이를 한 문장으로 표현해 달라고 한다면, &lsquo;sequence의 유무'라고 대답할 것 같다. STR 모델은 기존 vision classification과는 다른 prediction 형태를 갖는다. 만약 기존과 같은 형태를 가진다면 영어의 알파벳 26자의 5자 조합만 해도 $26^5$이 되어 사실상 모델 생성이 불가능하다. 한글과 한자는 경우의 수가 더 심각해진다. 위의 문제를 해결하기 위한 방법은 다양하게 존재하기 때문에 후술하는 내용에 포함시키려고 한다. STR 모델의 파이프라인에 대해 이해하고, 최종적으로 텍스트의 <strong>seqence</strong>에 대해 이해한다면 추후의 STR 연구에 도움이 될 것이다.</p>
+              <p>만약 필자에게 기존 vision task와 Scene Text Recognition(STR)의 차이를 한 문장으로 표현해 달라고 한다면, &lsquo;sequence의 유무&rsquo;라고 대답할 것 같다. STR 모델은 기존 vision classification과는 다른 prediction 형태를 갖는다. 만약 기존과 같은 형태를 가진다면 영어의 알파벳 26자의 5자 조합만 해도 $26^5$이 되어 사실상 모델 생성이 불가능하다. 한글과 한자는 경우의 수가 더 심각해진다. 위의 문제를 해결하기 위한 방법은 다양하게 존재하기 때문에 후술하는 내용에 포함시키려고 한다. STR 모델의 파이프라인에 대해 이해하고, 최종적으로 텍스트의 <strong>seqence</strong>에 대해 이해한다면 추후의 STR 연구에 도움이 될 것이다.</p>
 <h4 id="heading">#</h4>
 <p>2015년에 공개된 <a href="https://arxiv.org/abs/1507.05717">Convolutional Recurrent Neural Network(CRNN)</a>은 Convolutional, Recurrent, Transcription 3 단계의 레이어로 이루어져 있다. CNN을 이용해 이미지로부터 feature를 추출하고(featurization), RNN을 이용해 feature에 sequence 정보를 추가하여(sequentialization), Connectionist Temporal Classification(CTC)을 이용해 prediction 한다.</p>
 
@@ -274,12 +264,12 @@
   
 </div>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">inp</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">randn</span><span style="color:#111">([</span><span style="color:#111">batch</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#111">height</span><span style="color:#111">,</span> <span style="color:#111">width</span><span style="color:#111">])</span> <span style="color:#75715e"># [b, 3, h, w]</span>
-<span style="color:#111">cnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_layer</span><span style="color:#111">(</span><span style="color:#111">inp</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_c, c_h, c_w]</span>
-<span style="color:#111">rnn_inp</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_oup</span><span style="color:#f92672">.</span><span style="color:#111">permute</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">b</span><span style="color:#111">,</span> <span style="color:#111">c_w</span><span style="color:#111">,</span> <span style="color:#111">c_c</span> <span style="color:#f92672">*</span> <span style="color:#111">c_h</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, c_c * c_h]</span>
-<span style="color:#111">rnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">rnn_layer</span><span style="color:#111">(</span><span style="color:#111">rnn_inp</span><span style="color:#111">,</span> <span style="color:#111">batch_first</span><span style="color:#f92672">=</span><span style="color:#111">True</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, hidden_size]</span>
-<span style="color:#111">pred_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">prediction</span><span style="color:#111">(</span><span style="color:#111">rnn_oup</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, num_labels]</span>
-</code></pre></div><p>모델이 복잡해 보일 수도 있는데 데이터의 flow 자체는 단순하다. 중요한 부분은 최종 출력의 형태다. [c_w, num_labels]에는 convolutional feature의 width에 대한 softmax_value가 들어있다. 즉 이미지 feature를 가로로 1 pixel씩 쪼개어 각각이 의미하는 알파벳을 classifcation하는 것 처럼 보인다. 문제는 위 방식에는 ground truth가 존재하지 않으며, 그로 인해 수 많은 정답이 존재 가능하다는 것이다. 그럼 loss는 어떻게 구하는가.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">inp</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">randn</span><span style="color:#111">([</span><span style="color:#111">batch</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#111">height</span><span style="color:#111">,</span> <span style="color:#111">width</span><span style="color:#111">])</span> <span style="color:#75715e"># [b, 3, h, w]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">cnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_layer</span><span style="color:#111">(</span><span style="color:#111">inp</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_c, c_h, c_w]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">rnn_inp</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_oup</span><span style="color:#f92672">.</span><span style="color:#111">permute</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">b</span><span style="color:#111">,</span> <span style="color:#111">c_w</span><span style="color:#111">,</span> <span style="color:#111">c_c</span> <span style="color:#f92672">*</span> <span style="color:#111">c_h</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, c_c * c_h]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">rnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">rnn_layer</span><span style="color:#111">(</span><span style="color:#111">rnn_inp</span><span style="color:#111">,</span> <span style="color:#111">batch_first</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, hidden_size]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pred_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">prediction</span><span style="color:#111">(</span><span style="color:#111">rnn_oup</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, num_labels]</span>
+</span></span></code></pre></div><p>모델이 복잡해 보일 수도 있는데 데이터의 flow 자체는 단순하다. 중요한 부분은 최종 출력의 형태다. [c_w, num_labels]에는 convolutional feature의 width에 대한 softmax_value가 들어있다. 즉 이미지 feature를 가로로 1 pixel씩 쪼개어 각각이 의미하는 알파벳을 classifcation하는 것 처럼 보인다. 문제는 위 방식에는 ground truth가 존재하지 않으며, 그로 인해 수 많은 정답이 존재 가능하다는 것이다. 그럼 loss는 어떻게 구하는가.</p>
 <p><span class="highlight-text primary">CTC는 Dynamic Programming(DP)을 이용해 모델의 출력값이 정답이 될 수 있는 모든 확률을 계산한 후, 그 확률을 최대로 만들도록 모델을 학습시키는 방법이다.</span> 즉, 정답이 여러 개 존재한다면 그 여러 개에 해당하는 각각의 확률을 모두 구한 후, 그 합이 최대가 되도록 학습하는 것이다. 만약 CTC에 대해 자세히 알고 싶다면 <a href="https://ratsgo.github.io/speechbook/docs/neuralam/ctc">https://ratsgo.github.io/speechbook/docs/neuralam/ctc</a>를 참고하면 좋다.</p>
 <p>현재까지도 다양한 모델들이 발표되고 있지만 <strong>featurization, sequentialization, prediction</strong>으로 이루어진 구조는 대부분의 모델에서 채용되고 있다.</p>
 <h4 id="heading-1">#</h4>
@@ -305,18 +295,17 @@ Network(SRN)</a>에서는 image feature를 sequence feature로 바꿔버린다. 
 <p>학습 데이터의 경우 직접 만들어도 되지만 LMDB로 잘 정리된 파일이 kaggle에 올라와있어 링크를 첨부한다. 라이센스에 대한 자세한 사항은 필자도 모르기 때문에 개인적인 실험 외에 사용하는 것이면 자세히 알아보고 사용하는 것이 좋다.</p>
 <blockquote>
 <p>Model framework : <a href="https://github.com/clovaai/deep-text-recognition-benchmark">https://github.com/clovaai/deep-text-recognition-benchmark</a><br>
-Data : <a href="https://www.kaggle.com/datasets/nunenuh/clova-deeptext">https://www.kaggle.com/datasets/nunenuh/clova-deeptext</a></p>
-</blockquote>
+Data : <a href="https://www.kaggle.com/datasets/nunenuh/clova-deeptext">https://www.kaggle.com/datasets/nunenuh/clova-deeptext</a></p></blockquote>
 <p><br>
 돌리는 것 자체는 어렵지 않을 것이다. 국내에서 상당히 유명하기 때문에 돌리는 것이 어렵다면 검색을 통해 많은 정보를 얻을 수 있으니 참고하면 좋다.</p>
 <h4 id="reference">Reference</h4>
 <p>[1] <a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations</a></p>
-<p>[2] B. Shi et al. <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence
+<p>[2] B. Shi, et al. <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence
 Recognition and Its Application to Scene Text Recognition</a></p>
-<p>[3] B. Shi et al. <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
-<p>[4] A. Graves et al. <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented
+<p>[3] B. Shi, et al. <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
+<p>[4] A. Graves, et al. <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented
 Sequence Data with Recurrent Neural Networks</a></p>
-<p>[5] J. Baek et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
+<p>[5] J. Baek, et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
 
               
 
@@ -329,7 +318,7 @@ Sequence Data with Recurrent Neural Networks</a></p>
                 
                 
                   <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    <span class="text-color-light text-small">Tag</span><br/>
                     
   <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/scene-text-recognition/">Scene Text Recognition</a>
 
@@ -365,46 +354,26 @@ Sequence Data with Recurrent Neural Networks</a></p>
       
     </ul>
   </nav>
-<ul class="post-actions post-action-share" >
-  
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
       </a>
     </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/5/" title="Share on Facebook" aria-label="Share on Facebook">
-          <i class="fab fa-facebook-square" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/5/" title="Share on Twitter" aria-label="Share on Twitter">
-          <i class="fab fa-twitter" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/5/" title="Share on Linkedin" aria-label="Share on Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-  
-  <li class="post-action">
-    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
-      <i class="far fa-comment"></i>
-    </a>
-  </li>
-  <li class="post-action">
-    
-      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    
-    </a>
-  </li>
-</ul>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
 </div>
 
               
@@ -422,7 +391,7 @@ Sequence Data with Recurrent Neural Networks</a></p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2022 Errol Seo. All Rights Reserved
+    &copy; 2025 Errol Seo. All Rights Reserved
   </span>
 </footer>
 
@@ -452,76 +421,30 @@ Sequence Data with Recurrent Neural Networks</a></p>
       
     </ul>
   </nav>
-<ul class="post-actions post-action-share" >
-  
-    <li class="post-action hide-lg hide-md hide-sm">
-      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
       </a>
     </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://errolseo.github.io/post/ocr/5/" title="Share on Facebook" aria-label="Share on Facebook">
-          <i class="fab fa-facebook-square" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://errolseo.github.io/post/ocr/5/" title="Share on Twitter" aria-label="Share on Twitter">
-          <i class="fab fa-twitter" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-      <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://errolseo.github.io/post/ocr/5/" title="Share on Linkedin" aria-label="Share on Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-      </li>
-    
-  
-  <li class="post-action">
-    <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
-      <i class="far fa-comment"></i>
-    </a>
-  </li>
-  <li class="post-action">
-    
-      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    
-    </a>
-  </li>
-</ul>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
 </div>
 
       </div>
       
-<div id="share-options-bar" class="share-options-bar" data-behavior="5">
-  <i id="btn-close-shareoptions" class="fa fa-times"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F5%2F" aria-label="Share on Facebook">
-          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F5%2F" aria-label="Share on Twitter">
-          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ferrolseo.github.io%2Fpost%2Focr%2F5%2F" aria-label="Share on Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
-
 
       
     </div>
@@ -533,7 +456,7 @@ Sequence Data with Recurrent Neural Networks</a></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-pljttacskq0d6fvyqtf6wuentmsy2t4vmeorz0asg4qcbcx6rvao4ucwdu.min.js"></script>
+<script src="https://errolseo.github.io/js/script-qrsoklahg9g5ooyjzl5hng5hxotcoalpfsarimeze2vceouqxhauvdpa1g.min.js"></script>
 
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
