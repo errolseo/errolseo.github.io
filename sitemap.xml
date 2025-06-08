@@ -2,95 +2,101 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+    <loc>https://errolseo.github.io/categories/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+    <loc>https://errolseo.github.io/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://errolseo.github.io/tags/language-model/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/tags/natural-language-processing/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/categories/nlp/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/post/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/tags/retrieval-augmented-generation/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/post/nlp/3/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/tags/</loc>
+    <lastmod>2025-06-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/post/nlp/4/</loc>
+    <lastmod>2025-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://errolseo.github.io/post/nlp/2/</loc>
     <lastmod>2025-05-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/nlp/2/</loc>
-    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/language-model/</loc>
-    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/natural-language-processing/</loc>
-    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/nlp/</loc>
-    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/retrieval-augmented-generation/</loc>
-    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-05-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/post/nlp/1/</loc>
+    <loc>https://errolseo.github.io/post/nlp/1/</loc>
     <lastmod>2022-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/ocr/6/</loc>
+    <loc>https://errolseo.github.io/post/ocr/6/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/abinet/</loc>
+    <loc>https://errolseo.github.io/tags/abinet/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/ocr/</loc>
+    <loc>https://errolseo.github.io/categories/ocr/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/scene-text-recognition/</loc>
+    <loc>https://errolseo.github.io/tags/scene-text-recognition/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/ocr/5/</loc>
+    <loc>https://errolseo.github.io/post/ocr/5/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/crnn/</loc>
+    <loc>https://errolseo.github.io/tags/crnn/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ctc/</loc>
+    <loc>https://errolseo.github.io/tags/ctc/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/srn/</loc>
+    <loc>https://errolseo.github.io/tags/srn/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/ocr/4/</loc>
+    <loc>https://errolseo.github.io/post/ocr/4/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/srnet/</loc>
+    <loc>https://errolseo.github.io/tags/srnet/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/synthetic-text-image/</loc>
+    <loc>https://errolseo.github.io/tags/synthetic-text-image/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/unrealtext/</loc>
+    <loc>https://errolseo.github.io/tags/unrealtext/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/ocr/3/</loc>
+    <loc>https://errolseo.github.io/post/ocr/3/</loc>
     <lastmod>2022-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/synthtiger/</loc>
+    <loc>https://errolseo.github.io/tags/synthtiger/</loc>
     <lastmod>2022-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/ocr/2/</loc>
+    <loc>https://errolseo.github.io/post/ocr/2/</loc>
     <lastmod>2022-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/mjsynth/</loc>
+    <loc>https://errolseo.github.io/tags/mjsynth/</loc>
     <lastmod>2022-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/synthtext/</loc>
+    <loc>https://errolseo.github.io/tags/synthtext/</loc>
     <lastmod>2022-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/ocr/1/</loc>
+    <loc>https://errolseo.github.io/post/ocr/1/</loc>
     <lastmod>2022-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/introduction/</loc>
+    <loc>https://errolseo.github.io/tags/introduction/</loc>
     <lastmod>2022-02-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://errolseo.github.io/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://errolseo.github.io/archives/</loc>
   </url>
 </urlset>

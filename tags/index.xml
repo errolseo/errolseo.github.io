@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Errol&#39;s AI blog</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://errolseo.github.io/tags/</link>
     <description>Recent content in Tags on Errol&#39;s AI blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://errolseo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Language Model</title>
-      <link>http://localhost:1313/tags/language-model/</link>
-      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/language-model/</guid>
+      <link>https://errolseo.github.io/tags/language-model/</link>
+      <pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/tags/language-model/</guid>
       <description></description>
     </item>
     <item>
       <title>Natural Language Processing</title>
-      <link>http://localhost:1313/tags/natural-language-processing/</link>
-      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/natural-language-processing/</guid>
+      <link>https://errolseo.github.io/tags/natural-language-processing/</link>
+      <pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/tags/natural-language-processing/</guid>
       <description></description>
     </item>
     <item>
       <title>Retrieval-Augmented Generation</title>
-      <link>http://localhost:1313/tags/retrieval-augmented-generation/</link>
-      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/retrieval-augmented-generation/</guid>
+      <link>https://errolseo.github.io/tags/retrieval-augmented-generation/</link>
+      <pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/tags/retrieval-augmented-generation/</guid>
       <description></description>
     </item>
     <item>
       <title>ABINet</title>
-      <link>http://localhost:1313/tags/abinet/</link>
+      <link>https://errolseo.github.io/tags/abinet/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/abinet/</guid>
+      <guid>https://errolseo.github.io/tags/abinet/</guid>
       <description></description>
     </item>
     <item>
       <title>Scene Text Recognition</title>
-      <link>http://localhost:1313/tags/scene-text-recognition/</link>
+      <link>https://errolseo.github.io/tags/scene-text-recognition/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/scene-text-recognition/</guid>
+      <guid>https://errolseo.github.io/tags/scene-text-recognition/</guid>
       <description></description>
     </item>
     <item>
       <title>CRNN</title>
-      <link>http://localhost:1313/tags/crnn/</link>
+      <link>https://errolseo.github.io/tags/crnn/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/crnn/</guid>
+      <guid>https://errolseo.github.io/tags/crnn/</guid>
       <description></description>
     </item>
     <item>
       <title>CTC</title>
-      <link>http://localhost:1313/tags/ctc/</link>
+      <link>https://errolseo.github.io/tags/ctc/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ctc/</guid>
+      <guid>https://errolseo.github.io/tags/ctc/</guid>
       <description></description>
     </item>
     <item>
       <title>SRN</title>
-      <link>http://localhost:1313/tags/srn/</link>
+      <link>https://errolseo.github.io/tags/srn/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/srn/</guid>
+      <guid>https://errolseo.github.io/tags/srn/</guid>
       <description></description>
     </item>
     <item>
       <title>SRNet</title>
-      <link>http://localhost:1313/tags/srnet/</link>
+      <link>https://errolseo.github.io/tags/srnet/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/srnet/</guid>
+      <guid>https://errolseo.github.io/tags/srnet/</guid>
       <description></description>
     </item>
     <item>
       <title>Synthetic Text Image</title>
-      <link>http://localhost:1313/tags/synthetic-text-image/</link>
+      <link>https://errolseo.github.io/tags/synthetic-text-image/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/synthetic-text-image/</guid>
+      <guid>https://errolseo.github.io/tags/synthetic-text-image/</guid>
       <description></description>
     </item>
     <item>
       <title>UnrealText</title>
-      <link>http://localhost:1313/tags/unrealtext/</link>
+      <link>https://errolseo.github.io/tags/unrealtext/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/unrealtext/</guid>
+      <guid>https://errolseo.github.io/tags/unrealtext/</guid>
       <description></description>
     </item>
     <item>
       <title>SynthTIGER</title>
-      <link>http://localhost:1313/tags/synthtiger/</link>
+      <link>https://errolseo.github.io/tags/synthtiger/</link>
       <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/synthtiger/</guid>
+      <guid>https://errolseo.github.io/tags/synthtiger/</guid>
       <description></description>
     </item>
     <item>
       <title>MJSynth</title>
-      <link>http://localhost:1313/tags/mjsynth/</link>
+      <link>https://errolseo.github.io/tags/mjsynth/</link>
       <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/mjsynth/</guid>
+      <guid>https://errolseo.github.io/tags/mjsynth/</guid>
       <description></description>
     </item>
     <item>
       <title>SynthText</title>
-      <link>http://localhost:1313/tags/synthtext/</link>
+      <link>https://errolseo.github.io/tags/synthtext/</link>
       <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/synthtext/</guid>
+      <guid>https://errolseo.github.io/tags/synthtext/</guid>
       <description></description>
     </item>
     <item>
       <title>Introduction</title>
-      <link>http://localhost:1313/tags/introduction/</link>
+      <link>https://errolseo.github.io/tags/introduction/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/introduction/</guid>
+      <guid>https://errolseo.github.io/tags/introduction/</guid>
       <description></description>
     </item>
   </channel>
