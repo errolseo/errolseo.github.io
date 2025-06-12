@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://errolseo.github.io/tags/abinet/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[OCR] Scene Text Recognition (2)</title>
+      <title>Scene Text Recognition (2/2)</title>
       <link>https://errolseo.github.io/post/ocr/6/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/6/</guid>
-      <description>ABINet</description>
+      <description>About text recognition (with ABINet)</description>
     </item>
   </channel>
 </rss>

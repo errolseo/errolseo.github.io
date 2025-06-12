@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://errolseo.github.io/tags/ctc/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[OCR] Scene Text Recognition (1)</title>
+      <title>Scene Text Recognition (1/2)</title>
       <link>https://errolseo.github.io/post/ocr/5/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/5/</guid>
-      <description>CRNN, CTC, SRN</description>
+      <description>About text recognition (with CRNN, CTC, SRN)</description>
     </item>
   </channel>
 </rss>
