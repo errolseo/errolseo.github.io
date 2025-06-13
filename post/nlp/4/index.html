@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.png"
+    
+  },
+  "name":"Errol\u0027s AI blog",
+  "description":"Introduction to Vector Similarity Search (with HNSW)",
+  "url":"https:\/\/errolseo.github.io\/post\/nlp\/4\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="">
+<meta name="description" content="Introduction to Vector Similarity Search (with HNSW)">
+
+
+<meta property="og:description" content="Introduction to Vector Similarity Search (with HNSW)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vector Similarity Search">
+<meta name="twitter:title" content="Vector Similarity Search">
+<meta property="og:url" content="https://errolseo.github.io/post/nlp/4/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/nlp/4/">
+<meta property="og:site_name" content="Errol&#39;s AI blog">
+<meta property="og:description" content="Introduction to Vector Similarity Search (with HNSW)">
+<meta name="twitter:description" content="Introduction to Vector Similarity Search (with HNSW)">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-06-13T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-06-13T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="NLP">
+    
+  
+  
+    
+      <meta property="article:tag" content="Natural Language Processing">
+    
+      <meta property="article:tag" content="Language Model">
+    
+      <meta property="article:tag" content="Retrieval-Augmented Generation">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.png">
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/NLP/4/1.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/NLP/4/1.webp">
+
+
+    <title>Vector Similarity Search</title>
+
+    <link rel="icon" href="https://errolseo.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/nlp/4/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+    
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-rqpp0ewqjukt3lxnrnrslhbzpiv6w2r6j4c7adznmabchpeya6ok94g2bj.min.css" />
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7TXCGWW79C');
+    </script>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Vector Similarity Search
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2025-06-13T00:00:00Z">
+        
+  June 13, 2025
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a href="https://errolseo.github.io/categories/nlp">NLP</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><strong>벡터 유사도 검색(Vector Similarity Search)</strong>은 데이터를 숫자의 배열인 벡터로 표현하고, 이 벡터들 간의 유사도를 측정하여 가장 유사한 데이터를 찾아내는 방법입니다. 예를 들어, &lsquo;Cat&rsquo;이라는 단어는 &lsquo;Dog&rsquo;와 &lsquo;Kitten&rsquo; 중에서 &lsquo;Kitten&rsquo;과 더 비슷한 맥락에서 사용될 것입니다. 또 다른 예시로, &lsquo;Dog&rsquo;와 &lsquo;Wolf&rsquo; 중에서는 &lsquo;Dog&rsquo;의 쓰임새가 &lsquo;Cat&rsquo;과 더 유사하다고 볼 수 있습니다.</p>
+
+
+
+<div class="figure fig-60 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/1.webp"  alt="Figure 1. Word Embeddings">
+  
+   
+    <span class="caption">Figure 1. Word Embeddings</span>
+  
+</div>
+
+<p>여기서 <strong>&lsquo;쓰임새가 유사하다&rsquo;</strong>는 것은 단어의 <strong>의미 정보(semantic)</strong>가 유사하다고 볼 수 있습니다. 이러한 의미 정보를 벡터로 표현하는 것을 <strong>임베딩(Embedding)</strong>이라고 하며, 임베딩 모델은 의미가 유사할수록 벡터 간의 거리가 가깝게 표현되도록 지도 학습을 받습니다. 임베딩은 단어뿐만 아니라 문장 단위에서도 동일하게 적용될 수 있으며, <span class="highlight-text primary">임베딩과 벡터 유사도 검색을 통해 <strong>RAG(Retrieval-Augmented Generation)</strong>에서 문서를 효과적으로 검색할 수 있게 됩니다.</span></p>
+<hr>
+<h2 id="knn-k-nearest-neighbors">kNN (k-Nearest Neighbors)</h2>
+<p>벡터 유사도 검색을 위해서는 기본적으로 벡터들의 유사도를 측정하기 위한 알고리즘이 필요합니다. 이 때 사용하는 것이 kNN(k-최근접 이웃)입니다. kNN 알고리즘은 유사한 데이터의 벡터는 특징 공간(feature space)에서 서로 가까이 위치한다는 가정을 이용해서 벡터 포인트 간의 거리를 계산하고 분류하는 머신러닝 알고리즘입니다.</p>
+<p>kNN 알고리즘의 가장 기본적인 형태는 Brute Force 방법을 이용해서 모든 포인트 간의 거리를 직접 계산하는 것 입니다. 하지만 이러한 방식은 차원이 커지고, 데이터가 많아질수록 모든 포인트와의 거리를 계산해야하기 때문에 굉장히 느려질 수 밖에 없습니다. 그래서 실제 상황에서는 모든 포인트와의 거리를 구하지 않고 일부 포인트와의 거리만을 계산하는 <strong>근사적인 최근접 이웃(Approximate K-Nearest Neighbor)</strong> 알고리즘을 사용합니다.</p>
+<hr>
+<h2 id="hnsw-hierarchical-navigable-small-world">HNSW (Hierarchical Navigable Small World)</h2>
+<p>HNSW는 AkNN(Approximate K-Nearest Neighbor) 알고리즘의 한 종류로 이는 가장 가까운 이웃을 &lsquo;근사적으로&rsquo; 찾는 방식이기 때문에 <span class="highlight-text primary">전역 최적해(global minima)를 보장하지는 않습니다.</span></p>
+
+
+
+<div class="figure fig-75 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/2.webp"  alt="Figure 2. Illustration of HNSW graph">
+  
+   
+    <span class="caption">Figure 2. Illustration of HNSW graph</span>
+  
+</div>
+
+<h4 id="hnsw의-검색-원리">HNSW의 검색 원리</h4>
+<p>우리가 가진 모든 벡터 데이터를 Figure 2의 Layer 1처럼 그래프의 노드로 표현했다고 가정해 봅시다. 이때 각 노드는 항상 <strong>가장 가까운 노드</strong>와 우선적으로 연결됩니다.<br>
+<br>
+만약 이러한 그래프가 있다면, 쿼리가 입력되었을 때 <span class="highlight-text primary">탐색의 시작점이 어떤 노드인지에 따라 탐색 속도가 크게 달라질 수 있습니다.</span> 탐색 시작점이 실제 쿼리와 가까운 위치였다면 탐색이 빠르게 끝나겠지만, 거리가 먼 곳에서 시작했다면 최근접 노드를 찾기 위해 많은 탐색 시간이 필요할 것입니다. 그렇기 때문에 <span class="highlight-text primary">최적의 <strong>진입점(entry point)</strong>을 찾는 것은 그래프 기반 최근접 이웃 탐색에서 매우 중요합니다.</span><br>
+<br>
+이러한 최적의 진입점을 찾기 위해 HNSW가 택한 방법은 <strong>계층 구조</strong>입니다. 그림에서 상위 레이어(Layer 2)는 하위 레이어(Layer 1)의 진입점을 찾기 위해 존재합니다. 상위 레이어는 하위 레이어의 일부 노드만을 복제하여 보유합니다. 따라서 상위 레이어에서는 무작위 진입점을 가지고 시작해도 하위 레이어보다 더 적은 시간을 소모하여 최근접 이웃을 찾을 수 있습니다. <span class="highlight-text primary">이렇게 찾은 상위 레이어의 최근접 이웃은 하위 레이어의 진입점이 됩니다.</span> 이러한 계층 구조 메커니즘을 통해 HNSW는 모든 노드를 탐색하지 않아도 근사 최적해를 보장할 수 있습니다.</p>
+<h4 id="hnsw의-주요-하이퍼파라미터">HNSW의 주요 하이퍼파라미터</h4>
+<ul>
+<li><strong>M (Max Connection)</strong>
+각 노드가 HNSW 그래프의 각 레이어에서 가질 수 있는 최대 양방향 연결(엣지)의 수</li>
+<li><strong>efConstruction</strong>
+HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드가 자신의 이웃을 찾기 위해 탐색하는 <strong>후보 이웃 노드의 최대 수</strong>
+<ul>
+<li>이 값은 얼마나 &ldquo;꼼꼼하게&rdquo; 주변을 탐색하여 최적의 연결을 만들지를 결정합니다.</li>
+</ul>
+</li>
+<li><strong>ef (efSearch)</strong>
+실제 쿼리의 최근접 이웃을 탐색할 때, 현재까지 찾은 최적의 후보 노드 목록(dynamic candidate list)의 최대 크기
+<ul>
+<li>높은 <code>ef</code> : 검색 정확도(Recall) 향상, 검색 시간(Latency) 증가</li>
+<li>낮은 <code>ef</code> : 검색 정확도 저하, 검색 시간 단축</li>
+</ul>
+</li>
+<li><strong>mL (Level Multiplier)</strong>
+각 노드가 더 높은 레이어에 포함될 확률, 일반적으로 $1/ln(M)$ 값을 사용
+<ul>
+<li><code>mL</code> 값이 클수록, 상위 레이어에 더 많은 노드가 존재하게 됩니다.
+이는 계층 탐색의 이점을 줄여 진입점을 찾는 시간을 증가시킬 수 있습니다.</li>
+<li>반대로 <code>mL</code> 값이 너무 작으면, 상위 레이어에 노드가 너무 적어 최적의 진입점을 찾기 어려워 탐색 시간이 증가할 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+<p>요약하자면, <code>M</code>과 <code>efConstruction</code>에 따라 최하위 레이어에서 그래프가 생성되고, <code>mL</code>에 의해 선별된 노드들은 상위 레이어로 올라가 동일한 과정을 반복합니다. 이렇게 만들어진 계층적 그래프를 통해 효율적으로 벡터를 탐색하게 되는 것입니다.</p>
+<h4 id="hnsw에-대한-tmi">HNSW에 대한 TMI</h4>
+<p>HNSW에는 한 가지 까다로운 문제점이 존재합니다. 삽입(insert)은 비교적 간단하지만, 삭제(delete)의 경우 기존 방법론들과 달리 큰 문제가 될 수 있기 때문입니다. 만약 노드가 제거될 때 연결을 재정의하지 않으면 특정 노드는 의도치 않게 모든 연결이 끊기는 등의 그래프의 무결성이 손상될 수 있기 때문입니다.</p>
+<p>이러한 문제를 해결하기 위해 HNSW에서는 일반적으로 그래프에서 노드를 즉시 제거하기보다는 비활성화하는 방식을 채택하고 있습니다. 삭제된 노드들을 &ldquo;삭제된 노드”로 표시한 후 커넥션은 유지합니다. 그리고 일정 주기마다 정리(vacuuming)하거나 재구성(rebalancing)하는 <strong>lazy deletion</strong> 방식을 사용합니다.</p>
+<p>HNSW는 초기에 그래프를 구축하는 데 비교적 많은 비용이 들지만, 검색 속도와 정확도 면에서는 높은 성능을 보장합니다. 그렇기 때문에 HNSW는 현존하는 AkNN 방법론 중 가장 효율적이고 널리 사용되는 알고리즘 중 하나입니다. 물론 같은 HNSW라도 메모리 최적화 방법이나, 다양한 트레이드오프를 통해 개선된 버전들이 계속 연구되고 있습니다.</p>
+<hr>
+<h2 id="vector-similarity">Vector Similarity</h2>
+<p>kNN 알고리즘에서 벡터 간의 거리를 계산할 때, 기본적으로 Euclidean(L2) 거리를 생각할 수 있습니다. 이는 벡터 간의 물리적인 <strong>&lsquo;거리&rsquo;</strong>를 기반으로 유사도를 측정하는 방식입니다. 하지만 이러한 방식에는 몇 가지 문제점이 있습니다.</p>
+<p>거리 기반 유사도의 경우 낮은 차원에서는 충분히 효과적으로 포인트 간을 구분하는 변별력을 가지고 있지만, 차원이 커지면 커질수록 모든 데이터 포인트 간의 거리가 비슷하게 멀어지는 현상이 발생합니다. 이를 차원의 저주(Curse of Dimensionality)라고 부릅니다.</p>
+<p>차원의 저주란 쉽게 말해서 3가지 정도의 특징(키, 취미, 좋아하는 색 등)을 놓고 봤을 때는 나와 전혀 다르거나 굉장히 유사한 사람을 찾을 수 있겠지만, 10,000가지 특징(키, 취미, 습관, 좋아하는 색, 좋아하는 동물, 신발 끈 묶는 방식, 어릴 적 기억, 숨 쉬는 방식 등)을 놓고 비교하면 대부분의 사람들이 너무 많이 다르기 때문에 사실상 누가 더 비슷하거나 다른지 구분하는 것 자체가 무의미할 정도로 서로 너무 다르다고 느끼게 됩니다. <span class="highlight-text primary">이러한 문제점을 보안하기 위해서 고 차원 벡터의 경우, 각도 기반 유사도를 채택하기도 합니다.</span></p>
+
+
+
+<div class="figure fig-75 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/3.webp"  alt="Figure 3. Vector Similarity">
+  
+   
+    <span class="caption">Figure 3. Vector Similarity</span>
+  
+</div>
+
+<p>각도 기반 유사도라고 해서 차원의 저주에서 완전히 자유로운 것은 아닙니다. 하지만 정규화 과정을 한 번 거치기 때문에 각 특성(feature)이 미치는 영향력을 균일하게 만들어서 주어 비교적 높은 차원에서도 변별력을 잃지 않는 모습을 보여줍니다.<br>
+<br></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Distance-based</th>
+          <th style="text-align: center">Angle-based</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">직관적</td>
+          <td style="text-align: center">비직관적</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">크기 정보 유지</td>
+          <td style="text-align: center">크기 정보 손실</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">정규화하기 어려움</td>
+          <td style="text-align: center">정규화된 데이터</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">고차원에서 변별력 상실</td>
+          <td style="text-align: center">차원에 저주에 덜 민감</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="결론">결론</h2>
+<p>벡터 유사도 검색이란 RAG에서 저장된 데이터 중에 입력 데이터와 높은 연관성을 보이는 데이터를 검색하기 위해서 데이터를 벡터화(임베딩)하고 벡터 간의 유사도를 측정하여 원하는 결과를 얻는 과정을 말합니다.</p>
+<p>최근에는 HNSW 같은 AkNN 알고리즘을 사용하여, 유사한 데이터를 탐색하며, 기존에도 지도 학습 머신 러닝 방법론으로 자주 사용되었지만 최근들어 RAG와 연계되어 많은 파생 알고리즘과 라이브러리 등이 개발되고 있습니다. RAG를 사용하기 위해서 반드시 알아야하는 내용은 아니지만, 기본적인 배경지식은 가지고 있다면 반드시 도움이 될 것이라 생각됩니다.</p>
+<hr>
+<h4 id="reference">Reference</h4>
+<p><a href="https://weaviate.io/blog/what-is-a-vector-database">A Gentle Introduction to Vector Databases</a> | Leonie Monigatti, Zain Hasan<br>
+<a href="https://www.mdpi.com/2624-6120/2/2/21">Efficient Retrieval of Music Recordings Using Graph-Based Index Structures
+</a> | Frank Zalkow, et al.</p>
+
+              
+
+
+            </div>
+          </div>
+          
+            <div id="post-footer" class="post-footer main-content-wrap">
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">Tag</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/natural-language-processing/">Natural Language Processing</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/language-model/">Language Model</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/retrieval-augmented-generation/">Retrieval-Augmented Generation</a>
+
+                  </div>
+                
+              
+              <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/3/" data-tooltip="Retrieval-Augmented Generation (RAG)" aria-label="PREVIOUS: Retrieval-Augmented Generation (RAG)">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+              
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+            </div>
+          
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2025 Errol Seo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/3/" data-tooltip="Retrieval-Augmented Generation (RAG)" aria-label="PREVIOUS: Retrieval-Augmented Generation (RAG)">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+      </div>
+      
+
+      
+    </div>
+    
+  <div id="cover" style="background-color:#212F3D"></div>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-8thvpovd3gqrkg87txpm933hhgofi4rxjvezyf0povkcptzui5fhcbfe1j.min.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false
+      });
+  });
+</script>
+
+
+
+  </body>
+</html>
+
