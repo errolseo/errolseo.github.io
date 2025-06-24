@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.png"
+    
+  },
+  "name":"Errol\u0027s AI blog",
+  "description":"Implementing RAG using Milvus",
+  "url":"https:\/\/errolseo.github.io\/post\/nlp\/5\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="">
+<meta name="description" content="Implementing RAG using Milvus">
+
+
+<meta property="og:description" content="Implementing RAG using Milvus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAG Practice">
+<meta name="twitter:title" content="RAG Practice">
+<meta property="og:url" content="https://errolseo.github.io/post/nlp/5/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/nlp/5/">
+<meta property="og:site_name" content="Errol&#39;s AI blog">
+<meta property="og:description" content="Implementing RAG using Milvus">
+<meta name="twitter:description" content="Implementing RAG using Milvus">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-06-20T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-06-20T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="NLP">
+    
+  
+  
+    
+      <meta property="article:tag" content="Natural Language Processing">
+    
+      <meta property="article:tag" content="Language Model">
+    
+      <meta property="article:tag" content="Retrieval-Augmented Generation">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.png">
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/NLP/5/1.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/NLP/5/1.webp">
+
+
+    <title>RAG Practice</title>
+
+    <link rel="icon" href="https://errolseo.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/nlp/5/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+    
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-a9fbef8u93z9xsejqz2rcfzsoub6bysfmq9e8knxxr6pgoyovipxcyevfe.min.css" />
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7TXCGWW79C');
+    </script>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      RAG Practice
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2025-06-20T00:00:00Z">
+        
+  June 20, 2025
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a href="https://errolseo.github.io/categories/nlp">NLP</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>RAG 실습을 위해 가장 먼저 해야할 일은 Vector Database를 선택하는 일 입니다. Vector DB의 종류로는 Milvus, Weaviate, ChromaDB 등이 있으며 서로 다른 장단점을 가지고 있습니다. 그리고 이번 실습에서는 <strong>Milvus</strong>를 사용할 예정입니다.<br>
+Milvus의 장점으로는 가장 기본에 충실하다고 할 수 있습니다. Vector DB의 존재 이유는 데이터를 안전하게 저장하고 빠르게 vector similarity search를 하기 위함입니다. 특히 <span class="highlight-text primary">빠른 검색 부분에서 Milvus는 다른 Open Source에 비해 우월한 성능을 보입니다.</span></p>
+
+
+
+<div class="figure fig-75 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/5/1.webp"  alt="Figure 1. Various Vector DBs">
+  
+   
+    <span class="caption">Figure 1. Various Vector DBs</span>
+  
+</div>
+
+<p>Open Source Vector DB 중에서는 Milvus와 Weaviate가 자주 비교되는데, 운영적인 측면을 고려했을 땐 Weaviate가 좀 더 유리한 부분이 있습니다. Milvus의 경우는 합의(Consensus) 알고리즘을 etcd같은 외부 서비스에 의존하는 등의 이유로 운영 복잡성이 좀 더 높을 수 있습니다.</p>
+<hr>
+<h2 id="milvus">Milvus</h2>
+<p>이번 실습에서는 standalone(단일 시스템)환경에서 docker를 이용하여 Milvus를 실행시킬 예정입니다. 하지만 Milvus는 기본적으로 분산 시스템에서 동작하는 것을 가정하고 제작되었기에, standalone일지라도 docker-compose를 이용해서 etcd와 minio를 함께 실행하는 것을 권장하고 있습니다.</p>
+<h4 id="install-milvus">Install Milvus</h4>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>wget https://github.com/milvus-io/milvus/releases/download/v2.5.12/milvus-standalone-docker-compose.yml -O docker-compose.yml
+</span></span><span style="display:flex;"><span>sudo docker compose up -d
+</span></span></code></pre></div><p>도커가 설치되어있는 환경에서 위의 명령어만 입력하면 간단하게 milvus를 구축할 수 있습니다.</p>
+<h4 id="stop-and-delete-milvus">Stop and delete Milvus</h4>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo docker compose down
+</span></span><span style="display:flex;"><span>sudo rm -rf volumes
+</span></span></code></pre></div><p>마찬가지로 실행시킨 도커를 정지시키고 볼륨을 지우는 것 만으로 milvus를 완전히 제거할 수 있습니다.</p>
+<h4 id="create-collection">Create Collection</h4>
+<blockquote>
+<p>A collection is a two-dimensional table with fixed columns and variant rows. Each column represents a field, and each row represents an entity.</p></blockquote>
+<br>
+Milvus에서 데이터를 삽입하기 위해서는 기존 관계형 DB처럼 Schema를 정의하고 Collection을 생성해야 합니다. Documents 상에서는 fixed columns라는 표현을 사용하고 있지만, Milvus의 schema는 기존 관계형 DB와 다르게 dynamic schema를 지원하는 등 비교적 덜 엄격하게 관리되고 있습니다.
+<br><br>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pymilvus</span> <span style="color:#f92672">import</span> <span style="color:#111">MilvusClient</span><span style="color:#111">,</span> <span style="color:#111">DataType</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">client</span> <span style="color:#f92672">=</span> <span style="color:#111">MilvusClient</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">uri</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;http://localhost:19530&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">token</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;root:Milvus&#34;</span> <span style="color:#75715e"># Default user and password</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#111">create_collection</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">collection_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;collection_1&#34;</span><span style="color:#111">,</span> <span style="color:#75715e"># 컬렉션 이름 (string)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">schema</span><span style="color:#f92672">=</span><span style="color:#111">schema</span><span style="color:#111">,</span>                  <span style="color:#75715e"># MilvusClient.create_schema를 이용해 정의된 스키마</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">index_params</span><span style="color:#f92672">=</span><span style="color:#111">index_params</span>       <span style="color:#75715e"># 빠른 검색을 위한 index 정의</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>가장 먼저 pymilvus의 MilvusClient를 이용해 DB와의 connection을 생성해줍니다. 그리고 schema와 index와 함께 collection을 정의해 주면 컬렉션을 생성할 수 있습니다.</p>
+<h6 id="create-schema">Create Schema</h6>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">schema</span> <span style="color:#f92672">=</span> <span style="color:#111">MilvusClient</span><span style="color:#f92672">.</span><span style="color:#111">create_schema</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">auto_id</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">,</span> <span style="color:#75715e"># timestamp를 기반으로 자동으로 id 값을 생성할지 여부</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">enable_dynamic_field</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">schema</span><span style="color:#f92672">.</span><span style="color:#111">add_field</span><span style="color:#111">(</span><span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;id&#34;</span><span style="color:#111">,</span> <span style="color:#111">datatype</span><span style="color:#f92672">=</span><span style="color:#111">DataType</span><span style="color:#f92672">.</span><span style="color:#111">INT64</span><span style="color:#111">,</span> <span style="color:#111">is_primary</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">schema</span><span style="color:#f92672">.</span><span style="color:#111">add_field</span><span style="color:#111">(</span><span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vector&#34;</span><span style="color:#111">,</span> <span style="color:#111">datatype</span><span style="color:#f92672">=</span><span style="color:#111">DataType</span><span style="color:#f92672">.</span><span style="color:#111">FLOAT_VECTOR</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">schema</span><span style="color:#f92672">.</span><span style="color:#111">add_field</span><span style="color:#111">(</span><span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;text&#34;</span><span style="color:#111">,</span> <span style="color:#111">datatype</span><span style="color:#f92672">=</span><span style="color:#111">DataType</span><span style="color:#f92672">.</span><span style="color:#111">VARCHAR</span><span style="color:#111">,</span> <span style="color:#111">max_length</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>스키마의 경우 보통의 경우 primary key로 사용할 id 필드와 vector 값을 저장할 vector 필드는 필수적으로 필요합니다. 임베딩 전의 원본 텍스트를 보존하기 위해 text 필드를 하나 더 만들어주겠습니다.</p>
+<h6 id="create-index">Create Index</h6>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">index_params</span> <span style="color:#f92672">=</span> <span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#111">prepare_index_params</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">index_params</span><span style="color:#f92672">.</span><span style="color:#111">add_index</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;id&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">index_type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;AUTOINDEX&#34;</span> <span style="color:#75715e"># 대부분의 scalar 타입은 자동 지정시 Inverted Index 사용</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">index_params</span><span style="color:#f92672">.</span><span style="color:#111">add_index</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vector&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">index_type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;HNSW&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">index_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vector_index&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">metric_type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;COSINE&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">params</span><span style="color:#f92672">=</span><span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;M&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">64</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;efConstruction&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>id 필드의 경우 AUTOINDEX를 이용해 인덱스 타입을 자동으로 지정해주었고, vector 필드의 경우 <a href="http://localhost:1313/post/nlp/4/">HNSW</a>을 이용하겠습니다.
+<br><br>
+Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 보았습니다. 이제 남은 건 실제 데이터를 DB에 삽입(insert)하고 검색(search)하는 일 입니다. 이 때 데이터를 Vector DB에 입력하기 위해서는 임베딩 모델을 이용해서 텍스트 데이터를 벡터 데이터로 임베딩하는 과정을 거쳐야합니다.</p>
+<h4 id="insert--search">Insert &amp; Search</h4>
+<h6 id="embedding">Embedding</h6>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">openai</span> <span style="color:#f92672">import</span> <span style="color:#111">OpenAI</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">client</span> <span style="color:#f92672">=</span> <span style="color:#111">OpenAI</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">response</span> <span style="color:#f92672">=</span> <span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#111">embeddings</span><span style="color:#f92672">.</span><span style="color:#111">create</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">input</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Your text string goes here&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">model</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;text-embedding-3-small&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ebedded</span> <span style="color:#f92672">=</span> <span style="color:#111">response</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">embedding</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>Open AI의 모델을 이용하거나, Huggingface 모델을 이용할 경우 <a href="https://github.com/huggingface/text-embeddings-inference">text-embeddings-inference</a>를 이용하는 것을 추천드립니다. 그 외에도 다양한 방법을 이용해서 텍스트를 벡터로 변환하기만 하시면 됩니다.</p>
+<h6 id="insert">Insert</h6>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">data</span><span style="color:#f92672">=</span><span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">{</span><span style="color:#d88200">&#34;id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;vector&#34;</span><span style="color:#111">:</span> <span style="color:#111">embedded</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;text&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Your text string goes here&#34;</span><span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">res</span> <span style="color:#f92672">=</span> <span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#111">insert</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">collection_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;collection_1&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">data</span><span style="color:#f92672">=</span><span style="color:#111">data</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">res</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>해당 콜렉션에 알맞은 json list 형태로 data를 넣어주면 됩니다.</p>
+<h6 id="search">Search</h6>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">search_params</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#34;params&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;ef&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#75715e"># Number of neighbors to consider during the search</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">res</span> <span style="color:#f92672">=</span> <span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#111">search</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">collection_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;collection_1&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">anns_field</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vector&#34;</span><span style="color:#111">,</span>    <span style="color:#75715e"># Vector field name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">data</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#111">embedded</span><span style="color:#111">],</span>        <span style="color:#75715e"># Query vector</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">limit</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span>                <span style="color:#75715e"># TopK results to return</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">search_params</span><span style="color:#f92672">=</span><span style="color:#111">search_params</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">hits</span> <span style="color:#f92672">in</span> <span style="color:#111">res</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">for</span> <span style="color:#111">hit</span> <span style="color:#f92672">in</span> <span style="color:#111">hits</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">hit</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>마지막으로 <code>index_type</code>에 따른 <code>search_params</code>을 정의해 주고, Query vector 또한 기존에 이용했던 동일한 방법으로 임베딩해준 후 검색을 진행하면 벡터 유사도 검색 결과를 받아 볼 수 있습니다.</p>
+<hr>
+<h4 id="reference">Reference</h4>
+<p><a href="https://milvus.io/docs/">Milvus Docs</a></p>
+
+              
+
+
+            </div>
+          </div>
+          
+            <div id="post-footer" class="post-footer main-content-wrap">
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">Tag</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/natural-language-processing/">Natural Language Processing</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/language-model/">Language Model</a>
+
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/retrieval-augmented-generation/">Retrieval-Augmented Generation</a>
+
+                  </div>
+                
+              
+              <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/4/" data-tooltip="Vector Similarity Search" aria-label="PREVIOUS: Vector Similarity Search">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+              
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+            </div>
+          
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2025 Errol Seo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/nlp/4/" data-tooltip="Vector Similarity Search" aria-label="PREVIOUS: Vector Similarity Search">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+      </div>
+      
+
+      
+    </div>
+    
+  <div id="cover" style="background-color:#212F3D"></div>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-jik7ngi6degyr8xllf9mwiwzmgaypjdxz8kpyuryfj8bbnpz9ovyzns.min.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false
+      });
+  });
+</script>
+
+
+
+  </body>
+</html>
+

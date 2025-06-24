@@ -6,8 +6,15 @@
     <description>Recent content in Language Model on Errol&#39;s AI blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://errolseo.github.io/tags/language-model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RAG Practice</title>
+      <link>https://errolseo.github.io/post/nlp/5/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://errolseo.github.io/post/nlp/5/</guid>
+      <description>Implementing RAG using Milvus</description>
+    </item>
     <item>
       <title>Vector Similarity Search</title>
       <link>https://errolseo.github.io/post/nlp/4/</link>
