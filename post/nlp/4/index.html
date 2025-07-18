@@ -85,7 +85,7 @@
 
     <title>Vector Similarity Search</title>
 
-    <link rel="icon" href="https://errolseo.github.io/favicon.png">
+    <link rel="icon" href="https://errolseo.github.io/images/favicon.png">
     
 
     
@@ -100,7 +100,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-a9fbef8u93z9xsejqz2rcfzsoub6bysfmq9e8knxxr6pgoyovipxcyevfe.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-kz4j18ung6qsj8w0uq0ht5ijso2qjpgmg5e5kg3bq5iwgbloxvv7hwh8.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -253,13 +253,15 @@
 
 <div class="figure fig-60 center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/1.webp"  alt="Figure 1. Word Embeddings">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/1.webp" >
   
-   
-    <span class="caption">Figure 1. Word Embeddings</span>
   
 </div>
 
+<blockquote>
+<p>그림 1. Word Embeddings
+<br>
+<a href="https://weaviate.io/blog/what-is-a-vector-database">© Weaviate</a></p></blockquote>
 <p>여기서 <strong>&lsquo;쓰임새가 유사하다&rsquo;</strong>는 것은 단어의 <strong>의미 정보(semantic)</strong>가 유사하다고 볼 수 있습니다. 이러한 의미 정보를 벡터로 표현하는 것을 <strong>임베딩(Embedding)</strong>이라고 하며, 임베딩 모델은 의미가 유사할수록 벡터 간의 거리가 가깝게 표현되도록 지도 학습을 받습니다. 임베딩은 단어뿐만 아니라 문장 단위에서도 동일하게 적용될 수 있으며, <span class="highlight-text primary">임베딩과 벡터 유사도 검색을 통해 <strong>RAG(Retrieval-Augmented Generation)</strong>에서 문서를 효과적으로 검색할 수 있게 됩니다.</span></p>
 <hr>
 <h2 id="knn-k-nearest-neighbors">kNN (k-Nearest Neighbors)</h2>
@@ -273,13 +275,15 @@
 
 <div class="figure fig-75 center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/2.webp"  alt="Figure 2. Illustration of HNSW graph">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/2.webp" >
   
-   
-    <span class="caption">Figure 2. Illustration of HNSW graph</span>
   
 </div>
 
+<blockquote>
+<p>그림 2. Illustration of HNSW graph
+<br>
+<a href="https://www.mdpi.com/2624-6120/2/2/21#">Frank Zalkow, Julian Brandner, Meinard Müller (2021)</a></p></blockquote>
 <h4 id="hnsw의-검색-원리">HNSW의 검색 원리</h4>
 <p>우리가 가진 모든 벡터 데이터를 Figure 2의 Layer 1처럼 그래프의 노드로 표현했다고 가정해 봅시다. 이때 각 노드는 항상 <strong>가장 가까운 노드</strong>와 우선적으로 연결됩니다.<br>
 <br>
@@ -327,13 +331,15 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
 
 <div class="figure fig-75 center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/3.webp"  alt="Figure 3. Vector Similarity">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/4/3.webp" >
   
-   
-    <span class="caption">Figure 3. Vector Similarity</span>
   
 </div>
 
+<blockquote>
+<p>그림 3. Vector Similarity
+<br>
+<a href="https://weaviate.io/blog/what-is-a-vector-database">© Weaviate</a></p></blockquote>
 <p>각도 기반 유사도라고 해서 차원의 저주에서 완전히 자유로운 것은 아닙니다. 하지만 정규화 과정을 한 번 거치기 때문에 각 특성(feature)이 미치는 영향력을 균일하게 만들어서 주어 비교적 높은 차원에서도 변별력을 잃지 않는 모습을 보여줍니다.<br>
 <br></p>
 <table>
@@ -519,7 +525,7 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-jik7ngi6degyr8xllf9mwiwzmgaypjdxz8kpyuryfj8bbnpz9ovyzns.min.js"></script>
+<script src="https://errolseo.github.io/js/script-gk7andjae0nhgbvnu89btjh6hckgh4vufbnvrr6irhenjpabpkfdsqhosyq.min.js"></script>
 
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
