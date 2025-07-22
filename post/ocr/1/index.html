@@ -32,8 +32,8 @@
 
 <meta property="og:description" content="Introduction to OCR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Optical Text Recognition">
-<meta name="twitter:title" content="Optical Text Recognition">
+<meta property="og:title" content="Optical Text Recognition (OCR)">
+<meta name="twitter:title" content="Optical Text Recognition (OCR)">
 <meta property="og:url" content="https://errolseo.github.io/post/ocr/1/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/ocr/1/">
 <meta property="og:site_name" content="Errol&#39;s AI blog">
@@ -54,6 +54,8 @@
     
   
   
+    
+      <meta property="article:tag" content="OCR">
     
       <meta property="article:tag" content="Introduction">
     
@@ -79,7 +81,7 @@
   <meta property="twitter:image" content="https://errolseo.github.io/images/OCR/1/1.webp">
 
 
-    <title>Optical Text Recognition</title>
+    <title>Optical Text Recognition (OCR)</title>
 
     <link rel="icon" href="https://errolseo.github.io/images/favicon.png">
     
@@ -94,7 +96,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-kz4j18ung6qsj8w0uq0ht5ijso2qjpgmg5e5kg3bq5iwgbloxvv7hwh8.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-kdnxta84ingpfig0ndjv5xrccpz96i8omqalcgcpwhppaykwdmo38r2hll.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -214,7 +216,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Optical Text Recognition
+      Optical Text Recognition (OCR)
     </h1>
   
   
@@ -241,81 +243,94 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/1.webp"  alt="Figure 1. Document OCR">
-  
-   
-    <span class="caption">Figure 1. Document OCR</span>
-  
-</div>
-
+              <blockquote>
+<p>광학 문자 인식(Optical Text Recognition, OCR)은 크게 두 가지로 나눌 수 있습니다. <strong><span class="highlight-text primary">일정한 형식을 갖는 문서 이미지</span></strong>(그림. 1) 그리고 <strong><span class="highlight-text primary">형태가 일정하지 않은 자연 이미지</span></strong>(그림. 2)입니다.</p></blockquote>
+<hr>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/2.webp"  alt="Figure 2. Scene text OCR">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/1.png" >
   
-   
-    <span class="caption">Figure 2. Scene text OCR</span>
-  
-</div>
-</p>
-<p>Optical Text Recognition(OCR)은 크게 2 가지, <span class="highlight-text primary"><b>일정한 형식</b>이 존재하는 문서 등의 이미지</span>(Fig.1) 혹은 <span class="highlight-text primary"><b>다양한 형태</b>의 일반적인 이미지</span>(Fig.2)로 나눌 수 있다. 앞으로 필자가 정리할 내용은 후자에 해당하는 <strong>scene text</strong> 를 어떻게 탐지(Detection)하고 인식(Recognition)하는지에 대한 내용이다. 만약 본인이 하는 OCR 프로젝트가 document OCR에 가깝다면 다른 글을 찾아보길 추천한다.</p>
-<p>Scene text OCR은 document OCR과 달리 포맷이 일정하지 않으며 이미지 속 텍스트의 존재가 보장되지 않는다. 또한 다양한 서체(Font)나 형태(Transform) 등의 이유로 성능을 높히는 것이 쉽지 않았다. 하지만 최근 많은 연구를 통해 그 성능이 점점 높아지고 있다.</p>
-<h4 id="heading">#</h4>
-<p>OCR은 detection과 recognition, 두 파트로 나누어져 있다. 기본적으로 두 파트는 Scene Text Detection(STD)과 Scene Text Recognition(STR)이란 <strong>서로 독립된 모델</strong>로 존재한다. 하지만 경우에 따라선 하나의 모델 안에 두 파트가 모두 존재할 수도 있다.</p>
-<p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/3.webp"  alt="Figure 3. Scene text dectection">
-  
-   
-    <span class="caption">Figure 3. Scene text dectection</span>
   
 </div>
 
+<blockquote>
+<p>그림 1. Document OCR<br>
+<a href="https://www.ncloud.com/product/aiService/ocr#detail">CLOVA OCR</a></p></blockquote>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/4.webp"  alt="Figure 4. Scene text recognition">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/2.webp" >
   
-   
-    <span class="caption">Figure 4. Scene text recognition</span>
   
 </div>
-</p>
-<p>STD 모델은 scene text image를 입력으로 받아 word box image(Fig.3의 빨간 박스)를 출력하고, STR 모델은 word box image를 입력으로 받아 텍스트를 출력한다.(Fig.4) 이처럼 두 개의 모델로 나누어서 학습하는 이유는 단순하면서 복잡하다. 기본적으로 작업의 난이도를 대폭 낮출 수 있으나 배경 정보를 소실하는 문제가 있다. 더 자세하고 정확한 내용은 OCR에 대한 지식을 쌓으면서 저절로 습득하게 될 것이다.</p>
-<h4 id="heading-1">#</h4>
-<p>OCR은 synthetic image(인조 데이터)를 생성하는 분야가 다른 도메인에 비해 많이 발달되어 있다. 다른 도메인에서 인조 데이터를 이용해 학습하는 방법이 주류가 되지 못한 이유는 편향 때문이다. 수집이던 생성이던 현실적으로 편향(bias)이 포함될 수 밖에 없다. 하지만 인조 데이터의 경우 수집에선 발견할 수 없는 추가적인 편향이 존재한다. <span class="highlight-text primary">결국 이러한 편향은 모델의 <b>overfitting(과적합)</b>을 야기하여 성능에 강한 제약을 건다.</span></p>
-<p>그럼에도 불구하고 OCR에서 인조 데이터를 사용하는 이유는 인조 데이터를 사용하는 것이 <strong>아직까지는</strong> 모델의 성능을 높히는데 도움이 되고 있기 때문이다. 그 가장 큰 이유는 데이터의 부족이다. OCR은 annotation   난이도가 높고 오래전부터 상업적으로 서비스되고 있었기에 다른 도메인에 비해 공개된 데이터의 수가 부족하다. 논문 등에서도 모델의 평가는 실제 데이터로 하지만 모델의 학습에는 인조 데이터를 주로 이용한다.</p>
+
+<blockquote>
+<p>그림 2. Scene Text OCR<br>
+<a href="https://arxiv.org/abs/2007.09629">Youngmin Baek, et al. (2020)</a></p></blockquote>
+<p>필자는 현재 Scene Text OCR에 대해 다루고 있습니다. Scene Text OCR은 <span class="highlight-text primary">불규칙한 텍스트 형태, 다양한 폰트, 크기, 색상, 그리고 복잡한 배경</span>과 같은 여러 변수들이 존재하여, 기존의 Document OCR에 비해 인식 난이도가 훨씬 높습니다.</p>
+<hr>
+<h3 id="model">Model</h3>
+<p>OCR은 크게 <strong>텍스트 검출(Detection)</strong>과 <strong>텍스트 인식(Recognition)</strong> 두 파트로 나뉩니다. 일반적으로 이 두 파트는 각각 독립된 모델인 Detection Model과 Recognition Model로 존재합니다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/5.webp"  alt="Figure 5. Synthetic text images">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/3.webp" >
   
-   
-    <span class="caption">Figure 5. Synthetic text images</span>
   
 </div>
 
-<p>딥 러닝에 대한 오랜 경험에 의해 OCR 인조 데이터를 처음 접했을 때 많은 의구심이 들었다. 하지만 지금은 생각이 많이 바뀌어 혹시 다른 도메인에서는 인조 데이터를 만드는 연구가 부족했던 것은 아닌지 싶을 정도이다. 왜냐하면 결국 <span class="highlight-text primary">우리의 최종 목표는 수집이던 생성이던 <b>모집단과 유사한 표본 집단</b>을 구하는 것이기 때문이다.</span> 어려운 문제일수록 경우의 수가 다양하기에 모집단과 유사한 데이터 생성 프로그램을 개발하는 것은 불가능에 가깝다. 하지만 연구가 거듭되면서 점점 그 차이를 좁혀가고 있다.</p>
+<blockquote>
+<p>그림 3. Text Detection<br>
+<a href="https://arxiv.org/abs/1904.01941">Youngmin Baek, et al. (2019)</a></p></blockquote>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/4.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 4. Text Recognition<br>
+<a href="https://arxiv.org/abs/1904.01906">Jeonghun Baek, et al. (2019)</a></p></blockquote>
+<p>검출과 인식 모델을 분리하여 학습하는 주된 이유는 각 단계의 목적이 다르고, 이에 따라 요구되는 입력과 출력 형태가 다르기 때문입니다. Detection 모델은 입력으로 전체 이미지를 받아 이미지 내에서 텍스트가 존재하는 영역(예: 바운딩 박스)을 찾아내는 것이 목표이며, 이를 통해 텍스트가 아닌 불필요한 배경 정보의 영향을 최소화할 수 있습니다.</p>
+<p>반면, Recognition 모델은 Detection 모델로부터 추출된, 텍스트가 포함된 이미지 영역(예: 바운딩 박스로 잘라낸 이미지)을 입력으로 받아 해당 이미지 내의 문자를 실제 텍스트 문자열로 변환하는 것을 목표로 합니다. 이처럼 역할을 분리함으로써 각 모델은 자신의 특정 작업에 최적화된 데이터와 아키텍처로 학습될 수 있어 전체 OCR 시스템의 정확성과 효율성을 높일 수 있습니다.</p>
+<hr>
+<h3 id="data">Data</h3>
+<p>최근 OCR 시스템 개발에 있어 **합성 데이터(synthetic text image)**의 활용이 선택이 아닌 필수가 되고 있습니다. 그 이유는 고품질의 실제 OCR 학습 데이터를 수집하고 수동으로 주석을 다는 과정이 많은 시간과 비용이 드는 작업이기 때문입니다. 반면 합성 데이터는 프로그래밍 방식으로 대량 생산이 가능하여, 모델 학습에 필요한 충분한 양의 데이터를 빠르게 확보할 수 있다는 큰 장점을 가집니다.</p>
+<p>또한 실제 데이터만으로는 다양한 글꼴, 크기, 색상, 배경, 조명, 왜곡, 노이즈, 각도 등 가능한 모든 시나리오를 포괄하기 어렵습니다. 특정 시나리오를 의식해서 데이터를 수집하는게 어려울 뿐만 아니라 특정 언어, 특수 문자, 필기체, 손상된 문서 등은 애당초 해당 데이터가 부족한 경우도 존재하기 때문에 이러한 문제들을 해결하기 위해 합성 데이터를 이용하는 것은 모델 성능 향상에 기여함과 동시에 비용 효율성을 높일 수 있습니다.</p>
+<p>게다가 민감한 정보가 포함된 실제 문서를 사용할 때 발생할 수 있는 개인정보 보안 문제 또한 합성 데이터를 사용함으로써 효과적으로 피할 수 있습니다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/1/5.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 5. Synthetic text images<br>
+<a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">Ankush Gupta, et al. (2016)</a></p></blockquote>
+<p>합성 데이터는 OCR 시스템 개발에 많은 이점을 제공하지만 <strong>한계점</strong>도 분명히 존재합니다. 아무리 정교하게 만들어진 합성 데이터라 할지라도 현실을 완벽하게 반영하기는 어렵습니다. 현실에는 그림자나 광택 등 예측하기 어려운 다양한 노이즈가 존재하는데 이러한 노이즈나 왜곡을 충분히 담아내지 못할 수 있습니다. 이로 인해 합성 데이터로 학습된 모델이 실제 데이터에서 성능 저하를 보이거나 새로운 유형의 오류를 생성할 가능성이 있습니다.</p>
+<p>또한 합성 데이터의 사용은 <strong>과적합(Overfitting) 위험</strong>이 있습니다. 합성 데이터가 실제 데이터의 분포를 충분히 반영하지 못하면, 모델이 합성 데이터의 특정 패턴에 과적합되어 실제 데이터에서의 성능이 떨어질 수 있습니다. 특히 생성 방식이 단순하거나 다양성이 부족한 경우 이러한 문제는 더욱 두드러집니다.</p>
+<p>게다가 합성 데이터의 품질 평가가 어렵다는 점도 한계로 꼽힙니다. 생성된 합성 데이터가 현실을 얼마나 잘 대표하는지 정량적으로 평가하기 쉽지 않습니다. 단순히 시각적인 유사성만으로는 부족하며, 실제 OCR 시스템의 성능 향상으로 이어지는지 실질적인 검증이 필요합니다.</p>
 <h4 id="reference">Reference</h4>
-<p>[1] <a href="https://www.ncloud.com/product/aiService/ocr">https://www.ncloud.com/product/aiService/ocr</a></p>
-<p>[2] Y. Baek, et al. <a href="https://arxiv.org/abs/2007.09629">Character Region Attention For Text Spotting</a></p>
-<p>[3] Y. Baek, et al. <a href="https://arxiv.org/abs/1904.01941">Character Region Awareness for Text Detection</a></p>
-<p>[4] J. Baek, et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
-<p>[5] A. Gupta, et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
+<p><a href="https://www.ncloud.com/product/aiService/ocr#detail">CLOVA OCR</a> | NAVER Cloud Platform</p>
+<p><a href="https://arxiv.org/abs/1904.01941">Character Region Awareness for Text Detection</a> | Youngmin Baek, et al.</p>
+<p><a href="https://arxiv.org/abs/2007.09629">Character Region Attention For Text Spotting</a> | Youngmin Baek, et al.</p>
+<p><a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a> | Jeonghun Baek, et al.</p>
+<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a> | Ankush Gupta, et al.</p>
 
               
 
@@ -330,6 +345,8 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">Tag</span><br/>
                     
+  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/ocr/">OCR</a>
+
   <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/introduction/">Introduction</a>
 
                   </div>
@@ -460,7 +477,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-gk7andjae0nhgbvnu89btjh6hckgh4vufbnvrr6irhenjpabpkfdsqhosyq.min.js"></script>
+<script src="https://errolseo.github.io/js/script-irnybi6ujkwfhvirjd2taw1k0hpfac75jxwoz5vhecuxtndwbr2zvqtmlqx.min.js"></script>
 
 
 
