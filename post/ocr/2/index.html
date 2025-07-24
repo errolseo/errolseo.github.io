@@ -14,8 +14,8 @@
     "image": "https://errolseo.github.io/images/profile.png"
     
   },
-  "name":"Errol\u0027s AI blog",
-  "description":"About synthetic data (with MJSynth, SynthText)",
+  "name":"Errol\u0027s AI Lab",
+  "description":"합성 데이터 (MJSynth \u0026amp; SynthText)",
   "url":"https:\/\/errolseo.github.io\/post\/ocr\/2\/",
   "keywords":"[]"
 }
@@ -27,18 +27,18 @@
 <meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="About synthetic data (with MJSynth, SynthText)">
+<meta name="description" content="합성 데이터 (MJSynth &amp; SynthText)">
 
 
-<meta property="og:description" content="About synthetic data (with MJSynth, SynthText)">
+<meta property="og:description" content="합성 데이터 (MJSynth &amp; SynthText)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Synthetic Text Image (1/3)">
 <meta name="twitter:title" content="Synthetic Text Image (1/3)">
 <meta property="og:url" content="https://errolseo.github.io/post/ocr/2/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/ocr/2/">
-<meta property="og:site_name" content="Errol&#39;s AI blog">
-<meta property="og:description" content="About synthetic data (with MJSynth, SynthText)">
-<meta name="twitter:description" content="About synthetic data (with MJSynth, SynthText)">
+<meta property="og:site_name" content="Errol&#39;s AI Lab">
+<meta property="og:description" content="합성 데이터 (MJSynth &amp; SynthText)">
+<meta name="twitter:description" content="합성 데이터 (MJSynth &amp; SynthText)">
 <meta property="og:locale" content="en-us">
 
   
@@ -53,14 +53,6 @@
       <meta property="article:section" content="OCR">
     
   
-  
-    
-      <meta property="article:tag" content="Synthetic Text Image">
-    
-      <meta property="article:tag" content="MJSynth">
-    
-      <meta property="article:tag" content="SynthText">
-    
   
 
 
@@ -100,7 +92,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-kdnxta84ingpfig0ndjv5xrccpz96i8omqalcgcpwhppaykwdmo38r2hll.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-mjvxugtfjducedu3the9npyp1nrjzcbsdhfyvkhycq3jrowbxmc8sxf58f.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -118,7 +110,7 @@
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI Lab</a>
   </div>
   
     
@@ -247,153 +239,77 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p><span class="highlight-text primary">딥 러닝 프로젝트은 <b>데이터</b>와 <b>모델</b>의 확보가 시작이자 끝이다.</span> 그 중 데이터에 대해 다룰 것인데, 데이터 중에서도 OCR의 <strong>인조 데이터</strong>에 대해서 다룰 것이다. 만약 독자가 OCR을 위해 대량의 scene text image를 annotation할 자금이나 인력을 보유하고 있다면 이 글은 별로 도움이 되지 않을 수도 있다. 하지만 그렇지 않다면 이 글은 독자에게 필수적인 내용이 될 것이다.</p>
-<h4 id="heading">#</h4>
-<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c/">MJSynth(MJ)</a>는 word box image를 생성하는 이미지 합성 엔진이자 그것을 이용해서 만든 데이터셋을 말한다. MJ는 비교적 간단한 방법들을 이용하여 <strong>대량의 데이터</strong>를 생성해냈다. 데이터 생성 파이프라인은 Font rendering, Border/shadow rendering, Base coloring, Projective distortion, Natural data blending, Noise의 총 6단계로 논문에 소개되어 있다. 각 모듈들의 사용처는 직관적이지만 자세한 메커니즘은 꽤 복잡할 수도 있다.</p>
+              <p><strong>합성 데이터(synthetic text image)</strong>는 OCR 학습을 위해 데이터를 기계적인 방법으로 증강(data augmentation)하는 것을 말합니다. 이전 글에서 설명했듯이, OCR 데이터는 수집 및 가공에 많은 어려움이 따릅니다. 현실에서 다양한 형태의 OCR 데이터를 충분히 수집할 수 있다면 가장 좋겠지만, 이는 현실적으로 어렵습니다. 그렇기 때문에 합성 데이터는 모델 학습을 위한 훌륭한 차선책이 될 수 있습니다.</p>
+<p>이번 글에서는 합성 데이터 중에서도 <strong>MjSynth</strong>와 <strong>SynthText</strong>에 대해 자세히 설명할 예정입니다. 이 두 데이터셋은 Scene Text OCR 분야에서 대규모 고품질 학습 데이터의 선구자적인 역할을 해왔습니다.</p>
+<hr>
+<h2 id="mjsynth">MjSynth</h2>
+<p>MJSynth (MJ)는 <span class="highlight-text primary">장면 텍스트 인식(Scene Text Recognition, STR)에 특화된 데이터셋</span>입니다. 즉, 이미지 내의 텍스트를 정확하게 판독하는 모델을 훈련하는 데 사용됩니다. 이 데이터셋은 <span class="highlight-text primary">약 890만 개의 단어 이미지(word box images)를 포함하며, 약 90,000개의 영어 단어와 1,400개 이상의 다양한 폰트를 사용</span>하여 생성되었습니다. 아쉽게도 MJSynth는 합성 데이터를 직접 생성할 수 있는 코드를 제공하고 있지 않습니다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/1.webp"  alt="Figure 1. MJSynth pipeline">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/1.webp" >
   
-   
-    <span class="caption">Figure 1. MJSynth pipeline</span>
   
 </div>
 
-<p>1. Font rendering</p>
-<ul>
-<li><a href="https://fonts.google.com/">Google Fotns</a>에서 다운로드한 1,400개의 폰트</li>
-<li>자간(kerning), 두께(weight), 밑줄(underline) 등의 속성</li>
-<li>사전 정의된 90k words의 dictionary $\mathcal{W}$</li>
-<li>Horizontal bottom, random curve 등의 형태 변형</li>
-</ul>
-<p>2. Border/shadow rendering</p>
-<ul>
-<li>Inset/outset border, shadow 등</li>
-</ul>
-<p>3. Base coloring</p>
-<ul>
-<li>외부 데이터에서 추출한 3색 1쌍의 color map</li>
-<li>글자, 배경 및 기타 여러 요소들의 색상을 정하는데 사용</li>
-</ul>
-<p>4. Projective distortion</p>
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/2.webp"  alt="Figure 2. Projective transformation">
-  
-   
-    <span class="caption">Figure 2. Projective transformation</span>
-  
-</div>
-
-<p>5. Natural data blending</p>
-<ul>
-<li>ICDAR 2003 and SVT 등의 실제 이미지와 합성 <a href="https://en.wikipedia.org/wiki/Blend_modes">(Blend mode wikipedia)</a></li>
-</ul>
-<p>6. Noise</p>
-<ul>
-<li>Gaussian noise, blur, jpeg 손실 압축 왜곡 등의 노이즈</li>
-</ul>
-<p>2014년에 만들어진 MJ 데이터는 scene text image는 아니기에 별도로 학습된 scene text detection(STD) 모델이 필요하다는 치명적인 단점이 존재한다. 하지만 scene text recognition(STR) 모델의 성능에 크게 기여하였고, 그 기본적인 방향성은 후에 이루어진 많은 연구에 영향을 주었다.</p>
-<h4 id="heading-1">#</h4>
-<p><a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">SynthText(ST)</a>의 기본적인 pipeline은 MJ와 유사하다. 다만 추가적인 기술을 이용해 양적인 측면과 질적인 측면 모두 양호한 scene text image를 생성해 냈다. ST는 MJ와 함께 많은 논문에서 pre-trained 모델을 학습하는데 사용되고 있다.</p>
-<p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/3.webp"  alt="Figure 3. Poisson Image Editing (JM Di Martino et al.)">
-  
-   
-    <span class="caption">Figure 3. Poisson Image Editing (JM Di Martino et al.)</span>
-  
-</div>
-
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/4.webp"  alt="Figure 4. Contour Detection and Hierarchical Image Segmentation (Pablo Arbelaez et al.)">
-  
-   
-    <span class="caption">Figure 4. Contour Detection and Hierarchical Image Segmentation (Pablo Arbelaez et al.)</span>
-  
-</div>
-</p>
-<p>표본집단 $\mathrm{n}$(인조 데이터)의 이상적인 목표는 모집단 $\mathrm{N}$과 동일한 수준의 <strong>다양성</strong>과 <strong>유사성</strong>을 확보하는 것이다. 왜냐하면 모집단에 존재할 수 없는 데이터를 포함하고 있거나, 한 쪽으로 편향된 학습 데이터는 모델의 성능에 악영향을 주기 때문이다.</p>
-<p>ST는 이런 문제점을 해결하기 위해 <a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">poisson image editing</a>을 이용해 다양한 배경 위에 텍스트가 자연스럽게 녹아들 수 있도록 했고, <a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf">gPb-UCM</a>을 통해 얻은 이미지의 경계선을 이용해 텍스트의 위치가 자연스러워지도록 제어했다. 필자가 ST에서 가장 주목하는 부분은 gPb-UCM 등의 boundary detection이다.</p>
-<p>필자는 인조 데이터 생성에서 가장 피해야할 부분이 모집단에 존재할 수 없는 데이터를 생성하는 것이라 생각한다. 다양성과 유사성이 중요하다고 말하고 있지만, 둘 중 더 중요한 것을 뽑으라고 한다면 단언컨대 다양성이다. <span class="highlight-text primary">시험 범위 안의 내용을 완전히 이해했다면 만점을 받을 것이며, 시험 범위 밖의 내용을 추가적으로 학습하는 것은 결과에 영향을 주지 않는다.</span> 하지만 모집단과 유사한 수준의 다양성을 <strong>생성</strong>해내는 것은 불가능에 가깝다. 그렇다면  모집단의 데이터와 최대한 유사해져야 한다.</p>
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/5.webp"  alt="Figure 5. (좌) ST 예시 이미지 / (우) 현실에선 존재할 수 없는 텍스트">
-  
-   
-    <span class="caption">Figure 5. (좌) ST 예시 이미지 / (우) 현실에선 존재할 수 없는 텍스트</span>
-  
-</div>
-
-<p>ST의 예시에서 놀란 부분은 정말 현실에 있을 것 같다는 점이다. 반대로 우측의 필자가 합성한 이미지는 홀로그램을 사용한 것이 아닌 이상 존재하기 어려운 형태이다. 그럼 이러한 유사성은 모델에 어떤 도움이 되는 것인가, 예시를 통해 알아보자</p>
-<h4 id="heading-2">#</h4>
-<p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/6.webp"  alt="Figure 6. (좌) 타밀 문자 로고 / (우) 한글 로고">
-  
-   
-    <span class="caption">Figure 6. (좌) 타밀 문자 로고 / (우) 한글 로고</span>
-  
-</div>
-
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/7.webp"  alt="Figure 7. 타밀어 스타벅스 간판">
-  
-   
-    <span class="caption">Figure 7. 타밀어 스타벅스 간판</span>
-  
-</div>
-</p>
-<p>타밀 문자를 접해본 적이 없다면 Fig.6의 타밀 문자 로고를 보고 글자라고 생각하기 어려울 수 있다. 반대로 한글을 접해본 적 없는 외국인이라면 한국어 로고를 보고 단순한 그림이라고 생각하기 쉽다. 하지만 우리는 처음보는 언어라 하더라도 Fig.7의 간판을 보고 <strong>식별이 불가능하더라도</strong> 높은 확률로 글자일 것이라 예측할 수 있다. 연속성을 가진 무언가가 글자가 위치할 수 있는 곳에 존재하기 때문이다. <span class="highlight-text primary">이러한 <b>일반화(generalization)</b>된 추상적인 지식이 바로 데이터의 유사성이 중요한 이유다.</span></p>
-<p>우리는 <strong>글자가 위치할 수 있는 곳</strong>에 대해 따로 학습하거나 배운 적이 없어도 경험에 의해 어렴풋이 그 개념을 추상적으로 이해하고 있다. 이 능력이 우리를 배우지 않은 시험 범위의 문제도 얼추 맞출 수 있게 해준다. 그 말인즉 다양성의 부족을 유사성이 어느 정도 메꿔줄 수 있다는 것이다.</p>
-<h4 id="heading-3">#</h4>
-<p>데이터 수집의 경우 데이터의 편향이 있을지언정 그 데이터는 모집단 내의 데이터가 확실하다. 하지만 데이터 생성의 경우 모집단에선 존재할 수 없는 형태의 데이터를 생성할 가능성이 존재한다. Fig.5의 우측 이미지처럼 일반적이지 않은 데이터를 계속해서 학습하면 모델은 결국 글자가 위치할 수 있는 곳, 더 나아가서는 텍스트에 대한 추상화에 실패할 것이다.</p>
-<h4 id="experience">Experience</h4>
 <blockquote>
-<p>Open Source : <a href="https://github.com/ankush-me/SynthText">https://github.com/ankush-me/SynthText</a></p></blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#00a8c8">FROM</span><span style="color:#d88200"> nvcr.io/nvidia/pytorch:21.12-py3</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">ENV</span> <span style="color:#111">LD_PRELOAD</span><span style="color:#f92672">=</span>/opt/conda/lib/libmkl_core.so:/opt/conda/lib/libmkl_sequential.so<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y libsm6 libxext6 libxrender-dev <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> pip install h5py pygame<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#00a8c8">RUN</span> git clone -b python3 https://github.com/ankush-me/SynthText.git<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><ul>
-<li>fonts</li>
-<li>color map</li>
-<li>배경 및 배경의 boundary 정보</li>
-<li>&hellip;</li>
-</ul>
-<p>ST를 이용한 데이터 생성에는 필요한 준비물들이 많다. 그 밖에도 ST로 데이터를 생성하는데 여러 애로사항에 부딪힐 수 있는데, 그 모든 것을 다루는 것은 글의 취지가 아니기 때문에 위의 개발 환경만 공유한다.</p>
-<p>결론만 말하면 당연하게도 위의 오픈 소스와 개발 환경을 이용해 데이터를 생성할 수 있다. 하지만 Fig.5의 예시 이미지 수준의 퀄리티를 기대하지는 말자. 실제 ST의 데이터셋도 그렇고 필자가 직접 생성해 본 결과 Fig.5와 유사한 수준의 결과가 나오기도 하지만, 그 확률이 낮다. ST는 2016년에 발표된 이미지 합성 엔진으로 개선 되지 않은 6년 전 버전을 그대로 사용하는 것은 아쉬운 부분이 많다.</p>
+<p>그림 1. Pipeline of MJSynth<br>
+<a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c/">Max Jaderberg, et al. (2014)</a></p></blockquote>
+<p>방대한 텍스트 사전에서 추출된 단어들을 <strong>다양한 폰트로 렌더링</strong>합니다.이 후 <span class="highlight-text primary">실제 배경 이미지 위에 이를 투영</span>하고, 왜곡, 회전, 굽힘과 같은 <strong>기하학적 변형을 적용</strong>합니다. 마지막으로 색상, 명암, 노이즈, 블러 등의 조명 효과를 추가하여 <strong>자연스럽게 블렌딩</strong>하는 과정을 거칩니다.</p>
+<p>이렇게 생성된 데이터는 텍스트의 내용과 위치 정보가 자동으로 생성되므로, 별도의 추가 작업 없이 STR 모델 학습에 바로 사용할 수 있습니다. 다만, MJ 데이터셋은 장면 텍스트 감지(Scene Text Detection, STD) 모델 학습을 위해서 별도의 데이터셋을 확보해야 합니다.</p>
+<hr>
+<h2 id="synthtext">SynthText</h2>
+<p>SynthText (ST)는 STD 모델 훈련을 위해 설계된 데이터셋입니다. 약 80만 개의 실제 배경 이미지 위에 800만 개에 달하는 합성 텍스트 인스턴스를 자연스럽게 오버레이하여 생성되었으며, 이 과정에서 텍스트가 배경의 3D 기하학적 구조를 반영하도록 했습니다. 각 텍스트 인스턴스에 대해서는 텍스트 문자열뿐만 아니라 단어 및 문자 수준의 바운딩 박스 주석이 제공되어, 텍스트 감지뿐만 아니라 인식 모델 학습에도 유연하게 활용될 수 있습니다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/3.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 2. Poisson Image Editing<br>
+<a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">Patrick Pérez (2003)</a></p></blockquote>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/4.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 3. Contour Detection and Hierarchical Image Segmentation<br>
+<a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf">Pablo Arbeláez (2010)</a></p></blockquote>
+<p>ST 데이터셋에서 가장 중요했던 부분은 합성 데이터와 실제 데이터 간의 간극을 줄이는 것이었습니다. 이는 합성 데이터의 주요 단점 중 하나인 과적합(Overfitting) 문제를 해결하기 위함입니다. 만약 합성 시나리오를 지나치게 제한하면 다양한 데이터를 확보하기 어려워 모델이 실제 글자인 영역을 인식하지 못하는 과적합이 발생할 수 있습니다. 반대로 시나리오 제한을 해제하여 너무 자유롭게 합성하면 실제 데이터와의 간극이 벌어져 글자가 아닌 영역을 글자라고 잘못 인식하는 과적합이 발생할 수 있습니다.</p>
+<p>ST는 이러한 문제점을 해결하기 위해 <strong>포아송 객체 편집(Poisson Image Editing)</strong>과 <strong>gPb-UCM(Global Probability of Boundary - Ultrametric Contour Map)</strong> 등의 기법을 사용했습니다. 이 두 기법을 통해 합성 데이터가 실제 이미지에 더욱 자연스럽게 어우러지도록 함으로써 실제 데이터와의 간극을 효과적으로 줄일 수 있었습니다. 덕분에 기존에는 합성하기 어려웠던 복잡한 시나리오의 데이터도 대규모로 생성할 수 있게 되었습니다.</p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/2/5.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 4. 올바른 합성 이미지 (L) / 잘 못된 합성 이미지 (R)<br>
+<a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Ankush Gupta (2016)</a></p></blockquote>
+<p>그림 4의 왼쪽 이미지는 ST 데이터셋의 샘플이며, 오른쪽 이미지는 필자가 직접 합성한 이미지입니다. 한눈에 봐도 알 수 있듯이, ST 데이터셋의 이미지는 합성 데이터라고 말하지 않으면 모를 정도로 자연스럽습니다. 반면, 오른쪽 필자의 이미지는 합성했다는 티가 분명히 납니다. 이처럼 간단한 예시만으로도 <span class="highlight-text primary">자연스러운 이미지 합성이 얼마나 중요한지</span> 알 수 있습니다.</p>
+<hr>
 <h4 id="reference">Reference</h4>
-<p>[1] M. Jaderberg, et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c">Synthetic Data and Artificial Neural Networks for Natural Scene Text Recognition</a></p>
-<p>[2] A. Gupta, et al. <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
-<p>[3] P. Perez, et al. <a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">Poisson Image Editing</a></p>
-<p>[4] P. Arbelaez, et al. <a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf">Contour Detection and Hierarchical Image Segmentation</a></p>
+<p>[1] Arbeláez, Pablo (2010) | <a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf">Contour Detection and Hierarchical Image Segmentation</a></p>
+<p>[2] Gupta, Ankush (2016) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
+<p>[3] Jaderberg, Max (2014) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c">Synthetic Data and Artificial Neural Networks for Natural Scene Text Recognition</a></p>
+<p>[4] Pérez, Patrick (2003) | <a href="https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf">Poisson Image Editing</a></p>
 
               
 
@@ -402,20 +318,6 @@
           </div>
           
             <div id="post-footer" class="post-footer main-content-wrap">
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">Tag</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthetic-text-image/">Synthetic Text Image</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/mjsynth/">MJSynth</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthtext/">SynthText</a>
-
-                  </div>
-                
               
               <div class="post-actions-wrap">
   <nav >
@@ -542,7 +444,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-irnybi6ujkwfhvirjd2taw1k0hpfac75jxwoz5vhecuxtndwbr2zvqtmlqx.min.js"></script>
+<script src="https://errolseo.github.io/js/script-kjlpfphvxl6ruay5fv5pwgoxtfnlw0s0uwliu8m11fyfy3ueoorwdada7chc.min.js"></script>
 
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>

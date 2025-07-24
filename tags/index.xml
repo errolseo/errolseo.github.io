@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Errol&#39;s AI blog</title>
+    <title>Tags on Errol&#39;s AI Lab</title>
     <link>https://errolseo.github.io/tags/</link>
-    <description>Recent content in Tags on Errol&#39;s AI blog</description>
+    <description>Recent content in Tags on Errol&#39;s AI Lab</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0000</lastBuildDate>
@@ -90,41 +90,6 @@
       <link>https://errolseo.github.io/tags/unrealtext/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/tags/unrealtext/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>SynthTIGER</title>
-      <link>https://errolseo.github.io/tags/synthtiger/</link>
-      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/tags/synthtiger/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>MJSynth</title>
-      <link>https://errolseo.github.io/tags/mjsynth/</link>
-      <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/tags/mjsynth/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>SynthText</title>
-      <link>https://errolseo.github.io/tags/synthtext/</link>
-      <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/tags/synthtext/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Introduction</title>
-      <link>https://errolseo.github.io/tags/introduction/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/tags/introduction/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>OCR</title>
-      <link>https://errolseo.github.io/tags/ocr/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>https://errolseo.github.io/tags/ocr/</guid>
       <description></description>
     </item>
   </channel>

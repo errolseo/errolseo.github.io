@@ -14,8 +14,8 @@
     "image": "https://errolseo.github.io/images/profile.png"
     
   },
-  "name":"Errol\u0027s AI blog",
-  "description":"About synthetic data (with SynthTIGER)",
+  "name":"Errol\u0027s AI Lab",
+  "description":"합성 데이터 (SynthTIGER)",
   "url":"https:\/\/errolseo.github.io\/post\/ocr\/3\/",
   "keywords":"[]"
 }
@@ -27,18 +27,18 @@
 <meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="About synthetic data (with SynthTIGER)">
+<meta name="description" content="합성 데이터 (SynthTIGER)">
 
 
-<meta property="og:description" content="About synthetic data (with SynthTIGER)">
+<meta property="og:description" content="합성 데이터 (SynthTIGER)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Synthetic Text Image (2/3)">
 <meta name="twitter:title" content="Synthetic Text Image (2/3)">
 <meta property="og:url" content="https://errolseo.github.io/post/ocr/3/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/ocr/3/">
-<meta property="og:site_name" content="Errol&#39;s AI blog">
-<meta property="og:description" content="About synthetic data (with SynthTIGER)">
-<meta name="twitter:description" content="About synthetic data (with SynthTIGER)">
+<meta property="og:site_name" content="Errol&#39;s AI Lab">
+<meta property="og:description" content="합성 데이터 (SynthTIGER)">
+<meta name="twitter:description" content="합성 데이터 (SynthTIGER)">
 <meta property="og:locale" content="en-us">
 
   
@@ -53,12 +53,6 @@
       <meta property="article:section" content="OCR">
     
   
-  
-    
-      <meta property="article:tag" content="Synthetic Text Image">
-    
-      <meta property="article:tag" content="SynthTIGER">
-    
   
 
 
@@ -96,7 +90,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-kdnxta84ingpfig0ndjv5xrccpz96i8omqalcgcpwhppaykwdmo38r2hll.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-mjvxugtfjducedu3the9npyp1nrjzcbsdhfyvkhycq3jrowbxmc8sxf58f.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -114,7 +108,7 @@
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI Lab</a>
   </div>
   
     
@@ -243,95 +237,90 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>작성일 기준, 상위 5개의 <a href="https://paperswithcode.com/task/scene-text-recognition">scene text recognition(STR) State-of-the-Art(SOTA) 논문</a> MJ+ST를 학습 데이터로 사용해 작성되었다. 기존 모델과의 비교를 위해 같은 데이터를 사용하는 부분도 있지만 새로운 데이터들의 공신력이 크지 않은 점도 있다. 하지만 MJ, ST보다 더 나은 데이터가 존재하지 않는 것은 아니다.</p>
-<h4 id="heading">#</h4>
-<p>2021년 7월에 공개된 <a href="https://arxiv.org/abs/2107.09313">SynthTIGER</a>에서는 기존 MJ, ST에 비해 개선된 데이터를 생성해 STR 모델의 성능에 기여하려는 노력을 찾을 수 있었다.</p>
+              <p>최근 장면 텍스트 인식(Scene Text Recognition, STR) 분야의 상위 5개 <strong>SOTA(State-of-the-Art)</strong> 모델들은 벤치마크 학습에 주로 MJSynth(MJ)와 SynthText(ST)를 활용했습니다. 이는 MJ와 ST만으로도 준수한 성능의 모델을 학습할 수 있으며, 벤치마크 비교 시 동일한 데이터셋으로 학습된 모델들 간의 비교가 해당 아키텍처의 우수성을 객관적으로 증명하는 데 필수적이기 때문입니다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/1.webp"  alt="Figure 1. Samples of synthetic dataset (Ours = SynthTIGER)">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/1.webp" >
   
-   
-    <span class="caption">Figure 1. Samples of synthetic dataset (Ours = SynthTIGER)</span>
   
 </div>
 
-<p>논문의 저자들은 SynthTIGER가 MJ와 같은 word box image를 생성하지만 ST 수준의 노이즈를 포함한 데이터라고 소개한다. 여기서의 노이즈는 잘 못된 데이터가 아닌 어려운 데이터를 말한다.</p>
-<p>Word box image는 scene text image에 비해 이미지 한 장이 가지는 정보량이 적어 단순하게 비교하면 word box image의 필요성을 못 느낄 수 있다. 하지만 word box image는 scene text image보다 유사성 측면에서 고려해야할 부분이 적어 좀 더 다양한 데이터를 생성할 수 있다. 그리고 <span class="highlight-text primary">scene text image도 STR 모델의 입력 형태인 word box image로 crop되는 과정에서 결국은 <b>모든 배경 정보를 소실</b>하기 때문에</span> STR 모델의 입력 데이터로는 word box image를 합성하는 것이 더 유리하다.</p>
-<p>
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/2.webp"  alt="Figure 2. The performance of rendering functions">
-  
-   
-    <span class="caption">Figure 2. The performance of rendering functions</span>
-  
-</div>
-
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/3.webp"  alt="Figure 3. Rendering effect visualization of SynthTIGER modules">
-  
-   
-    <span class="caption">Figure 3. Rendering effect visualization of SynthTIGER modules</span>
-  
-</div>
-</p>
-<p>논문에서는 rendering function들이 STR 모델의 정확도에 얼마만큼 영향을 주는지에 대한 측정을 진행했다. Regular(IIIT5k, SVT, IC03, IC13), Irregular(IC15, SVTP, CUTE80)의 차이는 dataset 속 텍스트의 형태가 단순한가 복잡한가의 차이(저자들이 말하는 노이즈의 강도)로 볼 수 있다. 실험에서 흥미로운 부분을 사견과 함께 정리해 보았다.</p>
-<p>1. Post-processing</p>
-<ul>
-<li>Irregular 데이터에는 흐릿한 사진 등의 노이즈가 많이 포함되어 있기 때문에 post-processing의 영향이 큰 것이 실제 실험을 통해 확인됨</li>
-</ul>
-<p>2. Texture blending</p>
-<ul>
-<li>Scene text image 내의 텍스트는 자연 현상에 의해 훼손(기스, 발색 등)이 필연적으로 존재함</li>
-<li>하지만 SynthTIGER에서 사용한 texture image는 우리가 흔히 아는 질감을 표현한 것이 아닌, 배경 이미지를 재활용했을 뿐이기에 현실의 질감을 재현한 것보다는 단순 노이즈에 불과함</li>
-<li>그럼에도 불구하고 텍스트 내부 노이즈의 유무는 STR 모델 성능에 큰 영향을 줌</li>
-</ul>
-<p>3. Blending modes</p>
-<ul>
-<li>배경 이미지의 합성 여부를 나타낸 이 지표가 생각보다 STR 모델 성능에 영향을 주지 않음</li>
-<li>생각해보면 대부분의 scene text image 내의 텍스트는 흔들림, 훼손됨 등의 노이즈를 제외하면 가독성을 위해 단색의 배경 위에 구분이 쉬운 색상을 이용해 작성되어 있는 것을 확인할 수 있음</li>
-</ul>
-<h4 id="heading-1">#</h4>
-<p>위 내용을 토대로 추가적인 개선점을 생각해 보았다. 우선 post-processing 단계에서 이미지 전체에 노이즈를 주는 선택지밖에 없는 것이 아쉬웠다. 흔들림 등으로 인해 이미지 전체에 노이즈가 생기는 경우도 많지만 가려짐, 훼손됨 등의 이미지 일부에 강한 노이즈가 있는 경우도 더러 존재한다. 이런 경우의 수를 포함하기 위해 post-processing 단계에서 이미지 일부에 강한 노이즈를 줄 수 있도록 하면 좋을 것 같다.</p>
-<p>그리고 배경 이미지를 blending 하는 것은 가독성을 떨어뜨려 오히려 서체의 특징을 배우는데 방해를 줄 수 있을 것 같았다. 데이터 내에 심한 노이즈에 의해 글자와 배경의 구분이 힘든 경우가 다수 존재했다. 이런 abnormal 데이터는 모델의 성능 향상에 도움이 되는 부분이 존재하지만, 특이한 필기체들의 일반화를 방해할 것 같다는 생각이 들었다. 다만 지표에서 보여주다 싶이, 텍스트 내부의 노이즈 유무는 중요하기 때문에 질감을 표현할 수 있는 texture image를 이용해 blending을 테스트하면 좋을 것 같다.</p>
-<h4 id="heading-2">#</h4>
-<p>OCR 인조 데이터를 생성하는 과정에서 렌더링할 텍스트의 내용은 무작위로 정해지지 않는다. <a href="https://github.com/clovaai/synthtiger/tree/master/resources/corpus">SynthTIGER의 경우</a> MJ와 ST에서 사용한 말뭉치(corpus)를 섞어 사용하였고, ST의 경우 <a href="https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups">Newsgroup 20 dataset</a>의 corpus를 사용했다. 이런 과정이 필요한 이유에 대해 설명하기 위해서는 언어라는 데이터의 특성을 알아야 한다.</p>
+<blockquote>
+<p>그림 1. Example of SynthTiger<br>
+<a href="https://arxiv.org/abs/2107.09313">Moonbin Yim, et al. (2021)</a></p></blockquote>
+<p>하지만 다른 합성 데이터셋들이 MJ와 ST보다 수준이 떨어지는 것은 아닙니다. 그중 하나로 <strong>SynthTIGER</strong>를 소개하고자 합니다.</p>
+<hr>
+<h2 id="synthtiger">SynthTIGER</h2>
+<p>SynthTIGER는 MJ와 ST의 뛰어넘는 여러 특징들을 선보입니다. 특히 노이즈 처리의 정교함, 텍스트 길이와 희귀 문자 분포 정규화, 그리고 모듈화된 생성 파이프라인을 통해 STR 모델 학습 개선에 크게 기여했습니다.</p>
+<h6 id="노이즈-처리의-정교함">노이즈 처리의 정교함</h6>
+<p>의 경우, MJ가 폰트 렌더링, 테두리, 그림자 등 마이크로 레벨의 텍스트 자체 에 집중하고, ST가 배경과의 자연스러운 블렌딩에 중점을 둔 반면, SynthTIGER는 매크로 레벨 노이즈(예: 텍스트 영역에 다른 단어의 일부가 겹치는 현상)까지 반영하여 실제 데이터의 복잡성을 더욱 정교하게 모방합니다.</p>
+<h6 id="텍스트-길이-및-희귀-문자-분포-정규화">텍스트 길이 및 희귀 문자 분포 정규화</h6>
+<p>MJ는 약 90,000개의 영단어로 사전을 구성했지만, 이로 인해 길거나 짧은 단어의 수가 적고 자주 사용되지 않는 희귀 문자들이 충분히 샘플링되지 못하는 문제가 있었습니다. SynthTIGER는 데이터 정규화를 통해 길이 분포와 문자 분포를 증강하여 데이터가 훨씬 더 고르게 분포되도록 개선했습니다.</p>
+<h6 id="모듈화된-유연한-생성-파이프라인">모듈화된 유연한 생성 파이프라인</h6>
+<p>SynthTIGER는 텍스트 형태 선택, 스타일, 변환, 블렌딩, 후처리 등 다섯 가지 핵심 절차로 구성된 모듈화된 파이프라인을 제공합니다. 이는 사용자가 각 단계를 세밀하게 제어하고 다양한 조합으로 특정 시나리오에 맞는 데이터를 유연하게 생성할 수 있게 합니다. 이러한 모듈화 덕분에 MJ나 ST보다 더 다양한 텍스트 효과와 변형(예: 곡선 텍스트, 다양한 원근 변환)을 지원하며 생성되는 데이터의 다양성을 극대화합니다.</p>
+<hr>
+<h4 id="text-rendering-process">Text Rendering Process</h4>
+<p>SynthTIGER는 실제 텍스트 이미지의 복잡성을 효과적으로 모방하고자 모듈화된 5단계 텍스트 렌더링 파이프라인을 활용합니다. 이 파이프라인은 단순한 텍스트 생성에 그치지 않고, 현실적인 노이즈와 다양한 시각적 변형을 통합하여 STR 모델 학습에 최적화된 데이터를 만들 수 있게 돕습니다.</p>
+<p>SynthTIGER의 5단계 렌더링 파이프라인은 다음과 같이 구성됩니다:<br>
+<span class="highlight-text primary">(a) 텍스트 형태 선택 (Text Shape Selection) / (b) 텍스트 스타일 선택 (Text Style Selection) /<br>(c) 변환 (Transformation) / (d) 블렌딩 (Blending) / (e) 후처리 (Post-processing)</span>
+<br></p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/4.webp"  alt="Figure 4. Likelihood에 따른 예측 확률 (티, 터, 타)">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/3.webp" >
   
-   
-    <span class="caption">Figure 4. Likelihood에 따른 예측 확률 (티, 터, 타)</span>
   
 </div>
 
-<p>Fig.4의 가려진 부분에 대해 &lsquo;티, 터, 타&rsquo;가 모두 가능하지만 &lsquo;컴퓨터&rsquo;일 확률이 높다고 우리는 예측할 수 있다. 이처럼 우리는 텍스트에 심각한 노이즈가 포함되어 있어도 일반적으로 확률이 높은 선택지를 추려낼 수 있다. STR 모델에게도 이러한 통계적인 지식을 학습시킨다면 노이즈가 심한 이미지에서도 더 나은 확률로 정답을 유추해낼 수 있을 것이다. 즉 무작위 알파벳의 조합보다는 실제로 사용하는 단어들로 인조 데이터를 생성하는 것이 좋다.</p>
-<h4 id="heading-3">#</h4>
-<p>MJ, ST가 등장한 시절보다 딥 러닝에 대한 연구가 상당히 높은 수준까지 올라왔다. 최근에선 데이터의 정규화(normalize)없이 모델을 학습시키는 일은 생각하기 힘들다. 어찌 보면 이제는 당연한 일을 SynthTIGER의 저자들이 감사하게도 정리해주었다.</p>
-<p>
+<blockquote>
+<p>그림 2. Rendering effect visualization of SynthTIGER modules<br>
+<a href="https://arxiv.org/abs/2107.09313">Moonbin Yim, et al. (2021)</a></p></blockquote>
+<p>(a), (b), (c) 단계는 기존 MJ와 유사하게 폰트, 색상, 스타일 효과 등을 선택하고 곡선화(curved), 늘이기(stretch), 기울이기(skew), 회전(rotate)과 같은 변환을 적용하여 텍스트를 변형합니다. 이러한 과정은 <strong>미시적 수준의 노이즈(마이크로 레벨 노이즈)</strong>를 생성하는 데 해당합니다.</p>
+<p>그 다음 (d) 블렌딩 단계에서는 텍스트와 배경을 자연스럽게 합성하는데, 이때 SynthTIGER는 <strong>거시적 수준의 노이즈(매크로 레벨 노이즈, 예: 텍스트 영역에 다른 단어의 일부가 겹치는 현상)</strong>를 추가로 반영하여 현실감을 높입니다.</p>
+<p>마지막으로 (e) 후처리 단계에서는 추가적인 시각적 효과를 통해 더욱 현실적인 외관을 완성합니다.</p>
+<p>이러한 모듈화된 프로세스를 통해 SynthTIGER는 훨씬 더 다양한 텍스트 이미지 데이터를 생성할 수 있습니다. 각 단계는 독립적으로 제어 가능하기 때문에, 사용자는 특정 시나리오에 맞는 데이터를 유연하게 생성할 수 있다는 장점이 있습니다.</p>
+<hr>
+<h4 id="text-selection-strategy">Text Selection Strategy</h4>
+<p>합성 데이터를 생성할 때, &lsquo;어떤 텍스트 콘텐츠를 이미지에 담을 것인가&rsquo;를 결정하는 텍스트 선택 전략은 매우 중요한 단계입니다. 이 전략이 왜 핵심적인지 아래 예시들을 통해 직관적으로 확인하실 수 있습니다.
+<br>
+<br></p>
+
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/5.webp"  alt="Figure 5. STR accuracy by length distributions">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/4.webp" >
   
-   
-    <span class="caption">Figure 5. STR accuracy by length distributions</span>
   
 </div>
 
+<blockquote>
+<p>그림 3. Noise가 심한 예제 데이터<br></p></blockquote>
+<p>위 그림 3과 같이 심한 노이즈가 있는 이미지임에도 불구하고, 우리는 해당 단어가 &ldquo;컴퓨터&quot;라는 것을 쉽게 예측할 수 있습니다. 마지막 글자만 놓고 보면 &ldquo;티, 터, 타&rdquo; 등의 여러 글자가 가능하지만, 단어의 연속되는 흐름 속에서 &ldquo;컴퓨터&quot;일 확률이 가장 높다고 판단하기 때문입니다.</p>
+<p>이처럼 우리가 장면 속의 글자를 예측하는 데 있어서 단순히 시각적인 정보뿐만 아니라, <span class="highlight-text primary">언어라는 특성에 크게 의존</span>한다는 것을 알 수 있습니다. STR(장면 문자 인식) 모델 또한 다양한 단어 예제들을 학습하면서 이러한 언어적 &lsquo;경향성&rsquo;을 배우게 되고, 이는 예측 결과에 지대한 영향을 미칩니다.
+<br>
+<br></p>
+
+
+
+<div class="figure center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/3/5.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 4. Text length distribution of training data<br>
+<a href="https://arxiv.org/abs/2107.09313">Moonbin Yim, et al. (2021)</a></p></blockquote>
+<p>그림 4는 텍스트 길이 정규화(Text Length Normalization)의 효과를 보여줍니다. 텍스트 길이를 정규화하지 않은 경우보다 대부분의 구간에서 더 나은 정확도를 보이는 것을 확인할 수 있습니다. 심지어 평가 데이터로 학습된 최적화 모델과 비교했을 때도, 정규화된 데이터를 이용하여 학습한 모델이 평균적으로 더 우수한 성능을 나타내는 것을 확인할 수 있습니다.
+<br>
+<br></p>
 
 
 
@@ -343,11 +332,17 @@
     <span class="caption">Figure 6. STR accuracy by character distributions</span>
   
 </div>
-</p>
-<p>그래프에 대해 간단히 설명하자면 Fig.5의 경우 빨간색 지표들이 정규화를 진행한 결과이다. 정규화를 한다고 해서 결과가 극적으로 달라지지는 않는다. 하지만 추가적인 데이터 혹은 모델의 개선 없이 기존에 풀지 못하던 문제를 풀 수 있게 되기에 들이는 노력에 비해 비약적인 성능 상승인 건 확실하다. 특히 Fig.6에서 rare character (자주 사용하지 않는 알파벳)에 대해 높은 성능 상승을 보여주고 있다. 이는 한국어, 중국어, 일본어 등에는 중요한 사실이다.</p>
-<p>정규화 방식에 대한 자세한 내용을 다루지 않겠지만 만약 본인이 SynthTIGER 혹은 그와 유사한 방식으로 인조 데이터를 생성할 예정이 있다면 <strong>본인이 가진 데이터의 특성을 잘 고려해 가면서</strong> 참고한다면 도움이 될 것이다.</p>
+
+<blockquote>
+<p>그림 5. Character distribution of training data<br>
+<a href="https://arxiv.org/abs/2107.09313">Moonbin Yim, et al. (2021)</a></p></blockquote>
+<p>마지막으로 그림 5는 희귀 문자 정규화의 효과를 보여줍니다. 희귀 문자를 정규화하지 않은 경우보다 정확도가 확연하게 높은 것을 확인할 수 있습니다.</p>
+<p>이처럼 STR 모델 학습에서 데이터의 품질을 좌우하는 텍스트 선택 전략의 중요성을 확인할 수 있습니다. 이는 모델이 현실의 복잡하고 다양한 텍스트를 더욱 <strong>강건하게(robustly)</strong> 인식하도록 돕는 핵심 요소입니다.</p>
+<hr>
 <h4 id="reference">Reference</h4>
-<p>[1] M. Yim, et al. <a href="https://arxiv.org/abs/2107.09313">SynthTIGER: Synthetic Text Image GEneratoR Towards Better Text Recognition Models</a></p>
+<p>[1] Gupta, Ankush (2016) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
+<p>[2] Jaderberg, Max (2014) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c">Synthetic Data and Artificial Neural Networks for Natural Scene Text Recognition</a></p>
+<p>[3] Yim, Moonbin (2021) | <a href="https://arxiv.org/abs/2107.09313">SynthTIGER: Synthetic Text Image GEneratoR Towards Better Text Recognition Models</a></p>
 
               
 
@@ -356,18 +351,6 @@
           </div>
           
             <div id="post-footer" class="post-footer main-content-wrap">
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">Tag</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthetic-text-image/">Synthetic Text Image</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/synthtiger/">SynthTIGER</a>
-
-                  </div>
-                
               
               <div class="post-actions-wrap">
   <nav >
@@ -494,7 +477,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-irnybi6ujkwfhvirjd2taw1k0hpfac75jxwoz5vhecuxtndwbr2zvqtmlqx.min.js"></script>
+<script src="https://errolseo.github.io/js/script-kjlpfphvxl6ruay5fv5pwgoxtfnlw0s0uwliu8m11fyfy3ueoorwdada7chc.min.js"></script>
 
 
 

@@ -14,7 +14,7 @@
     "image": "https://errolseo.github.io/images/profile.png"
     
   },
-  "name":"Errol\u0027s AI blog",
+  "name":"Errol\u0027s AI Lab",
   "description":"Concepts, Applications, and Future Outlook",
   "url":"https:\/\/errolseo.github.io\/post\/nlp\/3\/",
   "keywords":"[]"
@@ -36,7 +36,7 @@
 <meta name="twitter:title" content="Retrieval-Augmented Generation (RAG)">
 <meta property="og:url" content="https://errolseo.github.io/post/nlp/3/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/nlp/3/">
-<meta property="og:site_name" content="Errol&#39;s AI blog">
+<meta property="og:site_name" content="Errol&#39;s AI Lab">
 <meta property="og:description" content="Concepts, Applications, and Future Outlook">
 <meta name="twitter:description" content="Concepts, Applications, and Future Outlook">
 <meta property="og:locale" content="en-us">
@@ -98,7 +98,7 @@
     
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-kdnxta84ingpfig0ndjv5xrccpz96i8omqalcgcpwhppaykwdmo38r2hll.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-mjvxugtfjducedu3the9npyp1nrjzcbsdhfyvkhycq3jrowbxmc8sxf58f.min.css" />
     
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
@@ -116,7 +116,7 @@
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI blog</a>
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI Lab</a>
   </div>
   
     
@@ -350,8 +350,8 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <li><strong>질의(Query) 입력:</strong> 사용자로부터 언어 모델에 질문 또는 요청을 입력받습니다.</li>
 <li><strong>질의 임베딩(Query Embedding):</strong> 입력된 질의는 <a href="../2/"><strong>임베딩 모델</strong></a>을 거쳐 벡터 형태로 변환됩니다. 임베딩이란 텍스트 데이터를 수치화하여 벡터 공간에 표현하는 과정으로, 의미적으로 유사한 텍스트들은 벡터 공간 내에서 가까운 위치에 배치됩니다.</li>
 <li><strong>벡터 데이터베이스 검색:</strong> 사전에 구축된 벡터 데이터베이스에서 질의 임베딩과 가장 유사한 벡터를 탐색합니다. 이 데이터베이스는 외부 지식 소스(예: 문서, 웹 페이지, 데이터베이스 등)의 텍스트를 임베딩하여 저장하고 있습니다. FAISS와 같은 라이브러리가 벡터 검색에 주로 활용됩니다. 유사도 검색을 통해 질의와 의미적으로 가장 연관 있는 텍스트 조각(chunk)들을 검색합니다.</li>
-<li><strong>검색 결과 추출:</strong> 검색된 텍스트 조각들과 원래의 질의를 함께 언어 모델의 입력으로 전달합니다. 이때, 질의와 함께 제공되는 검색된 텍스트는 **‘맥락(context)’**의 역할을 수행합니다.</li>
-<li><strong>언어 모델 생성:</strong> 언어 모델은 제공받은 **질의(query)와 맥락(context)**을 (바탕으로/토대로) 최종 답변을 생성합니다. 검색된 텍스트가 답변 생성의 참고 자료로 활용되므, 언어 모델은 단순히 학습된 지식에 의존하는 것이 아닌 외부 정보를 활용하여 더욱 정확하고 풍부한 답변을 도출할 수 있습니다.</li>
+<li><strong>검색 결과 추출:</strong> 검색된 텍스트 조각들과 원래의 질의를 함께 언어 모델의 입력으로 전달합니다. 이때, 질의와 함께 제공되는 검색된 텍스트는 <strong>‘맥락(context)’</strong>의 역할을 수행합니다.</li>
+<li><strong>언어 모델 생성:</strong> 언어 모델은 제공받은 <strong>질의(query)와 맥락(context)</strong>을 (바탕으로/토대로) 최종 답변을 생성합니다. 검색된 텍스트가 답변 생성의 참고 자료로 활용되므, 언어 모델은 단순히 학습된 지식에 의존하는 것이 아닌 외부 정보를 활용하여 더욱 정확하고 풍부한 답변을 도출할 수 있습니다.</li>
 </ol>
 <p>이러한 Naive RAG는 비교적 간단하게 구현할 수 있어 신속한 프로토타입 제작이 가능하다는 장점을 갖습니다. 하지만 검색된 맥락과 질의의 관련성이 낮을 경우 부정확한 답변을 생성할 수 있으며, 검색된 맥락과 질의 사이의 관계성을 제대로 파악하지 못해 불필요한 정보가 포함될 수 있다는 한계점을 지닙니다.</p>
 <p>이러한 한계점들을 극복하기 위해 Advanced RAG와 같은 더욱 발전된 방법들이 연구되고 있습니다. Advanced RAG는 다양한 청킹 전략, 쿼리 재구성(query rewriting), 검색 결과 재정렬(re-ranking) 등의 기술을 활용하여 검색 및 생성 과정의 효율성과 정확성을 향상시키는 것을 목표로 합니다. Naive RAG는 RAG의 기본 원리를 이해하는 데 효과적인 출발점이지만, 실제 서비스에 적용하기 위해서는 Advanced RAG와 같은 더욱 발전된 모델을 고려하는 것이 바람직합니다.</p>
@@ -528,7 +528,7 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-irnybi6ujkwfhvirjd2taw1k0hpfac75jxwoz5vhecuxtndwbr2zvqtmlqx.min.js"></script>
+<script src="https://errolseo.github.io/js/script-kjlpfphvxl6ruay5fv5pwgoxtfnlw0s0uwliu8m11fyfy3ueoorwdada7chc.min.js"></script>
 
 
 
