@@ -245,7 +245,9 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>임베딩은 고차원의 복잡한 데이터를 저차원의 연속적인 벡터 공간으로 변환하는 과정을 의미합니다. 예를 들어, 100x100 크기의 RGB 이미지는 각 픽셀이 빨강, 초록, 파랑 세 가지 색상 정보를 포함하므로, 총 30,000차원(100 x 100 x 3)의 데이터로 표현될 수 있습니다. 이처럼 다수의 실수로 이루어진 이산적(discrete)이고 고차원인 데이터를, 소수의 실수로 구성된 연속적(continuous)인 저차원 벡터로 변환하는 작업이 바로 임베딩입니다.
+              <blockquote>
+<span class="highlight-text primary">임베딩이란 복잡한 고차원 데이터를 연속적인(continuous) 저차원의 벡터 공간으로 변환하는 것</span></blockquote>
+<hr>
 
 
  
@@ -270,11 +272,12 @@
   
   
 </div>
-</p>
+
 <blockquote>
-<p>그림 1. Embedding Model Visualization
-<br>
+<p>그림 1. Embedding Model Visualization<br>
 <a href="https://qdrant.tech/articles/what-are-embeddings/">© Qdrant</a></p></blockquote>
+<p>가로 픽셀 수 100, 세로 픽셀 수 100, 그리고 컬러 채널(일반적으로 RGB)이 3개이므로 100 × 100 × 3 = 30,000 차원의 데이터가 됩니다. 그리고 이 데이터의 각 차원은 0에서 255 사이의 정수 값을 가지기 때문에, 소수점 공간에는 데이터가 존재하지 않고 비어있죠. <strong>임베딩(embedding)</strong>의 등장 배경이 바로 여기에 있습니다.</p>
+<p>임베딩 모델은 30,000 차원의 이산적인(discrete) 데이터를 512 차원의 연속적인 [-1, 1] 사이 값으로 변환해 줍니다. 이러한 가정이 필요한 주된 이유는 다음과 같습니다.</p>
 <hr>
 <h2 id="임베딩의-목적">임베딩의 목적</h2>
 <h6 id="데이터의-차원-축소-dimensionality-reduction">데이터의 차원 축소 (Dimensionality Reduction)</h6>
@@ -313,8 +316,8 @@
 <p>딥러닝 모델은 내부 작동 방식을 해석하기 어려운 &ldquo;블랙박스&quot;로 여겨지곤 합니다. 임베딩 역시 딥러닝 모델을 통해 생성되므로, 특정 단어나 데이터가 왜 그리고 어떻게 특정 위치에 배치되었는지 정확히 파악하기 어렵습니다. 이는 임베딩 결과를 완벽하게 이해하고 제어하는 것을 어렵게 만듭니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
-<p><a href="https://qdrant.tech/articles/what-are-embeddings/">What are Vector Embeddings? - Revolutionize Your Search Experience</a> | Sabrina Aquino</p>
-<p><a href="https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/04/06/pcasvdlsa/">SVD와 PCA, 그리고 잠재의미분석(LSA)</a> | Gichang Lee</p>
+<p>[1] Aquino, Sabrina (2024) | <a href="https://qdrant.tech/articles/what-are-embeddings/">What are Vector Embeddings? - Revolutionize Your Search Experience</a></p>
+<p>[2] Lee, Gichang (2017) | <a href="https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/04/06/pcasvdlsa/">SVD와 PCA, 그리고 잠재의미분석(LSA)</a></p>
 
               
 

@@ -237,7 +237,7 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>광학 문자 인식(Optical Text Recognition, OCR)은 크게 두 가지로 나눌 수 있습니다. <strong><span class="highlight-text primary">일정한 형식을 갖는 문서 이미지</span></strong>(그림. 1) 그리고 <strong><span class="highlight-text primary">형태가 일정하지 않은 자연 이미지</span></strong>(그림. 2)입니다.</p>
+              <p>광학 문자 인식(Optical Text Recognition, OCR)은 크게 두 가지 유형으로 나눌 수 있습니다. 하나는 <strong><span class="highlight-text primary">정형화된 문서 이미지</span></strong>(그림 1)이고, 다른 하나는 <strong><span class="highlight-text primary">비정형적인 자연 이미지</span></strong>(그림 2)입니다.</p>
 <hr>
 
 
@@ -265,10 +265,10 @@
 <blockquote>
 <p>그림 2. Scene Text OCR<br>
 <a href="https://arxiv.org/abs/2007.09629">Youngmin Baek, et al. (2020)</a></p></blockquote>
-<p>필자는 현재 Scene Text OCR에 대해 다루고 있습니다. Scene Text OCR은 <span class="highlight-text primary">불규칙한 텍스트 형태, 다양한 폰트, 크기, 색상, 그리고 복잡한 배경</span>과 같은 여러 변수들이 존재하여, 기존의 Document OCR에 비해 인식 난이도가 훨씬 높습니다.</p>
+<p>필자는 주로 Scene Text OCR에 대해 다루고 있습니다. Scene Text OCR은 <span class="highlight-text primary">불규칙한 텍스트 형태, 다양한 폰트, 크기, 색상, 복잡한 배경 등</span> 다양한 변수들로 인해 Document OCR보다 인식 난이도가 훨씬 높습니다.</p>
 <hr>
 <h2 id="model">Model</h2>
-<p>OCR은 크게 <strong>텍스트 검출(Detection)</strong>과 <strong>텍스트 인식(Recognition)</strong> 두 파트로 나뉩니다. 일반적으로 이 두 파트는 각각 독립된 모델인 Detection Model과 Recognition Model로 존재합니다.</p>
+<p>OCR은 크게 <strong>텍스트 검출(Detection)</strong>과 <strong>텍스트 인식(Recognition)</strong> 두 가지 주요 파트로 나뉩니다. 일반적으로 이 두 파트는 각각 독립적인 Detection 모델과 Recognition 모델로 구성됩니다.</p>
 
 
 
@@ -295,13 +295,13 @@
 <blockquote>
 <p>그림 4. Text Recognition<br>
 <a href="https://arxiv.org/abs/1904.01906">Jeonghun Baek, et al. (2019)</a></p></blockquote>
-<p>검출과 인식 모델을 분리하여 학습하는 주된 이유는 각 단계의 목적이 다르고, 이에 따라 요구되는 입력과 출력 형태가 다르기 때문입니다. Detection 모델은 입력으로 전체 이미지를 받아 이미지 내에서 텍스트가 존재하는 영역(예: 바운딩 박스)을 찾아내는 것이 목표이며, 이를 통해 텍스트가 아닌 불필요한 배경 정보의 영향을 최소화할 수 있습니다.</p>
-<p>반면, Recognition 모델은 Detection 모델로부터 추출된, 텍스트가 포함된 이미지 영역(예: 바운딩 박스로 잘라낸 이미지)을 입력으로 받아 해당 이미지 내의 문자를 실제 텍스트 문자열로 변환하는 것을 목표로 합니다. 이처럼 역할을 분리함으로써 각 모델은 자신의 특정 작업에 최적화된 데이터와 아키텍처로 학습될 수 있어 전체 OCR 시스템의 정확성과 효율성을 높일 수 있습니다.</p>
+<p>검출 및 인식 모델을 <span class="highlight-text primary">분리하여 학습하는 주된 이유는 각 단계의 목적과 그에 따라 요구되는 입출력 형태가 다르기 때문</span>입니다. <strong>Detection 모델</strong>은 전체 이미지를 입력받아 이미지 내 텍스트 영역(Wordbox)을 찾아내는 것을 목표로 하며, 이는 불필요한 배경 정보의 영향을 최소화시킵니다.</p>
+<p>반면 <strong>Recognition 모델</strong>은 Detection 모델이 추출한 Wordbox를 입력받아 해당 영역 내의 문자를 실제 텍스트 문자열로 변환하는 것을 목표로 합니다. 이렇게 역할을 분리함으로써 각 모델은 자신에게 최적화된 데이터와 아키텍처로 학습될 수 있으며, 이는 전체 OCR 시스템의 정확성과 효율성을 높이게 됩니다.</p>
 <hr>
 <h2 id="data">Data</h2>
-<p>최근 OCR 시스템 개발에 있어 <strong>합성 데이터(synthetic text image)</strong>의 활용이 선택이 아닌 필수가 되고 있습니다. 그 이유는 고품질의 실제 OCR 학습 데이터를 수집하고 수동으로 주석을 다는 과정이 많은 시간과 비용이 드는 작업이기 때문입니다. 반면 합성 데이터는 프로그래밍 방식으로 대량 생산이 가능하여, 모델 학습에 필요한 충분한 양의 데이터를 빠르게 확보할 수 있다는 큰 장점을 가집니다.</p>
-<p>또한 실제 데이터만으로는 다양한 글꼴, 크기, 색상, 배경, 조명, 왜곡, 노이즈, 각도 등 가능한 모든 시나리오를 포괄하기 어렵습니다. 특정 시나리오를 의식해서 데이터를 수집하는게 어려울 뿐만 아니라 특정 언어, 특수 문자, 필기체, 손상된 문서 등은 애당초 해당 데이터가 부족한 경우도 존재하기 때문에 이러한 문제들을 해결하기 위해 합성 데이터를 이용하는 것은 모델 성능 향상에 기여함과 동시에 비용 효율성을 높일 수 있습니다.</p>
-<p>게다가 민감한 정보가 포함된 실제 문서를 사용할 때 발생할 수 있는 개인정보 보안 문제 또한 합성 데이터를 사용함으로써 효과적으로 피할 수 있습니다.</p>
+<p>최근 OCR 시스템 개발에서 <strong>합성 데이터(synthetic text image)</strong>의 활용은 선택이 아닌 필수가 되어가고 있습니다. 이는 고품질의 실제 OCR 학습 데이터를 수집하고 주석을 다는 과정이 막대한 시간과 비용을 필요로 하기 때문입니다. 반면 <span class="highlight-text primary">합성 데이터는 프로그램을 이용해 대량 생산이 가능</span>해서 모델 학습에 필요한 충분한 양의 데이터를 빠르게 확보할 수 있다는 큰 장점을 있습니다.</p>
+<p>또한 <span class="highlight-text primary">실제 데이터만으로는 다양한 글꼴, 크기, 색상, 배경, 조명, 왜곡, 노이즈, 각도 등 가능한 모든 시나리오를 포괄하는 것은 불가능</span>에 가깝습니다. 특정 시나리오를 의도적으로 수집하기 어려울 뿐만 아니라, 특정 언어, 특수 문자, 필기체, 손상된 문서 등은 애초에 해당 데이터 자체가 부족한 경우도 많습니다. 이러한 문제들의 보완을 위해 합성 데이터를 활용하는 것은 모델의 성능을 향상시키는 동시에 비용 효율성도 높일 수 있습니다.</p>
+<p>게다가 민감한 정보가 포함된 실제 문서를 사용할 때 발생할 수 있는 개인정보 보안 문제 역시 합성 데이터를 통해 효과적으로 해결할 수 있습니다.</p>
 
 
 
@@ -315,9 +315,9 @@
 <blockquote>
 <p>그림 5. Synthetic text images<br>
 <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16/">Ankush Gupta, et al. (2016)</a></p></blockquote>
-<p>합성 데이터는 OCR 시스템 개발에 많은 이점을 제공하지만 한계점도 분명히 존재합니다. <span class="highlight-text primary">아무리 정교하게 만들어진 합성 데이터라 할지라도 현실을 완벽하게 반영하기는 어렵습니다.</span> 현실에는 그림자나 광택 등 예측하기 어려운 다양한 노이즈가 존재하는데 이러한 노이즈나 왜곡을 충분히 담아내지 못할 수 있습니다. 이로 인해 합성 데이터로 학습된 모델이 실제 데이터에서 성능 저하를 보이거나 새로운 유형의 오류를 생성할 가능성이 있습니다.</p>
-<p>또한 합성 데이터의 사용은 <strong>과적합(Overfitting) 위험</strong>이 있습니다. 합성 데이터가 실제 데이터의 분포를 충분히 반영하지 못하면, 모델이 합성 데이터의 특정 패턴에 과적합되어 실제 데이터에서의 성능이 떨어질 수 있습니다. 특히 생성 방식이 단순하거나 다양성이 부족한 경우 이러한 문제는 더욱 두드러집니다.</p>
-<p>게다가 합성 데이터의 품질 평가가 어렵다는 점도 한계로 꼽힙니다. 생성된 합성 데이터가 현실을 얼마나 잘 대표하는지 정량적으로 평가하기 쉽지 않습니다. 단순히 시각적인 유사성만으로는 부족하며, 실제 OCR 시스템의 성능 향상으로 이어지는지 실질적인 검증이 필요합니다.</p>
+<p>합성 데이터는 OCR 시스템 개발에 많은 이점을 제공하지만 한계점도 분명히 존재합니다. <span class="highlight-text primary">아무리 정교하게 만들어진 합성 데이터라 할지라도 현실을 완벽하게 반영하기는 어렵습니다.</span> 현실에는 그림자나 광택처럼 예측 불가능한 다양한 노이즈가 존재하는데, 합성 데이터가 이러한 노이즈나 왜곡을 적절히 담아내지 못할 수 있습니다.</p>
+<p>또한 합성 데이터의 사용은 <strong>과적합(Overfitting) 위험</strong>을 수반합니다. 합성 데이터가 실제 데이터의 분포를 충분히 반영하지 못할 경우, 모델이 합성 데이터의 특정 패턴에 과적합되어 실제 데이터에서의 성능이 저하될 수 있습니다. 특히 생성 방식이 단순하거나 다양성이 부족한 경우에 이러한 문제가 심화됩니다.</p>
+<p>게다가 합성 데이터의 품질 평가가 어렵다는 점도 주요 한계로 지적됩니다. 생성된 합성 데이터가 현실을 얼마나 잘 반영하는지 정량적으로 평가하기 쉽지 않기 때문입니다. 단순히 시각적으로 유사한 데이터를 생성하는 것만으로는 모델 성능 향상으로 직결되지 않으므로, 실제 학습을 통해 모델 성능에 어떻게 기여하는지 파악하고 데이터 생성 전략을 수정할 필요가 있습니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
 <p>[1] Baek, Jeonghun (2019) | <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
