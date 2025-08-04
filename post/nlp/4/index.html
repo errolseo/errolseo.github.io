@@ -15,7 +15,7 @@
     
   },
   "name":"Errol\u0027s AI Lab",
-  "description":"Introduction to Vector Similarity Search (with HNSW)",
+  "description":"벡터 유사도 검색에 대한 설명 (with. HNSW)",
   "url":"https:\/\/errolseo.github.io\/post\/nlp\/4\/",
   "keywords":"[]"
 }
@@ -27,18 +27,18 @@
 <meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="Introduction to Vector Similarity Search (with HNSW)">
+<meta name="description" content="벡터 유사도 검색에 대한 설명 (with. HNSW)">
 
 
-<meta property="og:description" content="Introduction to Vector Similarity Search (with HNSW)">
+<meta property="og:description" content="벡터 유사도 검색에 대한 설명 (with. HNSW)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vector Similarity Search">
 <meta name="twitter:title" content="Vector Similarity Search">
 <meta property="og:url" content="https://errolseo.github.io/post/nlp/4/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/nlp/4/">
 <meta property="og:site_name" content="Errol&#39;s AI Lab">
-<meta property="og:description" content="Introduction to Vector Similarity Search (with HNSW)">
-<meta name="twitter:description" content="Introduction to Vector Similarity Search (with HNSW)">
+<meta property="og:description" content="벡터 유사도 검색에 대한 설명 (with. HNSW)">
+<meta name="twitter:description" content="벡터 유사도 검색에 대한 설명 (with. HNSW)">
 <meta property="og:locale" content="en-us">
 
   
@@ -53,14 +53,6 @@
       <meta property="article:section" content="NLP">
     
   
-  
-    
-      <meta property="article:tag" content="Natural Language Processing">
-    
-      <meta property="article:tag" content="Language Model">
-    
-      <meta property="article:tag" content="Retrieval-Augmented Generation">
-    
   
 
 
@@ -95,22 +87,14 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-    
-    
-    
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-mjvxugtfjducedu3the9npyp1nrjzcbsdhfyvkhycq3jrowbxmc8sxf58f.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+KR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-7TXCGWW79C');
-    </script>
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ywoywuf8lwzrqxsktlebq3b6lxchslfn7r6o5o8qqyd6julztvjfyrmy7o.min.css" />
+    
   </head>
 
   <body>
@@ -290,33 +274,27 @@
 만약 이러한 그래프가 있다면, 쿼리가 입력되었을 때 <span class="highlight-text primary">탐색의 시작점이 어떤 노드인지에 따라 탐색 속도가 크게 달라질 수 있습니다.</span> 탐색 시작점이 실제 쿼리와 가까운 위치였다면 탐색이 빠르게 끝나겠지만, 거리가 먼 곳에서 시작했다면 최근접 노드를 찾기 위해 많은 탐색 시간이 필요할 것입니다. 그렇기 때문에 <span class="highlight-text primary">최적의 <strong>진입점(entry point)</strong>을 찾는 것은 그래프 기반 최근접 이웃 탐색에서 매우 중요합니다.</span><br>
 <br>
 이러한 최적의 진입점을 찾기 위해 HNSW가 택한 방법은 <strong>계층 구조</strong>입니다. 그림에서 상위 레이어(Layer 2)는 하위 레이어(Layer 1)의 진입점을 찾기 위해 존재합니다. 상위 레이어는 하위 레이어의 일부 노드만을 복제하여 보유합니다. 따라서 상위 레이어에서는 무작위 진입점을 가지고 시작해도 하위 레이어보다 더 적은 시간을 소모하여 최근접 이웃을 찾을 수 있습니다. <span class="highlight-text primary">이렇게 찾은 상위 레이어의 최근접 이웃은 하위 레이어의 진입점이 됩니다.</span> 이러한 계층 구조 메커니즘을 통해 HNSW는 모든 노드를 탐색하지 않아도 근사 최적해를 보장할 수 있습니다.</p>
+<hr>
 <h4 id="hnsw의-주요-하이퍼파라미터">HNSW의 주요 하이퍼파라미터</h4>
-<ul>
-<li><strong>M (Max Connection)</strong>
-각 노드가 HNSW 그래프의 각 레이어에서 가질 수 있는 최대 양방향 연결(엣지)의 수</li>
-<li><strong>efConstruction</strong>
-HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드가 자신의 이웃을 찾기 위해 탐색하는 <strong>후보 이웃 노드의 최대 수</strong>
-<ul>
-<li>이 값은 얼마나 &ldquo;꼼꼼하게&rdquo; 주변을 탐색하여 최적의 연결을 만들지를 결정합니다.</li>
-</ul>
-</li>
-<li><strong>ef (efSearch)</strong>
-실제 쿼리의 최근접 이웃을 탐색할 때, 현재까지 찾은 최적의 후보 노드 목록(dynamic candidate list)의 최대 크기
+<h6 id="m--max-connection">M : Max Connection</h6>
+<p>각 노드가 HNSW 그래프의 각 레이어에서 가질 수 있는 최대 양방향 연결(엣지)의 수</p>
+<h6 id="efconstruction">efConstruction</h6>
+<p>HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드가 자신의 이웃을 찾기 위해 탐색하는 후보 이웃 노드의 최대 수. <span class="highlight-text primary">(이 값은 얼마나 "꼼꼼하게" 주변을 탐색하여 최적의 연결을 만들지를 결정합니다.)</span></p>
+<h6 id="ef--efsearch">ef : efSearch</h6>
+<p>실제 쿼리의 최근접 이웃을 탐색할 때, 현재까지 찾은 최적의 후보 노드 목록(dynamic candidate list)의 최대 크기</p>
 <ul>
 <li>높은 <code>ef</code> : 검색 정확도(Recall) 향상, 검색 시간(Latency) 증가</li>
 <li>낮은 <code>ef</code> : 검색 정확도 저하, 검색 시간 단축</li>
 </ul>
-</li>
-<li><strong>mL (Level Multiplier)</strong>
-각 노드가 더 높은 레이어에 포함될 확률, 일반적으로 $1/ln(M)$ 값을 사용
+<h6 id="ml--level-multiplier">mL : Level Multiplier</h6>
+<p>각 노드가 더 높은 레이어에 포함될 확률, 일반적으로 $1/ln(M)$ 값을 사용</p>
 <ul>
-<li><code>mL</code> 값이 클수록, 상위 레이어에 더 많은 노드가 존재하게 됩니다.
-이는 계층 탐색의 이점을 줄여 진입점을 찾는 시간을 증가시킬 수 있습니다.</li>
-<li>반대로 <code>mL</code> 값이 너무 작으면, 상위 레이어에 노드가 너무 적어 최적의 진입점을 찾기 어려워 탐색 시간이 증가할 수 있습니다.</li>
-</ul>
-</li>
+<li>너무 높은 <code>mL</code> : 상위 레이어 노드의 수 증가. 계층 탐색의 이점 감소. 탐색 시간을 증가</li>
+<li>너무 낮은 <code>mL</code> : 상위 레이어 노드의 수 감소. 최적의 진입점을 찾기 불가능. 탐색 시간을 증가
+<br><br></li>
 </ul>
 <p>요약하자면, <code>M</code>과 <code>efConstruction</code>에 따라 최하위 레이어에서 그래프가 생성되고, <code>mL</code>에 의해 선별된 노드들은 상위 레이어로 올라가 동일한 과정을 반복합니다. 이렇게 만들어진 계층적 그래프를 통해 효율적으로 벡터를 탐색하게 되는 것입니다.</p>
+<hr>
 <h4 id="hnsw에-대한-tmi">HNSW에 대한 TMI</h4>
 <p>HNSW에는 한 가지 까다로운 문제점이 존재합니다. 삽입(insert)은 비교적 간단하지만, 삭제(delete)의 경우 기존 방법론들과 달리 큰 문제가 될 수 있기 때문입니다. 만약 노드가 제거될 때 연결을 재정의하지 않으면 특정 노드는 의도치 않게 모든 연결이 끊기는 등의 그래프의 무결성이 손상될 수 있기 때문입니다.</p>
 <p>이러한 문제를 해결하기 위해 HNSW에서는 일반적으로 그래프에서 노드를 즉시 제거하기보다는 비활성화하는 방식을 채택하고 있습니다. 삭제된 노드들을 &ldquo;삭제된 노드”로 표시한 후 커넥션은 유지합니다. 그리고 일정 주기마다 정리(vacuuming)하거나 재구성(rebalancing)하는 <strong>lazy deletion</strong> 방식을 사용합니다.</p>
@@ -374,9 +352,10 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
 <p>최근에는 HNSW 같은 AkNN 알고리즘을 사용하여, 유사한 데이터를 탐색하며, 기존에도 지도 학습 머신 러닝 방법론으로 자주 사용되었지만 최근들어 RAG와 연계되어 많은 파생 알고리즘과 라이브러리 등이 개발되고 있습니다. RAG를 사용하기 위해서 반드시 알아야하는 내용은 아니지만, 기본적인 배경지식은 가지고 있다면 반드시 도움이 될 것이라 생각됩니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
-<p><a href="https://weaviate.io/blog/what-is-a-vector-database">A Gentle Introduction to Vector Databases</a> | Leonie Monigatti, Zain Hasan<br>
-<a href="https://www.mdpi.com/2624-6120/2/2/21">Efficient Retrieval of Music Recordings Using Graph-Based Index Structures
-</a> | Frank Zalkow, et al.</p>
+<p>[1] Monigatti, Leonie (2023) | <a href="https://weaviate.io/blog/what-is-a-vector-database">A Gentle Introduction to Vector Databases</a></p>
+<p>[2] Zalkow, Frank (2020) | <a href="https://www.mdpi.com/2624-6120/2/2/21">Efficient Retrieval of Music Recordings Using Graph-Based Index Structures
+</a></p>
+<hr>
 
               
 
@@ -386,20 +365,16 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
           
             <div id="post-footer" class="post-footer main-content-wrap">
               
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">Tag</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/natural-language-processing/">Natural Language Processing</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/language-model/">Language Model</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/retrieval-augmented-generation/">Retrieval-Augmented Generation</a>
-
-                  </div>
-                
               
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
               <div class="post-actions-wrap">
   <nav >
     <ul class="post-actions post-action-nav">
@@ -444,16 +419,6 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
     </li>
   </ul>
 </div>
-
-              
-  <script src="https://utteranc.es/client.js"
-    repo="errolseo/blog-comments"
-    issue-term="title"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-  </script>
-
 
             </div>
           
@@ -525,11 +490,11 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-kjlpfphvxl6ruay5fv5pwgoxtfnlw0s0uwliu8m11fyfy3ueoorwdada7chc.min.js"></script>
+<script src="https://errolseo.github.io/js/script-2jyxq3mpay5wr1thjnptnmblescpkxflhalbh4ciqlnjqdqxnywxukg6i5.min.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       renderMathInElement(document.body, {
@@ -542,7 +507,8 @@ HNSW 인덱스를 구축하거나 새로운 노드를 삽입할 때, 각 노드�
             {left: '\\[', right: '\\]', display: true}
         ],
         
-        throwOnError : false
+        throwOnError : false,
+        output: 'mathml'
       });
   });
 </script>

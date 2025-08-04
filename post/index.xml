@@ -20,35 +20,35 @@
       <link>https://errolseo.github.io/post/mcp/1/</link>
       <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/mcp/1/</guid>
-      <description></description>
+      <description>MCP에 대한 설명 (Tool Calling 개념 설명 및 실습)</description>
     </item>
     <item>
       <title>RAG Practice</title>
       <link>https://errolseo.github.io/post/nlp/5/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/nlp/5/</guid>
-      <description>Implementing RAG using Milvus</description>
+      <description>RAG 구축 실습 (with. Milvus)</description>
     </item>
     <item>
       <title>Vector Similarity Search</title>
       <link>https://errolseo.github.io/post/nlp/4/</link>
       <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/nlp/4/</guid>
-      <description>Introduction to Vector Similarity Search (with HNSW)</description>
+      <description>벡터 유사도 검색에 대한 설명 (with. HNSW)</description>
     </item>
     <item>
       <title>Retrieval-Augmented Generation (RAG)</title>
       <link>https://errolseo.github.io/post/nlp/3/</link>
       <pubDate>Fri, 06 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/nlp/3/</guid>
-      <description>Concepts, Applications, and Future Outlook</description>
+      <description>RAG에 대한 설명 (개념 및 활용 사례 그리고 미래 전망)</description>
     </item>
     <item>
       <title>Embedding</title>
       <link>https://errolseo.github.io/post/nlp/2/</link>
       <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/nlp/2/</guid>
-      <description>The Concept and History of Embeddings</description>
+      <description>임베딩에 대한 설명 (개념 및 발전 역사)</description>
     </item>
     <item>
       <title>Semantic &amp; Sequence</title>
@@ -83,21 +83,21 @@
       <link>https://errolseo.github.io/post/ocr/3/</link>
       <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/3/</guid>
-      <description>합성 데이터 (SynthTIGER)</description>
+      <description>합성 데이터에 대한 설명 (with. SynthTIGER)</description>
     </item>
     <item>
       <title>Synthetic Text Image (1/3)</title>
       <link>https://errolseo.github.io/post/ocr/2/</link>
       <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/2/</guid>
-      <description>합성 데이터 (MJSynth &amp;amp; SynthText)</description>
+      <description>합성 데이터에 대한 설명 (with. MJSynth &amp;amp; SynthText)</description>
     </item>
     <item>
       <title>Optical Text Recognition (OCR)</title>
       <link>https://errolseo.github.io/post/ocr/1/</link>
       <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/1/</guid>
-      <description>OCR 개론</description>
+      <description>OCR에 대한 설명 (모델과 데이터를 기준으로)</description>
     </item>
   </channel>
 </rss>

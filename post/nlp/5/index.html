@@ -15,7 +15,7 @@
     
   },
   "name":"Errol\u0027s AI Lab",
-  "description":"Implementing RAG using Milvus",
+  "description":"RAG 구축 실습 (with. Milvus)",
   "url":"https:\/\/errolseo.github.io\/post\/nlp\/5\/",
   "keywords":"[]"
 }
@@ -27,18 +27,18 @@
 <meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="Implementing RAG using Milvus">
+<meta name="description" content="RAG 구축 실습 (with. Milvus)">
 
 
-<meta property="og:description" content="Implementing RAG using Milvus">
+<meta property="og:description" content="RAG 구축 실습 (with. Milvus)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RAG Practice">
 <meta name="twitter:title" content="RAG Practice">
 <meta property="og:url" content="https://errolseo.github.io/post/nlp/5/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/nlp/5/">
 <meta property="og:site_name" content="Errol&#39;s AI Lab">
-<meta property="og:description" content="Implementing RAG using Milvus">
-<meta name="twitter:description" content="Implementing RAG using Milvus">
+<meta property="og:description" content="RAG 구축 실습 (with. Milvus)">
+<meta name="twitter:description" content="RAG 구축 실습 (with. Milvus)">
 <meta property="og:locale" content="en-us">
 
   
@@ -53,14 +53,6 @@
       <meta property="article:section" content="NLP">
     
   
-  
-    
-      <meta property="article:tag" content="Natural Language Processing">
-    
-      <meta property="article:tag" content="Language Model">
-    
-      <meta property="article:tag" content="Retrieval-Augmented Generation">
-    
   
 
 
@@ -95,22 +87,14 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-    
-    
-    
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-mjvxugtfjducedu3the9npyp1nrjzcbsdhfyvkhycq3jrowbxmc8sxf58f.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+KR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-7TXCGWW79C');
-    </script>
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ywoywuf8lwzrqxsktlebq3b6lxchslfn7r6o5o8qqyd6julztvjfyrmy7o.min.css" />
+    
   </head>
 
   <body>
@@ -275,6 +259,7 @@ Milvus의 장점으로는 가장 기본에 충실하다고 할 수 있습니다.
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo docker compose down
 </span></span><span style="display:flex;"><span>sudo rm -rf volumes
 </span></span></code></pre></div><p>마찬가지로 실행시킨 도커를 정지시키고 볼륨을 지우는 것 만으로 milvus를 완전히 제거할 수 있습니다.</p>
+<hr>
 <h4 id="create-collection">Create Collection</h4>
 <blockquote>
 <p>A collection is a two-dimensional table with fixed columns and variant rows. Each column represents a field, and each row represents an entity.</p></blockquote>
@@ -293,7 +278,7 @@ Milvus의 장점으로는 가장 기본에 충실하다고 할 수 있습니다.
 </span></span><span style="display:flex;"><span>    <span style="color:#111">index_params</span><span style="color:#f92672">=</span><span style="color:#111">index_params</span>       <span style="color:#75715e"># 빠른 검색을 위한 index 정의</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">)</span>
 </span></span></code></pre></div><p>가장 먼저 pymilvus의 MilvusClient를 이용해 DB와의 connection을 생성해줍니다. 그리고 schema와 index와 함께 collection을 정의해 주면 컬렉션을 생성할 수 있습니다.</p>
-<h6 id="create-schema">Create Schema</h6>
+<h5 id="create-schema">Create Schema</h5>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">schema</span> <span style="color:#f92672">=</span> <span style="color:#111">MilvusClient</span><span style="color:#f92672">.</span><span style="color:#111">create_schema</span><span style="color:#111">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">auto_id</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">,</span> <span style="color:#75715e"># timestamp를 기반으로 자동으로 id 값을 생성할지 여부</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">enable_dynamic_field</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">,</span>
@@ -303,7 +288,7 @@ Milvus의 장점으로는 가장 기본에 충실하다고 할 수 있습니다.
 </span></span><span style="display:flex;"><span><span style="color:#111">schema</span><span style="color:#f92672">.</span><span style="color:#111">add_field</span><span style="color:#111">(</span><span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vector&#34;</span><span style="color:#111">,</span> <span style="color:#111">datatype</span><span style="color:#f92672">=</span><span style="color:#111">DataType</span><span style="color:#f92672">.</span><span style="color:#111">FLOAT_VECTOR</span><span style="color:#111">,</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">schema</span><span style="color:#f92672">.</span><span style="color:#111">add_field</span><span style="color:#111">(</span><span style="color:#111">field_name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;text&#34;</span><span style="color:#111">,</span> <span style="color:#111">datatype</span><span style="color:#f92672">=</span><span style="color:#111">DataType</span><span style="color:#f92672">.</span><span style="color:#111">VARCHAR</span><span style="color:#111">,</span> <span style="color:#111">max_length</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span><span style="color:#111">)</span>
 </span></span></code></pre></div><p>스키마의 경우 보통의 경우 primary key로 사용할 id 필드와 vector 값을 저장할 vector 필드는 필수적으로 필요합니다. 임베딩 전의 원본 텍스트를 보존하기 위해 text 필드를 하나 더 만들어주겠습니다.</p>
-<h6 id="create-index">Create Index</h6>
+<h5 id="create-index">Create Index</h5>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">index_params</span> <span style="color:#f92672">=</span> <span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#111">prepare_index_params</span><span style="color:#111">()</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#111">index_params</span><span style="color:#f92672">.</span><span style="color:#111">add_index</span><span style="color:#111">(</span>
@@ -324,8 +309,9 @@ Milvus의 장점으로는 가장 기본에 충실하다고 할 수 있습니다.
 </span></span></code></pre></div><p>id 필드의 경우 AUTOINDEX를 이용해 인덱스 타입을 자동으로 지정해주었고, vector 필드의 경우 <a href="http://localhost:1313/post/nlp/4/">HNSW</a>을 이용하겠습니다.
 <br><br>
 Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 보았습니다. 이제 남은 건 실제 데이터를 DB에 삽입(insert)하고 검색(search)하는 일 입니다. 이 때 데이터를 Vector DB에 입력하기 위해서는 임베딩 모델을 이용해서 텍스트 데이터를 벡터 데이터로 임베딩하는 과정을 거쳐야합니다.</p>
+<hr>
 <h4 id="insert--search">Insert &amp; Search</h4>
-<h6 id="embedding">Embedding</h6>
+<h5 id="embedding">Embedding</h5>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">openai</span> <span style="color:#f92672">import</span> <span style="color:#111">OpenAI</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">client</span> <span style="color:#f92672">=</span> <span style="color:#111">OpenAI</span><span style="color:#111">()</span>
 </span></span><span style="display:flex;"><span>
@@ -336,7 +322,7 @@ Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#111">ebedded</span> <span style="color:#f92672">=</span> <span style="color:#111">response</span><span style="color:#f92672">.</span><span style="color:#111">data</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">embedding</span><span style="color:#111">)</span>
 </span></span></code></pre></div><p>Open AI의 모델을 이용하거나, Huggingface 모델을 이용할 경우 <a href="https://github.com/huggingface/text-embeddings-inference">text-embeddings-inference</a>를 이용하는 것을 추천드립니다. 그 외에도 다양한 방법을 이용해서 텍스트를 벡터로 변환하기만 하시면 됩니다.</p>
-<h6 id="insert">Insert</h6>
+<h5 id="insert">Insert</h5>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">data</span><span style="color:#f92672">=</span><span style="color:#111">[</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">{</span><span style="color:#d88200">&#34;id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;vector&#34;</span><span style="color:#111">:</span> <span style="color:#111">embedded</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;text&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Your text string goes here&#34;</span><span style="color:#111">},</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">]</span>
@@ -348,7 +334,7 @@ Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">res</span><span style="color:#111">)</span>
 </span></span></code></pre></div><p>해당 콜렉션에 알맞은 json list 형태로 data를 넣어주면 됩니다.</p>
-<h6 id="search">Search</h6>
+<h5 id="search">Search</h5>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#111">search_params</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#34;params&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;ef&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#75715e"># Number of neighbors to consider during the search</span>
@@ -369,7 +355,8 @@ Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 
 </span></span></code></pre></div><p>마지막으로 <code>index_type</code>에 따른 <code>search_params</code>을 정의해 주고, Query vector 또한 기존에 이용했던 동일한 방법으로 임베딩해준 후 검색을 진행하면 벡터 유사도 검색 결과를 받아 볼 수 있습니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
-<p><a href="https://milvus.io/docs/">Milvus Docs</a></p>
+<p>[1] Milvus | <a href="https://milvus.io/docs/">Milvus Docs</a></p>
+<hr>
 
               
 
@@ -379,20 +366,16 @@ Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 
           
             <div id="post-footer" class="post-footer main-content-wrap">
               
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">Tag</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/natural-language-processing/">Natural Language Processing</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/language-model/">Language Model</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/retrieval-augmented-generation/">Retrieval-Augmented Generation</a>
-
-                  </div>
-                
               
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
               <div class="post-actions-wrap">
   <nav >
     <ul class="post-actions post-action-nav">
@@ -437,16 +420,6 @@ Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 
     </li>
   </ul>
 </div>
-
-              
-  <script src="https://utteranc.es/client.js"
-    repo="errolseo/blog-comments"
-    issue-term="title"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-  </script>
-
 
             </div>
           
@@ -518,27 +491,8 @@ Schema, Index를 정의하고 Collection을 생성하는 방법까지 진행해 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-kjlpfphvxl6ruay5fv5pwgoxtfnlw0s0uwliu8m11fyfy3ueoorwdada7chc.min.js"></script>
+<script src="https://errolseo.github.io/js/script-2jyxq3mpay5wr1thjnptnmblescpkxflhalbh4ciqlnjqdqxnywxukg6i5.min.js"></script>
 
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        
-        
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        
-        throwOnError : false
-      });
-  });
-</script>
 
 
 

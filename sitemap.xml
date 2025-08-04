@@ -8,13 +8,7 @@
     <loc>https://errolseo.github.io/</loc>
     <lastmod>2025-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://errolseo.github.io/tags/language-model/</loc>
-    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://errolseo.github.io/categories/mcp/</loc>
-    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/model-context-protocol/</loc>
     <lastmod>2025-07-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://errolseo.github.io/post/mcp/2/</loc>
@@ -23,22 +17,13 @@
     <loc>https://errolseo.github.io/post/</loc>
     <lastmod>2025-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://errolseo.github.io/tags/</loc>
-    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://errolseo.github.io/post/mcp/1/</loc>
     <lastmod>2025-07-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/natural-language-processing/</loc>
-    <lastmod>2025-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://errolseo.github.io/categories/nlp/</loc>
     <lastmod>2025-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://errolseo.github.io/post/nlp/5/</loc>
-    <lastmod>2025-06-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/retrieval-augmented-generation/</loc>
     <lastmod>2025-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://errolseo.github.io/post/nlp/4/</loc>
@@ -53,40 +38,16 @@
     <loc>https://errolseo.github.io/post/nlp/1/</loc>
     <lastmod>2022-05-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://errolseo.github.io/tags/abinet/</loc>
-    <lastmod>2022-05-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://errolseo.github.io/categories/ocr/</loc>
-    <lastmod>2022-05-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/scene-text-recognition/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://errolseo.github.io/post/ocr/6/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://errolseo.github.io/tags/crnn/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/ctc/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://errolseo.github.io/post/ocr/5/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://errolseo.github.io/tags/srn/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/srnet/</loc>
-    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/synthetic-text-image/</loc>
-    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://errolseo.github.io/post/ocr/4/</loc>
-    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://errolseo.github.io/tags/unrealtext/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://errolseo.github.io/post/ocr/3/</loc>
@@ -101,5 +62,7 @@
     <loc>https://errolseo.github.io/about/</loc>
   </url><url>
     <loc>https://errolseo.github.io/archives/</loc>
+  </url><url>
+    <loc>https://errolseo.github.io/tags/</loc>
   </url>
 </urlset>

@@ -15,7 +15,7 @@
     
   },
   "name":"Errol\u0027s AI Lab",
-  "description":"Concepts, Applications, and Future Outlook",
+  "description":"RAG에 대한 설명 (개념 및 활용 사례 그리고 미래 전망)",
   "url":"https:\/\/errolseo.github.io\/post\/nlp\/3\/",
   "keywords":"[]"
 }
@@ -27,18 +27,18 @@
 <meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="Concepts, Applications, and Future Outlook">
+<meta name="description" content="RAG에 대한 설명 (개념 및 활용 사례 그리고 미래 전망)">
 
 
-<meta property="og:description" content="Concepts, Applications, and Future Outlook">
+<meta property="og:description" content="RAG에 대한 설명 (개념 및 활용 사례 그리고 미래 전망)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Retrieval-Augmented Generation (RAG)">
 <meta name="twitter:title" content="Retrieval-Augmented Generation (RAG)">
 <meta property="og:url" content="https://errolseo.github.io/post/nlp/3/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/nlp/3/">
 <meta property="og:site_name" content="Errol&#39;s AI Lab">
-<meta property="og:description" content="Concepts, Applications, and Future Outlook">
-<meta name="twitter:description" content="Concepts, Applications, and Future Outlook">
+<meta property="og:description" content="RAG에 대한 설명 (개념 및 활용 사례 그리고 미래 전망)">
+<meta name="twitter:description" content="RAG에 대한 설명 (개념 및 활용 사례 그리고 미래 전망)">
 <meta property="og:locale" content="en-us">
 
   
@@ -53,14 +53,6 @@
       <meta property="article:section" content="NLP">
     
   
-  
-    
-      <meta property="article:tag" content="Natural Language Processing">
-    
-      <meta property="article:tag" content="Language Model">
-    
-      <meta property="article:tag" content="Retrieval-Augmented Generation">
-    
   
 
 
@@ -95,20 +87,14 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+KR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ywoywuf8lwzrqxsktlebq3b6lxchslfn7r6o5o8qqyd6julztvjfyrmy7o.min.css" />
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-mjvxugtfjducedu3the9npyp1nrjzcbsdhfyvkhycq3jrowbxmc8sxf58f.min.css" />
-    
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TXCGWW79C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-7TXCGWW79C');
-    </script>
   </head>
 
   <body>
@@ -308,13 +294,13 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <blockquote>
 <p>그림 2. Retrieval-Augmented Generation Concept Diagram
 <br>
-<a href="https://blog.ml6.eu/leveraging-llms-on-your-domain-specific-knowledge-base-4441c8837b47">Michiel De Koninck</a></p></blockquote>
+<a href="https://blog.ml6.eu/leveraging-llms-on-your-domain-specific-knowledge-base-4441c8837b47">Michiel De Koninck (2024)</a></p></blockquote>
 <p>인공지능 챗봇이 검색을 활용하는 것은 마치 사람이 오픈북 시험을 치르는 것과 유사합니다. 일반적인 시험에서는 머릿속에 내재된 지식만을 활용하여 문제를 해결해야 하지만, 오픈북 시험에서는 실시간으로 참고 자료를 활용하여 문제 풀이가 가능합니다. 마찬가지로, 통상적인 챗봇은 이미 학습된 지식을 바탕으로 주어진 질문에 대한 답변을 생성하지만, RAG(Retrieval-Augmented Generation)를 활용하는 챗봇은 데이터베이스 내의 유용한 참고 자료들을 바탕으로 더욱 정확하고 풍부한 답변을 생성할 수 있습니다.</p>
 <p><strong>검색 증강 생성</strong>이란 말 그대로 데이터베이스를 검색(Retrieval)하고, 검색된 결과를 활용하여 생성(Generation) 결과를 강화(Augmentation)시키는 것을 의미합니다. 여기서 핵심은 <strong>검색</strong>입니다. 마치 오픈북 시험에서 문제와 관련된 참고자료를 찾는 것이 중요하듯이, RAG에서도 정확한 정보를 검색하는 것이 답변의 질을 좌우합니다. 만약 검색 결과가 부정확하다면, 아무리 뛰어난 언어 모델이라도 잘못된 정보를 바탕으로 답변을 생성할 수밖에 없습니다.</p>
 <p>이때, 사람은 자신의 지식과 경험을 바탕으로 필요한 정보를 찾지만, 언어 모델은 별도의 <strong>검색 모델</strong>을 이용하여 정보를 검색합니다. 이러한 분리된 구조는 언어 모델과 검색 모델을 각각 개선할 수 있다는 장점을 가집니다. 예를 들어, 언어 모델이 올바른 정보를 제대로 활용하지 못한다면, 언어 모델 자체를 개선하면 됩니다. 즉, 검색 모델의 정확도를 높이기 위해 다양한 검색 알고리즘을 개발하고, 언어 모델의 경우 생성된 답변의 질을 높이기 위해 학습 데이터를 개선하는 것이 가능합니다.</p>
 <p><strong>요약하면, RAG는 언어 모델이 외부 정보를 활용하여 더욱 정확하고 신뢰할 수 있는 답변을 생성할 수 있도록 돕는 기술입니다.</strong> 마치 사람이 오픈북 시험에서 참고자료를 활용하여 문제를 해결하듯이, RAG를 통해 챗봇은 더욱 지능적이고 유용한 도구로 발전할 수 있습니다.</p>
 <hr>
-<h2 id="rag의-동작-원리">RAG의 동작 원리</h2>
+<h3 id="rag의-동작-원리">RAG의 동작 원리</h3>
 
 
  
@@ -356,12 +342,12 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <p>이러한 Naive RAG는 비교적 간단하게 구현할 수 있어 신속한 프로토타입 제작이 가능하다는 장점을 갖습니다. 하지만 검색된 맥락과 질의의 관련성이 낮을 경우 부정확한 답변을 생성할 수 있으며, 검색된 맥락과 질의 사이의 관계성을 제대로 파악하지 못해 불필요한 정보가 포함될 수 있다는 한계점을 지닙니다.</p>
 <p>이러한 한계점들을 극복하기 위해 Advanced RAG와 같은 더욱 발전된 방법들이 연구되고 있습니다. Advanced RAG는 다양한 청킹 전략, 쿼리 재구성(query rewriting), 검색 결과 재정렬(re-ranking) 등의 기술을 활용하여 검색 및 생성 과정의 효율성과 정확성을 향상시키는 것을 목표로 합니다. Naive RAG는 RAG의 기본 원리를 이해하는 데 효과적인 출발점이지만, 실제 서비스에 적용하기 위해서는 Advanced RAG와 같은 더욱 발전된 모델을 고려하는 것이 바람직합니다.</p>
 <hr>
-<h2 id="rag의-활용-사례">RAG의 활용 사례</h2>
+<h3 id="rag의-활용-사례">RAG의 활용 사례</h3>
 <p>특정 도메인에 특화된 질의의 경우,  위 그림과 같이 LLM(Large Language Model)이 자체적으로 응답하기 어려울 수 있습니다. LLM은 광범위한 지식을 학습하지만 모든 지식을 망라할 수는 없기 때문에 특정 영역에 심화된 질문에 대해서는 지식의 난이도와는 별개로 해당 지식에 접근할 기회가 없을 수 있습니다.</p>
 <p>또한 보험사의 보험약관 문서와 같이 방대한 양의 내용이 주기적으로 변경되는 경우, 변경된 내용을 LLM에 지속적으로 학습시키는 것은 비용 효율성이 떨어질 수 있습니다. 이와 같은 경우는 RAG를 활용하는 편이 비용절감에 큰 도움이 될 수 있습니다.</p>
 <p>그 밖에도 법률 문서 검색, 학술 논문 검색, 제품 설명서 검색, 뉴스 기사 검색, 교육 자료 검색과 의료 기록 분석, 고객 상담 등 다양한 영역에서 모델에 새로운 지식을 학습하는 것 보다 RAG를 이용한 검색을 통해서 답변을 확장시키는 편이 품질 및 비용 양쪽 측면에서 모두 유리할 수 있습니다.</p>
 <hr>
-<h2 id="rag의-미래-전망">RAG의 미래 전망</h2>
+<h3 id="rag의-미래-전망">RAG의 미래 전망</h3>
 <p>그렇다면 RAG가 모든 문제의 해결책이 될 수 있을까요? 그렇지는 않습니다. RAG는 새로운 지식을 습득하기 위해 추가적인 학습(fine-tuning)이 필요하지 않다는 장점을 가지고 있어 신속하게 새로운 정보를 활용할 수 있다는 이점을 제공하지만, 검색 성능에 크게 의존한다는 근본적인 문제점을 가지고 있습니다. 예를들어, 검색하지 않았다면 능히 답변할 수 있었던 질문에 대해 잘못된 검색 결과를 참조함으로써 오히려 오답을 생성할 수 있습니다.</p>
 <p>또한 최근에는 AI 타임즈의 기사 &ldquo;RAG를 사용하지 마세요&hellip; 모든 정보를 프롬프트에 입력하세요&quot;에서 볼 수 있듯이, RAG보다는 장기 컨텍스트(long context) 기술을 활용하여 참고 문서 전체를 입력으로 제공하는 방식이 주목받고 있습니다.</p>
 <p>대규모 언어 모델(Large Language Model)의 성능과 컨텍스트 길이(context length)가 함께 발전함에 따라, 굳이 검색 과정을 거치지 않고도 대용량 문서를 언어 모델이 직접 검토하여 질의와 관련된 부분에 대한 답변을 생성하는 것이 가능해진 것입니다.</p>
@@ -369,7 +355,7 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <p>장기 컨텍스트가 무한정으로 확장될 것이라는 예측도 있지만, 아직까지는 약 100페이지 내외의 정보만을 처리할 수 있는 수준입니다. 그 이상의 정보를 참조해야 하는 경우에는 여전히 검색을 통한 데이터 축소 과정이 필요합니다.</p>
 <p>결론적으로 RAG만으로는 해결할 수 없는 질의가 존재하고, 장기 컨텍스트라는 효과적인 대안이 있기 때문에, 모든 문제를 RAG로 해결할 수 있다고 단정짓고 RAG를 도입하는 것은 바람직하지 않을 수 있습니다.</p>
 <hr>
-<h2 id="결론">결론</h2>
+<h3 id="결론">결론</h3>
 <p>RAG는 LLM이 미처 학습하지 못한 최신 정보나 특정 도메인에 특화된 지식을 필요로 하는 질문에 대해 외부 지식 소스를 검색하여 답변을 생성함으로써 LLM의 답변 정확도를 높이고, 새로운 지식에 대한 추가 학습 없이도 즉각적으로 정보를 활용할 수 있도록 합니다. 또한, 방대한 양의 정보를 LLM에 지속적으로 학습시키는 데 드는 비용을 절감할 수 있다는 장점도 있습니다.</p>
 <p>그러나 RAG는 <strong>검색 성능에 크게 의존</strong>한다는 근본적인 문제점을 가지고 있습니다. 검색 시스템의 성능이 낮거나 검색된 정보의 품질이 좋지 않으면 RAG의 답변 품질 또한 낮아질 수밖에 없습니다. 또한, 검색된 정보와 질문 사이의 관련성을 제대로 파악하지 못하거나 불필요한 정보가 포함된 답변을 생성할 수도 있습니다.</p>
 <p>게다가 최근에는 RAG의 대안으로 <strong>장기 컨텍스트(long context)</strong> 기술이 주목받고 있습니다. 장기 컨텍스트 기술은 RAG와 달리 외부 지식 소스를 검색하는 과정 없이, 참고 문서 전체를 LLM의 입력으로 제공하여 답변을 생성하는 방식입니다.</p>
@@ -377,9 +363,10 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <p>결론적으로 RAG는 LLM의 한계를 보완하고 다양한 분야에서 활용될 수 있는 <strong>유용한 기술</strong>이지만, <strong>만능 해결책은 아니</strong>라는 점을 명심해야 합니다. RAG를 도입할 때에는 질문의 유형, 검색 시스템의 성능, 장기 컨텍스트 기술과의 비교 등 다양한 요소를 종합적으로 고려하여 신중하게 결정해야 합니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
-<p><a href="https://blog.ml6.eu/leveraging-llms-on-your-domain-specific-knowledge-base-4441c8837b47">Leveraging LLMs on your domain-specific knowledge base</a> | Michiel De Koninck</p>
-<p><a href="https://arxiv.org/abs/2312.10997">Retrieval-Augmented Generation for Large Language Models: A Survey</a> | Yunfan Gao, et al.</p>
-<p><a href="https://www.thecloudgirl.dev/blog/rag-vs-large-context-window">RAG vs Large Context Window LLMs: When to use which one?</a> | Priyanka Vergadia</p>
+<p>[1] De Koninck, Michiel (2023) | <a href="https://blog.ml6.eu/leveraging-llms-on-your-domain-specific-knowledge-base-4441c8837b47">Leveraging LLMs on your domain-specific knowledge base</a></p>
+<p>[2] Gao, Yunfan (2024) | <a href="https://arxiv.org/abs/2312.10997">Retrieval-Augmented Generation for Large Language Models: A Survey</a></p>
+<p>[3] Vergadia, Priyanka (2024) | <a href="https://www.thecloudgirl.dev/blog/rag-vs-large-context-window">RAG vs Large Context Window LLMs: When to use which one?</a></p>
+<hr>
 
               
 
@@ -389,20 +376,16 @@ AI 생성 이미지 (Gemini)</p></blockquote>
           
             <div id="post-footer" class="post-footer main-content-wrap">
               
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">Tag</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/natural-language-processing/">Natural Language Processing</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/language-model/">Language Model</a>
-
-  <a class="tag tag--primary tag--small" href="https://errolseo.github.io/tags/retrieval-augmented-generation/">Retrieval-Augmented Generation</a>
-
-                  </div>
-                
               
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
               <div class="post-actions-wrap">
   <nav >
     <ul class="post-actions post-action-nav">
@@ -447,16 +430,6 @@ AI 생성 이미지 (Gemini)</p></blockquote>
     </li>
   </ul>
 </div>
-
-              
-  <script src="https://utteranc.es/client.js"
-    repo="errolseo/blog-comments"
-    issue-term="title"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-  </script>
-
 
             </div>
           
@@ -528,7 +501,7 @@ AI 생성 이미지 (Gemini)</p></blockquote>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-kjlpfphvxl6ruay5fv5pwgoxtfnlw0s0uwliu8m11fyfy3ueoorwdada7chc.min.js"></script>
+<script src="https://errolseo.github.io/js/script-2jyxq3mpay5wr1thjnptnmblescpkxflhalbh4ciqlnjqdqxnywxukg6i5.min.js"></script>
 
 
 
