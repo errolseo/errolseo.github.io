@@ -231,63 +231,66 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>만약 필자에게 기존 vision task와 Scene Text Recognition(STR)의 차이를 한 문장으로 표현해 달라고 한다면, &lsquo;sequence의 유무&rsquo;라고 대답할 것 같다. STR 모델은 기존 vision classification과는 다른 prediction 형태를 갖는다. 만약 기존과 같은 형태를 가진다면 영어의 알파벳 26자의 5자 조합만 해도 $26^5$이 되어 사실상 모델 생성이 불가능하다. 한글과 한자는 경우의 수가 더 심각해진다. 위의 문제를 해결하기 위한 방법은 다양하게 존재하기 때문에 후술하는 내용에 포함시키려고 한다. STR 모델의 파이프라인에 대해 이해하고, 최종적으로 텍스트의 <strong>seqence</strong>에 대해 이해한다면 추후의 STR 연구에 도움이 될 것이다.</p>
-<h4 id="heading">#</h4>
-<p>2015년에 공개된 <a href="https://arxiv.org/abs/1507.05717">Convolutional Recurrent Neural Network(CRNN)</a>은 Convolutional, Recurrent, Transcription 3 단계의 레이어로 이루어져 있다. CNN을 이용해 이미지로부터 feature를 추출하고(featurization), RNN을 이용해 feature에 sequence 정보를 추가하여(sequentialization), Connectionist Temporal Classification(CTC)을 이용해 prediction 한다.</p>
+              <p>장면 문자 인식(Scene Text Recognition, STR)은 기본적인 이미지 분류(Image classification) 작업과 유사하게 동작합니다. 이미지 분류 모델이 이미지를 입력받아 해당 이미지의 분류 라벨을 출력하는 것처럼, STR 모델은 이미지를 입력받아 이미지 안의 글자 라벨을 출력합니다. 여기서 한 가지 다른 점은 일반적인 이미지 분류 작업의 라벨에는 <strong>&lsquo;시퀀스(sequence)&rsquo;</strong> 정보가 없다는 것 입니다.</p>
+<p>예를들어, 강아지, 고양이, 거북이를 분류하는 이미지 분류 모델이 있다고 가정해봅시다. 해당 모델은 강아지와 고양이 그리고 거북이를 잘 분류할 수 있으며, 두 종류 이상의 동물이 같이 등장해도 잘 분류할 수 있습니다. 하지만 이 모델에게 강아지가 먼저 나타났는지 고양이가 먼저 나타났는지는 중요하지 않습니다. 단지 이미지 내에 해당 동물이 &lsquo;존재하는지&rsquo; 여부만이 중요하기 때문입니다.</p>
+<p>하지만 언어는 그렇지 않습니다. <span class="highlight-text primary">'On'과 'No'가 완전히 다른 의미인 것처럼, 이미지에 알파벳 'a'가 등장하는지 여부도 중요하지만 몇 번째 순서에 등장하는지 또한 굉장히 중요합니다.</span></p>
+<hr>
+<h2 id="crnn">CRNN</h2>
+<p>2015년에 공개된 <strong>Convolutional Recurrent Neural Network(CRNN)</strong>은 STR 모델을 Convolutional Layers, Recurrent Layers, Transcription Layer의 3 단계의 레이어로 구성하는 방법을 제시했습니다.
+<br><br></p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5/1.webp"  alt="Figure 1. CRNN architecture">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5/1.webp" >
   
-   
-    <span class="caption">Figure 1. CRNN architecture</span>
   
 </div>
 
+<blockquote>
+<p>그림 1. Convolutional Recurrent Neural Network<br>
+<a href="https://arxiv.org/abs/1507.05717">Baoguang Shi (2015)</a></p></blockquote>
+<p>그림 1의 CRNN 모델 아키텍처를 보면, 1단계 Convolutional Layers는 CNN을 활용해 입력을 인코딩하는 작업을 수행합니다. 이는 곧 이미지의 특징(feature)을 추출하는 단계라고 할 수 있습니다. 2단계 Recurrent Layers는 RNN을 활용하여 추출된 특징에 시퀀스(sequence) 정보를 추가합니다. 모델이 실제 예측(Prediction) 시에 전후 입력 정보를 직접 고려하지 않기 때문에, 미리 앞뒤 픽셀에 대한 정보를 반영해주는 역할을 합니다. 마지막으로 3단계 Transcription Layer에서는 <strong>Connection Temporal Classification(CTC)</strong>를 이용해 최종 예측을 수행합니다.
+<br><br></p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">inp</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">randn</span><span style="color:#111">([</span><span style="color:#111">batch</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#111">height</span><span style="color:#111">,</span> <span style="color:#111">width</span><span style="color:#111">])</span> <span style="color:#75715e"># [b, 3, h, w]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">cnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_layer</span><span style="color:#111">(</span><span style="color:#111">inp</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_c, c_h, c_w]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">rnn_inp</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_oup</span><span style="color:#f92672">.</span><span style="color:#111">permute</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">b</span><span style="color:#111">,</span> <span style="color:#111">c_w</span><span style="color:#111">,</span> <span style="color:#111">c_c</span> <span style="color:#f92672">*</span> <span style="color:#111">c_h</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, c_c * c_h]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">rnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">rnn_layer</span><span style="color:#111">(</span><span style="color:#111">rnn_inp</span><span style="color:#111">,</span> <span style="color:#111">batch_first</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, hidden_size]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">pred_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">prediction</span><span style="color:#111">(</span><span style="color:#111">rnn_oup</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, num_labels]</span>
-</span></span></code></pre></div><p>모델이 복잡해 보일 수도 있는데 데이터의 flow 자체는 단순하다. 중요한 부분은 최종 출력의 형태다. [c_w, num_labels]에는 convolutional feature의 width에 대한 softmax_value가 들어있다. 즉 이미지 feature를 가로로 1 pixel씩 쪼개어 각각이 의미하는 알파벳을 classifcation하는 것 처럼 보인다. 문제는 위 방식에는 ground truth가 존재하지 않으며, 그로 인해 수 많은 정답이 존재 가능하다는 것이다. 그럼 loss는 어떻게 구하는가.</p>
-<p><span class="highlight-text primary">CTC는 Dynamic Programming(DP)을 이용해 모델의 출력값이 정답이 될 수 있는 모든 확률을 계산한 후, 그 확률을 최대로 만들도록 모델을 학습시키는 방법이다.</span> 즉, 정답이 여러 개 존재한다면 그 여러 개에 해당하는 각각의 확률을 모두 구한 후, 그 합이 최대가 되도록 학습하는 것이다. 만약 CTC에 대해 자세히 알고 싶다면 <a href="https://ratsgo.github.io/speechbook/docs/neuralam/ctc">https://ratsgo.github.io/speechbook/docs/neuralam/ctc</a>를 참고하면 좋다.</p>
-<p>현재까지도 다양한 모델들이 발표되고 있지만 <strong>featurization, sequentialization, prediction</strong>으로 이루어진 구조는 대부분의 모델에서 채용되고 있다.</p>
-<h4 id="heading-1">#</h4>
-<p>이미지 featurization에 CNN을 사용하는 것은 대세를 넘어 지배적이었다. 최근 transformer를 이용한 모델들이 준수한 성능을 자랑하며 등장하고 있지만 <a href="https://arxiv.org/abs/1905.11946">EfficientNet</a> 등의 최적화된 모델을 상회한다고 보기는 어렵다. STR은 ResNet과 같은 backbone network를 기반으로 텍스트에 특화된 featurization을 위해 추가적인 모듈을 결합하여 사용한다. Featurization 파트에서 크게 특이한 점은 없었다. 하지만 STR은 이미지를 다루는 task이기 때문에 가장 근본이 되는 파트이다.</p>
-<h4 id="heading-2">#</h4>
-<p>Sequntialization 파트는 $26^5$의 복잡도를 $25*5$로 바꿔주는 역활을 한다. 텍스트 이미지에 sequence 정보 없이 알파벳 단위의 prediction이 가능한가. 이 부분에 대한 직관은 꽤나 복잡하다. 위에서 CTC를 소개했는데, attention을 이용한 Auto Regressive(AR) 모델도 존재한다.</p>
+</span></span></code></pre></div><p>모델 내의 데이터 흐름(flow)은 코드를 통해 살펴보면 더 직관적입니다. Line 1과 2에서는 3채널의 RGB 이미지를 입력으로 받아 CNN 레이어에 통과시키는 과정을 확인할 수 있습니다. 이 때 각 라인의 주석은 출력 형태(shape)를 의미합니다. Line 3과 4에서는 <code>c_w</code> 단위로 RNN 레이어를 통과하는 과정을 확인할 수 있습니다. 마지막으로 Line 5에서 prediction function을 통과하면 최종 출력은 <code>[b, c_w, num_labels]</code>가 됩니다.</p>
+<hr>
+<h3 id="feature-maps">Feature Maps</h3>
+<p><strong>Feature Map 추출</strong>은 데이터 인코딩과 동일한 과정입니다. CRNN에서는 CNN 레이어를 사용했지만, 최근 모델에선 transformer block을 활용해 준수한 성능을 보여주기도 합니다. 하지만 transformer block은 연산량 증가로 인한 추론 속도 저하라는 trade off가 발생합니다. 이러한 문제점에 비해 <strong>EfficientNet</strong>과 같이 최적화된 CNN 모델에 비해 성능이 더 좋다고 단정하기도 어렵습니다.</p>
+<p>따라서 모바일 환경과 같은 소형 기기에서는 CNN 레이어를 활용한 소형 모델로도 충분할 것입니다. 반면 성능이 매우 중요하다면 대량의 데이터로 transformer block 기반의 OCR 모델을 학습시키는 것도 좋은 방법이 될 수 있습니다.</p>
+<hr>
+<h3 id="connection-temporal-classification">Connection Temporal Classification</h3>
+<p>CTC를 사용하는 핵심적인 이유는 모델의 출력 시퀀스 길이가 정답 시퀀스보다 훨씬 길 수 있다는 점입니다. 그림 1의 예시를 보면, 모델은 &lsquo;state(5)&lsquo;라는 정답을 얻기 위해 &lsquo;-s-t-aatte-&rsquo;(11, <code>c_w</code>)와 같은 긴 정답 시퀀스를 생성했습니다.</p>
+<p>CTC는 이 모든 경우의 수를 동적 프로그래밍(Dynamic Programing, DP)을 사용해 모든 정답 시퀀스 중에 가장 높은 확률을 갖는 정답 시퀀스를 찾아냅니다. 좀 더 상세한 알고리즘은 <a href="https://ratsgo.github.io/speechbook/docs/neuralam/ctc">Connectionist Temporal Classification(ratsgo&rsquo;s SPEECH BOOK)</a>을 살펴보는 것을 추천드립니다.</p>
+<hr>
+<h3 id="sequence">Sequence</h3>
+<p>최근에는 CTC가 아닌 Auto Regressive(AR) 모델을 이용해서 추론하는 것이 더 주된 방법입니다. 그림 1의 Recurrent Layers에는 인코딩 과정만 있고 디코딩 과정이 빠져있습니다. <strong>Sequence Recognition Network(SRN)</strong>에서는 CRNN에선 빠졌던 RNN 디코더를 사용해 정답 시퀀스를 추론했습니다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5/2.webp"  alt="Figure 2. Structure of the SRN">
+    <img class="fig-img" src="https://errolseo.github.io/images/OCR/5/2.webp" >
   
-   
-    <span class="caption">Figure 2. Structure of the SRN</span>
   
 </div>
 
-<p>CTC에서는 image feature의 구조를 어느 정도 끝까지 유지했다면, <a href="https://arxiv.org/abs/1603.03915">Sequence Recognition
-Network(SRN)</a>에서는 image feature를 sequence feature로 바꿔버린다. 각자의 장단이 존재하지만 STR에 더 적합한 모델은 SRN이라 생각한다. 특히 irregular scene text image에서 발생하는 이슈들에 대해 CTC는 구조적으로 대응하기 어려운 부분이 존재한다.</p>
-<h4 id="experience">Experience</h4>
-<p>STR의 <strong>featurization, sequentialization, prediction</strong> 각 파트는 독립적이다. 더 좋은 featurization 방법이 있다면 쓰면 되고, 더 나은 sequentialization 방법이 있다면 쓰면 된다. 물론 각각의 성능이 최상이라고 해서 조합했을 때 최적의 성능을 보장하지는 않지만, 파트별로 실험하는데 유리한 구조인 것은 틀림없다. CLOVA AI의 github에서 각 파트의 최적화에 대한 실험을 해볼 수 있는 오픈 소스를 제공한다.</p>
-<p>학습 데이터의 경우 직접 만들어도 되지만 LMDB로 잘 정리된 파일이 kaggle에 올라와있어 링크를 첨부한다. 라이센스에 대한 자세한 사항은 필자도 모르기 때문에 개인적인 실험 외에 사용하는 것이면 자세히 알아보고 사용하는 것이 좋다.</p>
 <blockquote>
-<p>Model framework : <a href="https://github.com/clovaai/deep-text-recognition-benchmark">https://github.com/clovaai/deep-text-recognition-benchmark</a><br>
-Data : <a href="https://www.kaggle.com/datasets/nunenuh/clova-deeptext">https://www.kaggle.com/datasets/nunenuh/clova-deeptext</a></p></blockquote>
-<p><br>
-돌리는 것 자체는 어렵지 않을 것이다. 국내에서 상당히 유명하기 때문에 돌리는 것이 어렵다면 검색을 통해 많은 정보를 얻을 수 있으니 참고하면 좋다.</p>
+<p>그림 2. Sequence Recognition Network<br>
+<a href="https://arxiv.org/abs/1603.03915">Baoguang Shi (2016)</a></p></blockquote>
+<p>RNN 디코더를 사용했을 때의 가장 큰 장점은 언어적 맥락을 활용할 수 있다는 점입니다. CTC와 달리, RNN 디코더는 &lsquo;he&rsquo;가 생성된 후 &rsquo;llo&rsquo;가 나올 확률이 높다는 것을 모델이 학습합니다. 이는 이미지가 손상되어 &lsquo;hellc&rsquo;처럼 보이더라도 우리가 &lsquo;hello&rsquo;라고 읽는 것처럼, 노이즈(noise)에 강건한(robust) 성능을 보여줍니다. 그 밖에도 Attention 메커니즘과 <EOS> 토큰을 활용하여 출력 길이를 자유롭게 조정할 수 있는 등의 다양한 장점이 있습니다.</p>
+<hr>
 <h4 id="reference">Reference</h4>
-<p>[1] <a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations</a></p>
-<p>[2] B. Shi, et al. <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence
-Recognition and Its Application to Scene Text Recognition</a></p>
-<p>[3] B. Shi, et al. <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
-<p>[4] A. Graves, et al. <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented
-Sequence Data with Recurrent Neural Networks</a></p>
-<p>[5] J. Baek, et al. <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
+<p>[1] Baek, Jeonghun (2019) | <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
+<p>[2] Graves, Alex (2006) | <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks</a></p>
+<p>[3] Shi, Baoguang (2015) | <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</a></p>
+<p>[4] Shi, Baoguang (2016) | <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
+<p>[5] <a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">Scene Text Recognition Recommendations</a></p>
 <hr>
 
               
