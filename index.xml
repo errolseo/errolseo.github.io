@@ -20,7 +20,7 @@
       <link>https://errolseo.github.io/post/mcp/1/</link>
       <pubDate>Fri, 04 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/mcp/1/</guid>
-      <description>MCP에 대한 설명 (Tool Calling 개념 설명 및 실습)</description>
+      <description>MCP에 대한 설명 (Tool Calling 개념 설명)</description>
     </item>
     <item>
       <title>RAG Practice</title>
@@ -51,11 +51,11 @@
       <description>임베딩에 대한 설명 (개념 및 발전 역사)</description>
     </item>
     <item>
-      <title>Semantic &amp; Sequence</title>
+      <title>Semantic and Sequence</title>
       <link>https://errolseo.github.io/post/nlp/1/</link>
       <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/nlp/1/</guid>
-      <description>What are semantic and sequence in NLP?</description>
+      <description>시맨틱과 시퀀스</description>
     </item>
     <item>
       <title>Scene Text Recognition (2/2)</title>
@@ -69,7 +69,7 @@
       <link>https://errolseo.github.io/post/ocr/5/</link>
       <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
       <guid>https://errolseo.github.io/post/ocr/5/</guid>
-      <description>문자 인식 모델 (with. CRNN, SRN)</description>
+      <description>문자 인식 모델에 대한 설명 (with. CRNN, SRN)</description>
     </item>
     <item>
       <title>Synthetic Text Image (3/3)</title>

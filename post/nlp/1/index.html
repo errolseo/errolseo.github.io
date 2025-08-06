@@ -15,7 +15,7 @@
     
   },
   "name":"Errol\u0027s AI Lab",
-  "description":"What are semantic and sequence in NLP?",
+  "description":"시맨틱과 시퀀스",
   "url":"https:\/\/errolseo.github.io\/post\/nlp\/1\/",
   "keywords":"[]"
 }
@@ -27,18 +27,18 @@
 <meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Errol Seo">
 <meta name="keywords" content="">
-<meta name="description" content="What are semantic and sequence in NLP?">
+<meta name="description" content="시맨틱과 시퀀스">
 
 
-<meta property="og:description" content="What are semantic and sequence in NLP?">
+<meta property="og:description" content="시맨틱과 시퀀스">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Semantic &amp; Sequence">
-<meta name="twitter:title" content="Semantic &amp; Sequence">
+<meta property="og:title" content="Semantic and Sequence">
+<meta name="twitter:title" content="Semantic and Sequence">
 <meta property="og:url" content="https://errolseo.github.io/post/nlp/1/">
 <meta property="twitter:url" content="https://errolseo.github.io/post/nlp/1/">
 <meta property="og:site_name" content="Errol&#39;s AI Lab">
-<meta property="og:description" content="What are semantic and sequence in NLP?">
-<meta name="twitter:description" content="What are semantic and sequence in NLP?">
+<meta property="og:description" content="시맨틱과 시퀀스">
+<meta name="twitter:description" content="시맨틱과 시퀀스">
 <meta property="og:locale" content="en-us">
 
   
@@ -75,7 +75,7 @@
   <meta property="twitter:image" content="https://errolseo.github.io/images/NLP/1/1.webp">
 
 
-    <title>Semantic &amp; Sequence</title>
+    <title>Semantic and Sequence</title>
 
     <link rel="icon" href="https://errolseo.github.io/images/favicon.png">
     
@@ -204,7 +204,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Semantic &amp; Sequence
+      Semantic and Sequence
     </h1>
   
   
@@ -233,75 +233,64 @@
             <div class="main-content-wrap">
               <blockquote>
 <p>미 버클리 대학생 리암 포어(Liam Porr)가 인공지능을 사용해 작성한 블로그 게시물이 IT뉴스 큐레이팅 플랫폼인, 해커뉴스(Hacker News)에서 1위를 차지했다.<br>
-&hellip;<br>
-해커뉴스 기사들은 각 기사당 눌린 &lsquo;좋아요&rsquo; 수와 게시된 날짜를 기준으로 순위를 매긴다.<br>
-<br>
-출처 : Ai 타임스 (<a href="http://www.aitimes.com/news/articleView.html?idxno=131593">http://www.aitimes.com/news/articleView.html?idxno=131593</a>)</p></blockquote>
-<h4 id="heading">#</h4>
-<p>National Language Processing(NLP). 자연어 처리는 근래 눈부신 속도로 발전했다. 그 중심에는 <a href="https://arxiv.org/abs/1706.03762">Transformer(Attention Is All You Need)</a>가 있지만, Transformer 이전에도 word2vec, RNN 등을 이용해 이미 가파른 성장세를 보여주고 있었다. 이러한 성장은 rule based model(규칙 기반 모델)이 주류였던 자연어 처리 분야가 word2vec을 시작으로 neural network based model(신경망 기반 모델)로 점점 변화하면서 시작됐다.</p>
-<p>규칙 기반 자체를 부정하는 것은 아니지만 한계점이 존재하는 것은 명백한 것은 확실하다. 규칙 기반으로 뉴스 플랫폼에서 1위를 할 수 있는 기사를 작성할 수는 없다. 규칙 기반으로 기존 판례를 뒤집는 판결을 내릴 수는 없다. 규칙 기반으로 사람과 다양한 주제에 대해 자연스럽게 대화할 수는 없다. 하지만 신경망 기반으로는 가능할지도 모른다.</p>
-<p>그리고 신경망 기반의 모델을 사용한다고 규칙 기반 자체가 사리지는 것은 아니다. 규칙 기반의 훌륭한 기술들은 신경망 기반의 전처리, 후처리 그 외의 다양한 부분에서 성능 향상에 기여를 하고 있다.</p>
-<h4 id="heading-1">#</h4>
-<p>기존 규칙 기반 모델들은 미리 정의된 사전에 의존하거나 통계적 패턴을 이용해서 문제를 해결했었다. 이러한 방식은 높은 정확도(accuracy)에 비해 낮은 recall(재현율)을 보여주며, 같은 모델을 다른 도메인에 적용하면 결과가 좋지 못했다. 규칙 기반 모델은 장점이 명확했지만 확장하는 것이 어려웠으며, 사람들이 실제로 사용하는 언어는 지속적으로 사용법이 바뀌기 때문에 실생활에 적용하는 것이 쉽지 않았다. 그로 인해 규칙 기반 모델은 주로 domain-specific task를 위주로 발전했다.</p>
-<p>Word2vec은 단어를 다차원 벡터로 변환시켜주는 Neural Network Language Model(NNLM)이다. 여기서 중요한 점은 변환된 벡터가 단어의 <strong>smantic</strong> 정보를 포함하고 있다는 것이다.</p>
+<a href="http://www.aitimes.com/news/articleView.html?idxno=131593">© AI TIMES</a></p></blockquote>
+<p>자연어 처리(National Language Processing, NLP) 분야는 최근 눈부신 속도로 발전하고 있습니다. 그 중심에는 <strong>BERT</strong>나 <strong>ELECTRA</strong>와 같은 트랜스포머(transformer) 기반의 언어 모델이 있지만, 트랜스포머 이전에도 Word2Vec과 RNN 등을 활용하여 이미 가파른 성장세를 보이고 있었습니다.</p>
+<hr>
+<h2 id="word2vec">Word2Vec</h2>
+<p>기존 규칙 기반 모델은 미리 정의된 사전에 의존하거나 통계적 패턴을 활용하여 문제를 해결했습니다. 이러한 방식은 높은 정확도(accuracy)에 비해 낮은 재현율(recall)을 보였고, 같은 모델을 다른 도메인에 적용하면 결과가 좋지 못했습니다. 이러한 규칙 기반 모델은 장점이 명확했지만 확장성이 떨어졌고, 사람들이 실제로 사용하는 언어는 지속적으로 변화했기 때문에 실생활에 적용하기 쉽지 않았습니다. 그로 인해 <span class="highlight-text primary">규칙 기반 모델은 주로 특정 도메인 작업(domain-specific task) 위주로 발전할 수밖에 없었습니다.</span> Word2Vec의 등장은 이러한 문제들을 해결할 돌파구의 시발점이 되었습니다.</p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1/1.webp"  alt="Figure 1. Semantic of word2vec">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1/1.webp" >
   
-   
-    <span class="caption">Figure 1. Semantic of word2vec</span>
   
 </div>
 
-<p>$$\mathrm{w_\mathcal{king}} - \mathrm{w_\mathcal{man}} + \mathrm{w_\mathcal{woman}}  \approx \mathrm{w_\mathcal{queen}}$$</p>
-<p>king - man + woman = queen, 사람에게는 단순해 보이는 이 넌센스를 word2vec 이전의 모델들은 표현하지 못했다. 하지만 word2vec은 따로 학습하지 않아도 단어를 사용하는 패턴을 보고 스스로 학습하는데 성공했다. 이 사실은 word2vec 모델이 단어의 <strong>일반적인</strong> 의미를 스스로 학습할 수 있다는 것을 의미하며, 이는 word2vec 모델이 semantic을 이해할 수 있다고 봐도 무방하다.</p>
-<p>Semantic을 이해하지 않고, 사전과 통계에만 의존해서 문제를 푸는 규칙 기반 모델은 과적합(overfitting)과 일반화(generalization) 관점에서 큰 문제점을 가질 수 밖에 없다. 결국은 사전과 데이터에 의존하며, 학습 데이터에 과적합될 수 밖에 없는 구조이기 때문이다.</p>
-<h4 id="heading-2">#</h4>
-<p>Word2vec의 등장으로 NLP 분야는 한걸음 더 나아갔지만, 자연어 처리에서는 semantic만큼 <strong>sequence</strong> 또한 마찬가지로 중요했다.</p>
+<blockquote>
+<p>그림 1. Semantic (Word2Vec)<br>
+<a href="https://www.ed.ac.uk/informatics/news-events/stories/2019/king-man-woman-queen-the-hidden-algebraic-struct">© The University of Edinburgh</a></p></blockquote>
+<p>Word2Vec 모델이 하는 일은 단순합니다. 단어를 다차원 벡터로 변환시켜주는 임베딩(Embedding) 작업입니다. <span class="highlight-text primary">여기서 가장 중요한 점은, 변환된 벡터가 단어의 <strong>의미적(semantic)</strong> 정보를 포함하고 있다는 것입니다.</span></p>
+<p>$$\tag{1} \mathrm{w_\mathcal{king}} - \mathrm{w_\mathcal{man}} + \mathrm{w_\mathcal{woman}}  \approx \mathrm{w_\mathcal{queen}}$$</p>
+<p>사람에게는 단순해 보이는 수식 1의 넌센스가 Word2Vec 이전의 모델들은 <strong>&lsquo;이해(표현)&rsquo;</strong>하지 못했습니다. 하지만 Word2Vec은 신경망(Neural Network) 모델과 <strong>CBOW</strong>, <strong>Skip-gram</strong>과 같은 학습 방법론을 통해 벡터에 의미 정보를 담는데 성공해냅니다.</p>
+<p>이러한 의미 정보가 중요한 이유에 대해 예시를 통해 설명해 보겠습니다. 예를 들어, &lsquo;강아지&rsquo;를 자주 검색하는 사람에게 &lsquo;개 사료&rsquo;를 추천해주고 싶다고 가정해 봅시다. 규칙 기반 모델은 유사한 상품 하나하나를 직접 연결해 주어야 합니다. 하지만 Word2Vec은 학습을 통해 비슷한 의미를 가진 단어들이 유사한 벡터를 갖게 되므로, 알고리즘을 통해 유사 상품들을 쉽게 검색할 수 있습니다.</p>
+<hr>
+<h2 id="sequence">Sequence</h2>
+<p>Word2Vec의 등장으로 NLP 분야는 한 걸음 더 나아갔지만, Word2Vec에는 치명적인 한계가 잇었습니다. 자연어 처리에서는 의미(semantic)만큼 <strong>문맥(sequence)</strong> 또한 중요한데, Word2Vec은 단어에 이러한 문맥을 담아내지 못했습니다.</p>
 <blockquote>
 <p>은결이는 <strong>배</strong>를 타고 강을 건넜다.<br>
 종길이는 과수원에서 <strong>배</strong>를 땄다.<br>
 창석이는 밥을 많이 먹어서 <strong>배</strong>가 부르다.</p></blockquote>
-<p><br>
-우리는 세 문장에서 &lsquo;배&rsquo;가 가진 의미가 모두 다르다는 것을 알 수 있다. 그 이유는 앞뒤 문맥을 통해 유추할 수 있기 때문이다. 즉 같은 단어라도 앞뒤에 어떤 단어가 오는지에 따라 그 의미가 달라지며, 이것을 자연어 처리에서 단어는 sequence에 의해 의미가 바뀐다고 표현한다.</p>
-<p>아쉽게도 word2vec은 이러한 sequence까지는 표현하지 못한다. 위의 세 문장에서 &lsquo;배&rsquo;라는 단어를 word2vec의 입력으로 넣으면 똑같은 벡터로 치환된다. 그 안에는 &lsquo;타는 배&rsquo;, &lsquo;먹는 배&rsquo;, &lsquo;신체의 일부분인 배&rsquo; 세 가지 모두에 대해 어느 정도 그 의미를 포함하고 있지만, 이는 일반화 관점에서 문제점가 된다.</p>
-<p>NLP 연구자들은 이 sequence를 표현하기 위해 끊임없이 노력했고, RNN과 Transformer 등의 encoder의 등장으로 모델을 이용해 word vector에 sequence 정보를 담을 수 있게 되었다.</p>
+<p>우리는 세 문장에서 &lsquo;배&rsquo;가 가진 의미가 모두 다르다는 것을 알 수 있습니다. 이는 앞뒤 문맥을 통해 의미를 유추할 수 있기 때문입니다. 즉, 같은 단어라도 어떤 문맥에 오는지에 따라 의미가 달라지며, 이를 자연어 처리에서는 단어의 의미가 문맥(sequence)에 의해 결정된다고 표현합니다.</p>
+<p>하지만 Word2Vec은 이러한 문맥 정보까지는 표현하지 못하는 한계가 있습니다. 위의 세 문장에서 &lsquo;배&rsquo;라는 단어를 Word2Vec의 입력으로 넣으면 모두 똑같은 벡터로 변환됩니다. 이 벡터는 &lsquo;타는 배&rsquo;, &lsquo;먹는 배&rsquo;, &lsquo;신체의 일부분인 배&rsquo;의 의미를 모두 포함하고 있지만, 이는 결국 모델 성능의 한계로 이어집니다.</p>
+<hr>
+<h2 id="language-model">Language Model</h2>
+<p>앞서 Word2Vec 모델이 하는 역할을 임베딩이라고 설명했습니다. 임베딩 모델과 언어 모델은 모두 입력 텍스트를 벡터로 변환하는 역할을 합니다. 하지만 두 모델 사이에는 큰 차이점이 있습니다. <span class="highlight-text primary">임베딩 모델은 어떤 문장이 들어오든 같은 단어는 항상 같은 벡터로 변환하지만, 언어 모델은 동일한 문장이 아니라면 같은 단어라도 다른 벡터로 변환합니다.</span></p>
 
 
 
 <div class="figure center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1/2.webp"  alt="Figure 2. RNN language model">
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1/3.webp" >
   
-   
-    <span class="caption">Figure 2. RNN language model</span>
   
 </div>
 
-<p>RNN은 시계열 데이터를 학습하기 위해 개발된 모델이다. 이전 sequence의 데이터가 다음 sequence의 output에 영향을 줄 수 있도록 설계되었다. Fig.2에서는 데이터가 정방향으로만 전이되지만 언어의 특성상 역방향도 중요하므로 NLP task에서는 보통 정방향과 역방향을 같이 학습할 수 있는 BiLSTM같은 모델이 주로 사용된다.</p>
-<p>하지만 RNN에는 치명적인 단점이 하나 있다. Sequence가 길어지면 예전에 입력 받은 데이터가 점점 잊혀진다는 것이다. RNN은 애당초 시계열 데이터를 학습하기 위해 고안된 모델이므로, 오래 전의 입력보다 바로 전의 입력이 더 큰 영향을 줄 수 있도록 설계되어 있다. NLP 연구자들은 attention 등을 이용해 문제를 해결하기 위해 노력했고, 결국 transformer 모델의 등장으로 큰 변환점을 맞이하게 된다.</p>
-
-
-
-<div class="figure center" >
-  
-    <img class="fig-img" src="https://errolseo.github.io/images/NLP/1/3.webp"  alt="Figure 3. Data flow in RNN and Transformer">
-  
-   
-    <span class="caption">Figure 3. Data flow in RNN and Transformer</span>
-  
-</div>
-
-<p><span class="highlight-text primary">RNN encoder에서의 sequence는 time이다.</span> RNN은 정방향과 역방향, 순서에 따라서 데이터를 참조한다. <span class="highlight-text primary">하지만 Transformer encoder에서의 sequence는 position이다.</span> Fig.3처럼 모든 position은 동시에 서로를 참조하기 때문에 순서보다는 구성이 중요하다. 이로 인해 transformer는 서로 멀리 떨어진 단어끼리도 단어의 의미를 결정하는데 연관성이 크다면 정보의 손실없이 word vector에 그 의미를 포함시킬 수 있게 되었다.</p>
-<h4 id="heading-3">#</h4>
-<p>현재 자연어 처리의 대세 역시 딥 러닝을 이용한 모델이다. 데이터와 모델이 물론 중요하다. 하지만 자연어 처리가 가진 <strong>semantic, sequence</strong>의 중요성에 대해 짚고 넘어갈 필요가 있다고 생각했다. 결국 자연어 처리에서 데이터와 모델은 semantic과 squence를 잘 이해시키는 방향으로 진화하고 있다는 것이 필자의 생각이다.</p>
+<blockquote>
+<p>그림 2. Attention mechanism<br>
+<a href="https://thegradient.pub/transformers-are-graph-neural-networks/">Chaitanya K. Joshi (2020)</a></p></blockquote>
+<p>언어 모델은 그림과 같이 해당 단어의 벡터를 계산하기 위해 주변 단어의 정보를 포함합니다. 예를 들어, RNN에서 &lsquo;a&rsquo;라는 단어의 벡터를 결정할 때는 이전 단어인 [&lsquo;This&rsquo;, &lsquo;is&rsquo;]의 특징(feature)을 함께 사용하여 최종 벡터를 결정합니다. 트랜스포머의 경우는 양방향(Bi-direction) 인코딩을 사용하는데, <span class="highlight-text primary">이는 'a'의 벡터를 정할 때 ['This', 'is', 'sentence']와 같이 문장 내 모든 단어의 특징을 포함하여 벡터를 결정한다는 의미입니다.</span></p>
+<p>이처럼 언어 모델은 문맥 정보까지 벡터에 담아낼 수 있게 되었고, 덕분에 자연어 처리 분야는 바야흐로 전성기를 맞이하고 있습니다.</p>
+<hr>
+<h3 id="결론">결론</h3>
+<p>딥러닝 모델을 연구/개발할 때, 다루는 데이터의 특성을 잘 파악하는 것이 가장 중요하다고 생각합니다. 언어라는 데이터의 특성에 대해 알아야 할 개념이 많지만, <span class="highlight-text primary">그중에서도 의미(Semantic)와 문맥(Sequence)이 가장 핵심이 되는 개념이라고 생각합니다.</span></p>
+<hr>
 <h4 id="reference">Reference</h4>
-<p>[1] T. Mikolov, et al. <a href="https://arxiv.org/abs/1301.3781">Efficient Estimation of Word Representations in Vector Space</a></p>
-<p>[2] Y. Liu, et al <a href="https://arxiv.org/abs/1605.09090">Learning Natural Language Inference using Bidirectional LSTM model and Inner-Attention</a></p>
-<p>[3] J. Devlin <a href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></p>
+<p>[1] Devlin, Jacob (2019) | <a href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></p>
+<p>[2] K Joshi, Chaianya (2020) | <a href="https://thegradient.pub/transformers-are-graph-neural-networks/">Transformers are Graph Neural Networks</a></p>
+<p>[3] Mikolov, Tomas (2013) | <a href="https://arxiv.org/abs/1301.3781">Efficient Estimation of Word Representations in Vector Space</a></p>
+<p>[4] Liu, Yang (2016) | <a href="https://arxiv.org/abs/1605.09090">Learning Natural Language Inference using Bidirectional LSTM model and Inner-Attention</a></p>
 <hr>
 
               
