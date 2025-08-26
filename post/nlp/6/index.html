@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.png"
+    
+  },
+  "name":"Errol\u0027s AI Lab",
+  "description":"모델 크기와 데이터셋 크기의 상관관계",
+  "url":"https:\/\/errolseo.github.io\/post\/nlp\/6\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.147.6 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="">
+<meta name="description" content="모델 크기와 데이터셋 크기의 상관관계">
+
+
+<meta property="og:description" content="모델 크기와 데이터셋 크기의 상관관계">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scaling Laws">
+<meta name="twitter:title" content="Scaling Laws">
+<meta property="og:url" content="https://errolseo.github.io/post/nlp/6/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/nlp/6/">
+<meta property="og:site_name" content="Errol&#39;s AI Lab">
+<meta property="og:description" content="모델 크기와 데이터셋 크기의 상관관계">
+<meta name="twitter:description" content="모델 크기와 데이터셋 크기의 상관관계">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-08-22T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-08-22T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="NLP">
+    
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.png">
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/NLP/6/2.png">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/NLP/6/2.png">
+
+
+    <title>Scaling Laws</title>
+
+    <link rel="icon" href="https://errolseo.github.io/images/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/nlp/6/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+KR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-e5heshipuzwmtjnbgcnvlsu0qzsylwv5yuyltr47pf194kxmsjn69oqdny8.min.css" />
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI Lab</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      Scaling Laws
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2025-08-22T00:00:00Z">
+        
+  August 22, 2025
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a href="https://errolseo.github.io/categories/nlp">NLP</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>2025년 7월 11일, 중국의 Moonshot AI에서 <strong>1 Trillion(1조)</strong>의 모델 크기를 가지는 <strong>Kimi K2</strong>를 공개했습니다. MoE(Mix-of-Experts) 구조를 적용해 실제 활성 파라미터(Activated Parameters)는 32B에 불과하지만, 높은 벤치마크(Benchmark) 성능을 기록하며 <strong>대형 언어 모델(Large Language Model, LLM) 크기 논란</strong>에 다시 불을 지폈습니다.
+<br><br></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Model</th>
+          <th style="text-align: center">Model Size</th>
+          <th style="text-align: center">Training Tokens</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Gemma 3</td>
+          <td style="text-align: center">27B</td>
+          <td style="text-align: center">14T</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Qwen3</td>
+          <td style="text-align: center">32B</td>
+          <td style="text-align: center">36T</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">PANGU-Σ</td>
+          <td style="text-align: center">1T</td>
+          <td style="text-align: center">329B</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>Kimi K2</strong></td>
+          <td style="text-align: center"><strong>1T</strong></td>
+          <td style="text-align: center"><strong>15.5T</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>Llama 4 Behemoth</strong></td>
+          <td style="text-align: center"><strong>2T</strong></td>
+          <td style="text-align: center"><strong>30T</strong></td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>표 1. 대형 언어 모델별  모델의 크기와 사전 학습에 사용된 데이터의 양</p></blockquote>
+<p>최근 공개된 <strong>Gemma 3</strong>나 <strong>Qwen3</strong>와 같은 오픈 소스 파운데이션 모델들은 최신 <strong>GPT</strong>나 <strong>Gemini</strong>만큼의 성능은 아니지만, 충분히 준수한 출력을 생성합니다. 체감상으로 과거 GPT-3.5나 Gemini 1.5와 비슷하거나 그 이상이라고 느껴질 정도입니다. 게다가 <span class="highlight-text primary">Kimi K2는 벤치마크에서 최신 GPT와 Gemini를 능가할 만큼 높은 성능을 보여줍니다.</span> 이 놀라운 성능의 배경에는 1T 파라미터라는 어마어마한 모델 크기가 있습니다.</p>
+<p>그런데 흥미로운 점은, Kimi K2가 공개되기 2년 전에 화웨이가 이미 <strong>PANGU-Σ (Xiaozhe Ren, et al. 2023)</strong>라는 1T 모델을 발표했다는 것입니다. 이때 PANGU-Σ가 주목받지 못한 이유는 공개 당시 자신보다 약 80배 작은 GPT-3 13B 모델과 비슷한 벤치마크 성능을 보였기 때문입니다. Kimi K2와 PANGU-Σ가 같은 크기의 모델임에도 불구하고 거의 2세대 가까운 성능의 차이가 발생한 이유는 크게 두 가지를 꼽을 수 있습니다. 첫 번째로는 <strong>RLHF(Reinforcemenet Learning from Human Feedback)</strong>와 같은 강화학습이 시행되지 않았다는 점, 그리고 두 번째로 <span class="highlight-text primary">사전 학습에 사용된 데이터의 양이 너무 적었다는 점</span>입니다.</p>
+<p>이번 글에서는 이 <strong>&lsquo;데이터의 양&rsquo;</strong>에 대해 집중적으로 살펴보겠습니다.</p>
+<hr>
+<h2 id="underfitting">Underfitting</h2>
+<p>초기 Transformer 인코더 기반의 언어 모델인 <strong>BERT (Jacob Devlin, et al. 2018)</strong>가 공개되었을 때만 해도 언어 모델의 크기는 110M(BERT-base)에 불과했습니다. 그리고 BERT 학습에 사용된 사전 학습 데이터의 용량은 13GB 였으며, 이는 대략 2B+ tokens로 추정됩니다.
+<br><br></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Model</th>
+          <th style="text-align: center">Model Size</th>
+          <th style="text-align: center">Training data size</th>
+          <th style="text-align: center">Training tokens (approximate)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">BERT-base</td>
+          <td style="text-align: center">110M</td>
+          <td style="text-align: center">13GB</td>
+          <td style="text-align: center">2B+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">BERT-large</td>
+          <td style="text-align: center">335M</td>
+          <td style="text-align: center">13GB</td>
+          <td style="text-align: center">2B+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">RoBERTa-base</td>
+          <td style="text-align: center">125M</td>
+          <td style="text-align: center">160GB</td>
+          <td style="text-align: center">20B+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">RoBERTa-large</td>
+          <td style="text-align: center">355M</td>
+          <td style="text-align: center">160GB</td>
+          <td style="text-align: center">20B+</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>표 2. 과거 언어 모델별 모델의 크기와 사전 학습에 사용된 데이터의 양</p></blockquote>
+
+
+
+<div class="figure fig-90 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/6/1.png" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 1. Compare with BERT and RoBERTa<br>
+<a href="https://arxiv.org/abs/1907.11692">Yinhan Liu, et al. (2019)</a></p></blockquote>
+<p>표 2를 보면 과거의 언어 모델의 크기는 최근의 대형 언어 모델들의 크기에 비하면 상당히 작다는 것을 확인할 수 있습니다. 그렇다면 왜 과거에는 모델의 크기를 늘리지 않았던 걸까요? 그 이유는 그림 1에서 확인할 수 있습니다.</p>
+<p>그림 1의 핵심은 BERT가 <strong>학습 부족(undertrained)</strong> 상태라는 점입니다. 딥러닝 모델은 학습 데이터를 활용해 모델의 가중치를 최적화합니다. 당연하게도 이때 충분한 학습 데이터를 확보해야 모델을 제대로 학습시킬 수 있습니다. 만약 모델을 최적화할 만큼 충분한 데이터셋을 확보하지 못했다면, 두 종류의 문제점이 발생할 수 있습니다.</p>
+<p><span class="highlight-text primary"><strong>첫 번째</strong>는 데이터셋의 양이 적을 때 모델을 무리하게 학습시킬 경우 <strong>과적합(Overfitting)</strong>이 발생할 수 있습니다.</span> 이는 학습 데이터에는 제대로 반응하지만, 학습 과정에서 보지 못한 새로운 데이터가 들어왔을 때는 제대로 동작하지 않는 현상 입니다.</p>
+<p>최근 LLM에서 발생하는 환각(Hallucination)이 과적합 문제의 한 예시라고 볼 수 있습니다. 결국 과적합은 일반화 능력이 부족하기에 발생하는 현상이며, 이는 모르는 걸 모른다고 말하게 만드는 학습 데이터가 부족했기 때문에 발생하는 문제입니다.</p>
+<p><span class="highlight-text primary"><strong>두 번째</strong>는 모델 크기에 비해 데이터셋의 크기가 작으면 <strong>학습 부족</strong>이 발생하는 문제입니다.</span> BERT를 학습시켰던 13GB의 데이터셋으로 BERT의 10배, 100배 더 큰 모델을 학습시키려고 하면, 오히려 오차율(Error rate)이 더 높아지게 됩니다.</p>
+<hr>
+<h2 id="scaling-laws">Scaling Laws</h2>
+<p>2020년 1월 <strong>OpenAI</strong>에서 <strong>Sacling Laws for Neural Language Models(Jared Kaplan, et al.)</strong>을 발표합니다. 해당 논문의 연구 주제는 <span class="highlight-text primary">모델 크기와 데이터셋 크기의 상관관계를 분석하고 모델 크기에 따른 최적의 데이터셋 크기를 찾는 </span>것입니다.</p>
+
+
+
+<div class="figure fig-90 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/NLP/6/2.png" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 2. 모델 크기와 데이터셋 크기에 따른 test loss<br>
+<a href="https://arxiv.org/abs/1907.11692">Yinhan Liu, et al. (2019)</a></p></blockquote>
+<p>Scaling Laws 논문에는 다양한 분석 지표들이 존재하지만, 가장 핵심은 그림 2의 모델 크기와 데이터셋 크기에 따른 Test Loss 값입니다. 그림 2를 보면 $10^8$ Tokens(X-축) 이하의 데이터에서 708M Params 모델이 302M Params 모델과 같거나 더 낮은 성능을 보이고 있습니다. 이는 데이터의 양이 작다면 모델의 크기를 키우더라도 성능이 오르지 않거나 오히려 하락할 수 있다는 것을 보여줍니다.</p>
+<br>
+$$
+\begin{cases}
+-4x + 3y = -8\\\
+7x - 4y = 14
+\end{cases}
+$$
+<br>
+<p>딥러닝은 기본적으로 데이터를 활용해 모델이라는 연립 방정식의 해를 찾는 작업입니다. 예를 들어, 2차 연립 방정식은 2개 이상의 정답셋이 필요하고, 3차 연립 방정식은 3개 이상이 필요합니다. 모델의 크기를 늘리는 것은 연립 방정식의 차원을 늘리는 행위이며 이는 곧, 차원이 늘어난 만큼의 데이터가 더 필요하다는 얘기입니다.</p>
+<p>즉, 모델의 크기에 비해 데이터가 적다면 모델은 최적해에 결코 도달할 수 없습니다. 오히려 불확실성이 높아져서 성능이 저하될 뿐입니다.</p>
+<hr>
+<h2 id="결론">결론</h2>
+<p>BERT와 RoBERTa 그리고 ALBERT(Zhenzhong Lan, et al. 2019)가 공개되면서 연구자들은 &lsquo;<span class="highlight-text primary">데이터의 양에 비해 모델의 파라미터 수가 너무 많다.</span>&rsquo; 라는 사실을 깨닫게됩니다. 파라미터 수가 더 적은 ALBERT의 성능이 BERT 보다 더 뛰어났기 때문입니다.</p>
+<p>이러한 연구 결과를 바탕으로 최근에는 학습 데이터의 양이 기하급수적으로 늘어나서, 대부분의 파운데이션 모델이 사전 학습에 10T 토큰 이상을 사용하고 있습니다. 그리고 데이터 양이 증가함에 따라 모델의 크기 또한 상응할 만큼 커졌습니다. 초기 BERT에 비하면 데이터는 5,000배 이상 그리고 모델 크기는 300배 이상 커진 것 입니다.</p>
+<p>Kimi-K2는 1T 모델이지만, 실제 Active Parameter는 32B에 불과합니다. Expert의 수를 늘려서 1T 모델을 학습했으나, 32B 라는 Active Parameter 그리고 384라는 Expert의 수가 최적화된 수치라고 보기는 어렵습니다. 현재 27B 모델에 14T 토큰을 1회 학습하는 데 한화로 약 13억 원이 필요합니다. 단순히 비용만 해결된다고 되는 것도 아닙니다. 학습에는 최소 H100 GPU 1,000장 많게는 수만 장이 필요합니다. 게다가 GPU 1,000장 기준으로 1회 학습하는 데만 26일이 소요됩니다.</p>
+<p>이러한 점들을 고려할 때, 수천억 원과 수개월을 들여 데이터 크기와 모델 크기의 상관관계를 연구하기보다는 다른 측면에 집중하는 편이 더 효율적이라고 생각합니다. 그럼에도 불구하고 알아야 할 중요한 사실은 <span class="highlight-text primary">단순히 모델의 크기를 키우는 것이 성능 향상으로 직결되지 않는다는 것입니다.</span></p>
+<hr>
+<h4 id="reference">Reference</h4>
+<p>Devlin, Jacob (2018) | <a href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></p>
+<p>Lan, Zhenzhong (2019) | <a href="https://arxiv.org/abs/1909.11942">ALBERT: A Lite BERT for Self-supervised Learning of Language Representations</a></p>
+<p>Liu, Yinhan (2019) | <a href="https://arxiv.org/abs/1907.11692">RoBERTa: A Robustly Optimized BERT Pretraining Approach</a></p>
+<p>Ren, Xiaozhe (2023) | <a href="https://arxiv.org/abs/2303.10845">PanGu-Σ: Towards Trillion Parameter Language Model with Sparse Heterogeneous Computing</a></p>
+<hr>
+
+              
+
+
+            </div>
+          </div>
+          
+            <div id="post-footer" class="post-footer main-content-wrap">
+              
+              
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+              <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/mcp/1/" data-tooltip="Tool Calling" aria-label="PREVIOUS: Tool Calling">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+            </div>
+          
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2025 Errol Seo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/mcp/1/" data-tooltip="Tool Calling" aria-label="PREVIOUS: Tool Calling">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+      </div>
+      
+
+      
+    </div>
+    
+  <div id="cover" style="background-color:#212F3D"></div>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-pe6f1lam5xe7sqg6ank1a6lahyswxcqpa5d8a7nluvzxvuaohigjp8nn8sx.min.js"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+        
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        
+        throwOnError : false,
+        output: 'mathml'
+      });
+  });
+</script>
+
+
+
+  </body>
+</html>
+
