@@ -93,7 +93,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-e5heshipuzwmtjnbgcnvlsu0qzsylwv5yuyltr47pf194kxmsjn69oqdny8.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-rdaicc2g5rh9kvftpgmfinsp9zpjoyb7xhvowsmn2lmzjv69esv8bqqzciu.min.css" />
     
   </head>
 
@@ -268,14 +268,14 @@
 <p>그림 2. Illustration of HNSW graph
 <br>
 <a href="https://www.mdpi.com/2624-6120/2/2/21#">Frank Zalkow, Julian Brandner, Meinard Müller (2021)</a></p></blockquote>
-<h4 id="hnsw의-검색-원리">HNSW의 검색 원리</h4>
+<h4 id="concepts-of-hnsw">Concepts of HNSW</h4>
 <p>우리가 가진 모든 벡터 데이터를 Figure 2의 Layer 1처럼 그래프의 노드로 표현했다고 가정해 봅시다. 이때 각 노드는 항상 <strong>가장 가까운 노드</strong>와 우선적으로 연결됩니다.<br>
 <br>
 만약 이러한 그래프가 있다면, 쿼리가 입력되었을 때 <span class="highlight-text primary">탐색의 시작점이 어떤 노드인지에 따라 탐색 속도가 크게 달라질 수 있습니다.</span> 탐색 시작점이 실제 쿼리와 가까운 위치였다면 탐색이 빠르게 끝나겠지만, 거리가 먼 곳에서 시작했다면 최근접 노드를 찾기 위해 많은 탐색 시간이 필요할 것입니다. 그렇기 때문에 <span class="highlight-text primary">최적의 <strong>진입점(entry point)</strong>을 찾는 것은 그래프 기반 최근접 이웃 탐색에서 매우 중요합니다.</span><br>
 <br>
 이러한 최적의 진입점을 찾기 위해 HNSW가 택한 방법은 <strong>계층 구조</strong>입니다. 그림에서 상위 레이어(Layer 2)는 하위 레이어(Layer 1)의 진입점을 찾기 위해 존재합니다. 상위 레이어는 하위 레이어의 일부 노드만을 복제하여 보유합니다. 따라서 상위 레이어에서는 무작위 진입점을 가지고 시작해도 하위 레이어보다 더 적은 시간을 소모하여 최근접 이웃을 찾을 수 있습니다. <span class="highlight-text primary">이렇게 찾은 상위 레이어의 최근접 이웃은 하위 레이어의 진입점이 됩니다.</span> 이러한 계층 구조 메커니즘을 통해 HNSW는 모든 노드를 탐색하지 않아도 근사 최적해를 보장할 수 있습니다.</p>
 <hr>
-<h4 id="hnsw의-주요-하이퍼파라미터">HNSW의 주요 하이퍼파라미터</h4>
+<h4 id="hyperparameters-of-hnsw">Hyperparameters of HNSW</h4>
 <h6 id="m--max-connection">M : Max Connection</h6>
 <p>각 노드가 HNSW 그래프의 각 레이어에서 가질 수 있는 최대 양방향 연결(엣지)의 수</p>
 <h6 id="efconstruction">efConstruction</h6>
@@ -295,7 +295,7 @@
 </ul>
 <p>요약하자면, <code>M</code>과 <code>efConstruction</code>에 따라 최하위 레이어에서 그래프가 생성되고, <code>mL</code>에 의해 선별된 노드들은 상위 레이어로 올라가 동일한 과정을 반복합니다. 이렇게 만들어진 계층적 그래프를 통해 효율적으로 벡터를 탐색하게 되는 것입니다.</p>
 <hr>
-<h4 id="hnsw에-대한-tmi">HNSW에 대한 TMI</h4>
+<h4 id="performance-of-hnsw">Performance of HNSW</h4>
 <p>HNSW에는 한 가지 까다로운 문제점이 존재합니다. 삽입(insert)은 비교적 간단하지만, 삭제(delete)의 경우 기존 방법론들과 달리 큰 문제가 될 수 있기 때문입니다. 만약 노드가 제거될 때 연결을 재정의하지 않으면 특정 노드는 의도치 않게 모든 연결이 끊기는 등의 그래프의 무결성이 손상될 수 있기 때문입니다.</p>
 <p>이러한 문제를 해결하기 위해 HNSW에서는 일반적으로 그래프에서 노드를 즉시 제거하기보다는 비활성화하는 방식을 채택하고 있습니다. 삭제된 노드들을 &ldquo;삭제된 노드”로 표시한 후 커넥션은 유지합니다. 그리고 일정 주기마다 정리(vacuuming)하거나 재구성(rebalancing)하는 <strong>lazy deletion</strong> 방식을 사용합니다.</p>
 <p>HNSW는 초기에 그래프를 구축하는 데 비교적 많은 비용이 들지만, 검색 속도와 정확도 면에서는 높은 성능을 보장합니다. 그렇기 때문에 HNSW는 현존하는 AkNN 방법론 중 가장 효율적이고 널리 사용되는 알고리즘 중 하나입니다. 물론 같은 HNSW라도 메모리 최적화 방법이나, 다양한 트레이드오프를 통해 개선된 버전들이 계속 연구되고 있습니다.</p>
@@ -490,27 +490,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-pe6f1lam5xe7sqg6ank1a6lahyswxcqpa5d8a7nluvzxvuaohigjp8nn8sx.min.js"></script>
+<script src="https://errolseo.github.io/js/script-g1mx9g79aue54bvmjcsjeh2iff3wfw035cumxbsjtmd5wibkqerfmfmol.min.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        
-        
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        
-        throwOnError : false,
-        output: 'mathml'
-      });
-  });
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
 </script>
 
 

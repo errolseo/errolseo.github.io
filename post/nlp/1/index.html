@@ -93,7 +93,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-e5heshipuzwmtjnbgcnvlsu0qzsylwv5yuyltr47pf194kxmsjn69oqdny8.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-rdaicc2g5rh9kvftpgmfinsp9zpjoyb7xhvowsmn2lmzjv69esv8bqqzciu.min.css" />
     
   </head>
 
@@ -252,7 +252,9 @@
 <p>그림 1. Semantic (Word2Vec)<br>
 <a href="https://www.ed.ac.uk/informatics/news-events/stories/2019/king-man-woman-queen-the-hidden-algebraic-struct">© The University of Edinburgh</a></p></blockquote>
 <p>Word2Vec 모델이 하는 일은 단순합니다. 단어를 다차원 벡터로 변환시켜주는 임베딩(Embedding) 작업입니다. <span class="highlight-text primary">여기서 가장 중요한 점은, 변환된 벡터가 단어의 <strong>의미적(semantic)</strong> 정보를 포함하고 있다는 것입니다.</span></p>
-<p>$$\tag{1} \mathrm{w_\mathcal{king}} - \mathrm{w_\mathcal{man}} + \mathrm{w_\mathcal{woman}}  \approx \mathrm{w_\mathcal{queen}}$$</p>
+<p>$$
+\mathrm{w_\mathcal{king}} - \mathrm{w_\mathcal{man}} + \mathrm{w_\mathcal{woman}}  \approx \mathrm{w_\mathcal{queen}} \ \ \ \ \ \ \ \ \ \ (1)
+$$</p>
 <p>사람에게는 단순해 보이는 수식 1의 넌센스가 Word2Vec 이전의 모델들은 <strong>&lsquo;이해(표현)&rsquo;</strong>하지 못했습니다. 하지만 Word2Vec은 신경망(Neural Network) 모델과 <strong>CBOW</strong>, <strong>Skip-gram</strong>과 같은 학습 방법론을 통해 벡터에 의미 정보를 담는데 성공해냅니다.</p>
 <p>이러한 의미 정보가 중요한 이유에 대해 예시를 통해 설명해 보겠습니다. 예를 들어, &lsquo;강아지&rsquo;를 자주 검색하는 사람에게 &lsquo;개 사료&rsquo;를 추천해주고 싶다고 가정해 봅시다. 규칙 기반 모델은 유사한 상품 하나하나를 직접 연결해 주어야 합니다. 하지만 Word2Vec은 학습을 통해 비슷한 의미를 가진 단어들이 유사한 벡터를 갖게 되므로, 알고리즘을 통해 유사 상품들을 쉽게 검색할 수 있습니다.</p>
 <hr>
@@ -426,27 +428,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-pe6f1lam5xe7sqg6ank1a6lahyswxcqpa5d8a7nluvzxvuaohigjp8nn8sx.min.js"></script>
+<script src="https://errolseo.github.io/js/script-g1mx9g79aue54bvmjcsjeh2iff3wfw035cumxbsjtmd5wibkqerfmfmol.min.js"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        
-        
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ],
-        
-        throwOnError : false,
-        output: 'mathml'
-      });
-  });
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
 </script>
 
 
