@@ -11,7 +11,7 @@
     "@type": "Person",
     "name": "Errol Seo",
     
-    "image": "https://errolseo.github.io/images/profile.png"
+    "image": "https://errolseo.github.io/images/profile.webp"
     
   },
   "name":"Errol\u0027s AI Lab",
@@ -64,14 +64,14 @@
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/profile.png">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.png">
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.webp">
 
 
 
 
-  <meta property="og:image" content="https://errolseo.github.io/images/LLM/2/1.png">
-  <meta property="twitter:image" content="https://errolseo.github.io/images/LLM/2/1.png">
+  <meta property="og:image" content="https://errolseo.github.io/images/LLM/2/1.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/LLM/2/1.webp">
 
 
     <title>Gated Delta Networks</title>
@@ -111,7 +111,7 @@
     
     
       
-        <img class="header-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.webp" alt="Author&#39;s picture" />
       
     
     </a>
@@ -122,7 +122,7 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.png" alt="Author&#39;s picture" />
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.webp" alt="Author&#39;s picture" />
         <h4 class="sidebar-profile-name">Errol Seo</h4>
       </div>
     
@@ -222,14 +222,14 @@
 </div>
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>2025년 9월, Qwen3-Next 모델이 공개되었습니다. 새롭게 공개된 Qwen3-Next-80B-A3B 모델은 기존  Qwen3-32B 모델보다 10.7배 빠른 추론 속도를 기록했으며, 각종 벤치마크에서도 더 뛰어난 성능을 입증했습니다.</p>
-<p>가장 주목할 만한 점은 10배 이상 향상된 추론 속도입니다. 이는 <strong>Gated Delta Networks</strong>라는 새로운 선형 트랜스포머(Linear Transformer) 구조를 채택한 덕분입니다. 이 구조는 특히 긴 컨텍스트(long context)를 처리할 때 뛰어난 성능 개선을 보여주며 기존 언어 모델들의 한계를 넘어섰습니다.</p>
+              <p>2025년 9월, Qwen3-Next 모델이 공개되었습니다. 새롭게 공개된 Qwen3-Next-80B-A3B 모델은 기존 Qwen3-32B 모델보다 속도면에서는 10.7배 빠른 추론 속도를, 성능면에서는 각종 벤치마크에서 더 높은 점수를 기록했습니다.</p>
+<p>가장 주목할 만한 점은 10배 이상 향상된 추론 속도입니다. 이는 <strong>Gated Delta Networks</strong>라는 새로운 선형 트랜스포머(Linear Transformer) 구조를 채택한 덕분입니다. 이 구조는 특히 긴 컨텍스트(long context)를 처리할 때 뛰어난 성능 개선을 보여주며 기존 언어 모델들의 한계를 극복했습니다.</p>
 
 
 
 <div class="figure fig-80 center" >
   
-    <img class="fig-img" src="https://errolseo.github.io/images/LLM/2/1.png" >
+    <img class="fig-img" src="https://errolseo.github.io/images/LLM/2/1.webp" >
   
   
 </div>
@@ -237,8 +237,8 @@
 <blockquote>
 <p>그림 1. Hybrid Architecture (Qwen3-Next)<br>
 <a href="https://qwen.ai/blog?id=4074cca80393150c248e508aa62983f9cb7d27cd&amp;from=research.latest-advancements-list">QwenTeam (2025)</a></p></blockquote>
-<p>그림 1과 같이 Qwen3-Next 모델은 Gated DeltaNet과 Gated Attention을 결합한 하이브리드 구조를 채택했으며, 그림 1의 &lsquo;Output Gate&rsquo;에 해당하는 output gating 메커니즘을 활용하여 어텐션(Attention)의 low-rank 이슈를 개선하는 등 다양한 기술적 시도를 담아냈습니다.</p>
-<p>또한, 80B의 파라미터 중 3.7%에 해당하는 약 3B의 파라미터만 사용하는 Ultra-Sparse MoE를 성공적으로 학습하여 효율성을 극대화했습니다.</p>
+<p>Qwen3-Next 모델은 그림 1과 같이 Gated DeltaNet과 Gated Attention을 결합한 하이브리드 구조를 채택했습니다. 동시에 Output gating 메커니즘(그림 1의 Output Gate)을 활용하여 어텐션(Attention)의 low-rank 이슈를 개선하는 등 다양한 기술적 시도를 담아냈습니다.</p>
+<p>또한, 80B의 파라미터 중 3.7%에 해당하는 약 3B의 파라미터만 사용하는 Ultra-Sparse MoE를 성공적으로 학습하며 효율성을 극대화했습니다.</p>
 <p>마지막으로, 다중 토큰 예측(Multi-Token Prediction, MTP)을 도입하여, 기존 모델이 매 스텝(step)마다 하나의 토큰을 순차적으로 생성했던 것과 달리, <span class="highlight-text primary">Qwen3-Next는 스텝마다 여러 개의 토큰을 예측할 수 있게 되었습니다.</span></p>
 <hr>
 <h2 id="mamba2">Mamba2</h2>
