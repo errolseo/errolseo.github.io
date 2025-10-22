@@ -225,12 +225,12 @@
             <div class="main-content-wrap">
               <h2 id="vision-language-model">Vision Language Model</h2>
 <p>최근 멀티모달(Multimodal) LLM에 대한 관심이 증가하고 있습니다. 기존의 LLM이 주로 텍스트 데이터 처리에 중점을 둔 반면, 멀티모달 LLM은 텍스트, 이미지, 음성 등 여러 형식의 데이터를 통합하여 더 복잡하고 다재다능한 작업을 수행하는 확장된 개념입니다. 그 중에서도 <span class="highlight-text primary">이미지와 텍스트를 함께 처리하는 Image-Text-to-Text(IT2T) 모델이 최근 빠르게 성장하고 있습니다.</span></p>
-<p>IT2T 모델 또는 Vision Language Model(VLM)은 기존 LLM(Qwen, Gemma 등)에 비전 인코더(Vision Encoder) 모듈을 추가한 구조입니다. 이 모델은 <strong>텍스트만 입력될 때는 기존 LLM과 동일하게 작동</strong>하지만, <strong>이미지가 함께 입력되면</strong> 비전 인코더가 이미지를 임베딩한 후 그 결과를 텍스트 임베딩 사이에 삽입하여 LLM의 최종 입력으로 사용합니다.</p>
-<p>이러한 VLM의 활용 방안은 여러 가지가 있지만, 우선 <code>gemma-3</code>, <code>QWEN3-VL</code>처럼 기존과 동일한 방식으로 학습시킨 방식이 있습니다. 위와 같은 VLM은 텍스트만을 처리할 때는 LLM과 완전히 동일한 방식으로 동작하며, 이미지가 입력으로 들어올 경우 비전 인코더를 이용해서 이미지를 처리한 후 LLM의 입력으로 넣어주게 됩니다.</p>
+<p>IT2T 모델 또는 Vision Language Model(VLM)은 기존 LLM(Qwen, Gemma 등)에 비전 인코더(Vision Encoder) 모듈을 추가한 구조입니다. 이 모델은 <strong>텍스트만 입력될 때는 기존 LLM과 동일하게 동작</strong>하지만, <strong>이미지가 함께 입력되면</strong> 비전 인코더가 이미지를 임베딩한 후 그 결과를 텍스트 임베딩 사이에 삽입하여 LLM의 최종 입력으로 사용합니다.</p>
+<p>이러한 VLM의 활용 방안은 여러 가지가 있지만, 우선 <code>gemma-3</code>, <code>QWEN3-VL</code>처럼 기존 LLM에 이미지 입력 기능만 추가하여 동일한 방식으로 학습시키는 것입니다. 이런 VLM은 기존 LLM과 사용법은 완전히 같으면서, 이미지를 추가로 처리할 수 있다는 장점을 가집니다.</p>
 <hr>
 <h2 id="vlm-ocr">VLM OCR</h2>
-<p>대부분의 VLM 모델들은 기본적인 OCR이 가능합니다. 이미지와 함께 &lsquo;텍스트를 추출해 줘&rsquo;와 같은 프롬프트를 입력으로 줄 경우, 이미지 내의 텍스트를 추출해 낼 수 있습니다. 하지만 그 성능에는 한계가 있었고 그 한계를 극복하기 위해 <code>PaddleOCR-VL</code>, <code>rednote-hilab/dots.ocr</code> 과 같은 모델들은 문서 파싱(Documents Parsing)만을 위해 대규모 문서 OCR 데이터를 지시 학습(Instruction learning)을 진행하게 됩니다.</p>
-<p>추가 학습을 통해 해당 모델들은 <strong>OCR 및 Layout Detection 등에서 기존 VLM보다 뛰어난 성능을 보여주지만</strong>, 그 밖의 언어 이해 능력은 <code>gemma-3</code>나 <code>QWEN3-VL</code>에 비해 빈약한 모습을 보여주게 됩니다.</p>
+<p>VLM 모델은 기본적으로 OCR이 가능합니다. 이미지와 함께 &lsquo;텍스트를 추출해 줘&rsquo;와 같은 프롬프트를 입력하면 이미지 속 텍스트를 추출할 수 있습니다. 하지만 범용 VLM의 OCR 성능에는 한계가 있으며, 이를 극복하기 위해서는 <code>PaddleOCR-VL</code>이나 <code>rednote-hilab/dots.ocr</code>처럼 문서 파싱(Documents Parsing)에 특화된 대규모 OCR 데이터로 지시 학습(Instruction learning)을 추가 진행해야 합니다.</p>
+<p>추가 학습을 거친 모델은 OCR 및 Layout Detection 성능은 기존 범용 VLM보다 뛰어나지만, 반대로 다른 언어 이해 능력은 <code>gemma-3</code>나 <code>QWEN3-VL</code>에 비해 떨어지는 경향을 보이게 됩니다.</p>
 <p>글의 주제인 <strong>DeepSeek OCR</strong>의 경우도 표면적으로는 문서 파싱 전문 모델에 가까워 보입니다. 학습 데이터로 OCR과 CLIP 데이터셋만을 사용하였고, 성능 평가 또한 문서 OCR 벤치마크인 OmniDocBench를 활용했기 때문입니다. 하지만 논문에서 다루는 내용을 살펴보면 흥미로운 지점이 발견됩니다. <span class="highlight-text primary">이들의 연구 목표는 단순히 OCR 성능 향상이 아니라, <strong>'텍스트 토큰의 효율적인 압축 방안'</strong>에 있다는 것입니다.</span></p>
 <p>예를 들어, 문서를 OCR로 스캔해 텍스트로 변환하면 토큰 수가 1,000~2,000개에 달할 수 있지만, 문서를 이미지 자체로 입력받아 비전 인코더로 압축하면 단 100여 개의 비전 토큰으로 표현할 수 있습니다. 이는 입력 토큰을 획기적으로 줄이는 압축 효과를 가져옵니다. 이처럼 DeepSeek 팀의 최종 목표는 &lsquo;어떻게 비전 인코더와 언어 모델을 효과적으로 End-to-End로 연결할 것인가&rsquo;라는 점에서 gemma-3나 Qwen3-VL과 같은 범용 VLM의 지향점과 맞닿아 있습니다.</p>
 <p>이러한 연구 방향성은 논문의 결론(Conclusion) 부분에 명확하게 드러납니다.</p>
