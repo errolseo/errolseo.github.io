@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.webp"
+    
+  },
+  "name":"Errol\u0027s AI Lab",
+  "description":"DeepSeek OCR 논문 리뷰",
+  "url":"https:\/\/errolseo.github.io\/post\/llm\/3\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.151.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="">
+<meta name="description" content="DeepSeek OCR 논문 리뷰">
+
+
+<meta property="og:description" content="DeepSeek OCR 논문 리뷰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSeek OCR (1/2)">
+<meta name="twitter:title" content="DeepSeek OCR (1/2)">
+<meta property="og:url" content="https://errolseo.github.io/post/llm/3/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/llm/3/">
+<meta property="og:site_name" content="Errol&#39;s AI Lab">
+<meta property="og:description" content="DeepSeek OCR 논문 리뷰">
+<meta name="twitter:description" content="DeepSeek OCR 논문 리뷰">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-10-22T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-10-22T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="LLM">
+    
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.webp">
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/LLM/3/1.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/LLM/3/1.webp">
+
+
+    <title>DeepSeek OCR (1/2)</title>
+
+    <link rel="icon" href="https://errolseo.github.io/images/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/llm/3/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+KR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-0kadtf2j8ubr8zzlihb9hduej968reuzy40j8ddg2zyjhxg3pszkalhyaj.min.css" />
+    
+    <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI Lab</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.webp" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.webp" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      <div id="main" data-behavior="5">
+        <article class="post" id="top">
+          <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      DeepSeek OCR (1/2)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2025-10-22T00:00:00Z">
+        
+  October 22, 2025
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a href="https://errolseo.github.io/categories/llm">LLM</a>
+    
+  
+
+  </div>
+
+</div>
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <h2 id="vision-language-model">Vision Language Model</h2>
+<p>최근 멀티모달(Multimodal) LLM에 대한 관심이 증가하고 있습니다. 기존의 LLM이 주로 텍스트 데이터 처리에 중점을 둔 반면, 멀티모달 LLM은 텍스트, 이미지, 음성 등 여러 형식의 데이터를 통합하여 더 복잡하고 다재다능한 작업을 수행하는 확장된 개념입니다. 그 중에서도 <span class="highlight-text primary">이미지와 텍스트를 함께 처리하는 Image-Text-to-Text(IT2T) 모델이 최근 빠르게 성장하고 있습니다.</span></p>
+<p>IT2T 모델 또는 Vision Language Model(VLM)은 기존 LLM(Qwen, Gemma 등)에 비전 인코더(Vision Encoder) 모듈을 추가한 구조입니다. 이 모델은 <strong>텍스트만 입력될 때는 기존 LLM과 동일하게 작동</strong>하지만, <strong>이미지가 함께 입력되면</strong> 비전 인코더가 이미지를 임베딩한 후 그 결과를 텍스트 임베딩 사이에 삽입하여 LLM의 최종 입력으로 사용합니다.</p>
+<p>이러한 VLM의 활용 방안은 여러 가지가 있지만, 우선 <code>gemma-3</code>, <code>QWEN3-VL</code>처럼 기존과 동일한 방식으로 학습시킨 방식이 있습니다. 위와 같은 VLM은 텍스트만을 처리할 때는 LLM과 완전히 동일한 방식으로 동작하며, 이미지가 입력으로 들어올 경우 비전 인코더를 이용해서 이미지를 처리한 후 LLM의 입력으로 넣어주게 됩니다.</p>
+<hr>
+<h2 id="vlm-ocr">VLM OCR</h2>
+<p>대부분의 VLM 모델들은 기본적인 OCR이 가능합니다. 이미지와 함께 &lsquo;텍스트를 추출해 줘&rsquo;와 같은 프롬프트를 입력으로 줄 경우, 이미지 내의 텍스트를 추출해 낼 수 있습니다. 하지만 그 성능에는 한계가 있었고 그 한계를 극복하기 위해 <code>PaddleOCR-VL</code>, <code>rednote-hilab/dots.ocr</code> 과 같은 모델들은 문서 파싱(Documents Parsing)만을 위해 대규모 문서 OCR 데이터를 지시 학습(Instruction learning)을 진행하게 됩니다.</p>
+<p>추가 학습을 통해 해당 모델들은 <strong>OCR 및 Layout Detection 등에서 기존 VLM보다 뛰어난 성능을 보여주지만</strong>, 그 밖의 언어 이해 능력은 <code>gemma-3</code>나 <code>QWEN3-VL</code>에 비해 빈약한 모습을 보여주게 됩니다.</p>
+<p>글의 주제인 <strong>DeepSeek OCR</strong>의 경우도 표면적으로는 문서 파싱 전문 모델에 가까워 보입니다. 학습 데이터로 OCR과 CLIP 데이터셋만을 사용하였고, 성능 평가 또한 문서 OCR 벤치마크인 OmniDocBench를 활용했기 때문입니다. 하지만 논문에서 다루는 내용을 살펴보면 흥미로운 지점이 발견됩니다. <span class="highlight-text primary">이들의 연구 목표는 단순히 OCR 성능 향상이 아니라, <strong>'텍스트 토큰의 효율적인 압축 방안'</strong>에 있다는 것입니다.</span></p>
+<p>예를 들어, 문서를 OCR로 스캔해 텍스트로 변환하면 토큰 수가 1,000~2,000개에 달할 수 있지만, 문서를 이미지 자체로 입력받아 비전 인코더로 압축하면 단 100여 개의 비전 토큰으로 표현할 수 있습니다. 이는 입력 토큰을 획기적으로 줄이는 압축 효과를 가져옵니다. 이처럼 DeepSeek 팀의 최종 목표는 &lsquo;어떻게 비전 인코더와 언어 모델을 효과적으로 End-to-End로 연결할 것인가&rsquo;라는 점에서 gemma-3나 Qwen3-VL과 같은 범용 VLM의 지향점과 맞닿아 있습니다.</p>
+<p>이러한 연구 방향성은 논문의 결론(Conclusion) 부분에 명확하게 드러납니다.</p>
+<blockquote>
+<p>이 기술 보고서에서 저희는 DeepSeek-OCR을 제안하고 이 모델을 통해 컨텍스트의 광학적 압축(contexts optical compression)에 대한 실현 가능성을 예비적으로 검증했습니다. <span class="highlight-text primary">이를 통해 모델이 소수의 비전 토큰으로부터 그 수량의 10배를 초과하는 텍스트 토큰을 효과적으로 디코딩할 수 있음을 보여주었습니다.</span> 저희는 이 발견이 향후 VLM과 LLM의 발전을 촉진할 것이라고 믿습니다.
+<br>
+또한, DeepSeek-OCR은 대규모 사전 학습 데이터 생산이 가능한 매우 실용적인 모델로서, LLM에게 없어서는 안 될 보조 역할을 할 수 있습니다. 물론, OCR만으로는 진정한 컨텍스트 광학 압축을 완전히 검증하기에 충분하지 않으며, 저희는 향후 디지털-광학 텍스트를 교차하여 사전 학습시키는 방식, 건초더미에서 바늘 찾기(needle-in-a-haystack) 테스트 및 기타 평가들을 수행할 것입니다. <strong>(6. Conclusion 번역)</strong></p></blockquote>
+<p>결국 DeepSeek-OCR은 단순히 뛰어난 OCR 모델을 넘어, LLM의 긴 컨텍스트 처리 문제를 &lsquo;이미지를 통한 텍스트 압축&rsquo;이라는 새로운 관점으로 해결하려는 새로운 시도라고 볼 수 있습니다.</p>
+<hr>
+<h2 id="contribution">Contribution</h2>
+<p>컨텍스트의 광학적 압축(contexts optical compression)등 흥미로운 관점이 존재하지만, 논문의 가장 큰 기여점은 기존 VLM보다 빨라졌다는 점입니다. 기본적인 patch size부터 기존 모델보다 크며(기존 14, DeepSeek OCR 64), 건담(Gundam) 모드라고 불리는 동적 해상도 지원을 통해 고해상도 이미지 또한 효율적으로 압축하여 비전 토큰의 수를 획기적으로 줄였습니다.</p>
+
+
+
+<div class="figure fig-80 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/LLM/3/1.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>그림 1. Performance on Omnidocbench<br>
+<a href="https://github.com/deepseek-ai/DeepSeek-OCR">DeepSeek-OCR: Contexts Optical Compression</a></p></blockquote>
+<p>트랜스포머(Transformer) 모델의 어텐션(Attention) 구조 상, 입력의 제곱에 비례해서 연산 복잡도가 늘어나기 때문에, 입력 토큰 수의 감소는 추론 속도에 큰 영향을 줄 수 밖에 없습니다. <span class="highlight-text primary">놀라운 점은 비전 토큰 압축을 통해 추론 속도가 향상되었는데, 제공된 벤츠마크 상으로는 성능의 트레이드 오프가 전혀 없다는 점 입니다.</span></p>
+<p>벤치마크 상으로 기존 SOTA 모델은 <code>rednote-hilab/dots.ocr</code>(200dpi)의 0.125(Edit Distance)입니다. 하지만 DeepSeek OCR보다 dots.ocr의 33%(1853/5545) 적은 비전 토큰을 활용해서 0.123(Edit Distance)를 달성했습니다.</p>
+<p>추가적으로 논문은 비전 토큰을 얼마나 압축할 수 있는가에 대한 지표를 표를 이용해 제시합니다.</p>
+
+
+
+<div class="figure fig-80 center" >
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/LLM/3/2.webp" >
+  
+  
+</div>
+
+<blockquote>
+<p>표 1. Performance based on vision-text compression ratio<br>
+<a href="https://github.com/deepseek-ai/DeepSeek-OCR">DeepSeek-OCR: Contexts Optical Compression</a></p></blockquote>
+<p>기본적으로 압축률이 높아질수록 OCR 결과의 Precision이 하락하는 음의 상관관계(Negative Correlation)을 보여줍니다. 여기에 토큰 수라는 변수를 추가하여, 토큰 수에 따라 최적의 압축률이 상이할 수 있다는 점을 보여줍니다.</p>
+<hr>
+<h2 id="결론">결론</h2>
+<p><code>rednote-hilab/dots.ocr</code> 모델이 처음 공개되었을 때, 허깅페이스 커뮤니티는 뜨겁게 달아올랐습니다. Layout Detection부터 OCR까지 End-to-End 방식으로 한 번에 처리하면서도, 그 성능이 놀라웠기 때문입니다. DeepSeek OCR의 성능 자체는 dots.ocr과 크게 차이 나지 않기 때문에 놀라운 부분은 아닙니다. 속도가 빨라진 점도 충분히 예상 가능한 발전입니다. dots.ocr만큼 놀랍지는 않았습니다.</p>
+<p>그런데 DeepSeek 팀이 제시한 패러다임은 충분히 흥미롭습니다. 제 개인적인 해석으로는, DeepSeek 팀은 이제 &lsquo;문서를 굳이 텍스트로 변환할 필요가 없다&rsquo; 는 메시지를 제시하고 있는 것 같습니다. 문서는 이미지 그 자체로 충분한 의미와 구조를 담고 있으니, 기존의 &lsquo;파싱(Parsing)&lsquo;이라는 개념 자체가 불필요해질 수 있다는 것 입니다. 논문에서 보여준 결과를 보면 이 주장은 상당한 설득력을 가집니다.</p>
+<p>현재 많은 기업이 문서 파싱을 통해 RAG 시스템을 구축하고, 더 나아가 LLM과 MCP를 이용해 Agentic AI를 도입하려 하고 있습니다. 만약 DeepSeek 팀의 주장처럼 문서 처리의 근본적인 패러다임이 바뀐다면, 우리는 지금까지와는 완전히 다른 시스템 아키텍처를 고민해야 할지도 모릅니다.</p>
+<hr>
+<h4 id="reference">Reference</h4>
+<p>DeepSeek-AI | <a href="https://huggingface.co/deepseek-ai/DeepSeek-OCR">deepseek-ai/DeepSeek-OCR</a></p>
+<p>Xiaohongshu | <a href="https://huggingface.co/rednote-hilab/dots.ocr">rednote-hilab/dots.ocr</a></p>
+<hr>
+
+              
+
+
+            </div>
+          </div>
+          
+            <div id="post-footer" class="post-footer main-content-wrap">
+              
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+              <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/llm/2/" data-tooltip="Gated Delta Networks" aria-label="PREV: Gated Delta Networks">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREV</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+            </div>
+          
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; Errol Seo. 2025 All rights reserved.
+  </span>
+</footer>
+
+      </div>
+      
+        <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+          <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/llm/2/" data-tooltip="Gated Delta Networks" aria-label="PREV: Gated Delta Networks">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREV</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+        </div>
+      
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-ltl7aolmzop70kqwr62fhsf7itglsybdo8brfde7yczi8nbntiwznip2.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+  </body>
+</html>
