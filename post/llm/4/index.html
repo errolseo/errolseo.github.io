@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/errolseo.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name": "Errol Seo",
+    
+    "image": "https://errolseo.github.io/images/profile.webp"
+    
+  },
+  "name":"Errol\u0027s AI Lab",
+  "description":"DeepSeek OCR 모델 아키텍처 리뷰",
+  "url":"https:\/\/errolseo.github.io\/post\/llm\/4\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.151.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Errol Seo">
+<meta name="keywords" content="">
+<meta name="description" content="DeepSeek OCR 모델 아키텍처 리뷰">
+
+
+<meta property="og:description" content="DeepSeek OCR 모델 아키텍처 리뷰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSeek OCR (2/2)">
+<meta name="twitter:title" content="DeepSeek OCR (2/2)">
+<meta property="og:url" content="https://errolseo.github.io/post/llm/4/">
+<meta property="twitter:url" content="https://errolseo.github.io/post/llm/4/">
+<meta property="og:site_name" content="Errol&#39;s AI Lab">
+<meta property="og:description" content="DeepSeek OCR 모델 아키텍처 리뷰">
+<meta name="twitter:description" content="DeepSeek OCR 모델 아키텍처 리뷰">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-10-23T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-10-23T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="LLM">
+    
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/profile.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/profile.webp">
+
+
+
+
+  <meta property="og:image" content="https://errolseo.github.io/images/LLM/4/1.webp">
+  <meta property="twitter:image" content="https://errolseo.github.io/images/LLM/4/1.webp">
+
+
+    <title>DeepSeek OCR (2/2)</title>
+
+    <link rel="icon" href="https://errolseo.github.io/images/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://errolseo.github.io/post/llm/4/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+KR&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+    
+    
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ly7gfsdmui8snovz1wrbjtchpydtyuan7moo3jai6epq7ndnlmqnlq27m6.min.css" />
+    
+    <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://errolseo.github.io/" aria-label="Go to homepage">Errol&#39;s AI Lab</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://errolseo.github.io/about" aria-label="Open the link: /about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://errolseo.github.io/images/profile.webp" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <img class="sidebar-profile-picture" src="https://errolseo.github.io/images/profile.webp" alt="Author&#39;s picture" />
+        <h4 class="sidebar-profile-name">Errol Seo</h4>
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-list" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-folder-open" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://errolseo.github.io/about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-user" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/errolseo" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      <div id="main" data-behavior="5">
+        <article class="post" id="top">
+          <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      DeepSeek OCR (2/2)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2025-10-23T00:00:00Z">
+        
+  October 23, 2025
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a href="https://errolseo.github.io/categories/llm">LLM</a>
+    
+  
+
+  </div>
+
+</div>
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <h2 id="model-architecture">Model Architecture</h2>
+<p>DeepSeek OCR의 아키텍처는 기존 VLM들과 동일하게 비전 인코더와 LLM으로 구성됩니다.</p>
+<p>비전 인코더는 사전 학습된 모델의 성능을 최대한 활용하고자 SAM-base와 CLIP-large를 직렬로 연결하여 사용하고 있고, LLM은 DeepSeek-3B(Active parameter 570M)을 사용하고 있습니다.</p>
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="https://errolseo.github.io/images/LLM/4/1.webp" data-fancybox="">
+  
+    <img class="fig-img" src="https://errolseo.github.io/images/LLM/4/1.webp" >
+  
+    </a>
+  
+  
+</div>
+
+<blockquote>
+<p>그림 1. Model Architecture (DeepSeek OCR)<br>
+<a href="https://github.com/deepseek-ai/DeepSeek-OCR">DeepSeek-OCR: Contexts Optical Compression</a></p></blockquote>
+<p>비전 인코더의 출력을 LLM에 주입(Injection)하는 여러 방식 중, 최근에는 토큰 임베딩 단계에서 텍스트와 이미지 임베딩 토큰을 이어붙이거나 삽입하는 방식을 주로 택하고 있습니다.</p>
+<h4 id="비전-인코더">비전 인코더</h4>
+<p>DeepSeek OCR의 비전 인코더에서 SAM-base 모델은 $n$개의 16x16 패치로 분할된 이미지를 입력으로 받고, CLIP-large 모델은 SAM-base 모델의 출력 결과를 16배 다운샘플링하여 입력으로 사용합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">patch_embed</span> <span style="color:#f92672">=</span> <span style="color:#111">PatchEmbed</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">)</span>  <span style="color:#75715e"># 쪼개진 Patch들을 임베딩하는 레이어</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">pos_embed</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">)</span>  <span style="color:#75715e"># Position Embedding (like bias)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">blocks</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">ModuleList</span><span style="color:#111">()</span>       <span style="color:#75715e"># Transformer Blocks</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">i</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">depth</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">block</span> <span style="color:#f92672">=</span> <span style="color:#111">Block</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">blocks</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">block</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">neck</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Sequential</span><span style="color:#111">(</span>          <span style="color:#75715e"># Neck 레이어</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Conv2d</span><span style="color:#111">(</span><span style="color:#111">kernel_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#f92672">...</span><span style="color:#111">),</span>  <span style="color:#75715e"># 피처맵의 채널 수를 조절하고 (768 → 256)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">LayerNorm2d</span><span style="color:#111">(</span><span style="color:#111">out_chans</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Conv2d</span><span style="color:#111">(</span><span style="color:#111">kernel_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#f92672">...</span><span style="color:#111">),</span>  <span style="color:#75715e"># 3x3 Conv를 통해 지역적인 특징을 한 번 더 정제</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">LayerNorm2d</span><span style="color:#111">(</span><span style="color:#111">out_chans</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 각각 채널 수를 2배로 늘리고, 가로 세로 크기를 2배 줄인다. (x4 x4 = x16)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">net_2</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Conv2d</span><span style="color:#111">(</span><span style="color:#ae81ff">256</span><span style="color:#111">,</span> <span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">kernel_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#111">stride</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">bias</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">net_3</span> <span style="color:#f92672">=</span> <span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Conv2d</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#ae81ff">1024</span><span style="color:#111">,</span> <span style="color:#111">kernel_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#111">stride</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">bias</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">CLIPVisionEmbeddings</span><span style="color:#111">(</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Module</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">class_embedding</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">nn</span><span style="color:#f92672">.</span><span style="color:#111">Parameter</span><span style="color:#111">(</span><span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">randn</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">embed_dim</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">forward</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">pixel_values</span><span style="color:#111">,</span> <span style="color:#111">patch_embeds</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">class_embeds</span> <span style="color:#f92672">=</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">class_embedding</span><span style="color:#f92672">.</span><span style="color:#111">expand</span><span style="color:#111">(</span><span style="color:#111">batch_size</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">embeddings</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">cat</span><span style="color:#111">([</span><span style="color:#111">class_embeds</span><span style="color:#111">,</span> <span style="color:#111">patch_embeds</span><span style="color:#111">],</span> <span style="color:#111">dim</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>SAM-base 모델의 경우, Neck 및 다운샘플링 레이어를 제외하면 기존 ViT와 구조적으로 큰 차이가 없습니다. CLIP-large 모델 또한 기존 ViT와 유사하지만, 언어 모델의 <code>[CLS]</code> 토큰에 해당하는 <code>class_embedding</code>을 삽입하는 과정이 추가된 점이 다릅니다.</p>
+<hr>
+<h2 id="image-processing">Image Processing</h2>
+<p>DeepSeek OCR의 이미지 처리 프로세스는 <strong>기본 해상도(Native resolution)</strong>와 <strong>동적 해상도(Dynamic resolution)</strong>의 2가지 모드를 지원합니다.</p>
+<p>기본 해상도는 Tiny, Small, Base, Large의 네 가지 하위 모드를 지원하며, 각각에 해당하는 해상도와 토큰 수는 512×512 (64), 640×640 (100), 1024×1024 (256), 1280×1280 (400)입니다. <span class="highlight-text primary">Tiny와 Small 모드</span>는 해상도가 비교적 작기 때문에 비전 토큰 낭비를 피하고자 원본 이미지의 형태를 직접 <span class="highlight-text primary"><strong>리사이징</strong></span>하여 처리합니다. <span class="highlight-text primary">Base와 Large 모드</span>의 경우, 원본 이미지의 종횡비를 보존하기 위해 이미지를 해당 크기에 맞게 <span class="highlight-text primary"><strong>패딩(padding)</strong></span>합니다.</p>
+<p>동적 해상도는 두 개의 기본 해상도를 조합하여 구성합니다. 예를 들어, <strong>건담(Gundam) 모드</strong>는 $n$개의 640×640 <strong>타일(local views, 지역 시점)</strong>과 1개의 1024×1024 <strong>타일(global view, 전역 시점)</strong>로 구성되어 있습니다. 타일링 방식은 <a href="https://internvl.github.io/blog/2024-07-02-InternVL-2.0/">InternVL2.0</a>의 전략을 따르며, 기본적으로 패딩을 활용하여 각 타일의 영역이 겹치지 않도록 처리합니다. <span class="highlight-text primary">4k 같은 초고해상도 이미지의 경우, 타일 수가 일정 개수를 초과하지 않도록 종횡비를 유지한 채 이미지 전체를 다운샘플링한 후 패딩을 적용합니다.</span></p>
+<p>이러한 동적 해상도를 지원하는 주된 이유는 신문과 같이 초고해상도 이미지를 효과적으로 처리하기 위함입니다. 타일링 방식은 활성화 메모리 사용량을 줄이는 데 효과적이며, 기본 타일 해상도가 비교적 크기 때문에 이미지가 지나치게 잘게 조각나지 않습니다.</p>
+<p>건담 모드는 네 가지 기본 해상도 모드와 함께 학습하지만, 건담-마스터(Gundam-master) 모드(1024×1024 지역 시점 + 1280×1280 전역 시점)는 이미 학습된 DeepSeek OCR 모델에 추가 학습을 통해 구현됩니다. 이는 건담-마스터의 해상도가 매우 커서 함께 학습시킬 경우 전체 학습 속도를 저하 시킬 수 있으므로, <strong>부하 분산(load balancing)을 고려한</strong> 결정입니다.</p>
+<blockquote>
+<p><strong>예제<br></strong>
+768x1024 이미지 (Base 모델):<br>
+1024x1024에 맞추기 위해, 부족한 가로 영역(768→1024)을 패딩합니다.
+<br><br>
+600x1200 이미지 (Large 모델):<br>
+1280x1280에 맞추기 위해, 가로(600→1280)와 세로(1200→1280) 영역을 모두 패딩합니다.
+<br><br>
+1920x1000 이미지 (건담 모드):<br>
+(지역 시점) 640x640 타일 크기에 맞춰 세로 영역을 1280으로 패딩한 후, 가로 3개, 세로 2개의 총 6개 타일로 분할합니다.<br>
+(전역 시점) 원본 이미지를 1024x1024 크기로 리사이징하여 전체 문맥을 파악하는 데 사용합니다.
+<br><br>
+4096x3072 이미지 (건담-마스터 모드):<br>
+(지역 시점) 1024x1024 타일로 나누면 4x3=12개로, 9개를 초과하므로, 가장 긴 쪽(가로, 4개 타일)을 3개 타일에 맞추기 위해, 종횡비를 유지하며 이미지 전체를 3072x2304 크기로 리사이징합니다.<br>
+이후 부족한 세로 영역을 3072로 패딩하여 3072x3072 크기의 캔버스를 만듭니다. 최종적으로 가로 3개, 세로 3개, 총 9개의 타일로 분할합니다.<br>
+(전역 시점) 원본 이미지를 1280x1280 크기로 리사이징합니다.</p></blockquote>
+<hr>
+<h2 id="결론">결론</h2>
+<p>많은 기술을 숙지하는 것도 어렵지만, 그것을 한곳에 유기적으로 녹여내는 것은 차원이 다른 문제입니다. 이 모델은 그 어려운 조합을 성공적으로 구현해낸 것 같습니다. 기존 모델의 사전 학습 파라미터를 활용하면 학습 시간을 단축할 수 있지만, 말처럼 간단한 작업은 아닙니다. 특히, 각기 다른 목적으로 학습된 세 개의 모델을 효과적으로 이어붙인 점이 매우 인상적입니다.</p>
+<p>이미지 처리 부분에서 기본 해상도와 동적 해상도의 개념 자체는 다른 연구에서 가져왔다고 볼 수도 있습니다. 하지만 이 모델은 적절한 압축 크기를 결정하고, 초고해상도 처리는 부하 분산을 고려하여 별도 모드로 추가 학습시키는 등, 구현 과정에서 많은 엔지니어링 노하우를 엿볼 수 있습니다.</p>
+<p>다만 아쉬운 점은, 논문이 너무 많은 외부 레퍼런스에 의존하고 있다는 것입니다. 논문 본문만으로는 모델의 정확한 동작 방식을 완전히 파악하기 어려워, 세부 사항을 이해하기 위해 원본 레퍼런스나 코드를 직접 살펴봐야 했기에 파악하는데 오랜 시간이 걸렸습니다.</p>
+<hr>
+<h4 id="reference">Reference</h4>
+<p>DeepSeek-AI | <a href="https://huggingface.co/deepseek-ai/DeepSeek-OCR">deepseek-ai/DeepSeek-OCR</a></p>
+<p>Chen, Zhe (2024) | <a href="https://internvl.github.io/blog/2024-07-02-InternVL-2.0/">InternVL2: Better than the Best—Expanding Performance Boundaries of Open-Source Multimodal Models with the Progressive Scaling Strategy</a></p>
+<p>Kirillov, Alexander (2023) | <a href="https://ai.meta.com/research/publications/segment-anything/">Segment Anything</a></p>
+<p>Radford, Alec (2021) | <a href="https://arxiv.org/abs/2103.00020">Learning Transferable Visual Models From Natural Language Supervision</a></p>
+<hr>
+
+              
+
+
+            </div>
+          </div>
+          
+            <div id="post-footer" class="post-footer main-content-wrap">
+              
+  <script src="https://utteranc.es/client.js"
+    repo="errolseo/blog-comments"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+
+
+              <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/llm/3/" data-tooltip="DeepSeek OCR (1/2)" aria-label="PREV: DeepSeek OCR (1/2)">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREV</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+            </div>
+          
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; Errol Seo. 2025 All rights reserved.
+  </span>
+</footer>
+
+      </div>
+      
+        <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+          <div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://errolseo.github.io/post/llm/3/" data-tooltip="DeepSeek OCR (1/2)" aria-label="PREV: DeepSeek OCR (1/2)">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">PREV</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share" >
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      
+    
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#main" aria-label="Back to top">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#post-footer" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+        </div>
+      
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://errolseo.github.io/js/script-6umfixj2b1ohaviwimpbvitqvnnyfe3qqvo5xc8qbuno9lxqvumiqlhura9.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+  </body>
+</html>

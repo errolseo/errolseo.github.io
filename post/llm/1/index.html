@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-0kadtf2j8ubr8zzlihb9hduej968reuzy40j8ddg2zyjhxg3pszkalhyaj.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ly7gfsdmui8snovz1wrbjtchpydtyuan7moo3jai6epq7ndnlmqnlq27m6.min.css" />
     
     <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
   </head>
@@ -223,8 +223,7 @@
 </div>
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p>2025년 7월 11일, 중국의 Moonshot AI에서 <strong>1 Trillion(1조)</strong>의 모델 크기를 가지는 <strong>Kimi K2</strong>를 공개했습니다. MoE(Mix-of-Experts) 구조를 적용해 실제 활성 파라미터(Activated Parameters)는 32B에 불과하지만, 높은 벤치마크(Benchmark) 성능을 기록하며 <strong>대형 언어 모델(Large Language Model, LLM) 크기 논란</strong>에 다시 불을 지폈습니다.
-<br><br></p>
+              <p>2025년 7월 11일, 중국의 Moonshot AI에서 <strong>1 Trillion(1조)</strong>의 모델 크기를 가지는 <strong>Kimi K2</strong>를 공개했습니다. MoE(Mix-of-Experts) 구조를 적용해 실제 활성 파라미터(Activated Parameters)는 32B에 불과하지만, 높은 벤치마크(Benchmark) 성능을 기록하며 <strong>대형 언어 모델(Large Language Model, LLM) 크기 논란</strong>에 다시 불을 지폈습니다.</p>
 <table>
   <thead>
       <tr>
@@ -268,8 +267,7 @@
 <p>이번 글에서는 이 <strong>&lsquo;데이터의 양&rsquo;</strong>에 대해 집중적으로 살펴보겠습니다.</p>
 <hr>
 <h2 id="underfitting">Underfitting</h2>
-<p>초기 Transformer 인코더 기반의 언어 모델인 <strong>BERT (Jacob Devlin, et al. 2018)</strong>가 공개되었을 때만 해도 언어 모델의 크기는 110M(BERT-base)에 불과했습니다. 그리고 BERT 학습에 사용된 사전 학습 데이터의 용량은 13GB 였으며, 이는 대략 2B+ tokens로 추정됩니다.
-<br><br></p>
+<p>초기 Transformer 인코더 기반의 언어 모델인 <strong>BERT (Jacob Devlin, et al. 2018)</strong>가 공개되었을 때만 해도 언어 모델의 크기는 110M(BERT-base)에 불과했습니다. 그리고 BERT 학습에 사용된 사전 학습 데이터의 용량은 13GB 였으며, 이는 대략 2B+ tokens로 추정됩니다.</p>
 <table>
   <thead>
       <tr>
@@ -343,14 +341,12 @@
 <p>그림 2. 모델 크기와 데이터셋 크기에 따른 test loss<br>
 <a href="https://arxiv.org/abs/1907.11692">Yinhan Liu, et al. (2019)</a></p></blockquote>
 <p>Scaling Laws 논문에는 다양한 분석 지표들이 존재하지만, 가장 핵심은 그림 2의 모델 크기와 데이터셋 크기에 따른 Test Loss 값입니다. 그림 2를 보면 $10^8$ Tokens(X-축) 이하의 데이터에서 708M Params 모델이 302M Params 모델과 같거나 더 낮은 성능을 보이고 있습니다. 이는 데이터의 양이 작다면 모델의 크기를 키우더라도 성능이 오르지 않거나 오히려 하락할 수 있다는 것을 보여줍니다.</p>
-<br>
-$$
+<p>$$
 \begin{cases}
--4x + 3y = -8\\\
+-4x + 3y = -8\\
 7x - 4y = 14
 \end{cases}
-$$
-<br>
+$$</p>
 <p>딥러닝은 기본적으로 데이터를 활용해 모델이라는 연립 방정식의 해를 찾는 작업입니다. 2차 연립 방정식은 2개 이상의 정답셋이 필요하고, 3차 연립 방정식은 3개 이상이 필요합니다. 모델의 크기를 늘리는 것은 연립 방정식의 차원을 늘리는 행위이며 이는 곧, 차원이 늘어난 만큼의 데이터가 더 필요하다는 얘기입니다.</p>
 <p>즉, 모델의 크기에 비해 데이터가 적다면 모델은 최적해에 결코 도달할 수 없으며 오히려 불확실성이 높아져 성능 저하로 이어질 것이 자명합니다.</p>
 <hr>
@@ -494,7 +490,7 @@ $$
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-ltl7aolmzop70kqwr62fhsf7itglsybdo8brfde7yczi8nbntiwznip2.min.js"></script>
+<script src="https://errolseo.github.io/js/script-6umfixj2b1ohaviwimpbvitqvnnyfe3qqvo5xc8qbuno9lxqvumiqlhura9.min.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">

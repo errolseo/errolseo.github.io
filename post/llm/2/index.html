@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-0kadtf2j8ubr8zzlihb9hduej968reuzy40j8ddg2zyjhxg3pszkalhyaj.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ly7gfsdmui8snovz1wrbjtchpydtyuan7moo3jai6epq7ndnlmqnlq27m6.min.css" />
     
     <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
   </head>
@@ -253,8 +253,8 @@ $$</p>
 $$</p>
 <p>$$
 \tag{3} O = (QK^\intercal \odot M) V \in \R^{L \times d_v}
-$$
-위 수식을 통해 Mamba2의 작동 방식을 살펴보겠습니다.</p>
+$$</p>
+<p>위 수식을 통해 Mamba2의 작동 방식을 살펴보겠습니다.</p>
 <p><strong>수식 (1)</strong>은 상태($S$)가 업데이트되는 과정을 보여줍니다. 현재 타임스텝($t$)의 상태($S_t$)는 이전 상태($S_{t-1}$)에 <strong>감쇠율(decay rate, $\alpha_t$)</strong>을 곱해 과거 정보의 영향력을 조절하고, 현재 토큰의 Key-Value 벡터($v_t k_t^\intercal$)를 더하여 계산됩니다. 이처럼 이전 정보를 선별적으로 유지하며 다음 상태로 넘겨주는 순환적인 구조를 가집니다.</p>
 <p><strong>수식 (2)</strong>에서는 이렇게 업데이트된 상태($S_t$)와 현재 토큰의 쿼리($q_t$)를 곱해 최종 출력($o_t$)을 계산합니다. 최종적으로는 Query, Key, Value가 모두 계산에 사용되므로, <strong>수식 (3)</strong>으로 표현되는 표준 트랜스포머의 어텐션 메커니즘과 유사한 역할을 수행합니다. <span class="highlight-text primary">그렇다면 연산량의 차이는 어디서 발생할까요?</span></p>
 <p>핵심은 상태($S_t$)의 차원에 있습니다. Mamba2의 상태($S_t$)는 시퀀스 길이($L$)와 무관하게 $d_v \times d_k$라는 고정된 크기를 가집니다. 따라서 각 토큰을 처리하는 연산은 시퀀스가 길어져도 일정하게 유지되며, 전체 시퀀스를 처리하는 데 필요한 총연산량은 시퀀스 길이에 선형적으로 비례($O(L)$)합니다.</p>
@@ -438,7 +438,7 @@ $$</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-ltl7aolmzop70kqwr62fhsf7itglsybdo8brfde7yczi8nbntiwznip2.min.js"></script>
+<script src="https://errolseo.github.io/js/script-6umfixj2b1ohaviwimpbvitqvnnyfe3qqvo5xc8qbuno9lxqvumiqlhura9.min.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
