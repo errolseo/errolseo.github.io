@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ly7gfsdmui8snovz1wrbjtchpydtyuan7moo3jai6epq7ndnlmqnlq27m6.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-okbyci2fry3yz72m29gprsmertr5xz9vdaxqhjgddy4fcskkc0lq4acof.min.css" />
     
     <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
   </head>
@@ -251,8 +251,7 @@
 <h4 id="text-rendering-process">Text Rendering Process</h4>
 <p>SynthTIGER는 실제 텍스트 이미지의 복잡성을 효과적으로 모방하고자 모듈화된 5단계 텍스트 렌더링 파이프라인을 활용합니다. 이 파이프라인은 단순한 텍스트 생성에 그치지 않고, 현실적인 노이즈와 다양한 시각적 변형을 통합하여 STR 모델 학습에 최적화된 데이터를 만들 수 있도록 돕습니다.</p>
 <p>SynthTIGER의 5단계 렌더링 파이프라인은 다음과 같이 구성됩니다:<br>
-<span class="highlight-text primary">(a) 텍스트 형태 선택 (Text Shape Selection) / (b) 텍스트 스타일 선택 (Text Style Selection) /<br>(c) 변환 (Transformation) / (d) 블렌딩 (Blending) / (e) 후처리 (Post-processing)</span>
-<br></p>
+<span class="highlight-text primary">(a) 텍스트 형태 선택 (Text Shape Selection) / (b) 텍스트 스타일 선택 (Text Style Selection) /<br>(c) 변환 (Transformation) / (d) 블렌딩 (Blending) / (e) 후처리 (Post-processing)</span></p>
 
 
 
@@ -272,9 +271,7 @@
 <p>이러한 모듈화된 프로세스를 통해 SynthTIGER는 훨씬 더 다양한 텍스트 이미지 데이터를 생성할 수 있습니다. 각 단계는 독립적으로 제어 가능하기 때문에, 사용자는 특정 시나리오에 맞는 데이터를 유연하게 생성할 수 있다는 장점이 있습니다.</p>
 <hr>
 <h4 id="text-selection-strategy">Text Selection Strategy</h4>
-<p>합성 데이터 생성 시에 &lsquo;어떤 텍스트를 이미지에 넣을 것인가&rsquo;를 결정하는 <strong>텍스트 선택 전략</strong>은 정말 중요한 단계입니다. 왜 핵심적인지 아래 예시들을 통해 직관적으로 이해할 수 있습니다.
-<br>
-<br></p>
+<p>합성 데이터 생성 시에 &lsquo;어떤 텍스트를 이미지에 넣을 것인가&rsquo;를 결정하는 <strong>텍스트 선택 전략</strong>은 정말 중요한 단계입니다. 왜 핵심적인지 아래 예시들을 통해 직관적으로 이해할 수 있습니다.</p>
 
 
 
@@ -288,9 +285,7 @@
 <blockquote>
 <p>그림 3. Noise가 심한 예제 데이터</p></blockquote>
 <p>위 그림 3처럼 노이즈가 심한 이미지도 우리는 해당 단어가 &ldquo;컴퓨터&quot;라는 것을 쉽게 예측할 수 있습니다. 마지막 글자만 놓고 보면 &ldquo;티, 터, 타&rdquo; 등의 여러 글자가 가능하지만, 단어의 연속적인 흐름 속에서 &ldquo;컴퓨터&quot;일 확률이 가장 높다고 판단하기 때문입니다.</p>
-<p>이처럼 우리가 장면 속 글자를 예측하는 데 단순히 시각 정보뿐만 아니라, <span class="highlight-text primary">언어라는 특성에 크게 의존</span>한다는 걸 알 수 있습니다. STR 모델 역시 다양한 단어 예제들을 학습하면서 이러한 언어적 &lsquo;경향성&rsquo;을 배우게 되고, 이는 예측 결과에 지대한 영향을 미칩니다.
-<br>
-<br></p>
+<p>이처럼 우리가 장면 속 글자를 예측하는 데 단순히 시각 정보뿐만 아니라, <span class="highlight-text primary">언어라는 특성에 크게 의존</span>한다는 걸 알 수 있습니다. STR 모델 역시 다양한 단어 예제들을 학습하면서 이러한 언어적 &lsquo;경향성&rsquo;을 배우게 되고, 이는 예측 결과에 지대한 영향을 미칩니다.</p>
 
 
 
@@ -304,9 +299,7 @@
 <blockquote>
 <p>그림 4. Text length distribution of training data<br>
 <a href="https://arxiv.org/abs/2107.09313">Moonbin Yim, et al. (2021)</a></p></blockquote>
-<p>그림 4는 텍스트 길이 정규화(Text Length Normalization)의 효과를 보여줍니다. 텍스트 길이를 정규화하지 않은 경우보다 대부분의 구간에서 더 나은 정확도를 보이는 것을 확인할 수 있습니다. 심지어 평가 데이터로 학습된 최적화 모델과 비교했을 때도, 정규화된 데이터를 이용하여 학습한 모델이 평균적으로 더 우수한 성능을 나타내는 것을 확인할 수 있습니다.
-<br>
-<br></p>
+<p>그림 4는 텍스트 길이 정규화(Text Length Normalization)의 효과를 보여줍니다. 텍스트 길이를 정규화하지 않은 경우보다 대부분의 구간에서 더 나은 정확도를 보이는 것을 확인할 수 있습니다. 심지어 평가 데이터로 학습된 최적화 모델과 비교했을 때도, 정규화된 데이터를 이용하여 학습한 모델이 평균적으로 더 우수한 성능을 나타내는 것을 확인할 수 있습니다.</p>
 
 
 
@@ -326,9 +319,9 @@
 <p>이처럼 STR 모델 학습에서 데이터의 품질을 좌우하는 텍스트 선택 전략의 중요성을 확인할 수 있습니다. 이는 모델이 현실의 복잡하고 다양한 텍스트를 더욱 <strong>강건하게(robustly)</strong> 인식하도록 돕는 핵심 요소입니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
-<p>[1] Gupta, Ankush (2016) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
-<p>[2] Jaderberg, Max (2014) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c">Synthetic Data and Artificial Neural Networks for Natural Scene Text Recognition</a></p>
-<p>[3] Yim, Moonbin (2021) | <a href="https://arxiv.org/abs/2107.09313">SynthTIGER: Synthetic Text Image GEneratoR Towards Better Text Recognition Models</a></p>
+<p>Gupta, Ankush (2016) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2016/Gupta16">Synthetic Data for Text Localisation in Natural Images</a></p>
+<p>Jaderberg, Max (2014) | <a href="https://www.robots.ox.ac.uk/~vgg/publications/2014/Jaderberg14c">Synthetic Data and Artificial Neural Networks for Natural Scene Text Recognition</a></p>
+<p>Yim, Moonbin (2021) | <a href="https://arxiv.org/abs/2107.09313">SynthTIGER: Synthetic Text Image GEneratoR Towards Better Text Recognition Models</a></p>
 <hr>
 
               
@@ -458,7 +451,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-6umfixj2b1ohaviwimpbvitqvnnyfe3qqvo5xc8qbuno9lxqvumiqlhura9.min.js"></script>
+<script src="https://errolseo.github.io/js/script-rmctkti4ivrizhnkuifyecc3kfjeenwbkfkende6oyeiwd0wwkg7qv4wbs.min.js"></script>
 
 
 

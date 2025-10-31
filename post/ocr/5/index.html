@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ly7gfsdmui8snovz1wrbjtchpydtyuan7moo3jai6epq7ndnlmqnlq27m6.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-okbyci2fry3yz72m29gprsmertr5xz9vdaxqhjgddy4fcskkc0lq4acof.min.css" />
     
     <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
   </head>
@@ -228,8 +228,7 @@
 <p>하지만 언어는 그렇지 않습니다. <span class="highlight-text primary">'On'과 'No'가 완전히 다른 의미인 것처럼, 이미지에 알파벳 'a'가 등장하는지 여부도 중요하지만 몇 번째 순서에 등장하는지 또한 굉장히 중요합니다.</span></p>
 <hr>
 <h2 id="crnn">CRNN</h2>
-<p>2015년에 공개된 <strong>Convolutional Recurrent Neural Network(CRNN)</strong>은 STR 모델을 Convolutional Layers, Recurrent Layers, Transcription Layer의 3 단계의 레이어로 구성하는 방법을 제시했습니다.
-<br><br></p>
+<p>2015년에 공개된 <strong>Convolutional Recurrent Neural Network(CRNN)</strong>은 STR 모델을 Convolutional Layers, Recurrent Layers, Transcription Layer의 3 단계의 레이어로 구성하는 방법을 제시했습니다.</p>
 
 
 
@@ -243,8 +242,7 @@
 <blockquote>
 <p>그림 1. Convolutional Recurrent Neural Network<br>
 <a href="https://arxiv.org/abs/1507.05717">Baoguang Shi (2015)</a></p></blockquote>
-<p>그림 1의 CRNN 모델 아키텍처를 보면, 1단계 Convolutional Layers는 CNN을 활용해 입력을 인코딩하는 작업을 수행합니다. 이는 곧 이미지의 특징(feature)을 추출하는 단계라고 할 수 있습니다. 2단계 Recurrent Layers는 RNN을 활용하여 추출된 특징에 시퀀스(sequence) 정보를 추가합니다. 모델이 실제 예측(Prediction) 시에 전후 입력 정보를 직접 고려하지 않기 때문에, 미리 앞뒤 픽셀에 대한 정보를 반영해주는 역할을 합니다. 마지막으로 3단계 Transcription Layer에서는 <strong>Connection Temporal Classification(CTC)</strong>를 이용해 최종 예측을 수행합니다.
-<br><br></p>
+<p>그림 1의 CRNN 모델 아키텍처를 보면, 1단계 Convolutional Layers는 CNN을 활용해 입력을 인코딩하는 작업을 수행합니다. 이는 곧 이미지의 특징(feature)을 추출하는 단계라고 할 수 있습니다. 2단계 Recurrent Layers는 RNN을 활용하여 추출된 특징에 시퀀스(sequence) 정보를 추가합니다. 모델이 실제 예측(Prediction) 시에 전후 입력 정보를 직접 고려하지 않기 때문에, 미리 앞뒤 픽셀에 대한 정보를 반영해주는 역할을 합니다. 마지막으로 3단계 Transcription Layer에서는 <strong>Connection Temporal Classification(CTC)</strong>를 이용해 최종 예측을 수행합니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">inp</span> <span style="color:#f92672">=</span> <span style="color:#111">torch</span><span style="color:#f92672">.</span><span style="color:#111">randn</span><span style="color:#111">([</span><span style="color:#111">batch</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#111">height</span><span style="color:#111">,</span> <span style="color:#111">width</span><span style="color:#111">])</span> <span style="color:#75715e"># [b, 3, h, w]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">cnn_oup</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_layer</span><span style="color:#111">(</span><span style="color:#111">inp</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_c, c_h, c_w]</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">rnn_inp</span> <span style="color:#f92672">=</span> <span style="color:#111">cnn_oup</span><span style="color:#f92672">.</span><span style="color:#111">permute</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">view</span><span style="color:#111">(</span><span style="color:#111">b</span><span style="color:#111">,</span> <span style="color:#111">c_w</span><span style="color:#111">,</span> <span style="color:#111">c_c</span> <span style="color:#f92672">*</span> <span style="color:#111">c_h</span><span style="color:#111">)</span> <span style="color:#75715e"># [b, c_w, c_c * c_h]</span>
@@ -278,11 +276,11 @@
 <p>RNN 디코더를 사용했을 때의 가장 큰 장점은 언어적 맥락을 활용할 수 있다는 점입니다. CTC와 달리, RNN 디코더는 &lsquo;he&rsquo;가 생성된 후 &rsquo;llo&rsquo;가 나올 확률이 높다는 것을 모델이 학습합니다. 이는 이미지가 손상되어 &lsquo;hellc&rsquo;처럼 보이더라도 우리가 &lsquo;hello&rsquo;라고 읽는 것처럼, 노이즈(noise)에 강건한(robust) 성능을 보여줍니다. 그 밖에도 Attention 메커니즘과 <EOS> 토큰을 활용하여 출력 길이를 자유롭게 조정할 수 있는 등의 다양한 장점이 있습니다.</p>
 <hr>
 <h4 id="reference">Reference</h4>
-<p>[1] Baek, Jeonghun (2019) | <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
-<p>[2] Graves, Alex (2006) | <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks</a></p>
-<p>[3] Shi, Baoguang (2015) | <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</a></p>
-<p>[4] Shi, Baoguang (2016) | <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
-<p>[5] <a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">Scene Text Recognition Recommendations</a></p>
+<p>Baek, Jeonghun (2019) | <a href="https://arxiv.org/abs/1904.01906">What Is Wrong With Scene Text Recognition Model Comparisons? Dataset and Model Analysis</a></p>
+<p>Graves, Alex (2006) | <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks</a></p>
+<p>Shi, Baoguang (2015) | <a href="https://arxiv.org/abs/1507.05717">An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</a></p>
+<p>Shi, Baoguang (2016) | <a href="https://arxiv.org/abs/1603.03915">Robust Scene Text Recognition with Automatic Rectification</a></p>
+<p><a href="https://github.com/HCIILAB/Scene-Text-Recognition-Recommendations">Scene Text Recognition Recommendations</a></p>
 <hr>
 
               
@@ -412,7 +410,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-6umfixj2b1ohaviwimpbvitqvnnyfe3qqvo5xc8qbuno9lxqvumiqlhura9.min.js"></script>
+<script src="https://errolseo.github.io/js/script-rmctkti4ivrizhnkuifyecc3kfjeenwbkfkende6oyeiwd0wwkg7qv4wbs.min.js"></script>
 
 
 

@@ -92,7 +92,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     
     
-    <link rel="stylesheet" href="https://errolseo.github.io/css/style-ly7gfsdmui8snovz1wrbjtchpydtyuan7moo3jai6epq7ndnlmqnlq27m6.min.css" />
+    <link rel="stylesheet" href="https://errolseo.github.io/css/style-okbyci2fry3yz72m29gprsmertr5xz9vdaxqhjgddy4fcskkc0lq4acof.min.css" />
     
     <meta name="google-site-verification" content="FbyrF2ruuSFhnXtsZ-pHu_5BWKYRAKTkXBndFHgWC84" />
   </head>
@@ -284,8 +284,7 @@ $$</p>
 S_t = S_{t-1} + \Delta S_t
 $$</p>
 <p>여기서 문제는 $S_t$ 를 계산하려면 반드시 $S_{t-1}$ 의 계산이 완료되어야 한다는 <strong>순차적 의존성</strong>입니다. 이러한 방식은 GPU의 가장 큰 장점인 병렬 연산 능력을 거의 활용하지 못합니다. 상태 변화량($\Delta S_1, \Delta S_2, \dots, \Delta S_n$) 자체는 모든 토큰에 대해 한 번의 병렬 연산으로 처리할 수 있지만, 이를 누적하는 과정($\Delta S_1 = S_0 + \Delta S_1, S_2 = S_1 + \Delta S_2, \dots, S_n = S_{n-1} + \Delta S_n$)은 GPU의 수많은 코어 중 단 하나만을 사용하여 순서대로 처리해야 합니다.</p>
-<br>
-<span class="highlight-text primary">이 문제를 벽돌 1,000개를 쌓는 작업에 비유해 보겠습니다.</span> 기존 방식은 한 명의 작업자가 벽돌 1,000개를 순서대로 쌓습니다. Chunkwise 방식은 10명의 작업자가 각자 100개씩 벽돌 더미를 동시에 쌓고, 마지막에 그 10개의 더미를 순서대로 합칩니다.
+<p><span class="highlight-text primary">이 문제를 벽돌 1,000개를 쌓는 작업에 비유해 보겠습니다.</span> 기존 방식은 한 명의 작업자가 벽돌 1,000개를 순서대로 쌓습니다. Chunkwise 방식은 10명의 작업자가 각자 100개씩 벽돌 더미를 동시에 쌓고, 마지막에 그 10개의 더미를 순서대로 합칩니다.</p>
 <p>당연히 10명이 협력하는 후자의 방식이 훨씬 빠릅니다. Chunkwise Parallelism은 이와 같이 병렬 처리 구간을 최대한 늘리고, 순차 처리 구간을 최소화하는 전략입니다.</p>
 <p>이를 똑같이 선형 트랜스포머에 적용하면, <span class="highlight-text primary">기존 $O(N)$의 복잡도가 $O(N/C + logC)$로 개선됩니다. N이 1,000이고 C가 100이면 50배 빨라지는 것 입니다.</span></p>
 <hr>
@@ -438,7 +437,7 @@ $$</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script src="https://errolseo.github.io/js/script-6umfixj2b1ohaviwimpbvitqvnnyfe3qqvo5xc8qbuno9lxqvumiqlhura9.min.js"></script>
+<script src="https://errolseo.github.io/js/script-rmctkti4ivrizhnkuifyecc3kfjeenwbkfkende6oyeiwd0wwkg7qv4wbs.min.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
